@@ -18,3 +18,6 @@ METASOURCES = AUTO
 
 messages: rc.cpp
 	$(XGETTEXT) *.cpp -o $(podir)/kjezz.pot
+
+install-data-local:
+	rm -rf $(kde_appsdir)/Games/kjezz.desktop
