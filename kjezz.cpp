@@ -198,7 +198,7 @@ void KJezzball::gameOverNow()
 
     QString score;
     score.setNum( m_game.score );
-    KMessageBox::information( this, i18n("Game Over!!! Score: ")+score );
+    KMessageBox::information( this, i18n("Game Over!!! Score: %1").arg(score) );
 
     m_gameWidget->display( i18n("Game over. Press CTRL-N for a new game!") );
 
@@ -397,8 +397,8 @@ void KJezzball::switchLevel()
     QString level;
     level.setNum( m_game.level );
 
-    KMessageBox::information( this, i18n("You've completed level ") + level + i18n(" with a score of ")
-                              + score + i18n(". Get ready for the next one!") );
+    KMessageBox::information( this, i18n("You've completed level %1 with "
+        "a score of %2.\nGet ready for the next one!").arg(level).arg(score));
 
     m_game.level++;
     m_levelLCD->display( m_game.level );
