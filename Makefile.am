@@ -20,4 +20,4 @@ messages: rc.cpp
 	$(XGETTEXT) *.cpp -o $(podir)/kbounce.pot
 
 install-data-local:
-	rm -rf $(kde_appsdir)/Games/kbounce.desktop
+	rm -rf $(DESTDIR)$(kde_appsdir)/Games/kbounce.desktop
