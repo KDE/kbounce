@@ -419,7 +419,7 @@ i18n("You have successfully cleared more than 75% of the board.\n") +
 i18n("%1 points: 15 points per remaining life\n").arg(m_level.lifes*15) +
 i18n("%1 points: Bonus\n").arg((m_gameWidget->percent()-75)*2*(m_game.level+5)) +
 i18n("%1 points: Total score for this level\n").arg(score) +
-i18n("On to level %1, remember you get %2 lives this time!")).arg(m_game.level+1).arg(m_game.level+2);
+i18n("On to level %1. Remember you get %2 lives this time!")).arg(m_game.level+1).arg(m_game.level+2);
 
    KMessageBox::information( this,foo );
 
