@@ -211,7 +211,7 @@ void KJezzball::showHighscore()
 void KJezzball::selectBackground()
 {
     QString path = KFileDialog::getExistingDirectory( m_backgroundDir,  this,
-                                                      i18n("Select background image directory") );
+                                                      i18n("Select Background Image Directory") );
     if ( !path.isEmpty() && path!=m_backgroundDir ) {
         m_backgroundDir = path;
 
