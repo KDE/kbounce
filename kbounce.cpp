@@ -433,6 +433,15 @@ void KJezzball::nextLevel()
 void KJezzball::switchLevel()
 {
     m_game.score += m_level.score;
+
+    // make sure the LCD provides enough digits for the score
+    // (fixes #96841)
+    int numDigits=0;
+    int temp_score = m_game.score;
+    for ( ; temp_score > 0; ++numDigits ) temp_score /= 10;
+    if ( numDigits < 5 ) numDigits = 5; // set numDigits to at least 5, otherwise it does not look well
+
+    m_scoreLCD->setNumDigits( numDigits );
     m_scoreLCD->display( m_game.score );
 
     QString score;
