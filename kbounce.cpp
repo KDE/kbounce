@@ -130,7 +130,7 @@ void KJezzball::initXMLUI()
     m_pauseButton = KStdGameAction::pause(this, SLOT(pauseGame()), actionCollection());
     KStdGameAction::end(this, SLOT(closeGame()), actionCollection());
 
-    new KAction( i18n("&Select Image Directory..."), 0, this, SLOT(selectBackground()),
+    new KAction( i18n("&Select Image Folder..."), 0, this, SLOT(selectBackground()),
                        actionCollection(), "background_select" );
     m_backgroundShowAction =
         new KToggleAction( i18n("Show &Images"), 0, this, SLOT(showBackground()),
@@ -253,7 +253,7 @@ void KJezzball::showHighscore()
 void KJezzball::selectBackground()
 {
     QString path = KFileDialog::getExistingDirectory( m_backgroundDir,  this,
-                                                      i18n("Select Background Image Directory") );
+                                                      i18n("Select Background Image Folder") );
     if ( !path.isEmpty() && path!=m_backgroundDir ) {
         m_backgroundDir = path;
 
