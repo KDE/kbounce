@@ -320,6 +320,7 @@ void KJezzball::focusOutEvent( QFocusEvent *ev )
     {
         stopLevel();
         m_state = Suspend;
+        m_pauseButton->setChecked(true);
         statusBar()->message( i18n("Game suspended") );
         // m_gameWidget->display( i18n("Game suspended") );
     }
@@ -334,6 +335,7 @@ void KJezzball::focusInEvent ( QFocusEvent *ev )
         startLevel();
         m_state = Running;
         statusBar()->clear();
+        m_pauseButton->setChecked(false);
         //m_gameWidget->display( QString::null );
     }
 
