@@ -340,6 +340,8 @@ JezzGame::JezzGame( int ballNum, QWidget *parent, const char *name )
 JezzGame::~JezzGame()
 {
     m_balls.clear();
+    delete m_view;
+    delete m_field;
     delete m_ballPixmaps;
     delete m_artsServer;
 }
