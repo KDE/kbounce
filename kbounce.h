@@ -16,8 +16,8 @@
  * Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-#ifndef KJEZZBALL_H_INCLUDED
-#define KJEZZBALL_H_INCLUDED
+#ifndef KBOUNCE_H
+#define KBOUNCE_H
 
 #include <kmainwindow.h>
 
@@ -99,4 +99,5 @@ protected:
    } m_game;
 };
 
-#endif
+#endif // KBOUNCE_h
+
