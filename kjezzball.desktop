@@ -9,21 +9,24 @@ Name[xh]=Ibhola e Jezz
 Name[xx]=xx
 
 Type=Application
-Exec=kjezz %i %m -caption "%c"
+Exec=kjezzball %i %m -caption "%c"
 DocPath=kjezz/index.html
 Icon=kjezz
 
 Comment=Arcade Game
 Comment[ar]=لعبة أركاد
+Comment[be]=Аркадная гульня
 Comment[bg]=Игра в Галерия със сводове
+Comment[bs]=Arkadna igra
 Comment[da]=Arkade-videospil
 Comment[de]=Arkade-Spiel
 Comment[es]=Juego de Arcade
 Comment[fi]=Arcade peli
 Comment[fr]=Un jeu d'arcade
 Comment[he]=משחק וידאו
-Comment[hu]=Egy lövöldözős játék
+Comment[hu]=ügyességi
 Comment[it]=Gioco arcade
+Comment[ja]=アーケードゲーム
 Comment[lt]=Arkadinis žaidimas
 Comment[lv]=Arkādes Spēle
 Comment[nl]=arcade-spel
