@@ -356,7 +356,7 @@ void KJezzball::createLevel( int level )
     m_lifesLCD->display( m_level.lifes );
     m_percentLCD->display( 0 );
 
-    m_level.time = (level+3)*30;
+    m_level.time = (level+2)*30;
     m_timeLCD->display( m_level.time );
 
     m_level.score = 0;
