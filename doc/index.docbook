@@ -13,19 +13,12 @@
 
 <authorgroup>
 <author>
-<firstname>Aaron</firstname>
-<othername>J.</othername>
-<surname>Seigo</surname>
-<affiliation>
-<address><email>aseigo@olympusproject.org</email></address>
-</affiliation>
+&Aaron.J.Seigo; &Aaron.J.Seigo.mail;
 </author>
 
 <othercredit role="reviewer">
-<firstname>Lauri</firstname>
-<surname>Watts</surname>
-<affiliation><address><email>lauri@kde.org</email></address></affiliation>
-<contrib>Reviewer</contrib>
+&Lauri.Watts; &Lauri.Watts.mail;
+<!-- <contrib>Reviewer</contrib> -->
 </othercredit>
 
 <!-- TRANS:ROLES_OF_TRANSLATORS -->
@@ -34,8 +27,8 @@
 
 <legalnotice>&FDLNotice;</legalnotice>
 
-<date>2002-02-05</date>
-<releaseinfo>0.01.00</releaseinfo>
+<date>2003-09-19</date>
+<releaseinfo>0.5</releaseinfo>
 
 <!-- Abstract about this handbook -->
 
@@ -263,6 +256,55 @@ of the screen.  Rushing will just get you in trouble!</para>
 </variablelist>
 
 </sect1>
+
+<sect1 id="settings-menu">
+<title>The <guimenu>Settings</guimenu> Menu</title>
+<variablelist>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu>Settings</guimenu>
+<guimenuitem>Show Toolbar</guimenuitem>
+</menuchoice></term>
+<listitem>
+<para><action>Shows/hides the &kbounce; toolbar.</action></para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu>Settings</guimenu>
+<guimenuitem>Show Statusbar</guimenuitem>
+</menuchoice></term>
+<listitem>
+<para><action>Shows/hides the &kbounce; statusbar.</action></para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu>Settings</guimenu>
+<guimenuitem>Configure Shortcuts...</guimenuitem>
+</menuchoice></term>
+<listitem>
+<para><action>Opens a standard &kde; shortcut configuration dialog, in which
+you can change the keyboard shortcuts used by &kbounce;.</action></para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu>Settings</guimenu>
+<guimenuitem>Play Sounds</guimenuitem>
+</menuchoice></term>
+<listitem>
+<para><action>If checked, &kbounce; game sounds are played.</action></para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+</sect1>
+
 
 <sect1 id="help-menu">
 <title>The <guimenu>Help</guimenu> Menu</title>
