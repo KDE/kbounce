@@ -31,6 +31,7 @@
 #include "game.h"
 #include "newscoredialog.h"
 #include "scoredialog.h"
+#include <qlabel.h>
 
 KJezzball::KJezzball()
     : KMainWindow(0), m_gameWidget( 0 )
