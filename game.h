@@ -25,6 +25,9 @@
 class QTimer;
 class JezzField;
 
+#define FIELD_WIDTH 40
+#define FIELD_HEIGHT 30
+
 class Ball : public QCanvasSprite
 {
 public:
@@ -108,12 +111,18 @@ public:
    JezzGame( int ballNum, QWidget *parent=0, char *name=0 );
    ~JezzGame();
 
+   void makeBlack();
+
 public slots:
    void tick();
    void buildWall( int x, int y, bool vertical );
    void wallFinished( Wall *wall );
 
 protected:
+   void fill( int x, int y );
+   void fillLeft( int x, int y );
+   char m_buf[FIELD_WIDTH][FIELD_HEIGHT];
+   
    JezzField *m_field;
    JezzView *m_view;
 
@@ -123,6 +132,8 @@ protected:
    QCanvasPixmapArray *m_ballPixmaps;
 
    QTimer *m_clock;
+
+   int m_blackTiles;
 };
 
 #endif

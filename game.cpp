@@ -33,8 +33,6 @@
 #include "game.h"
 
 #define TILE_SIZE 16
-#define FIELD_WIDTH 40
-#define FIELD_HEIGHT 30
 
 #define TILE_FREE 0
 #define TILE_BORDER 1
@@ -179,7 +177,7 @@ void JezzView::viewportMouseReleaseEvent( QMouseEvent *ev )
 /*************************************************************************/
 
 JezzGame::JezzGame( int ballNum, QWidget *parent, char *name )
-   : QWidget( parent, name ), m_wall1( 0 ), m_wall2( 0 )
+   : QWidget( parent, name ), m_wall1( 0 ), m_wall2( 0 ), m_blackTiles( 0 )
 {
    QString path = kapp->dirs()->findResourceDir( "data", "kjezz/pics/ball0000.png" ) + "kjezz/pics/";
 
@@ -230,6 +228,59 @@ JezzGame::~JezzGame()
    m_balls.clear();
 }
 
+void JezzGame::makeBlack()
+{
+   // copy current field into buffer
+   for ( int y=0; y<FIELD_HEIGHT; y++ )
+      for ( int x=0; x<FIELD_WIDTH; x++ )
+	 m_buf[x][y] = m_field->tile( x, y );
+
+   // fill areas that contains a ball
+   for ( Ball *ball=m_balls.first(); ball!=0; ball=m_balls.next() )
+      fill( ball->x()/TILE_SIZE, ball->y()/TILE_SIZE );
+
+   // areas still free can be blacked now   
+   for ( int y=0; y<FIELD_HEIGHT; y++ )
+      for ( int x=0; x<FIELD_WIDTH; x++ )
+      {
+	 if ( m_buf[x][y]==TILE_FREE )
+	    m_field->setTile( x, y, TILE_BORDER );
+      }
+}
+
+// not very optimized yet, but most important is, that it works
+void JezzGame::fill( int x, int y )
+{
+   if ( m_buf[x][y]!=TILE_FREE) return; 
+ 
+   // go left
+   int _x=x;
+   for ( ; m_buf[_x][y]==TILE_FREE; _x-- )
+      m_buf[_x][y] = TILE_BORDER;      
+   int stopx = _x;
+
+   // fill above   
+   for ( _x=x; _x>stopx; _x-- )
+      if ( m_buf[_x][y-1]==TILE_FREE ) fill( x, y-1 );
+   
+   // fill below
+   for ( _x=x; _x>stopx; _x-- )
+      if ( m_buf[_x][y+1]==TILE_FREE ) fill( x, y+1 );
+      
+   // go right
+   for ( _x=x+1; m_buf[_x][y]==TILE_FREE; _x++ )
+      m_buf[_x][y] = TILE_BORDER;
+   stopx = _x;
+
+   // fill above
+   for ( _x=x+1; _x<stopx; _x++ )
+      if ( m_buf[_x][y-1]==TILE_FREE ) fill( x, y-1 );
+   
+   // fill below;
+   for ( _x=x+1; _x<stopx; _x++ )
+      if ( m_buf[_x][y+1]==TILE_FREE ) fill( x, y+1 );   
+}
+
 void JezzGame::buildWall( int x, int y, bool vertical )
 {
    kdDebug() << "JezzGame::buildWall( x=" << x << " y=" << y << " vertical=" << vertical << " )" << endl;
@@ -265,6 +316,8 @@ void JezzGame::wallFinished( Wall *wall )
       delete m_wall2;
       m_wall2 = 0;
    }
+
+   makeBlack();
 }
 
 void JezzGame::tick()
