@@ -53,7 +53,7 @@ public:
    enum Direction { Up, Down, Left, Right };
 
    Wall( JezzField *field, int x, int y, Direction dir, int tile,
-	 QObject *parent=0, const char *name=0 );   
+	 QObject *parent=0, const char *name=0 );
 
    void finish();
    void fill( bool black );
@@ -66,7 +66,7 @@ public slots:
    void update();
 
 private:
-   bool isFree( int x, int y ); 
+   bool isFree( int x, int y );
 
    Direction m_dir;
    JezzField *m_field;
@@ -85,7 +85,7 @@ class JezzField : public QCanvas
 public:
    JezzField( QPixmap tiles, QPixmap background, QObject* parent = 0, const char* name = 0 );
 
-   void setGameTile( int x, int y, bool black );  
+   void setGameTile( int x, int y, bool black );
    void setBackground( QPixmap background );
 
 signals:
@@ -98,7 +98,7 @@ private:
    QArray<QPixmap> m_backTiles;
 
    void setPixmaps( QPixmap tiles, QPixmap background );
-   void emitBallCollisiton( Ball *ball, int x, int y, int tile ) 
+   void emitBallCollisiton( Ball *ball, int x, int y, int tile )
       { emit ballCollision( ball, x, y, tile ); };
 
 };
@@ -115,7 +115,7 @@ signals:
 
 protected:
    void viewportMouseReleaseEvent( QMouseEvent * );
-  
+
 private:
    bool m_vertical;
 };
@@ -128,18 +128,18 @@ class JezzGame : public QWidget
 public:
    JezzGame( QPixmap background, int ballNum, QWidget *parent=0, const char *name=0 );
    ~JezzGame();
-   
+
    int percent();
    static void playSound( QString name );
    void display( QString text, int size=20 );
    void setBackground( QPixmap background );
-   
+
 signals:
    void died();
    void newPercent( int percent );
 
 public slots:
-   void start(); 
+   void start();
    void stop();
 
 protected slots:
@@ -148,17 +148,17 @@ protected slots:
    void wallFinished( Wall *wall, int tile );
    void ballCollision( Ball *ball, int x, int y, int tile );
 
-protected:   
+protected:
    void makeBlack();
    void fill( int x, int y );
    void fillLeft( int x, int y );
    int m_buf[FIELD_WIDTH][FIELD_HEIGHT];
-   
+
    JezzField *m_field;
-   JezzView *m_view;   
+   JezzView *m_view;
 
    Wall *m_wall1, *m_wall2;
- 
+
    QList<Ball> m_balls;
    QCanvasPixmapArray *m_ballPixmaps;
    QCanvasText *m_text;

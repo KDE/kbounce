@@ -109,12 +109,14 @@ KJezzball::~KJezzball()
 void KJezzball::initGUI()
 {
     KStdAction::openNew( this, SLOT(newGame()), actionCollection() );
-    KStdAction::close( this, SLOT(closeGame()), actionCollection() );
     KStdAction::quit( kapp, SLOT(quit()), actionCollection() );
     (void)new KAction( i18n("S&how Highscore"), CTRL+Key_H, this, SLOT(showHighscore()),
                        actionCollection(), "file_highscore" );
-    (void)new KAction( i18n("&Pause"), Key_P, this, SLOT(pauseGame()),
+
+    (void)new KAction( i18n("&Pause"), "player_pause", Key_P, this, SLOT(pauseGame()),
                        actionCollection(), "file_pause" );
+    (void)new KAction( i18n("&Stop"), "player_stop", Key_S, this, SLOT(closeGame()),
+                       actionCollection(), "file_stop" );
 
     (void)new KAction( i18n("&Select Images..."), 0, this, SLOT(selectBackground()),
                        actionCollection(), "background_select" );

@@ -224,13 +224,15 @@ void Wall::fill( bool black )
    if ( m_dx )
    {
       for ( int x=m_startX ; x!=m_x; x+=m_dx )
-          if ( m_field->tile(x, m_startY)==m_tile ) m_field->setGameTile( x, m_startY, black );
+          if ( m_field->tile(x, m_startY)==m_tile )
+              m_field->setGameTile( x, m_startY, black );
 
       m_field->setGameTile( m_x, m_startY, black );
    } else
    {
       for ( int y=m_startY ; y!=m_y; y+=m_dy )
-         if ( m_field->tile(m_startX, y)==m_tile ) m_field->setGameTile( m_startX, y, black );
+         if ( m_field->tile(m_startX, y)==m_tile )
+             m_field->setGameTile( m_startX, y, black );
 
       m_field->setGameTile( m_startX, m_y, black );
    }
@@ -555,16 +557,18 @@ void JezzGame::ballCollision( Ball */*ball*/, int /*x*/, int /*y*/, int tile )
       // stop walls
       if ( (tile==TILE_WALLUP || tile==TILE_WALLLEFT) && m_wall1 )
       {
+          kdDebug() << "up or left" << endl;
           m_wall1->finish();
-          m_wall1->fill( TILE_FREE );
+          m_wall1->fill( false );
           delete m_wall1;
           m_wall1 = 0;
       }
 
       if ( (tile==TILE_WALLDOWN || tile==TILE_WALLRIGHT) && m_wall2 )
       {
+          kdDebug() << "down or right" << endl;
           m_wall2->finish();
-          m_wall2->fill( TILE_FREE );
+          m_wall2->fill( false );
           delete m_wall2;
           m_wall2 = 0;
       }
@@ -620,6 +624,7 @@ void JezzGame::buildWall( int x, int y, bool vertical )
 
 void JezzGame::wallFinished( Wall *wall, int tile )
 {
+    kdDebug() << "wallFinished" << endl;
     playSound( "wallend.au" );
 
     if ( tile==TILE_WALLEND )
