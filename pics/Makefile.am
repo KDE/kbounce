@@ -28,7 +28,7 @@ data_DATA = \
 
 datadir = $(kde_datadir)/kbounce/pics
 
-KDE_ICON = kbounc
+KDE_ICON = kbounce
 
 EXTRA_DIST = $(data_DATA)
 
