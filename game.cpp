@@ -138,7 +138,7 @@ Wall::Wall( JezzField *field, int x, int y, Direction dir, int tile, QObject *pa
     : QObject( parent, name ), m_dir( dir ), m_field( field ), m_startX( x ), m_startY( y ),
       m_tile( tile ), m_delay( MS2TICKS(WALL_DELAY)/2 ), m_active( true )
 {
-   //kdDebug() << "Wall::Wall" << endl;
+   //kdDebug(12008) << "Wall::Wall" << endl;
 
    // setup position and direction
    m_dx = 0;
@@ -354,7 +354,7 @@ JezzGame::JezzGame( QPixmap background, int ballNum, QWidget *parent, const char
    m_artsServer = new SimpleSoundServer;
    *m_artsServer = Arts::Reference("global:Arts_SimpleSoundServer");
    if ( m_artsServer->isNull() )
-       kdDebug() << "Can't connect to aRts sound server" << endl;
+       kdDebug(12008) << "Can't connect to aRts sound server" << endl;
    m_soundPath = kapp->dirs()->findResourceDir( "data", "kbounce/sounds/death.au" ) +
                  "kbounce/sounds/";
 
@@ -421,7 +421,7 @@ void JezzGame::display( QString text, int size )
     qDebug("This function \"display\" shouldn't be called!!!");
     if ( !text.isEmpty() )
     {
-        //kdDebug() << "text = " << text << endl;
+        //kdDebug(12008) << "text = " << text << endl;
 
         QFont font = KGlobalSettings::generalFont();
         font.setBold(true);
@@ -550,7 +550,7 @@ void JezzGame::ballCollision( Ball */*ball*/, int /*x*/, int /*y*/, int tile )
 {
    if ( tile!=TILE_BORDER && tile>TILE_FREE && tile!=TILE_WALLEND )
    {
-      kdDebug() << "Collision" << endl;
+      kdDebug(12008) << "Collision" << endl;
 
       // play explosion sound
       playSound( "death.au" );
@@ -558,7 +558,7 @@ void JezzGame::ballCollision( Ball */*ball*/, int /*x*/, int /*y*/, int tile )
       // stop walls
       if ( (tile==TILE_WALLUP || tile==TILE_WALLLEFT) && m_wall1 )
       {
-          kdDebug() << "up or left" << endl;
+          kdDebug(12008) << "up or left" << endl;
           m_wall1->finish();
           m_wall1->fill( false );
           delete m_wall1;
@@ -567,7 +567,7 @@ void JezzGame::ballCollision( Ball */*ball*/, int /*x*/, int /*y*/, int tile )
 
       if ( (tile==TILE_WALLDOWN || tile==TILE_WALLRIGHT) && m_wall2 )
       {
-          kdDebug() << "down or right" << endl;
+          kdDebug(12008) << "down or right" << endl;
           m_wall2->finish();
           m_wall2->fill( false );
           delete m_wall2;
@@ -587,7 +587,7 @@ void JezzGame::buildWall( int x, int y, bool vertical )
 {
     if ( !m_running ) return;
 
-   kdDebug() << "JezzGame::buildWall( x=" << x << " y=" << y << " vertical=" << vertical << " )" << endl;
+   kdDebug(12008) << "JezzGame::buildWall( x=" << x << " y=" << y << " vertical=" << vertical << " )" << endl;
    if ( m_field->tile(x, y)==TILE_FREE )
    {
        playSound( "wallstart.au" );
@@ -596,7 +596,7 @@ void JezzGame::buildWall( int x, int y, bool vertical )
       QCanvasItemList cols = m_field->collisions( QRect(x*TILE_SIZE, y*TILE_SIZE, TILE_SIZE, TILE_SIZE) );
       if ( cols.count()>0 )
       {
-         kdDebug() << "Direct collision" << endl;
+         kdDebug(12008) << "Direct collision" << endl;
          emit ballCollision( (Ball*)cols.first(), x, y, TILE_WALLUP );
          return;
       }
@@ -625,7 +625,7 @@ void JezzGame::buildWall( int x, int y, bool vertical )
 
 void JezzGame::wallFinished( Wall *wall, int tile )
 {
-    //kdDebug() << "wallFinished" << endl;
+    //kdDebug(12008) << "wallFinished" << endl;
     playSound( "wallend.au" );
 
     if ( tile==TILE_WALLEND )
