@@ -19,11 +19,12 @@ Exec=kbounce %i %m -caption "%c"
 DocPath=kbounce/index.html
 Icon=kbounce
 
-GenericName=Arcade Game
+GenericName=Bounce Ball Game
 GenericName[af]=Arkade Speletjie
 GenericName[ar]=لعبة أركيد
 GenericName[bg]=Астероиди
 GenericName[bn]=আর্কেড (Arcade) জাতীয় খেলা
+GenericName[br]=C'hoari tavarn
 GenericName[bs]=Arkadna igra
 GenericName[ca]=Joc arcade
 GenericName[cs]=Arkádová hra
