@@ -18,21 +18,11 @@
 
 
 #include <stdlib.h>
-#include <qwidget.h>
-#include <qkeycode.h>
-#include <qpainter.h>
 #include <qtimer.h>
-#include <kglobal.h>
 #include <kstandarddirs.h>
 #include <kapplication.h>
 #include <kdebug.h>
-#include <qlayout.h>
-#include <qcursor.h>
-#include <qevent.h>
-#include <qpushbutton.h>
-#include <qfont.h>
 #include <qimage.h>
-#include <qpixmap.h>
 
 #include "game.h"
 

@@ -17,10 +17,7 @@
  */
 
 #include <qlayout.h>
-#include <kglobal.h>
 #include <klocale.h>
-#include <kmenubar.h>
-#include <kstandarddirs.h>
 #include <kapplication.h>
 #include <kaction.h>
 #include <kstdaction.h>
@@ -28,7 +25,6 @@
 #include <qlcdnumber.h>
 #include <kmessagebox.h>
 #include <kdebug.h>
-#include <kconfig.h>
 #include <kfiledialog.h>
 
 #include "kjezz.h"
