@@ -30,7 +30,7 @@
 #include <kscoredialog.h>
 #include <kstatusbar.h>
 
-#include "kjezz.h"
+#include "kjezzball.h"
 #include "game.h"
 #include <qlabel.h>
 
@@ -458,4 +458,4 @@ void KJezzball::highscore()
     d.exec();
 }
 
-#include "kjezz.moc"
+#include "kjezzball.moc"

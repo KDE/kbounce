@@ -26,9 +26,9 @@ data_DATA = \
 	ball0024.png \
 	tiles.png 
 
-datadir = $(kde_datadir)/kjezz/pics
+datadir = $(kde_datadir)/kjezzball/pics
 
-KDE_ICON = kjezz
+KDE_ICON = kjezzball
 
 EXTRA_DIST = $(data_DATA)
 

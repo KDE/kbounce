@@ -22,7 +22,7 @@
 #include <kaboutdata.h>
 #include <arts/dispatcher.h>
 
-#include "kjezz.h"
+#include "kjezzball.h"
 
 using namespace std;
 using namespace Arts;
@@ -32,7 +32,7 @@ static const char *version = "0.5";
 
 int main(int argc, char **argv)
 {
-  KAboutData aboutData( "kjezz", I18N_NOOP("KJezzball"),
+  KAboutData aboutData( "kjezzball", I18N_NOOP("KJezzball"),
     version, description, KAboutData::License_GPL,
     "(c) 2000, Stefan Schimanski");
 
