@@ -252,7 +252,7 @@ void KJezzball::selectBackground()
 
         // save settings
         KConfig *config = kapp->config();
-        config->writeEntry( "BackgroundDir", m_backgroundDir );
+        config->writePathEntry( "BackgroundDir", m_backgroundDir );
         config->sync();
 
         // apply background setting
