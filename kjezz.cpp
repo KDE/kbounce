@@ -197,7 +197,7 @@ void KJezzball::gameOverNow()
 
     QString score;
     score.setNum( m_game.score );
-    KMessageBox::information( this, i18n("Game Over Score: %1").arg(score) );
+    KMessageBox::information( this, i18n("Game Over! Score: %1").arg(score) );
     statusBar()->message(  i18n("Game over. Press <Space> for a new game") );
     //m_gameWidget->display( i18n("Game over. Press <Space> for a new game!") );
     highscore();
