@@ -36,7 +36,7 @@
 #include <qlabel.h>
 
 KJezzball::KJezzball()
-    : KMainWindow(0), m_gameWidget( 0 )
+    : m_gameWidget( 0 )
 {
     // setup variables
     m_game.level = 1;
@@ -99,7 +99,8 @@ KJezzball::KJezzball()
 
     // create demo game
     createLevel( 1 );
-    statusBar()->message( i18n("Press %1 to start a game!").arg(actionCollection()->action("game_new")->shortcut().seq(0).toString()) );
+    statusBar()->message( i18n("Press %1 to start a game!")
+                          .arg(m_newAction->shortcut().toString()) );
     //m_gameWidget->display( i18n("Press <Space> to start a game!") );
 
     setFocusPolicy(QWidget::StrongFocus);
@@ -107,32 +108,33 @@ KJezzball::KJezzball()
 }
 
 /**
- * create the action events create the gui. 
+ * create the action events create the gui.
  */
 void KJezzball::initXMLUI()
 {
-    KAction* gameNew = KStdGameAction::gameNew( this, SLOT(newGame()), actionCollection() );
-
+    m_newAction = KStdGameAction::gameNew( this, SLOT(newGame()), actionCollection() );
     // AB: originally KBounce/KJezzball used Space for new game - but Ctrl+N is
     // default. We solve this by providing space as an alternative key
-    KShortcut s = gameNew->shortcut();
+    KShortcut s = m_newAction->shortcut();
     s.append(QKeySequence(Key_Space));
-    gameNew->setShortcut(s);
-    
-    KStdGameAction::quit( this, SLOT(close()), actionCollection() );
+    m_newAction->setShortcut(s);
+
+    KStdGameAction::quit(kapp, SLOT(quit()), actionCollection() );
     KStdGameAction::highscores(this, SLOT(showHighscore()), actionCollection() );
     m_pauseButton = KStdGameAction::pause(this, SLOT(pauseGame()), actionCollection());
     KStdGameAction::end(this, SLOT(closeGame()), actionCollection());
 
     (void)new KAction( i18n("&Select Image Directory..."), 0, this, SLOT(selectBackground()),
                        actionCollection(), "background_select" );
-    KToggleAction *show = new KToggleAction( i18n("Show &Images"), 0, this, SLOT(showBackground()), actionCollection(), "background_show" );
+    m_backgroundShowAction =
+        new KToggleAction( i18n("Show &Images"), 0, this, SLOT(showBackground()),
+                           actionCollection(), "background_show" );
+    m_backgroundShowAction->setEnabled( !m_backgroundDir.isEmpty() );
+    m_backgroundShowAction->setChecked( m_showBackground );
 
-    show->setEnabled( !m_backgroundDir.isEmpty() );
-    show->setChecked( m_showBackground );
     KStdAction::keyBindings(this, SLOT(keyBindings()), actionCollection());
 
-    createGUI( "kbounceui.rc" );
+    createGUI();
 }
 
 void KJezzball::newGame()
@@ -152,7 +154,7 @@ void KJezzball::newGame()
         m_scoreLCD->display( m_game.score );
 
         statusBar()->clear();
-        
+
         // start new game
         m_state = Running;
 
@@ -228,7 +230,8 @@ void KJezzball::gameOverNow()
 /**
  * Bring up the standard kde high score dialog.
  */
-void KJezzball::showHighscore(){
+void KJezzball::showHighscore()
+{
     KScoreDialog h(KScoreDialog::Name | KScoreDialog::Level | KScoreDialog::Score, this);
     h.exec();
 }
@@ -244,8 +247,7 @@ void KJezzball::selectBackground()
         m_backgroundDir = path;
 
         // enable action
-        KAction *a = actionCollection()->action("background_show");
-        if ( a ) a->setEnabled(true);
+        m_backgroundShowAction->setEnabled(true);
 
         // save settings
         KConfig *config = kapp->config();
@@ -267,28 +269,23 @@ void KJezzball::selectBackground()
 
 void KJezzball::showBackground()
 {
-    KToggleAction *a = dynamic_cast<KToggleAction*>(actionCollection()->action("background_show"));
-    if( a ) {
+    bool show = m_backgroundShowAction->isChecked();
+    if ( show!=m_showBackground ) {
 
-        bool show = a->isChecked();
-        if ( show!=m_showBackground ) {
+        m_showBackground = show;
 
-            m_showBackground = show;
+        // save setting
+        KConfig *config = kapp->config();
+        config->writeEntry( "ShowBackground", m_showBackground );
+        config->sync();
 
-            // save setting
-            KConfig *config = kapp->config();
-            config->writeEntry( "ShowBackground", m_showBackground );
-            config->sync();
-
-            // update field
-            if ( m_showBackground ) {
-                if ( m_background.width()==0 )
-                    m_background = getBackgroundPixmap();
-            }
-
-            m_gameWidget->setBackground( m_showBackground ? m_background : QPixmap() );
+        // update field
+        if ( m_showBackground ) {
+            if ( m_background.width()==0 )
+                m_background = getBackgroundPixmap();
         }
 
+        m_gameWidget->setBackground( m_showBackground ? m_background : QPixmap() );
     }
 }
 
@@ -463,12 +460,12 @@ void KJezzball::highscore()
     KScoreDialog d(KScoreDialog::Name | KScoreDialog::Level | KScoreDialog::Score, this);
 
     KScoreDialog::FieldInfo scoreInfo;
-    
+
     scoreInfo[KScoreDialog::Level].setNum(m_game.level);
 
     if (!d.addScore(m_game.score, scoreInfo))
        return;
-    
+
     // Show highscore & ask for name.
     d.exec();
 }

@@ -25,6 +25,7 @@ class JezzGame;
 class QLCDNumber;
 class QGridLayout;
 class KToggleAction;
+class KAction;
 
 class KJezzball : public KMainWindow
 {
@@ -35,20 +36,20 @@ public:
 
 public slots:
    void newGame();
-   void pauseGame(); 
+   void pauseGame();
    void closeGame();
    void showHighscore();
    void selectBackground();
    void showBackground();
 
-protected slots:   
+protected slots:
    void died();
-   void newPercent( int percent ); 
+   void newPercent( int percent );
    void second();
    void switchLevel();
    void gameOverNow();
    void keyBindings();
-      		
+
 protected:
    void createLevel( int level );
    void startLevel();
@@ -71,7 +72,8 @@ protected:
    QLCDNumber *m_scoreLCD;
    QLCDNumber *m_percentLCD;
    QLCDNumber *m_timeLCD;
-   KToggleAction *m_pauseButton;
+   KToggleAction *m_pauseButton, *m_backgroundShowAction;
+   KAction *m_newAction;
 
    QTimer *m_timer;
    QTimer *m_nextLevelTimer;

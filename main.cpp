@@ -39,20 +39,23 @@ int main(int argc, char **argv)
   aboutData.addAuthor("Stefan Schimanski", I18N_NOOP("Original author"), "schimmi@kde.org");
   aboutData.addAuthor("Sandro Sigala", I18N_NOOP("Highscore"), "ssigala@globalnet.it");
   aboutData.addAuthor("Benjamin Meyer", I18N_NOOP("Contributions"), "ben-devel@meyerhome.net");
-	
+
   KCmdLineArgs::init( argc, argv, &aboutData );
 
   QApplication::setColorSpec(QApplication::ManyColor);
   KApplication a;
   KGlobal::locale()->insertCatalogue("libkdegames");
-   
+
   // setup MCOP
   Dispatcher dispatcher;
 
-  KJezzball *top = new KJezzball;
-  a.setMainWidget(top);
-  top->show();
-
+  if (a.isRestored())
+      RESTORE(KJezzball)
+  else {
+      KJezzball *w = new KJezzball;
+      a.setMainWidget(w);
+      w->show();
+  }
   return a.exec();
 }
 
