@@ -1,20 +1,20 @@
 SUBDIRS = pics sounds
+
+INCLUDES = -I$(top_srcdir)/libkdegames -I$(top_srcdir)/libkdegames/highscore $(all_includes)
+LDFLAGS = $(all_libraries) $(KDE_RPATH)
+LDADD = $(LIB_KDEGAMES) $(LIB_KFILE) -lsoundserver_idl
+METASOURCES = AUTO
+
 bin_PROGRAMS = kbounce
-INCLUDES = -I$(top_srcdir)/libkdegames $(all_includes)
-
 kbounce_SOURCES = main.cpp kbounce.cpp game.cpp
-kbounce_LDFLAGS = $(all_libraries) $(KDE_RPATH)
-kbounce_LDADD = $(LIB_KDEGAMES) $(LIB_KFILE) -lsoundserver_idl
-
-EXTRA_DIST = kbounce.desktop game.h kbounce.h RULES
-
-appdir = $(kde_datadir)/kbounce
-app_DATA = kbounceui.rc
 
 appsdir = $(kde_appsdir)/Games/Arcade
 apps_DATA = kbounce.desktop
 
-METASOURCES = AUTO
+EXTRA_DIST = RULES $(apps_DATA)
+
+rcdir = $(kde_datadir)/kbounce
+rc_DATA = kbounceui.rc
 
 messages: rc.cpp
 	$(XGETTEXT) *.cpp -o $(podir)/kbounce.pot

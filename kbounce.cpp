@@ -119,7 +119,7 @@ void KJezzball::initXMLUI()
     s.append(QKeySequence(Key_Space));
     m_newAction->setShortcut(s);
 
-    KStdGameAction::quit(kapp, SLOT(quit()), actionCollection() );
+    KStdGameAction::quit(this, SLOT(close()), actionCollection() );
     KStdGameAction::highscores(this, SLOT(showHighscore()), actionCollection() );
     m_pauseButton = KStdGameAction::pause(this, SLOT(pauseGame()), actionCollection());
     KStdGameAction::end(this, SLOT(closeGame()), actionCollection());
