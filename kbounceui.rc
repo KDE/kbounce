@@ -1,5 +1,5 @@
 <!DOCTYPE kpartgui SYSTEM "kpartgui.dtd">
-<kpartgui name="kjezz" version="2">
+<kpartgui name="kbounce" version="2">
 
 <MenuBar>
 	<Menu name="game"><text>&amp;Game</text>

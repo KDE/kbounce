@@ -340,7 +340,7 @@ JezzGame::JezzGame( QPixmap background, int ballNum, QWidget *parent, const char
     : QWidget( parent, name ), m_wall1( 0 ), m_wall2( 0 ),
       m_text( 0 ), m_running( false ), m_percent( 0 ), m_pictured( false )
 {
-   QString path = kapp->dirs()->findResourceDir( "data", "kjezzball/pics/ball0000.png" ) + "kjezzball/pics/";
+   QString path = kapp->dirs()->findResourceDir( "data", "kbounce/pics/ball0000.png" ) + "kbounce/pics/";
 
    // load gfx
    m_ballPixmaps = new QCanvasPixmapArray( path + "ball%1.png", 25 );
@@ -353,8 +353,8 @@ JezzGame::JezzGame( QPixmap background, int ballNum, QWidget *parent, const char
    *m_artsServer = Arts::Reference("global:Arts_SimpleSoundServer");
    if ( m_artsServer->isNull() )
        kdDebug() << "Can't connect to aRts sound server" << endl;
-   m_soundPath = kapp->dirs()->findResourceDir( "data", "kjezzball/sounds/death.au" ) +
-                 "kjezzball/sounds/";
+   m_soundPath = kapp->dirs()->findResourceDir( "data", "kbounce/sounds/death.au" ) +
+                 "kbounce/sounds/";
 
    // create field
    m_field = new JezzField( tiles, background, this, "m_field" );
