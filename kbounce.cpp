@@ -101,6 +101,9 @@ KJezzball::KJezzball()
     createLevel( 1 );
     statusBar()->message( i18n("Press %1 to start a game!").arg(actionCollection()->action("game_new")->shortcut().seq(0).toString()) );
     //m_gameWidget->display( i18n("Press <Space> to start a game!") );
+
+    setFocusPolicy(QWidget::StrongFocus);
+    setFocus();
 }
 
 /**
