@@ -104,6 +104,7 @@ KJezzball::KJezzball()
 
     setFocusPolicy(QWidget::StrongFocus);
     setFocus();
+    setupGUI();
 }
 
 KJezzball::~KJezzball()
@@ -139,7 +140,6 @@ void KJezzball::initXMLUI()
     m_backgroundShowAction->setChecked( m_showBackground );
 
     m_soundAction = new KToggleAction( i18n("&Play Sounds"), 0, 0, 0, actionCollection(), "toggle_sound");
-    setupGUI();
 }
 
 void KJezzball::newGame()
