@@ -61,7 +61,7 @@
 more balls that move about in the field bouncing off of the
 walls.</para>
 
-<para>Walls are a darker color while the active areas of the filed are
+<para>Walls are a darker color while the active areas of the field are
 a lighter color.</para>
 
 <para>The size of the active area of the field is decreased by making
@@ -71,7 +71,7 @@ least 75&percnt; within the time allowed.</para>
 
 <para>With each new level, another ball is added to the field, and the
 player is given one more life than in the level before.  The time
-allotted to complete the level is increased.</para>
+allotted to complete the level is also increased.</para>
 
 <para>Scoring is based on how much of the field is cleared.</para>
 
