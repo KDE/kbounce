@@ -11,7 +11,7 @@ EXTRA_DIST = kjezz.xpm kjezz.desktop
 appdir = $(kde_datadir)/kjezz
 app_DATA = kjezzui.rc
 
-appsdir = $(kde_appsdir)/Games
+appsdir = $(kde_appsdir)/Games/Arcade
 apps_DATA = kjezz.desktop
 
 METASOURCES = AUTO
