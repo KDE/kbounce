@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Jezzball
+
+Type=Application
+Exec=kjezz %i %m -caption "%c"
+DocPath=kjezz/index.html
+
+Comment=KDE Jezzball Game
