@@ -121,7 +121,7 @@ void KJezzball::initXMLUI()
     
     KStdGameAction::quit( this, SLOT(close()), actionCollection() );
     KStdGameAction::highscores(this, SLOT(showHighscore()), actionCollection() );
-    KStdGameAction::pause(this, SLOT(pauseGame()), actionCollection());
+    m_pauseButton = KStdGameAction::pause(this, SLOT(pauseGame()), actionCollection());
     KStdGameAction::end(this, SLOT(closeGame()), actionCollection());
 
     (void)new KAction( i18n("&Select Image Directory..."), 0, this, SLOT(selectBackground()),
@@ -141,6 +141,9 @@ void KJezzball::newGame()
     closeGame();
     if ( m_state==Idle )
     {
+        // untoggles the pause button in case it was toggled
+        m_pauseButton->setChecked(false);
+
         // update displays
         m_game.level = 1;
         m_game.score = 0;

@@ -24,6 +24,7 @@
 class JezzGame;
 class QLCDNumber;
 class QGridLayout;
+class KToggleAction;
 
 class KJezzball : public KMainWindow
 {
@@ -70,6 +71,7 @@ protected:
    QLCDNumber *m_scoreLCD;
    QLCDNumber *m_percentLCD;
    QLCDNumber *m_timeLCD;
+   KToggleAction *m_pauseButton;
 
    QTimer *m_timer;
    QTimer *m_nextLevelTimer;
