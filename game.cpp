@@ -75,8 +75,10 @@ void Ball::advance(int stage)
 
    m_soundDelay++;
 
-   // balls already on a wall will be stopped (should normally never happen)
-   if ( collide(0, 0) ) setVelocity( 0, 0 );
+   // ball already on a wall? (should normally never happen)
+   // commented out to stop bug which causes balls to
+   // sometimes stop when clicked on
+   // if ( collide(0, 0) ) setVelocity( 0, 0 );
 
    // check for collisions
    if ( collide(xVelocity(), 0) ) reflectX = true;
