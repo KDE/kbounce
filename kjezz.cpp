@@ -20,8 +20,8 @@
 #include <kglobal.h>
 #include <klocale.h>
 #include <kmenubar.h>
-#include <kstddirs.h>
-#include <kapp.h>
+#include <kstandarddirs.h>
+#include <kapplication.h>
 #include <kaction.h>
 #include <kstdaction.h>
 #include <qtimer.h>

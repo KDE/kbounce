@@ -23,7 +23,7 @@ this software.
 
 #include "config.h"
 
-#include <kapp.h>
+#include <kapplication.h>
 #include <klocale.h>
 #include <qpushbutton.h>
 #include <qlabel.h>

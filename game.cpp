@@ -23,8 +23,8 @@
 #include <qpainter.h>
 #include <qtimer.h>
 #include <kglobal.h>
-#include <kstddirs.h>
-#include <kapp.h>
+#include <kstandarddirs.h>
+#include <kapplication.h>
 #include <kdebug.h>
 #include <qlayout.h>
 #include <qcursor.h>
