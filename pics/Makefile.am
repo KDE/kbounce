@@ -26,7 +26,7 @@ data_DATA = \
 	ball0024.png \
 	tiles.png 
 
-datadir = $(kde_datadir)/kjezzball/pics
+datadir = $(kde_datadir)/kbounce/pics
 
 KDE_ICON = kjezzball
 
