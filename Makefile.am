@@ -4,7 +4,7 @@ INCLUDES = $(all_includes)
 
 kjezz_SOURCES = main.cpp kjezz.cpp game.cpp scoredialog.cpp newscoredialog.cpp
 kjezz_LDFLAGS = $(all_libraries) $(KDE_RPATH) $(kde_libraries)/libsoundserver_idl.la
-kjezz_LDADD = $(LIB_KDEUI)
+kjezz_LDADD = $(LIB_KDEUI) $(LIB_KFILE)
 
 EXTRA_DIST = kjezz.xpm kjezz.desktop
 

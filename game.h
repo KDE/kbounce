@@ -56,7 +56,7 @@ public:
 	 QObject *parent=0, const char *name=0 );   
 
    void finish();
-   void fill( int tile );
+   void fill( bool black );
 
 signals:
    void finished( Wall *wall, int tile );
@@ -83,14 +83,21 @@ class JezzField : public QCanvas
 {
    Q_OBJECT
 public:
-   JezzField( QObject* parent = 0, const char* name = 0 );
+   JezzField( QPixmap tiles, QPixmap background, QObject* parent = 0, const char* name = 0 );
+
+   void setGameTile( int x, int y, bool black );  
+   void setBackground( QPixmap background );
 
 signals:
    void ballCollision( Ball *ball, int x, int y, int tile );
 
 private:
    friend Ball;
+   bool m_background;
+   QPixmap m_tiles;
+   QArray<QPixmap> m_backTiles;
 
+   void setPixmaps( QPixmap tiles, QPixmap background );
    void emitBallCollisiton( Ball *ball, int x, int y, int tile ) 
       { emit ballCollision( ball, x, y, tile ); };
 
@@ -119,12 +126,13 @@ class JezzGame : public QWidget
    Q_OBJECT
 
 public:
-   JezzGame( int ballNum, QWidget *parent=0, const char *name=0 );
+   JezzGame( QPixmap background, int ballNum, QWidget *parent=0, const char *name=0 );
    ~JezzGame();
    
    int percent();
    static void playSound( QString name );
    void display( QString text, int size=20 );
+   void setBackground( QPixmap background );
    
 signals:
    void died();
@@ -140,11 +148,11 @@ protected slots:
    void wallFinished( Wall *wall, int tile );
    void ballCollision( Ball *ball, int x, int y, int tile );
 
-protected:
+protected:   
    void makeBlack();
    void fill( int x, int y );
    void fillLeft( int x, int y );
-   char m_buf[FIELD_WIDTH][FIELD_HEIGHT];
+   int m_buf[FIELD_WIDTH][FIELD_HEIGHT];
    
    JezzField *m_field;
    JezzView *m_view;   
@@ -158,6 +166,7 @@ protected:
    QTimer *m_clock;
    bool m_running;
    int m_percent;
+   bool m_pictured;
 
    static SimpleSoundServer *m_artsServer;
    static QString m_soundPath;

@@ -29,6 +29,7 @@
 #include <kmessagebox.h>
 #include <kdebug.h>
 #include <kconfig.h>
+#include <kfiledialog.h>
 
 #include "kjezz.h"
 #include "game.h"
@@ -38,12 +39,16 @@
 KJezzball::KJezzball()
     : KMainWindow(0), m_gameWidget( 0 )
 {
-    initGUI();
-
     // setup variables
     m_game.level = 1;
     m_game.score = 0;
     m_state = Idle;
+
+    KConfig *config = kapp->config();
+    m_backgroundDir = config->readPathEntry( "BackgroundDir" );
+    m_showBackground = config->readBoolEntry( "ShowBackground", false );
+
+    initGUI();
 
     // create widgets
     m_view = new QWidget( this, "m_view" );
@@ -108,7 +113,16 @@ void KJezzball::initGUI()
     KStdAction::quit( kapp, SLOT(quit()), actionCollection() );
     (void)new KAction( i18n("S&how Highscore"), CTRL+Key_H, this, SLOT(showHighscore()),
                        actionCollection(), "file_highscore" );
-    (void)new KAction( i18n("&Pause"), Key_P, this, SLOT(pauseGame()), actionCollection(), "file_pause" );
+    (void)new KAction( i18n("&Pause"), Key_P, this, SLOT(pauseGame()),
+                       actionCollection(), "file_pause" );
+
+    (void)new KAction( i18n("&Select Images..."), 0, this, SLOT(selectBackground()),
+                       actionCollection(), "background_select" );
+    KToggleAction *show = new KToggleAction( i18n("Show &Images"), 0, this, SLOT(showBackground()),
+                                             actionCollection(), "background_show" );
+
+    show->setEnabled( !m_backgroundDir.isEmpty() );
+    show->setChecked( m_showBackground );
 
     createGUI( "kjezzui.rc" );
 }
@@ -195,6 +209,73 @@ void KJezzball::showHighscore()
     h.exec();
 }
 
+void KJezzball::selectBackground()
+{
+    QString path = KFileDialog::getExistingDirectory( m_backgroundDir,  this,
+                                                      i18n("Select background image directory") );
+    if ( !path.isEmpty() && path!=m_backgroundDir ) {
+        m_backgroundDir = path;
+
+        // enable action
+        KAction *a = actionCollection()->action("background_show");
+        if ( a ) a->setEnabled(true);
+
+        // save settings
+        KConfig *config = kapp->config();
+        config->writeEntry( "BackgroundDir", m_backgroundDir );
+        config->sync();
+
+        // apply background setting
+        if ( m_showBackground ) {
+            if ( m_background.width()==0 )
+                m_background = getBackgroundPixmap();
+
+            m_gameWidget->setBackground( m_background );
+        }
+    }
+}
+
+void KJezzball::showBackground()
+{
+    KToggleAction *a = dynamic_cast<KToggleAction*>(actionCollection()->action("background_show"));
+    if( a ) {
+
+        bool show = a->isChecked();
+        if ( show!=m_showBackground ) {
+
+            m_showBackground = show;
+
+            // save setting
+            KConfig *config = kapp->config();
+            config->writeEntry( "ShowBackground", m_showBackground );
+            config->sync();
+
+            // update field
+            if ( m_showBackground ) {
+                if ( m_background.width()==0 )
+                    m_background = getBackgroundPixmap();
+            }
+
+            m_gameWidget->setBackground( m_showBackground ? m_background : QPixmap() );
+        }
+
+    }
+}
+
+QPixmap KJezzball::getBackgroundPixmap()
+{
+    // list directory
+    QDir dir( m_backgroundDir, "*.png *.jpg", QDir::Name|QDir::IgnoreCase, QDir::Files );
+    if ( !dir.exists() ) {
+        kdDebug(1433) << "Directory not found" << endl;
+        return QPixmap();
+    }
+
+    // return random pixmap
+    int num = rand() % dir.count();
+    return QPixmap( dir.absFilePath( dir[num] ) );
+}
+
 void KJezzball::focusOutEvent( QFocusEvent *ev )
 {
     if ( m_state==Running )
@@ -256,7 +337,13 @@ void KJezzball::createLevel( int level )
     if ( m_gameWidget ) delete m_gameWidget;
 
     // create new game widget
-    m_gameWidget = new JezzGame( level+1, m_view, "m_gameWidget" );
+    if ( m_showBackground )
+        m_background = getBackgroundPixmap();
+    else
+        m_background = QPixmap();
+
+    m_gameWidget = new JezzGame( m_background, level+1, m_view, "m_gameWidget" );
+
     m_gameWidget->show();
     m_layout->addWidget( m_gameWidget, 0, 0 );
     connect( m_gameWidget, SIGNAL(died()), this, SLOT(died()) );

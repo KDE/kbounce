@@ -6,6 +6,11 @@
 		<Action name="file_pause"/>
 		<Action name="file_highscore"/>
 	</Menu>
+
+	<Menu name="background"><text>&amp;Background</text>
+		<Action name="background_select"/>
+		<Action name="background_show"/>
+	</Menu>
 </MenuBar>
 
 <ToolBar noMerge="1" name="mainToolBar"><text>Main Toolbar</text>

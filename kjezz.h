@@ -38,6 +38,8 @@ public slots:
    void pauseGame(); 
    void closeGame();
    void showHighscore();
+   void selectBackground();
+   void showBackground();
 
 protected slots:   
    void died();
@@ -58,6 +60,8 @@ protected:
    void focusOutEvent( QFocusEvent * );
    void focusInEvent ( QFocusEvent * );
 
+   QPixmap getBackgroundPixmap();
+
    JezzGame *m_gameWidget;
    QWidget *m_view;
    QGridLayout *m_layout;
@@ -70,6 +74,10 @@ protected:
    QTimer *m_timer;
    QTimer *m_nextLevelTimer;
    QTimer *m_gameOverTimer;
+
+   QString m_backgroundDir;
+   bool m_showBackground;
+   QPixmap m_background;
 
    enum { Idle, Running, Paused, Suspend } m_state;
 

@@ -31,19 +31,22 @@
 #include <qevent.h>
 #include <qpushbutton.h>
 #include <qfont.h>
+#include <qimage.h>
+#include <qpixmap.h>
 
 #include "game.h"
 
 
 #define TILE_SIZE 16
 
-#define TILE_FREE 0
-#define TILE_BORDER 1
-#define TILE_WALLEND 2
-#define TILE_WALLUP 3
-#define TILE_WALLDOWN 4
-#define TILE_WALLLEFT 5
-#define TILE_WALLRIGHT 6
+#define TILE_FIRST ((FIELD_WIDTH-2)*(FIELD_HEIGHT-2))
+#define TILE_FREE (TILE_FIRST + 0)
+#define TILE_BORDER (TILE_FIRST + 1)
+#define TILE_WALLEND (TILE_FIRST + 2)
+#define TILE_WALLUP (TILE_FIRST + 3)
+#define TILE_WALLDOWN (TILE_FIRST + 4)
+#define TILE_WALLLEFT (TILE_FIRST + 5)
+#define TILE_WALLRIGHT (TILE_FIRST + 6)
 
 #define GAME_DELAY 15
 #define BALL_ANIM_DELAY 60
@@ -216,29 +219,100 @@ void Wall::advance()
     }
 }
 
-void Wall::fill( int tile )
+void Wall::fill( bool black )
 {
    if ( m_dx )
    {
       for ( int x=m_startX ; x!=m_x; x+=m_dx )
-          if ( m_field->tile(x, m_startY)==m_tile ) m_field->setTile( x, m_startY, tile );
+          if ( m_field->tile(x, m_startY)==m_tile ) m_field->setGameTile( x, m_startY, black );
 
-      m_field->setTile( m_x, m_startY, tile );
+      m_field->setGameTile( m_x, m_startY, black );
    } else
    {
       for ( int y=m_startY ; y!=m_y; y+=m_dy )
-         if ( m_field->tile(m_startX, y)==m_tile ) m_field->setTile( m_startX, y, tile );
+         if ( m_field->tile(m_startX, y)==m_tile ) m_field->setGameTile( m_startX, y, black );
 
-      m_field->setTile( m_startX, m_y, tile );
+      m_field->setGameTile( m_startX, m_y, black );
    }
 }
 
 /*************************************************************************/
 
-JezzField::JezzField( QObject* parent, const char* name )
-   : QCanvas( parent, name )
+JezzField::JezzField( QPixmap tiles, QPixmap background, QObject* parent, const char* name )
+    : QCanvas( parent, name ), m_tiles( tiles )
 {
+    setPixmaps( tiles, background );
 }
+
+void JezzField::setGameTile( int x, int y, bool black )
+{
+    if ( m_background )
+        setTile( x, y, black ? ((x-1)+(y-1)*(FIELD_WIDTH-2)) : TILE_FREE );
+    else
+        setTile( x, y, black ? TILE_BORDER : TILE_FREE );
+}
+
+void JezzField::setBackground( QPixmap background )
+{
+    // copy current field into buffer
+    int backup[FIELD_WIDTH][FIELD_HEIGHT];
+    for ( int y=0; y<FIELD_HEIGHT; y++ )
+        for ( int x=0; x<FIELD_WIDTH; x++ )
+            backup[x][y] = tile( x, y );
+
+    setPixmaps( m_tiles, background );
+
+    // restore tiles
+    for ( int x=0; x<FIELD_WIDTH; x++ )
+        setTile( x, 0, TILE_BORDER );
+    for ( int y=1; y<FIELD_HEIGHT-1; y++ ) {
+
+        setTile( 0, y, TILE_BORDER );
+
+        for ( int x=1; x<FIELD_WIDTH-1; x++ ) {
+            int tile = backup[x][y];
+
+            if ( m_background ) {
+                if ( tile==TILE_BORDER || tile<TILE_FIRST )
+                    tile = (x-1)+(y-1)*(FIELD_WIDTH-2);
+            } else {
+                if ( tile<TILE_FIRST )
+                    tile = TILE_BORDER;
+            }
+
+            setTile( x, y, tile );
+        }
+
+        setTile( FIELD_WIDTH-1, y, TILE_BORDER );
+    }
+    for ( int x=0; x<FIELD_WIDTH; x++ )
+        setTile( x, FIELD_HEIGHT-1, TILE_BORDER );
+}
+
+void JezzField::setPixmaps( QPixmap tiles, QPixmap background )
+{
+    // create new tiles
+    QPixmap allTiles( TILE_SIZE*(FIELD_WIDTH-2), TILE_SIZE*(FIELD_HEIGHT-1) );
+
+    if ( background.width()==0 || background.height()==0 ) {
+        m_background = false;
+    } else {
+        // handle background
+        m_background = true;
+        QImage img = background.convertToImage();
+        background.convertFromImage( img.smoothScale( TILE_SIZE*(FIELD_WIDTH-2),
+                                                      TILE_SIZE*(FIELD_HEIGHT-2) ) );
+        bitBlt( &allTiles, 0, 0, &background, 0, 0, background.width(), background.height() );
+    }
+
+    // handle default tiles
+    bitBlt( &allTiles, 0, TILE_SIZE*(FIELD_HEIGHT-2),
+            &tiles, 0, 0, tiles.width(), tiles.height() );
+
+    // load tiles into canvas
+    setTiles( allTiles, FIELD_WIDTH, FIELD_HEIGHT, TILE_SIZE, TILE_SIZE );
+}
+
 
 /*************************************************************************/
 
@@ -268,9 +342,9 @@ void JezzView::viewportMouseReleaseEvent( QMouseEvent *ev )
 
 /*************************************************************************/
 
-JezzGame::JezzGame( int ballNum, QWidget *parent, const char *name )
+JezzGame::JezzGame( QPixmap background, int ballNum, QWidget *parent, const char *name )
     : QWidget( parent, name ), m_wall1( 0 ), m_wall2( 0 ),
-      m_text( 0 ), m_running( false ), m_percent( 0 )
+      m_text( 0 ), m_running( false ), m_percent( 0 ), m_pictured( false )
 {
    QString path = kapp->dirs()->findResourceDir( "data", "kjezz/pics/ball0000.png" ) + "kjezz/pics/";
 
@@ -278,7 +352,7 @@ JezzGame::JezzGame( int ballNum, QWidget *parent, const char *name )
    m_ballPixmaps = new QCanvasPixmapArray( path + "ball%1.png", 25 );
    for ( unsigned n=0; n<m_ballPixmaps->count(); n++ )
        m_ballPixmaps->image(n)->setOffset( 0, 0 );
-   QPixmap tiles( path+"tiles.png" );
+   QPixmap tiles( path + "tiles.png" );
 
    // setup arts
    m_artsServer = new SimpleSoundServer;
@@ -289,9 +363,8 @@ JezzGame::JezzGame( int ballNum, QWidget *parent, const char *name )
                  "kjezz/sounds/";
 
    // create field
-   m_field = new JezzField( this, "m_field" );
+   m_field = new JezzField( tiles, background, this, "m_field" );
    m_field->resize( TILE_SIZE*FIELD_WIDTH, TILE_SIZE*FIELD_HEIGHT );
-   m_field->setTiles( tiles, FIELD_WIDTH, FIELD_HEIGHT, TILE_SIZE, TILE_SIZE );
 
    for ( int x=0; x<FIELD_WIDTH; x++ )
          m_field->setTile( x, 0, TILE_BORDER );
@@ -346,6 +419,7 @@ JezzGame::~JezzGame()
     delete m_artsServer;
 }
 
+
 void JezzGame::display( QString text, int size )
 {
     if ( !text.isEmpty() )
@@ -377,6 +451,11 @@ void JezzGame::playSound( QString name )
     }
 }
 
+void JezzGame::setBackground( QPixmap background )
+{
+    m_field->setBackground( background );
+}
+
 void JezzGame::start()
 {
     m_running = true;
@@ -386,6 +465,7 @@ void JezzGame::stop()
 {
     m_running = false;
 }
+
 
 void JezzGame::makeBlack()
 {
@@ -403,7 +483,7 @@ void JezzGame::makeBlack()
       for ( int x=0; x<FIELD_WIDTH; x++ )
       {
          if ( m_buf[x][y]==TILE_FREE )
-            m_field->setTile( x, y, TILE_BORDER );
+             m_field->setGameTile( x, y, true );
       }
 
    m_field->update();
@@ -465,7 +545,7 @@ void JezzGame::fill( int x, int y )
 
 void JezzGame::ballCollision( Ball */*ball*/, int /*x*/, int /*y*/, int tile )
 {
-   if ( tile!=TILE_BORDER && tile!=TILE_WALLEND )
+   if ( tile!=TILE_BORDER && tile>TILE_FREE && tile!=TILE_WALLEND )
    {
       kdDebug() << "Collision" << endl;
 
@@ -546,14 +626,14 @@ void JezzGame::wallFinished( Wall *wall, int tile )
     {
         if ( m_wall1 )
         {
-            m_wall1->fill( TILE_FREE );
+            m_wall1->fill( false );
             delete m_wall1;
             m_wall1 = 0;
         }
 
         if ( m_wall2 )
         {
-            m_wall2->fill( TILE_FREE );
+            m_wall2->fill( false );
             delete m_wall2;
             m_wall2 = 0;
         }
@@ -561,14 +641,14 @@ void JezzGame::wallFinished( Wall *wall, int tile )
     {
         if ( m_wall1==wall && m_wall1 )
         {
-            m_wall1->fill( TILE_BORDER );
+            m_wall1->fill( true );
             delete m_wall1;
             m_wall1 = 0;
         }
 
         if ( m_wall2==wall && m_wall2 )
         {
-            m_wall2->fill( TILE_BORDER );
+            m_wall2->fill( true );
             delete m_wall2;
             m_wall2 = 0;
         }
