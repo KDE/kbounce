@@ -27,11 +27,8 @@
 using namespace std;
 using namespace Arts;
 
-static const char *description =
-        I18N_NOOP("KDE Jezz Ball Game");
-
-static const char *version = "0.1";
-
+static const char *description = I18N_NOOP("KDE Jezz Ball Game");
+static const char *version = "0.5";
 
 int main(int argc, char **argv)
 {
@@ -39,9 +36,10 @@ int main(int argc, char **argv)
     version, description, KAboutData::License_GPL,
     "(c) 2000, Stefan Schimanski");
 
-  aboutData.addAuthor("Stefan Schimanski", 0, "schimmi@kde.org");
+  aboutData.addAuthor("Stefan Schimanski", I18N_NOOP("Original author"), "schimmi@kde.org");
   aboutData.addAuthor("Sandro Sigala", I18N_NOOP("Highscore"), "ssigala@globalnet.it");
-
+  aboutData.addAuthor("Benjamin Meyer", I18N_NOOP("Contributions"), "ben-devel@meyerhome.net");
+	
   KCmdLineArgs::init( argc, argv, &aboutData );
 
   QApplication::setColorSpec(QApplication::ManyColor);
@@ -57,4 +55,6 @@ int main(int argc, char **argv)
 
   return a.exec();
 }
+
+// main.cpp
 

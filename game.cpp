@@ -136,7 +136,7 @@ Wall::Wall( JezzField *field, int x, int y, Direction dir, int tile, QObject *pa
     : QObject( parent, name ), m_dir( dir ), m_field( field ), m_startX( x ), m_startY( y ),
       m_tile( tile ), m_delay( MS2TICKS(WALL_DELAY)/2 ), m_active( true )
 {
-   kdDebug() << "Wall::Wall" << endl;
+   //kdDebug() << "Wall::Wall" << endl;
 
    // setup position and direction
    m_dx = 0;
@@ -416,9 +416,10 @@ JezzGame::~JezzGame()
 
 void JezzGame::display( QString text, int size )
 {
+    qDebug("This function \"display\" shouldn't be called!!!");
     if ( !text.isEmpty() )
     {
-        kdDebug() << "text = " << text << endl;
+        //kdDebug() << "text = " << text << endl;
 
         QFont font( "Helvetica", size, QFont::Bold );
         font.setStyleHint( QFont::Helvetica );
@@ -616,7 +617,7 @@ void JezzGame::buildWall( int x, int y, bool vertical )
 
 void JezzGame::wallFinished( Wall *wall, int tile )
 {
-    kdDebug() << "wallFinished" << endl;
+    //kdDebug() << "wallFinished" << endl;
     playSound( "wallend.au" );
 
     if ( tile==TILE_WALLEND )

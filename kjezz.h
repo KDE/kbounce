@@ -16,8 +16,8 @@
  * Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-#ifndef KJEZZ_H_INCLUDED
-#define KJEZZ_H_INCLUDED
+#ifndef KJEZZBALL_H_INCLUDED
+#define KJEZZBALL_H_INCLUDED
 
 #include <kmainwindow.h>
 
@@ -31,7 +31,6 @@ class KJezzball : public KMainWindow
 
 public:
    KJezzball();
-   ~KJezzball();
 
 public slots:
    void newGame();
@@ -55,7 +54,7 @@ protected:
    void nextLevel();
    void highscore();
    void gameOver();
-   void initGUI();
+   void initXMLUI();
 
    void focusOutEvent( QFocusEvent * );
    void focusInEvent ( QFocusEvent * );

@@ -28,6 +28,7 @@
 #include <kdebug.h>
 #include <kfiledialog.h>
 #include <kscoredialog.h>
+#include <kstatusbar.h>
 
 #include "kjezz.h"
 #include "game.h"
@@ -45,7 +46,8 @@ KJezzball::KJezzball()
     m_backgroundDir = config->readPathEntry( "BackgroundDir" );
     m_showBackground = config->readBoolEntry( "ShowBackground", false );
 
-    initGUI();
+    initXMLUI();
+    statusBar();
 
     // create widgets
     m_view = new QWidget( this, "m_view" );
@@ -96,28 +98,24 @@ KJezzball::KJezzball()
 
     // create demo game
     createLevel( 1 );
-    m_gameWidget->display( i18n("Press <Space> to start a game!") );
+    statusBar()->message( i18n("Press <Space> to start a game!") );
+    //m_gameWidget->display( i18n("Press <Space> to start a game!") );
 }
 
-KJezzball::~KJezzball()
-{
-}
-
-void KJezzball::initGUI()
+/**
+ * create the action events create the gui. 
+ */
+void KJezzball::initXMLUI()
 {
     KStdGameAction::gameNew( this, SLOT(newGame()), actionCollection() );
     KStdGameAction::quit( this, SLOT(close()), actionCollection() );
-    
     KStdGameAction::highscores(this, SLOT(showHighscore()), actionCollection() );
-
     KStdGameAction::pause(this, SLOT(pauseGame()), actionCollection());
-
     KStdGameAction::end(this, SLOT(closeGame()), actionCollection());
 
-    (void)new KAction( i18n("&Select Images..."), 0, this, SLOT(selectBackground()),
+    (void)new KAction( i18n("&Select Image Directory..."), 0, this, SLOT(selectBackground()),
                        actionCollection(), "background_select" );
-    KToggleAction *show = new KToggleAction( i18n("Show &Images"), 0, this, SLOT(showBackground()),
-                                             actionCollection(), "background_show" );
+    KToggleAction *show = new KToggleAction( i18n("Show &Images"), 0, this, SLOT(showBackground()), actionCollection(), "background_show" );
 
     show->setEnabled( !m_backgroundDir.isEmpty() );
     show->setChecked( m_showBackground );
@@ -138,6 +136,8 @@ void KJezzball::newGame()
         m_levelLCD->display( m_game.level );
         m_scoreLCD->display( m_game.score );
 
+        statusBar()->clear();
+        
         // start new game
         m_state = Running;
 
@@ -166,14 +166,16 @@ void KJezzball::pauseGame()
     {
     case Running:
         m_state = Paused;
-        m_gameWidget->display( i18n("Game paused. Press P to continue!") );
+        statusBar()->message(i18n("Game paused.") );
+        //m_gameWidget->display( i18n("Game paused. Press P to continue!") );
         stopLevel();
         break;
 
     case Paused:
     case Suspend:
         m_state = Running;
-        m_gameWidget->display( QString::null );
+        statusBar()->clear();
+        //m_gameWidget->display( QString::null );
         startLevel();
         break;
 
@@ -188,26 +190,30 @@ void KJezzball::gameOver()
     m_gameOverTimer->start( 100, TRUE );
 }
 
+
 void KJezzball::gameOverNow()
 {
     m_state = Idle;
 
     QString score;
     score.setNum( m_game.score );
-    KMessageBox::information( this, i18n("Game Over!!! Score: %1").arg(score) );
-
-    m_gameWidget->display( i18n("Game over. Press <Space> for a new game!") );
-
+    KMessageBox::information( this, i18n("Game Over Score: %1").arg(score) );
+    statusBar()->message(  i18n("Game over. Press <Space> for a new game") );
+    //m_gameWidget->display( i18n("Game over. Press <Space> for a new game!") );
     highscore();
 }
 
-void KJezzball::showHighscore()
-{
-    KScoreDialog h(KScoreDialog::Name | KScoreDialog::Level |
-                   KScoreDialog::Score, this);
+/**
+ * Bring up the standard kde high score dialog.
+ */
+void KJezzball::showHighscore(){
+    KScoreDialog h(KScoreDialog::Name | KScoreDialog::Level | KScoreDialog::Score, this);
     h.exec();
 }
 
+/**
+ * Select a background image.
+ */
 void KJezzball::selectBackground()
 {
     QString path = KFileDialog::getExistingDirectory( m_backgroundDir,  this,
@@ -230,6 +236,9 @@ void KJezzball::selectBackground()
                 m_background = getBackgroundPixmap();
 
             m_gameWidget->setBackground( m_background );
+        }
+        else{
+          KMessageBox::information( this, i18n("You may now turn on background images."));
         }
     }
 }
@@ -281,7 +290,8 @@ void KJezzball::focusOutEvent( QFocusEvent *ev )
     {
         stopLevel();
         m_state = Suspend;
-        m_gameWidget->display( i18n("Game suspended") );
+        statusBar()->message( i18n("Game suspended") );
+        // m_gameWidget->display( i18n("Game suspended") );
     }
 
     KMainWindow::focusOutEvent( ev );
@@ -293,7 +303,8 @@ void KJezzball::focusInEvent ( QFocusEvent *ev )
     {
         startLevel();
         m_state = Running;
-        m_gameWidget->display( QString::null );
+        statusBar()->clear();
+        //m_gameWidget->display( QString::null );
     }
 
     KMainWindow::focusInEvent( ev );
@@ -406,8 +417,23 @@ void KJezzball::switchLevel()
     QString level;
     level.setNum( m_game.level );
 
-    KMessageBox::information( this, i18n("You've completed level %1 with "
-        "a score of %2.\nGet ready for the next one!").arg(level).arg(score));
+QString foo = QString(
+i18n("You have successfully cleared more then 75% of the board.") +
+"\n%1 points : %2\n"
+"%3 points : %4\n"
+"%5 points : %6\n"
++ i18n("Onto level %7, remember you get %8 lives this time!")).arg(
+m_level.lifes*15).arg(i18n("15 points per remaining life")).arg(
+(m_gameWidget->percent()-75)*2*(m_game.level+5)).arg(i18n("Bonus")).arg(
+score).arg(i18n("Total score for this level")).arg(
+m_game.level+1).arg(m_game.level+2);
+
+
+   KMessageBox::information( this,foo );
+
+
+   // KMessageBox::information( this, i18n("You've completed level %1 with "
+   //     "a score of %2.\nGet ready for the next one!").arg(level).arg(score));
 
     m_game.level++;
     m_levelLCD->display( m_game.level );
