@@ -45,6 +45,7 @@
 
 SimpleSoundServer *JezzGame::m_artsServer = 0;
 QString JezzGame::m_soundPath;
+bool JezzGame::m_sound = true;
 
 #define MS2TICKS( ms ) ((ms)/GAME_DELAY)
 
@@ -439,7 +440,7 @@ void JezzGame::display( QString text, int size )
 
 void JezzGame::playSound( QString name )
 {
-    if( !m_artsServer->isNull() )
+    if( !m_artsServer->isNull() && m_sound)
     {
         QString path = m_soundPath + name;
         m_artsServer->play( path.latin1() );
@@ -449,6 +450,11 @@ void JezzGame::playSound( QString name )
 void JezzGame::setBackground( QPixmap background )
 {
     m_field->setBackground( background );
+}
+
+void JezzGame::setSound( bool sound )
+{
+    m_sound = sound;
 }
 
 void JezzGame::start()

@@ -1,10 +1,13 @@
 <!DOCTYPE kpartgui SYSTEM "kpartgui.dtd">
-<kpartgui name="kbounce" version="3">
+<kpartgui name="kbounce" version="4">
 
 <MenuBar>
 	<Menu name="background"><text>&amp;Background</text>
 		<Action name="background_select"/>
 		<Action name="background_show"/>
+	</Menu>
+	<Menu name="settings">
+		<Action name="toggle_sound"/>
 	</Menu>
 </MenuBar>
 

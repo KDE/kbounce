@@ -33,6 +33,7 @@ class KJezzball : public KMainWindow
 
 public:
    KJezzball();
+   ~KJezzball();
 
 public slots:
    void newGame();
@@ -72,7 +73,7 @@ protected:
    QLCDNumber *m_scoreLCD;
    QLCDNumber *m_percentLCD;
    QLCDNumber *m_timeLCD;
-   KToggleAction *m_pauseButton, *m_backgroundShowAction;
+   KToggleAction *m_pauseButton, *m_backgroundShowAction, *m_soundAction;
    KAction *m_newAction;
 
    QTimer *m_timer;

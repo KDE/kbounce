@@ -142,6 +142,7 @@ signals:
 public slots:
    void start();
    void stop();
+   void setSound( bool sound );
 
 protected slots:
    void tick();
@@ -171,6 +172,7 @@ protected:
 
    static SimpleSoundServer *m_artsServer;
    static QString m_soundPath;
+   static bool m_sound;
 };
 
 #endif

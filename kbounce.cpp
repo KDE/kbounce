@@ -48,6 +48,8 @@ KJezzball::KJezzball()
     initXMLUI();
     statusBar();
 
+    m_soundAction -> setChecked((config->readBoolEntry( "PlaySounds", true )));
+
     // create widgets
     m_view = new QWidget( this, "m_view" );
     setCentralWidget( m_view );
@@ -105,6 +107,12 @@ KJezzball::KJezzball()
     setFocus();
 }
 
+KJezzball::~KJezzball()
+{
+    KConfig *config = kapp->config();
+    config->writeEntry( "PlaySounds", m_soundAction->isChecked() );
+}
+
 /**
  * create the action events create the gui.
  */
@@ -122,7 +130,7 @@ void KJezzball::initXMLUI()
     m_pauseButton = KStdGameAction::pause(this, SLOT(pauseGame()), actionCollection());
     KStdGameAction::end(this, SLOT(closeGame()), actionCollection());
 
-    (void)new KAction( i18n("&Select Image Directory..."), 0, this, SLOT(selectBackground()),
+    new KAction( i18n("&Select Image Directory..."), 0, this, SLOT(selectBackground()),
                        actionCollection(), "background_select" );
     m_backgroundShowAction =
         new KToggleAction( i18n("Show &Images"), 0, this, SLOT(showBackground()),
@@ -131,6 +139,7 @@ void KJezzball::initXMLUI()
     m_backgroundShowAction->setChecked( m_showBackground );
 
     KStdAction::keyBindings(this, SLOT(keyBindings()), actionCollection());
+    m_soundAction = new KToggleAction( i18n("&Play Sounds"), 0, 0, 0, actionCollection(), "toggle_sound");
 
     createStandardStatusBarAction();
     setStandardToolBarMenuEnabled(true);
@@ -383,11 +392,13 @@ void KJezzball::createLevel( int level )
         m_background = QPixmap();
 
     m_gameWidget = new JezzGame( m_background, level+1, m_view, "m_gameWidget" );
+    m_gameWidget->setSound(m_soundAction->isChecked());
 
     m_gameWidget->show();
     m_layout->addWidget( m_gameWidget, 0, 0 );
     connect( m_gameWidget, SIGNAL(died()), this, SLOT(died()) );
     connect( m_gameWidget, SIGNAL(newPercent(int)), this, SLOT(newPercent(int)) );
+    connect( m_soundAction, SIGNAL(toggled(bool)), m_gameWidget, SLOT(setSound(bool)) );
 
     // update displays
     m_level.lifes = level+1;
