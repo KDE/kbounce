@@ -503,7 +503,7 @@ int JezzGame::percent()
              notFree++;
       }
 
-   return 100 * notFree / ( (FIELD_WIDTH-1) * (FIELD_HEIGHT-1) );
+   return 100 * notFree / ( (FIELD_WIDTH-2) * (FIELD_HEIGHT-2) );
 }
 
 void JezzGame::fill( int x, int y )
