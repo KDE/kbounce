@@ -1,4 +1,4 @@
-data_DATA = \
+pics_DATA = \
 	ball0000.png \
 	ball0001.png \
 	ball0002.png \
@@ -26,9 +26,9 @@ data_DATA = \
 	ball0024.png \
 	tiles.png 
 
-datadir = $(kde_datadir)/kbounce/pics
+picsdir = $(kde_datadir)/kbounce/pics
 
 KDE_ICON = kbounce
 
-EXTRA_DIST = $(data_DATA)
+EXTRA_DIST = $(pics_DATA)
 
