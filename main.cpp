@@ -22,17 +22,17 @@
 #include <kaboutdata.h>
 #include <arts/dispatcher.h>
 
-#include "kjezzball.h"
+#include "kbounce.h"
 
 using namespace std;
 using namespace Arts;
 
-static const char *description = I18N_NOOP("KDE Jezz Ball Game");
+static const char *description = I18N_NOOP("KDE Bounce Ball Game");
 static const char *version = "0.5";
 
 int main(int argc, char **argv)
 {
-  KAboutData aboutData( "kjezzball", I18N_NOOP("KJezzball"),
+  KAboutData aboutData( "kbounce", I18N_NOOP("KBounce"),
     version, description, KAboutData::License_GPL,
     "(c) 2000, Stefan Schimanski");
 

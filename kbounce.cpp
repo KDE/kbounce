@@ -30,7 +30,7 @@
 #include <kscoredialog.h>
 #include <kstatusbar.h>
 
-#include "kjezzball.h"
+#include "kbounce.h"
 #include "game.h"
 #include <qlabel.h>
 
@@ -120,7 +120,7 @@ void KJezzball::initXMLUI()
     show->setEnabled( !m_backgroundDir.isEmpty() );
     show->setChecked( m_showBackground );
 
-    createGUI( "kjezzui.rc" );
+    createGUI( "kbounceui.rc" );
 }
 
 void KJezzball::newGame()
@@ -458,4 +458,4 @@ void KJezzball::highscore()
     d.exec();
 }
 
-#include "kjezzball.moc"
+#include "kbounce.moc"
