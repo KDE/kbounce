@@ -50,6 +50,10 @@ void Ball::advance(int stage)
    bool reflectX = false;
    bool reflectY = false;
 
+   // balls already on a wall will be stopped (should normally never happen)
+   if ( collide(0, 0) ) setVelocity( 0, 0 );
+
+   // check for collisions
    if ( collide(xVelocity(), 0) ) reflectX = true;
    if ( collide(0, yVelocity()) ) reflectY = true;
    if ( !reflectX && !reflectY && collide(xVelocity(), yVelocity()) ) reflectX = reflectY = true;
@@ -118,8 +122,16 @@ void Wall::update()
    m_y += m_dy;
 
    if ( m_field->tile(m_x, m_y)==TILE_FREE )
-      m_field->setTile( m_x, m_y, TILE_BORDER );
-   else
+   {
+      // check whether there is a ball at the moment
+      QCanvasItemList cols = m_field->collisions( QRect(m_x*TILE_SIZE, m_y*TILE_SIZE, TILE_SIZE, TILE_SIZE) );
+      if ( cols.count()>0 )
+      {
+	 kdDebug() << "Wall corner collision" << endl;
+	 finish();		 
+      } else
+	 m_field->setTile( m_x, m_y, TILE_BORDER );
+   } else
       finish();
 }
 
@@ -134,8 +146,6 @@ void Wall::black()
       for ( int y=m_startY ; y!=m_y; y+=m_dy )
 	 m_field->setTile( m_startX, y, TILE_BORDER );
    }
-
-   m_field->setTile( m_x, m_y, TILE_BORDER );
 }
 
 /*************************************************************************/
@@ -202,6 +212,8 @@ JezzGame::JezzGame( int ballNum, QWidget *parent, char *name )
    for ( int x=0; x<FIELD_WIDTH; x++ )
      	 m_field->setTile( x, FIELD_HEIGHT-1, TILE_BORDER );
 
+   connect( m_field, SIGNAL(ballCollision(Ball *, int, int, int)), this, SLOT(ballCollision(Ball *, int, int, int)) );
+
    // create view
    QHBoxLayout *layout = new QHBoxLayout( this );
    m_view = new JezzView( m_field, this, "m_view" );
@@ -261,11 +273,11 @@ void JezzGame::fill( int x, int y )
 
    // fill above   
    for ( _x=x; _x>stopx; _x-- )
-      if ( m_buf[_x][y-1]==TILE_FREE ) fill( x, y-1 );
+      if ( m_buf[_x][y-1]==TILE_FREE ) fill( _x, y-1 );
    
    // fill below
    for ( _x=x; _x>stopx; _x-- )
-      if ( m_buf[_x][y+1]==TILE_FREE ) fill( x, y+1 );
+      if ( m_buf[_x][y+1]==TILE_FREE ) fill( _x, y+1 );
       
    // go right
    for ( _x=x+1; m_buf[_x][y]==TILE_FREE; _x++ )
@@ -274,11 +286,19 @@ void JezzGame::fill( int x, int y )
 
    // fill above
    for ( _x=x+1; _x<stopx; _x++ )
-      if ( m_buf[_x][y-1]==TILE_FREE ) fill( x, y-1 );
+      if ( m_buf[_x][y-1]==TILE_FREE ) fill( _x, y-1 );
    
    // fill below;
    for ( _x=x+1; _x<stopx; _x++ )
-      if ( m_buf[_x][y+1]==TILE_FREE ) fill( x, y+1 );   
+      if ( m_buf[_x][y+1]==TILE_FREE ) fill( _x, y+1 );   
+}
+
+void JezzGame::ballCollision( Ball */*ball*/, int /*x*/, int /*y*/, int tile )
+{
+   if ( tile!=TILE_BORDER )
+   {
+      kdDebug() << "Collision" << endl;
+   }
 }
 
 void JezzGame::buildWall( int x, int y, bool vertical )
@@ -286,6 +306,16 @@ void JezzGame::buildWall( int x, int y, bool vertical )
    kdDebug() << "JezzGame::buildWall( x=" << x << " y=" << y << " vertical=" << vertical << " )" << endl;
    if ( m_field->tile(x, y)==TILE_FREE )
    {
+      // check whether there is a ball at the moment
+      QCanvasItemList cols = m_field->collisions( QRect(x*TILE_SIZE, y*TILE_SIZE, TILE_SIZE, TILE_SIZE) );
+      if ( cols.count()>0 )
+      {
+	 kdDebug() << "Direct collision" << endl;
+	 emit ballCollision( (Ball*)cols.first(), x, y, TILE_WALLHOR );
+	 return;	
+      }
+      
+      // start walls
       if ( !m_wall1 )
       {
 	 m_wall1 = new Wall( m_field, x, y, vertical?Wall::Up:Wall::Left, this, "m_wall1" );

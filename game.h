@@ -34,9 +34,7 @@ public:
    Ball(QCanvasPixmapArray* array, QCanvas* canvas);
 
    void advance(int stage);
-
-private:
-   bool collide( double dx, double dy );
+   bool collide( double dx=0, double dy=0 );
 };
 
 
@@ -117,6 +115,7 @@ public slots:
    void tick();
    void buildWall( int x, int y, bool vertical );
    void wallFinished( Wall *wall );
+   void ballCollision( Ball *ball, int x, int y, int tile );
 
 protected:
    void fill( int x, int y );
