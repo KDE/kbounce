@@ -415,16 +415,11 @@ void KJezzball::switchLevel()
     level.setNum( m_game.level );
 
 QString foo = QString(
-i18n("You have successfully cleared more then 75% of the board.") +
-"\n%1 points : %2\n"
-"%3 points : %4\n"
-"%5 points : %6\n"
-+ i18n("On to level %7, remember you get %8 lives this time!")).arg(
-m_level.lifes*15).arg(i18n("15 points per remaining life")).arg(
-(m_gameWidget->percent()-75)*2*(m_game.level+5)).arg(i18n("Bonus")).arg(
-score).arg(i18n("Total score for this level")).arg(
-m_game.level+1).arg(m_game.level+2);
-
+i18n("You have successfully cleared more than 75% of the board.\n") +
+i18n("%1 points: 15 points per remaining life\n").arg(m_level.lifes*15) +
+i18n("%1 points: Bonus\n").arg((m_gameWidget->percent()-75)*2*(m_game.level+5)) +
+i18n("%1 points: Total score for this level\n").arg(score) +
+i18n("On to level %1, remember you get %2 lives this time!")).arg(m_game.level+1).arg(m_game.level+2);
 
    KMessageBox::information( this,foo );
 
