@@ -23,6 +23,7 @@
 #include <kapplication.h>
 #include <kdebug.h>
 #include <qimage.h>
+#include <kglobalsettings.h>
 
 #include "game.h"
 
@@ -422,8 +423,9 @@ void JezzGame::display( QString text, int size )
     {
         //kdDebug() << "text = " << text << endl;
 
-        QFont font( "Helvetica", size, QFont::Bold );
-        font.setStyleHint( QFont::Helvetica );
+        QFont font = KGlobalSettings::generalFont();
+        font.setBold(true);
+        font.setPointSize(size);
         m_text->setFont( font );
         m_text->setText( text );
 
