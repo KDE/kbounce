@@ -27,10 +27,12 @@ this software.
 #include <klocale.h>
 #include <qpushbutton.h>
 #include <qlabel.h>
+#include <qlayout.h>
 
 #include "scoredialog.h"
 #include <klocale.h>
 #include <kconfig.h>
+#include <kdialog.h>
 
 ScoreDialog::ScoreDialog(QWidget *parent, const char *oname)
         : QDialog(parent, oname, true)
@@ -40,19 +42,20 @@ ScoreDialog::ScoreDialog(QWidget *parent, const char *oname)
 	KConfig *config = kapp->config();
 	config->setGroup("High Score");
 
-	int yd = 10;
+    QGridLayout *layout = new QGridLayout(this);
+    layout->setSpacing(KDialog::spacingHint());
+    layout->setMargin(KDialog::marginHint());
 	QLabel *label;
 	label = new QLabel(i18n("Level"), this);
-	label->setAutoResize(true);
-	label->move(50, yd);
+    label->setAlignment(Qt::AlignCenter);
+    layout->addWidget(label,0,1);
 	label = new QLabel(i18n("Score"), this);
-	label->setAutoResize(true);
-	label->move(100, yd);
+    label->setAlignment(Qt::AlignCenter);
+    layout->addWidget(label,0,2);
 	label = new QLabel(i18n("Name"), this);
-	label->setAutoResize(true);
-	label->move(160, yd);
-	yd += 20;
-
+    label->setAlignment(Qt::AlignCenter);
+    layout->addWidget(label,0,3);
+    
 	QString s, name, level, score, num;
 	for (int i = 1; i <= 10; ++i) {
 		num.setNum(i);
@@ -64,25 +67,29 @@ ScoreDialog::ScoreDialog(QWidget *parent, const char *oname)
 		name = config->readEntry(s, i18n("Noname"));
 		s = "#" + num;
 		label = new QLabel(s, this);
-		label->setAutoResize(true);
-		label->move(10, yd);
+        layout->addWidget(label,i,0);
 		label = new QLabel(level, this);
-		label->setAutoResize(true);
-		label->move(50, yd);	
+        label->setAlignment(Qt::AlignCenter);
+        layout->addWidget(label,i,1);
 		label = new QLabel(score, this);
-		label->setAutoResize(true);
-		label->move(100, yd);
+        label->setAlignment(Qt::AlignCenter);
+        layout->addWidget(label,i,2);
 		label = new QLabel(name, this);
-		label->setAutoResize(true);
-		label->move(160, yd);
-		yd += 20;
+        label->setAlignment(Qt::AlignCenter);
+        layout->addWidget(label,i,3);
 	}
 
+    layout->addRowSpacing(11,KDialog::spacingHint());
+
+    QHBoxLayout *hbox = new QHBoxLayout();
+    hbox->addStretch(1);
 	QPushButton *ok;
 	ok = new QPushButton(i18n("OK"), this);
-	ok->setGeometry(85, yd+20, 70, 30);
+    hbox->addWidget(ok);
 	ok->setDefault(true);
 	connect(ok, SIGNAL(clicked()), SLOT(accept()));
 
-	resize(250, 290);
+    hbox->addStretch(1);
+    
+    layout->addMultiCellLayout(hbox,12,12,0,3);
 }
