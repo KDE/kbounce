@@ -1,0 +1,47 @@
+[Desktop Entry]
+Name=Jezzball
+Name[eo]=Ĵazpilko
+Name[is]=Jezzbolti
+Name[nl]=Jezzbal
+Name[pt_BR]=JezzBall
+Name[sv]=Jezzboll
+Name[tr]=Jezball
+
+Type=Application
+Exec=kjezz %i %m -caption "%c"
+DocPath=kjezz/index.html
+Icon=kjezz
+
+Comment=KDE Jezzball Game
+Comment[ca]=Joc Jezzball del KDE
+Comment[cs]=Hra Jezzball
+Comment[da]=KDE jezzball spil
+Comment[de]=Jezzball-Spiel
+Comment[eo]=Ĵazpilkludo
+Comment[es]=Juego Jezzball de KDE
+Comment[et]=KDE mäng Jezzball
+Comment[fi]=KDE Jezzball-peli
+Comment[fr]=Jeu Jezzball de KDE
+Comment[gl]=O xogo Jezzball para KDE
+Comment[he]=KDE-ל Jezzball קחשמ
+Comment[hr]=KDE Jezzball igra
+Comment[hu]=KDE Jezzball játék
+Comment[is]=kjezz:  Jezzboltaleikur
+Comment[it]=Gioco Jezzball di KDE
+Comment[ja]=KDE Jezzball ゲーム
+Comment[mk]=KDE Jezzball - игра
+Comment[nl]=KDE Jezzbal Spel
+Comment[no]=KDE Jezzball-spill
+Comment[no_NY]=Jezzball-spel for KDE
+Comment[pl]=Gra Jezzball
+Comment[pt]=Jogo Jezzbal para o KDE
+Comment[pt_BR]=Jogo JezzBall
+Comment[ro]=Joc Jezzball pentru KDE
+Comment[ru]=Игра Jezzball
+Comment[sk]=Taktická Hra
+Comment[sl]=Igra Jezzball za KDE
+Comment[sv]=KDE Jezzbollspel
+Comment[ta]=KDE Jezzball Å¢¨ÇÂ¡ðÎ
+Comment[tr]=KDE Jezzball Oyunu
+Comment[uk]=Гра Jezzball для KDE
+Comment[zh_TW.Big5]=KDE Jezzball 遊戲

@@ -1,0 +1,19 @@
+<!DOCTYPE kpartgui SYSTEM "kpartgui.dtd">
+<kpartgui name="kjezz" version="2">
+
+<MenuBar>
+	<Menu name="file"><text>&amp;File</text>
+		<Action name="file_pause"/>
+		<Action name="file_highscore"/>
+	</Menu>
+</MenuBar>
+
+<ToolBar noMerge="1" name="mainToolBar"><text>Main Toolbar</text>
+	<Action name="file_new"/>
+	<Action name="file_pause"/>
+	<Action name="file_close"/>
+	<Action name="file_highscore"/>
+	<Action name="file_quit"/>
+</ToolBar>
+
+</kpartgui>

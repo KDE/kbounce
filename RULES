@@ -1,0 +1,25 @@
+======================
+= Rules of Jezz Ball =
+======================
+
+Game/Level Length
+1. The game will be over if
+   a) your number of lifes is zero or
+   b) your time is over.
+2. When at least 75% of the field is filled. a level is completed.
+
+Lifes
+3. A level is started with one life per ball on the field.
+4. You will lose a life if a ball hits the inner of a wall.
+
+Balls
+5. Each level include one more ball.
+6. A ball is reflected by blue and black blocks.
+
+Walls
+7. You build a wall with the left mouse buttoyn and change the direction with the right.
+8. You can _always_ build _two_ "half" walls concurrently. If one half is already finished,
+   you can build another "half" wall.
+9. A wall is finished if it is hit by a ball at its end or it hits a black block.
+10. A wall is removed if it is hit by a ball at the wall's inner or two "half" walls hit each
+   other with their blue ends.
