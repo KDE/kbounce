@@ -422,7 +422,7 @@ i18n("You have successfully cleared more then 75% of the board.") +
 "\n%1 points : %2\n"
 "%3 points : %4\n"
 "%5 points : %6\n"
-+ i18n("Onto level %7, remember you get %8 lives this time!")).arg(
++ i18n("On to level %7, remember you get %8 lives this time!")).arg(
 m_level.lifes*15).arg(i18n("15 points per remaining life")).arg(
 (m_gameWidget->percent()-75)*2*(m_game.level+5)).arg(i18n("Bonus")).arg(
 score).arg(i18n("Total score for this level")).arg(
