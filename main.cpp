@@ -37,7 +37,7 @@ int main(int argc, char **argv)
 
   aboutData.addAuthor("Stefan Schimanski", I18N_NOOP("Original author"), "schimmi@kde.org");
   aboutData.addAuthor("Sandro Sigala", I18N_NOOP("Highscore"), "ssigala@globalnet.it");
-  aboutData.addAuthor("Benjamin Meyer", I18N_NOOP("Contributions"), "ben-devel@meyerhome.net");
+  aboutData.addAuthor("Benjamin Meyer", I18N_NOOP("Contributions"), "ben+kbounce@meyerhome.net");
 
   KCmdLineArgs::init( argc, argv, &aboutData );
 
