@@ -84,10 +84,10 @@ class JezzField : public QCanvas
 {
    Q_OBJECT
 public:
-   JezzField( QPixmap tiles, QPixmap background, QObject* parent = 0, const char* name = 0 );
+   JezzField( const QPixmap &tiles, const QPixmap &background, QObject* parent = 0, const char* name = 0 );
 
    void setGameTile( int x, int y, bool black );
-   void setBackground( QPixmap background );
+   void setBackground( const QPixmap &background );
 
 signals:
    void ballCollision( Ball *ball, int x, int y, int tile );
@@ -98,7 +98,7 @@ private:
    QPixmap m_tiles;
    QMemArray<QPixmap> m_backTiles;
 
-   void setPixmaps( QPixmap tiles, QPixmap background );
+   void setPixmaps( const QPixmap &tiles, const QPixmap &background );
    void emitBallCollisiton( Ball *ball, int x, int y, int tile )
       { emit ballCollision( ball, x, y, tile ); };
 
@@ -127,13 +127,13 @@ class JezzGame : public QWidget
    Q_OBJECT
 
 public:
-   JezzGame( QPixmap background, int ballNum, QWidget *parent=0, const char *name=0 );
+   JezzGame( const QPixmap &background, int ballNum, QWidget *parent=0, const char *name=0 );
    ~JezzGame();
 
    int percent();
-   static void playSound( QString name );
-   void display( QString text, int size=20 );
-   void setBackground( QPixmap background );
+   static void playSound( const QString &name );
+   void display( const QString &text, int size=20 );
+   void setBackground( const QPixmap &background );
 
 signals:
    void died();

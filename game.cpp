@@ -234,7 +234,7 @@ void Wall::fill( bool black )
 
 /*************************************************************************/
 
-JezzField::JezzField( QPixmap tiles, QPixmap background, QObject* parent, const char* name )
+JezzField::JezzField( const QPixmap &tiles, const QPixmap &background, QObject* parent, const char* name )
     : QCanvas( parent, name ), m_tiles( tiles )
 {
     setPixmaps( tiles, background );
@@ -248,7 +248,7 @@ void JezzField::setGameTile( int x, int y, bool black )
         setTile( x, y, black ? TILE_BORDER : TILE_FREE );
 }
 
-void JezzField::setBackground( QPixmap background )
+void JezzField::setBackground( const QPixmap &background )
 {
     // copy current field into buffer
     int backup[FIELD_WIDTH][FIELD_HEIGHT];
@@ -285,7 +285,7 @@ void JezzField::setBackground( QPixmap background )
         setTile( x, FIELD_HEIGHT-1, TILE_BORDER );
 }
 
-void JezzField::setPixmaps( QPixmap tiles, QPixmap background )
+void JezzField::setPixmaps( const QPixmap &tiles, const QPixmap &background )
 {
     // create new tiles
     QPixmap allTiles( TILE_SIZE*(FIELD_WIDTH-2), TILE_SIZE*(FIELD_HEIGHT-1) );
@@ -296,9 +296,9 @@ void JezzField::setPixmaps( QPixmap tiles, QPixmap background )
         // handle background
         m_background = true;
         QImage img = background.convertToImage();
-        background.convertFromImage( img.smoothScale( TILE_SIZE*(FIELD_WIDTH-2),
+        QPixmap scalledBackground( img.smoothScale( TILE_SIZE*(FIELD_WIDTH-2),
                                                       TILE_SIZE*(FIELD_HEIGHT-2) ) );
-        bitBlt( &allTiles, 0, 0, &background, 0, 0, background.width(), background.height() );
+        bitBlt( &allTiles, 0, 0, &scalledBackground, 0, 0, scalledBackground.width(), scalledBackground.height() );
     }
 
     // handle default tiles
@@ -338,7 +338,7 @@ void JezzView::viewportMouseReleaseEvent( QMouseEvent *ev )
 
 /*************************************************************************/
 
-JezzGame::JezzGame( QPixmap background, int ballNum, QWidget *parent, const char *name )
+JezzGame::JezzGame( const QPixmap &background, int ballNum, QWidget *parent, const char *name )
     : QWidget( parent, name ), m_wall1( 0 ), m_wall2( 0 ),
       m_text( 0 ), m_running( false ), m_percent( 0 ), m_pictured( false )
 {
@@ -416,7 +416,7 @@ JezzGame::~JezzGame()
 }
 
 
-void JezzGame::display( QString text, int size )
+void JezzGame::display( const QString &text, int size )
 {
     qDebug("This function \"display\" shouldn't be called!!!");
     if ( !text.isEmpty() )
@@ -440,7 +440,7 @@ void JezzGame::display( QString text, int size )
     }
 }
 
-void JezzGame::playSound( QString name )
+void JezzGame::playSound( const QString &name )
 {
     if( !m_artsServer->isNull() && m_sound)
     {
@@ -449,7 +449,7 @@ void JezzGame::playSound( QString name )
     }
 }
 
-void JezzGame::setBackground( QPixmap background )
+void JezzGame::setBackground( const QPixmap &background )
 {
     m_field->setBackground( background );
 }
