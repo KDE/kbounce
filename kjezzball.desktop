@@ -11,7 +11,7 @@ Name[xx]=xx
 Type=Application
 Exec=kjezzball %i %m -caption "%c"
 DocPath=kjezz/index.html
-Icon=kjezz
+Icon=kjezzball
 
 Comment=Arcade Game
 Comment[ar]=لعبة أركاد
