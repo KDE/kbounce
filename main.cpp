@@ -26,8 +26,8 @@
 using namespace std;
 using namespace Arts;
 
-static const char *description = I18N_NOOP("KDE Bounce Ball Game");
-static const char *version = "0.5";
+static const char description[] = I18N_NOOP("KDE Bounce Ball Game");
+static const char version[] = "0.5";
 
 int main(int argc, char **argv)
 {
