@@ -22,6 +22,7 @@
 #include <qwidget.h>
 #include <qcanvas.h>
 #include <arts/soundserver.h>
+#include <qmemarray.h>
 
 using namespace Arts;
 
@@ -95,7 +96,7 @@ private:
    friend class Ball;
    bool m_background;
    QPixmap m_tiles;
-   QArray<QPixmap> m_backTiles;
+   QMemArray<QPixmap> m_backTiles;
 
    void setPixmaps( QPixmap tiles, QPixmap background );
    void emitBallCollisiton( Ball *ball, int x, int y, int tile )
@@ -159,7 +160,7 @@ protected:
 
    Wall *m_wall1, *m_wall2;
 
-   QList<Ball> m_balls;
+   QPtrList<Ball> m_balls;
    QCanvasPixmapArray *m_ballPixmaps;
    QCanvasText *m_text;
 
