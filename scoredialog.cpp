@@ -30,7 +30,6 @@ this software.
 #include <qlayout.h>
 
 #include "scoredialog.h"
-#include <klocale.h>
 #include <kconfig.h>
 #include <kdialog.h>
 

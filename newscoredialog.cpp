@@ -29,7 +29,6 @@ this software.
 #include <qlineedit.h>
 
 #include "newscoredialog.h"
-#include <klocale.h>
 
 NewScoreDialog::NewScoreDialog(QWidget *parent, const char *name)
         : QDialog(parent, name, true)
