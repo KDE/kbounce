@@ -419,7 +419,7 @@ void KJezzball::switchLevel()
 
 void KJezzball::highscore()
 {
-    KScoreDialog d(KScoreDialog::Name | KScoreDialog::Level | KScoreDialog::Score);
+    KScoreDialog d(KScoreDialog::Name | KScoreDialog::Level | KScoreDialog::Score, this);
 
     KScoreDialog::FieldInfo scoreInfo;
     
