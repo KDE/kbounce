@@ -1,5 +1,10 @@
 [Desktop Entry]
+Encoding=UTF-8
 Name=KJezzball
+Name[fr]=kJezzball
+Name[lv]=KDžezbols
+Name[sv]=Kjezzball
+Name[xx]=xx
 
 Type=Application
 Exec=kjezz %i %m -caption "%c"
@@ -7,4 +12,23 @@ DocPath=kjezz/index.html
 Icon=kjezz
 
 Comment=Game
+Comment[ar]=لعبة
+Comment[da]=Spil
+Comment[de]=Spiel
+Comment[es]=Juego
+Comment[fi]=Peli
+Comment[fr]=Jeu
+Comment[he]=משחק
+Comment[hu]=Labdás játék
+Comment[is]=Leikur
+Comment[it]=Gioco
+Comment[lt]=Žaidimas
+Comment[lv]=Spēle
+Comment[nn]=Spel
+Comment[pt]=Jogo
+Comment[pt_BR]=Jogo
+Comment[sk]=Hra
+Comment[sv]=Spel
+Comment[tr]=Oyun
+Comment[xx]=xx
 X-DCOP-ServiceType=Multi
