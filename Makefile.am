@@ -8,10 +8,9 @@ METASOURCES = AUTO
 bin_PROGRAMS = kbounce
 kbounce_SOURCES = main.cpp kbounce.cpp game.cpp
 
-appsdir = $(kde_appsdir)/Games/Arcade
-apps_DATA = kbounce.desktop
+xdg_apps_DATA = kbounce.desktop
 
-EXTRA_DIST = RULES $(apps_DATA)
+EXTRA_DIST = RULES $(xdg_apps_DATA)
 
 rcdir = $(kde_datadir)/kbounce
 rc_DATA = kbounceui.rc
@@ -19,5 +18,3 @@ rc_DATA = kbounceui.rc
 messages: rc.cpp
 	$(XGETTEXT) *.cpp -o $(podir)/kbounce.pot
 
-install-data-local:
-	rm -rf $(DESTDIR)$(kde_appsdir)/Games/kbounce.desktop
