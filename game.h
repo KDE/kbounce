@@ -92,7 +92,7 @@ signals:
    void ballCollision( Ball *ball, int x, int y, int tile );
 
 private:
-   friend Ball;
+   friend class Ball;
    bool m_background;
    QPixmap m_tiles;
    QArray<QPixmap> m_backTiles;
