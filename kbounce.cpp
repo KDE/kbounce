@@ -134,6 +134,9 @@ void KJezzball::initXMLUI()
 
     KStdAction::keyBindings(this, SLOT(keyBindings()), actionCollection());
 
+    createStandardStatusBarAction();
+    setStandardToolBarMenuEnabled(true);
+
     createGUI();
 }
 
