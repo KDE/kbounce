@@ -1,6 +1,7 @@
 [Desktop Entry]
 Encoding=UTF-8
 Name=KBounce
+Name[af]=K-hop
 Name[eo]=Saltpilko
 Name[sv]=Kstuds
 Name[ven]=U tshina ha K
@@ -11,7 +12,7 @@ DocPath=kbounce/index.html
 Icon=kbounce
 
 GenericName=Arcade Game
-GenericName[af]=arkade speletjie
+GenericName[af]=Arkade Speletjie
 GenericName[ar]=لعبة أركاد
 GenericName[be]=Аркадная гульня
 GenericName[bg]=Игра в Галерия със сводове
