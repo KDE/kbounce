@@ -94,8 +94,6 @@ protected:
        int level;
        int score;
    } m_game;
-   
-   QString m_player;
 };
 
 #endif

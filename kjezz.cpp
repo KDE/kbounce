@@ -31,7 +31,6 @@
 
 #include "kjezz.h"
 #include "game.h"
-#include "newscoredialog.h"
 #include <qlabel.h>
 
 KJezzball::KJezzball()
@@ -204,7 +203,8 @@ void KJezzball::gameOverNow()
 
 void KJezzball::showHighscore()
 {
-    KScoreDialog h(0, KScoreDialog::Level, this);
+    KScoreDialog h(KScoreDialog::Name | KScoreDialog::Level |
+                   KScoreDialog::Score, this);
     h.exec();
 }
 
@@ -419,51 +419,17 @@ void KJezzball::switchLevel()
 
 void KJezzball::highscore()
 {
-    // Highscore?
-    KConfig *config = kapp->config();
-    config->setGroup("High Score");
-    QString num;
+    KScoreDialog d(KScoreDialog::Name | KScoreDialog::Level | KScoreDialog::Score);
 
-    int i;
-    for ( i=1; i<=10; ++i )
-    {
-        num.setNum( i );
-        int score = config->readNumEntry( "Pos" + num + "Score", 0 );
-        if ( m_game.score > score )
-            break;
-    }
+    KScoreDialog::FieldInfo scoreInfo;
+    
+    scoreInfo[KScoreDialog::Level].setNum(m_game.level);
 
-    if (i <= 10)
-    {
-        // ask user for name
-        NewScoreDialog d(m_player, this);
-        if (d.exec())
-        {
-            m_player = d.name();
-            // make place for new entry
-            for (int j = 10; j > i; --j) {
-                num.setNum( j - 1 );
-
-                int level = config->readNumEntry( "Pos" + num + "Level", 0 );
-                int score = config->readNumEntry( "Pos" + num + "Score", 0 );
-                QString  name = config->readEntry( "Pos" + num + "Name", "Noname" );
-
-                num.setNum( j );
-                config->writeEntry( "Pos" + num + "Level", level );
-                config->writeEntry( "Pos" + num + "Score", score );
-                config->writeEntry( "Pos" + num + "Name", name );
-            }
-
-            // insert new entry
-            num.setNum(i);
-            config->writeEntry( "Pos" + num + "Level", m_game.level );
-            config->writeEntry( "Pos" + num + "Score", m_game.score );
-            config->writeEntry( "Pos" + num + "Name", m_player );
-
-            KScoreDialog h(i, KScoreDialog::Level, this);
-            h.exec();
-        }
-    }
+    if (!d.addScore(m_game.score, scoreInfo))
+       return;
+    
+    // Show highscore & ask for name.
+    d.exec();
 }
 
 #include "kjezz.moc"
