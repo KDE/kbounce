@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2000 Stefan Schimanski <1Stein@gmx.de>
+ * Copyright (C) 2000 Stefan Schimanski <schimmi@kde.org>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Library General Public
@@ -39,7 +39,7 @@ int main(int argc, char **argv)
     version, description, KAboutData::License_GPL,
     "(c) 2000, Stefan Schimanski");
 
-  aboutData.addAuthor("Stefan Schimanski", 0, "1Stein@gmx.de");
+  aboutData.addAuthor("Stefan Schimanski", 0, "schimmi@kde.org");
   aboutData.addAuthor("Sandro Sigala", I18N_NOOP("Highscore"), "ssigala@globalnet.it");
 
   KCmdLineArgs::init( argc, argv, &aboutData );
