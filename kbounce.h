@@ -46,6 +46,7 @@ protected slots:
    void second();
    void switchLevel();
    void gameOverNow();
+   void keyBindings();
       		
 protected:
    void createLevel( int level );
@@ -58,7 +59,6 @@ protected:
 
    void focusOutEvent( QFocusEvent * );
    void focusInEvent ( QFocusEvent * );
-   void keyPressEvent( QKeyEvent * );
 
    QPixmap getBackgroundPixmap();
 

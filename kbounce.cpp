@@ -29,6 +29,7 @@
 #include <kfiledialog.h>
 #include <kscoredialog.h>
 #include <kstatusbar.h>
+#include <kkeydialog.h>
 
 #include "kbounce.h"
 #include "game.h"
@@ -98,7 +99,7 @@ KJezzball::KJezzball()
 
     // create demo game
     createLevel( 1 );
-    statusBar()->message( i18n("Press <Space> to start a game!") );
+    statusBar()->message( i18n("Press %1 to start a game!").arg(actionCollection()->action("game_new")->shortcut().seq(0).toString()) );
     //m_gameWidget->display( i18n("Press <Space> to start a game!") );
 }
 
@@ -107,7 +108,14 @@ KJezzball::KJezzball()
  */
 void KJezzball::initXMLUI()
 {
-    KStdGameAction::gameNew( this, SLOT(newGame()), actionCollection() );
+    KAction* gameNew = KStdGameAction::gameNew( this, SLOT(newGame()), actionCollection() );
+
+    // AB: originally KBounce/KJezzball used Space for new game - but Ctrl+N is
+    // default. We solve this by providing space as an alternative key
+    KShortcut s = gameNew->shortcut();
+    s.append(QKeySequence(Key_Space));
+    gameNew->setShortcut(s);
+    
     KStdGameAction::quit( this, SLOT(close()), actionCollection() );
     KStdGameAction::highscores(this, SLOT(showHighscore()), actionCollection() );
     KStdGameAction::pause(this, SLOT(pauseGame()), actionCollection());
@@ -119,6 +127,7 @@ void KJezzball::initXMLUI()
 
     show->setEnabled( !m_backgroundDir.isEmpty() );
     show->setChecked( m_showBackground );
+    KStdAction::keyBindings(this, SLOT(keyBindings()), actionCollection());
 
     createGUI( "kbounceui.rc" );
 }
@@ -310,18 +319,6 @@ void KJezzball::focusInEvent ( QFocusEvent *ev )
     KMainWindow::focusInEvent( ev );
 }
 
-void KJezzball::keyPressEvent( QKeyEvent *ev )
-{
-   if ((m_state==Idle) && (ev->key() == Key_Space))
-   {
-      ev->accept();
-      newGame();
-      return;
-   }
-   KMainWindow::keyPressEvent( ev );
-}
-
-
 void KJezzball::second()
 {
     m_level.time--;
@@ -456,6 +453,11 @@ void KJezzball::highscore()
     
     // Show highscore & ask for name.
     d.exec();
+}
+
+void KJezzball::keyBindings()
+{
+    KKeyDialog::configure(actionCollection(), this);
 }
 
 #include "kbounce.moc"
