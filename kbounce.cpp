@@ -28,7 +28,6 @@
 #include <kfiledialog.h>
 #include <kscoredialog.h>
 #include <kstatusbar.h>
-#include <kkeydialog.h>
 
 #include "kbounce.h"
 #include "game.h"
@@ -139,7 +138,9 @@ void KJezzball::initXMLUI()
     m_backgroundShowAction->setEnabled( !m_backgroundDir.isEmpty() );
     m_backgroundShowAction->setChecked( m_showBackground );
 
-    KStdAction::keyBindings(this, SLOT(keyBindings()), actionCollection());
+    KStdAction::keyBindings(guiFactory(), SLOT(configureShortcuts()), 
+actionCollection());
+   
     m_soundAction = new KToggleAction( i18n("&Play Sounds"), 0, 0, 0, actionCollection(), "toggle_sound");
 
     createStandardStatusBarAction();
@@ -482,11 +483,6 @@ void KJezzball::highscore()
 
     // Show highscore & ask for name.
     d.exec();
-}
-
-void KJezzball::keyBindings()
-{
-    KKeyDialog::configure(actionCollection(), this);
 }
 
 #include "kbounce.moc"

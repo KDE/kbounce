@@ -49,7 +49,6 @@ protected slots:
    void second();
    void switchLevel();
    void gameOverNow();
-   void keyBindings();
 
 protected:
    void createLevel( int level );
