@@ -46,7 +46,8 @@ int main(int argc, char **argv)
 
   QApplication::setColorSpec(QApplication::ManyColor);
   KApplication a;
-
+  KGlobal::locale()->insertCatalogue("libkdegames");
+   
   // setup MCOP
   Dispatcher dispatcher;
 
