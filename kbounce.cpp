@@ -288,9 +288,17 @@ QPixmap KJezzball::getBackgroundPixmap()
         return QPixmap();
     }
 
-    // return random pixmap
-    int num = rand() % dir.count();
-    return QPixmap( dir.absFilePath( dir[num] ) );
+    if (dir.count() > 1)
+    {
+        // return random pixmap
+        int num = rand() % dir.count();
+        return QPixmap( dir.absFilePath( dir[num] ) );
+    }
+    else if (dir.count()==1)
+    {
+    	return QPixmap( dir.absFilePath(dir[0]) );
+    }
+    else return QPixmap();
 }
 
 void KJezzball::focusOutEvent( QFocusEvent *ev )
