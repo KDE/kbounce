@@ -24,34 +24,24 @@ this software.
 #include "config.h"
 
 #include <klocale.h>
-#include <qpushbutton.h>
+#include <qhbox.h>
 #include <qlabel.h>
 #include <qlineedit.h>
 
 #include "newscoredialog.h"
 
-NewScoreDialog::NewScoreDialog(QWidget *parent, const char *name)
-        : QDialog(parent, name, true)
+NewScoreDialog::NewScoreDialog(const QString &name, QWidget *parent, const char *objname)
+        : KDialogBase(parent, objname, true, i18n("New High Score"), Ok, Ok, false)
 {
-        setCaption(i18n("New High Score"));
-
-        QPushButton *ok, *cancel;
-        ok = new QPushButton(i18n("OK"), this);
-        ok->setGeometry(10, 60, 70, 30);
-        ok->setDefault(true);
-        connect(ok, SIGNAL(clicked()), SLOT(accept()));
-        cancel = new QPushButton(i18n("Cancel"), this);
-        cancel->setGeometry(140, 60, 70, 30);
-        connect(cancel, SIGNAL(clicked()), SLOT(reject()));
-
-        QLabel *label = new QLabel(i18n("Enter name"), this);
-        label->move(10, 10);
-        le = new QLineEdit(this);
-        le->move(label->x() + label->width(), 10);
-        le->setFocus();
+    QHBox *page = makeHBoxMainWidget();
+    QLabel *label = new QLabel(i18n("Enter name:"), page);
+    le = new QLineEdit(page);
+    le->setText(name);
+    label->setBuddy(le);
+    le->setFocus();
 }
 
 QString NewScoreDialog::name()
 {
-        return le->text();
+    return le->text();
 }

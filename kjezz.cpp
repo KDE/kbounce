@@ -21,16 +21,17 @@
 #include <kapplication.h>
 #include <kaction.h>
 #include <kstdaction.h>
+#include <kstdgameaction.h>
 #include <qtimer.h>
 #include <qlcdnumber.h>
 #include <kmessagebox.h>
 #include <kdebug.h>
 #include <kfiledialog.h>
+#include <kscoredialog.h>
 
 #include "kjezz.h"
 #include "game.h"
 #include "newscoredialog.h"
-#include "scoredialog.h"
 #include <qlabel.h>
 
 KJezzball::KJezzball()
@@ -96,7 +97,7 @@ KJezzball::KJezzball()
 
     // create demo game
     createLevel( 1 );
-    m_gameWidget->display( i18n("Press CTRL-N to start a game!") );
+    m_gameWidget->display( i18n("Press <Space> to start a game!") );
 }
 
 KJezzball::~KJezzball()
@@ -105,15 +106,14 @@ KJezzball::~KJezzball()
 
 void KJezzball::initGUI()
 {
-    KStdAction::openNew( this, SLOT(newGame()), actionCollection() );
-    KStdAction::quit( kapp, SLOT(quit()), actionCollection() );
-    (void)new KAction( i18n("S&how Highscore"), CTRL+Key_H, this, SLOT(showHighscore()),
-                       actionCollection(), "file_highscore" );
+    KStdGameAction::gameNew( this, SLOT(newGame()), actionCollection() );
+    KStdGameAction::quit( this, SLOT(close()), actionCollection() );
+    
+    KStdGameAction::highscores(this, SLOT(showHighscore()), actionCollection() );
 
-    (void)new KAction( i18n("&Pause"), "player_pause", Key_P, this, SLOT(pauseGame()),
-                       actionCollection(), "file_pause" );
-    (void)new KAction( i18n("&Stop"), "player_stop", Key_S, this, SLOT(closeGame()),
-                       actionCollection(), "file_stop" );
+    KStdGameAction::pause(this, SLOT(pauseGame()), actionCollection());
+
+    KStdGameAction::end(this, SLOT(closeGame()), actionCollection());
 
     (void)new KAction( i18n("&Select Images..."), 0, this, SLOT(selectBackground()),
                        actionCollection(), "background_select" );
@@ -197,14 +197,14 @@ void KJezzball::gameOverNow()
     score.setNum( m_game.score );
     KMessageBox::information( this, i18n("Game Over!!! Score: %1").arg(score) );
 
-    m_gameWidget->display( i18n("Game over. Press CTRL-N for a new game!") );
+    m_gameWidget->display( i18n("Game over. Press <Space> for a new game!") );
 
     highscore();
 }
 
 void KJezzball::showHighscore()
 {
-    ScoreDialog h(this);
+    KScoreDialog h(0, KScoreDialog::Level, this);
     h.exec();
 }
 
@@ -298,6 +298,18 @@ void KJezzball::focusInEvent ( QFocusEvent *ev )
 
     KMainWindow::focusInEvent( ev );
 }
+
+void KJezzball::keyPressEvent( QKeyEvent *ev )
+{
+   if ((m_state==Idle) && (ev->key() == Key_Space))
+   {
+      ev->accept();
+      newGame();
+      return;
+   }
+   KMainWindow::keyPressEvent( ev );
+}
+
 
 void KJezzball::second()
 {
@@ -424,9 +436,10 @@ void KJezzball::highscore()
     if (i <= 10)
     {
         // ask user for name
-        NewScoreDialog d(this);
+        NewScoreDialog d(m_player, this);
         if (d.exec())
         {
+            m_player = d.name();
             // make place for new entry
             for (int j = 10; j > i; --j) {
                 num.setNum( j - 1 );
@@ -445,9 +458,10 @@ void KJezzball::highscore()
             num.setNum(i);
             config->writeEntry( "Pos" + num + "Level", m_game.level );
             config->writeEntry( "Pos" + num + "Score", m_game.score );
-            config->writeEntry( "Pos" + num + "Name", d.name() );
+            config->writeEntry( "Pos" + num + "Name", m_player );
 
-            showHighscore();
+            KScoreDialog h(i, KScoreDialog::Level, this);
+            h.exec();
         }
     }
 }

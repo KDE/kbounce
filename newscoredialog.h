@@ -24,13 +24,13 @@ this software.
 #ifndef NEWSCOREDIALOG_H
 #define NEWSCOREDIALOG_H
 
-#include <qdialog.h>
+#include <kdialogbase.h>
 
 class QLineEdit;
 
-class NewScoreDialog : public QDialog {
+class NewScoreDialog : public KDialogBase {
 public:
-	NewScoreDialog(QWidget *parent=0, const char *name=0);
+	NewScoreDialog(const QString &name, QWidget *parent=0, const char *objname=0);
 	QString name();
 
 private:

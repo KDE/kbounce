@@ -2,9 +2,7 @@
 <kpartgui name="kjezz" version="2">
 
 <MenuBar>
-	<Menu name="file"><text>&amp;File</text>
-		<Action name="file_pause"/>
-		<Action name="file_highscore"/>
+	<Menu name="game"><text>&amp;Game</text>
 	</Menu>
 
 	<Menu name="background"><text>&amp;Background</text>
@@ -14,8 +12,9 @@
 </MenuBar>
 
 <ToolBar noMerge="1" name="mainToolBar"><text>Main Toolbar</text>
-	<Action name="file_new"/>
-	<Action name="file_pause"/>
+       <Action name="game_new"/>
+       <Action name="game_pause"/>
 </ToolBar>
+
 
 </kpartgui>

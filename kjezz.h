@@ -59,6 +59,7 @@ protected:
 
    void focusOutEvent( QFocusEvent * );
    void focusInEvent ( QFocusEvent * );
+   void keyPressEvent( QKeyEvent * );
 
    QPixmap getBackgroundPixmap();
 
@@ -93,6 +94,8 @@ protected:
        int level;
        int score;
    } m_game;
+   
+   QString m_player;
 };
 
 #endif
