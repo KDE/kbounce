@@ -4,7 +4,7 @@ INCLUDES = -I$(top_srcdir)/libkdegames $(all_includes)
 
 kbounce_SOURCES = main.cpp kbounce.cpp game.cpp
 kbounce_LDFLAGS = $(all_libraries) $(KDE_RPATH)
-kbounce_LDADD = $(top_builddir)/libkdegames/libkdegames.la $(LIB_KFILE) -lsoundserver_idl
+kbounce_LDADD = $(LIB_KDEGAMES) $(LIB_KFILE) -lsoundserver_idl
 
 EXTRA_DIST = kbounce.desktop game.h kbounce.h RULES
 
