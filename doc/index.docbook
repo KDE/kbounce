@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
-<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
-  <!ENTITY kappname "&kjezz;">
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1.2-Based Variant V1.1//EN" "dtd/kdex.dtd" [
+  <!ENTITY kappname "&kbounce;">
   <!ENTITY package "kdegames">
   <!ENTITY % English "INCLUDE" > 
   <!ENTITY % addindex "IGNORE">
@@ -9,7 +9,7 @@
 <book lang="&language;">
 
 <bookinfo>
-<title>The &kjezz; Handbook</title>
+<title>The &kbounce; Handbook</title>
 
 <authorgroup>
 <author>
@@ -41,7 +41,7 @@
 
 <abstract>
 <para>
-&kjezz; is a ball game for &kde;.
+&kbounce; is a ball game for &kde;.
 </para>
 </abstract>
 
@@ -57,7 +57,7 @@
 <chapter id="how-to-play">
 <title>How To Play</title>
 
-<para>&kjezz; is played on a field, surrounded by a wall, with two or
+<para>&kbounce; is played on a field, surrounded by a wall, with two or
 more balls that move about in the field bouncing off of the
 walls.</para>
 
@@ -120,7 +120,7 @@ normally.</para>
 third or fourth level, given the number of balls on the field at
 once.</para>
 
-<para>The trick to playing &kjezz; successfully is to build
+<para>The trick to playing &kbounce; successfully is to build
 <quote>corridors</quote>.  To build a corridor, start a pair of walls
 growing close to another wall, and time it such that one of the walls
 will be hit by a ball and one of the walls will not, and thus become
@@ -230,7 +230,7 @@ of the screen.  Rushing will just get you in trouble!</para>
 <guimenuitem>Quit</guimenuitem>
 </menuchoice></term>
 <listitem>
-<para><action>Quit</action> and close &kjezz;.</para>
+<para><action>Quit</action> and close &kbounce;.</para>
 </listitem>
 </varlistentry>
 </variablelist>
@@ -277,7 +277,7 @@ of the screen.  Rushing will just get you in trouble!</para>
 <title>Credits and Licenses</title>
 
 
-<para>&kjezz;</para>
+<para>&kbounce;</para>
 
 <para>Copyright 2000, Stefan Schimanski</para>
 
