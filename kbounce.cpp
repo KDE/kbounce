@@ -20,7 +20,6 @@
 #include <klocale.h>
 #include <kapplication.h>
 #include <kaction.h>
-#include <kstdaction.h>
 #include <kstdgameaction.h>
 #include <qtimer.h>
 #include <qlcdnumber.h>
@@ -33,7 +32,6 @@
 
 #include "kbounce.h"
 #include "game.h"
-#include <qlabel.h>
 
 KJezzball::KJezzball()
     : m_gameWidget( 0 )
