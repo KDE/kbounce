@@ -60,7 +60,7 @@ Please respect the format of the date (DD/MM/YYYY) and of the version
 
 </chapter>
 
-<![ %addindex; [ &kdedocindex; ]]>
+<![ %addindex; [ &documentation.index; ]]>
 </book>
 <!--
 Local Variables:
