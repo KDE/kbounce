@@ -13,55 +13,294 @@
 
 <authorgroup>
 <author>
-<firstname></firstname>
-<othername></othername>
-<surname></surname>
+<firstname>Aaron</firstname>
+<othername>J.</othername>
+<surname>Seigo</surname>
 <affiliation>
-<address><email></email></address>
+<address><email>aseigo@olympusproject.org</email></address>
 </affiliation>
 </author>
-</authorgroup>
+
+<othercredit role="reviewer">
+<firstname>Lauri</firstname>
+<surname>Watts</surname>
+<affiliation><address><email>lauri@kde.org</email></address></affiliation>
+<contrib>Reviewer</contrib>
+</othercredit>
 
 <!-- TRANS:ROLES_OF_TRANSLATORS -->
 
+</authorgroup>
+
 <legalnotice>&FDLNotice;</legalnotice>
 
-<!-- Date and version information of the documentation
-Don't forget to include this last date and this last revision number, we
-need them for translation coordination !
-Please respect the format of the date (DD/MM/YYYY) and of the version
-(Major.minor.lesser), it could be used by automation scripts -->
-
-<date>2001-01-22</date>
-<releaseinfo>0.00.00</releaseinfo>
+<date>2002-02-05</date>
+<releaseinfo>0.01.00</releaseinfo>
 
 <!-- Abstract about this handbook -->
 
 <abstract>
 <para>
-&kjezz; is a game for &kde;.
+&kjezz; is a ball game for &kde;.
 </para>
 </abstract>
 
 
 <keywordset>
 <keyword>KDE</keyword>
-<keyword>Kapp</keyword>
+<keyword>kdegames</keyword>
+<keyword>jezzball</keyword>
 </keywordset>
 
 </bookinfo>
 
-<chapter id="introduction">
-<title>Introduction</title>
-<para>Sorry, but the documentation for &kjezz; was not finished when
-&kde; was installed on this computer.</para> 
+<chapter id="how-to-play">
+<title>How To Play</title>
 
-<para>If you need help, please check <ulink url="http://www.kde.org">The KDE Website</ulink> for updates, or by submitting your question to <ulink url="mailto:kde-user@kde.org">The &kde; User Mailing list</ulink>.</para>
-<para><emphasis>The &kde; Team</emphasis></para>
+<para>&kjezz; is played on a field, surrounded by a wall, with two or
+more balls that move about in the field bouncing off of the
+walls.</para>
+
+<para>Walls are a darker color while the active areas of the filed are
+a lighter color.</para>
+
+<para>The size of the active area of the field is decreased by making
+new walls that enclose areas without balls in them.  To complete a
+level, the player must decrease the size of the active field by at
+least 75&percnt; within the time allowed.</para>
+
+<para>With each new level, another ball is added to the field, and the
+player is given one more life than in the level before.  The time
+allotted to complete the level is increased.</para>
+
+<para>Scoring is based on how much of the field is cleared.</para>
+
+<para>New walls are built by clicking the
+<mousebutton>left</mousebutton> mouse button in an active area of the
+field, at which point two walls will begin to grow in opposite
+directions from the square the mouse was clicked in.  Only two walls
+may be growing on the screen at any given time.</para>
+
+<screenshot>
+<screeninfo>A new wall growing</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="jezball_newWall.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase>A new wall growing</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<para>When the mouse is on the field, the cursor is shown as a pair of
+arrows pointing in opposite directions, either horizontally or
+vertically.  The arrows point in the direction the walls will grow
+when the <mousebutton>left</mousebutton> is clicked.  This direction
+can be changed by clicking the <mousebutton>right</mousebutton> mouse
+button.</para>
+
+<para>A new wall has a <quote>head</quote> which moves away from the
+point where the mouse was clicked.  A wall is not permanent until this
+<quote>head</quote> runs into another wall.  If a ball collides with
+any part of the wall except the head, before the head has run into
+another wall, the new wall will disappear completely and one life will
+be lost.  If a ball collides with the head in the direction of the
+wall's growth, the wall will stop growing there, and become permanent,
+with no loss of life.  If a ball collides with the head from any other
+side, the ball will bounce off and the wall will continue to grow
+normally.</para>
+
+</chapter>
+
+<chapter id="strategy">
+<title>Strategy</title>
+
+<para>Many players find the game becomes quite difficult by only the
+third or fourth level, given the number of balls on the field at
+once.</para>
+
+<para>The trick to playing &kjezz; successfully is to build
+<quote>corridors</quote>.  To build a corridor, start a pair of walls
+growing close to another wall, and time it such that one of the walls
+will be hit by a ball and one of the walls will not, and thus become
+permanent.</para>
+
+<screenshot>
+<screeninfo>Building a corridor</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="jezball_corridor1.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase>Building a corridor</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<para>This will leave a narrow corridor only a few squares high on the
+field, surrounded on three sides by walls.  Wait for the balls to
+bounce into the open end of the corridor, and close the corridor
+behind the ball with a new wall.  Although you will most likely lose a
+life for each corridor created, you can trap several balls in a single
+corridor.</para>
+
+<screenshot>
+<screeninfo>Capturing balls in a corridor</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="jezball_corridor2.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase>Capturing balls in a corridor</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<para>A final tip &mdash; take your time!  There is plenty of time, as
+shown in the <guilabel>Time</guilabel> display on the right hand side
+of the screen.  Rushing will just get you in trouble!</para>
+
+</chapter>
+
+<chapter id="menu-reference">
+<title>Menu Reference</title>
+
+<sect1 id="game-menu">
+<title>The <guimenu>Game</guimenu> Menu</title>
+
+<variablelist>
+<varlistentry>
+<term>
+<menuchoice><shortcut>
+<keycombo action="simul">&Ctrl;<keycap>N</keycap></keycombo>
+</shortcut>
+<guimenu>Game</guimenu>
+<guimenuitem>New</guimenuitem>
+</menuchoice></term>
+<listitem>
+<para><action>Start a new game.</action></para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<menuchoice><shortcut>
+<keycombo action="simul">&Ctrl;<keycap>End</keycap>
+</keycombo>
+</shortcut>
+<guimenu>Game</guimenu>
+<guimenuitem>End Game</guimenuitem>
+</menuchoice></term>
+<listitem>
+<para><action>End the current game.</action></para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<menuchoice><shortcut>
+<keycap>P</keycap></shortcut>
+<guimenu>Game</guimenu>
+<guimenuitem>Pause</guimenuitem>
+</menuchoice></term>
+<listitem>
+<para><action>Pause the game.</action></para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<menuchoice><shortcut>
+<keycombo action="simul">&Ctrl;<keycap>H</keycap></keycombo>
+</shortcut>
+<guimenu>Game</guimenu>
+<guimenuitem>Show Highscores</guimenuitem>
+</menuchoice></term>
+<listitem>
+<para><action>Show the high score table.</action></para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice><shortcut>
+<keycombo action="simul">&Ctrl;<keycap>Q</keycap></keycombo>
+</shortcut>
+<guimenu>Game</guimenu>
+<guimenuitem>Quit</guimenuitem>
+</menuchoice></term>
+<listitem>
+<para><action>Quit</action> and close &kjezz;.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+</sect1>
+
+<sect1 id="background-menu">
+<title>The <guimenu>Background</guimenu> Menu</title>
+
+<variablelist>
+<varlistentry>
+<term><menuchoice>
+<guimenu>Background</guimenu>
+<guimenuitem>Select Images...</guimenuitem>
+</menuchoice>
+</term>
+<listitem>
+<para><action>Choose an image for the background.</action></para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu>Background</guimenu>
+<guimenuitem>Show Images</guimenuitem>
+</menuchoice></term>
+<listitem>
+<para><action>Enable the background image.</action></para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+</sect1>
+
+<sect1 id="help-menu">
+<title>The <guimenu>Help</guimenu> Menu</title>
+
+&help.menu.documentation;
+
+</sect1>
+
+</chapter>
+
+<chapter id="credits-and-licenses">
+<title>Credits and Licenses</title>
+
+
+<para>&kjezz;</para>
+
+<para>Copyright 2000, Stefan Schimanski</para>
+
+<itemizedlist>
+<title>Developers</title>
+<listitem>
+<para>Stefan Schimanski <email>schimmi@kde.org</email></para>
+</listitem>
+<listitem>
+<para>Sandro Sigala <email>ssigala@globalnet.it</email> -
+Highscore</para>
+</listitem>
+</itemizedlist>
+
+<para>Documentation copyright 2002, Aaron J. Seigo
+<email>aseigo@olympusproject.org</email></para>
+
+<para>This handbook is dedicated to Dennis E. Powell.</para>
 
 <!-- TRANS:CREDIT_FOR_TRANSLATORS -->
+ 
+&underFDL; 
 
-&underFDL;
 &underGPL;
 
 </chapter>
