@@ -44,8 +44,8 @@ KJezzball::KJezzball()
     m_backgroundDir = config->readPathEntry( "BackgroundDir" );
     m_showBackground = config->readBoolEntry( "ShowBackground", false );
 
-    initXMLUI();
     statusBar();
+    initXMLUI();
 
     m_soundAction -> setChecked((config->readBoolEntry( "PlaySounds", true )));
 
@@ -138,16 +138,8 @@ void KJezzball::initXMLUI()
     m_backgroundShowAction->setEnabled( !m_backgroundDir.isEmpty() );
     m_backgroundShowAction->setChecked( m_showBackground );
 
-    KStdAction::keyBindings(guiFactory(), SLOT(configureShortcuts()), 
-actionCollection());
-   
     m_soundAction = new KToggleAction( i18n("&Play Sounds"), 0, 0, 0, actionCollection(), "toggle_sound");
-
-    createStandardStatusBarAction();
-    setAutoSaveSettings("");
-    setStandardToolBarMenuEnabled(true);
-
-    createGUI();
+    setupGUI();
 }
 
 void KJezzball::newGame()
