@@ -235,31 +235,14 @@ of the screen.  Rushing will just get you in trouble!</para>
 <variablelist>
 <varlistentry>
 <term><menuchoice>
-<guimenu>Background</guimenu>
-<guimenuitem>Select Images...</guimenuitem>
+<guimenu>Settings</guimenu>
+<guimenuitem>Select Background Folder...</guimenuitem>
 </menuchoice>
 </term>
 <listitem>
-<para><action>Choose an image for the background.</action></para>
+<para><action>Choose a folder of images for the background.</action></para>
 </listitem>
 </varlistentry>
-
-<varlistentry>
-<term><menuchoice>
-<guimenu>Background</guimenu>
-<guimenuitem>Show Images</guimenuitem>
-</menuchoice></term>
-<listitem>
-<para><action>Enable the background image.</action></para>
-</listitem>
-</varlistentry>
-</variablelist>
-
-</sect1>
-
-<sect1 id="settings-menu">
-<title>The <guimenu>Settings</guimenu> Menu</title>
-<variablelist>
 
 <varlistentry>
 <term><menuchoice>
@@ -281,6 +264,17 @@ of the screen.  Rushing will just get you in trouble!</para>
 </listitem>
 </varlistentry>
 
+
+<varlistentry>
+<term><menuchoice>
+<guimenu>Settings</guimenu>
+<guimenuitem>Play Sounds</guimenuitem>
+</menuchoice></term>
+<listitem>
+<para><action>If checked, &kbounce; game sounds are played.</action></para>
+</listitem>
+</varlistentry>
+
 <varlistentry>
 <term><menuchoice>
 <guimenu>Settings</guimenu>
@@ -295,12 +289,14 @@ you can change the keyboard shortcuts used by &kbounce;.</action></para>
 <varlistentry>
 <term><menuchoice>
 <guimenu>Settings</guimenu>
-<guimenuitem>Play Sounds</guimenuitem>
+<guimenuitem>Configure Toolbars...</guimenuitem>
 </menuchoice></term>
 <listitem>
-<para><action>If checked, &kbounce; game sounds are played.</action></para>
+<para><action>Opens a standard &kde; toolbar configuration dialog, in which
+you can change the items on the toolbar.</action></para>
 </listitem>
 </varlistentry>
+
 
 </variablelist>
 </sect1>
