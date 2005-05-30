@@ -22,6 +22,7 @@
 #include <kstandarddirs.h>
 #include <kapplication.h>
 #include <kdebug.h>
+#include <qevent.h>
 #include <qimage.h>
 #include <kglobalsettings.h>
 
@@ -50,8 +51,8 @@ bool JezzGame::m_sound = true;
 
 #define MS2TICKS( ms ) ((ms)/GAME_DELAY)
 
-Ball::Ball(QCanvasPixmapArray* array, QCanvas* canvas)
-    : QCanvasSprite( array, canvas ), m_animDelay( 0 ), m_soundDelay( MS2TICKS(BALL_ANIM_DELAY)/2 )
+Ball::Ball(Q3CanvasPixmapArray* array, Q3Canvas* canvas)
+    : Q3CanvasSprite( array, canvas ), m_animDelay( 0 ), m_soundDelay( MS2TICKS(BALL_ANIM_DELAY)/2 )
 {
 }
 
@@ -115,7 +116,7 @@ void Ball::advance(int stage)
 
    // update field
    update();
-   QCanvasSprite::advance( stage );
+   Q3CanvasSprite::advance( stage );
 }
 
 bool Ball::collide( double dx, double dy )
@@ -167,7 +168,7 @@ bool Wall::isFree( int x, int y )
     if ( m_field->tile(x, y)==TILE_FREE )
     {
         // check whether there is a ball at the moment
-        QCanvasItemList cols = m_field->collisions( QRect(x*TILE_SIZE, y*TILE_SIZE,
+        Q3CanvasItemList cols = m_field->collisions( QRect(x*TILE_SIZE, y*TILE_SIZE,
                                                           TILE_SIZE, TILE_SIZE) );
         if ( cols.count()==0 )
             return true;
@@ -235,7 +236,7 @@ void Wall::fill( bool black )
 /*************************************************************************/
 
 JezzField::JezzField( const QPixmap &tiles, const QPixmap &background, QObject* parent, const char* name )
-    : QCanvas( parent, name ), m_tiles( tiles )
+    : Q3Canvas( parent, name ), m_tiles( tiles )
 {
     setPixmaps( tiles, background );
 }
@@ -312,25 +313,25 @@ void JezzField::setPixmaps( const QPixmap &tiles, const QPixmap &background )
 
 /*************************************************************************/
 
-JezzView::JezzView(QCanvas* viewing, QWidget* parent, const char* name, WFlags f)
-   : QCanvasView( viewing, parent, name, f ), m_vertical( false )
+JezzView::JezzView(Q3Canvas* viewing, QWidget* parent, const char* name)
+   : Q3CanvasView( viewing, parent, name ), m_vertical( false )
 {
    setResizePolicy( AutoOne );
    setHScrollBarMode( AlwaysOff );
    setVScrollBarMode( AlwaysOff );
 
-   setCursor( sizeHorCursor );
+   setCursor( Qt::sizeHorCursor );
 }
 
 void JezzView::viewportMouseReleaseEvent( QMouseEvent *ev )
 {
-   if ( ev->button() & RightButton )
+   if ( ev->button() & Qt::RightButton )
    {
       m_vertical = !m_vertical;
-      if ( m_vertical ) setCursor( sizeVerCursor ); else setCursor( sizeHorCursor );
+      if ( m_vertical ) setCursor( Qt::sizeVerCursor ); else setCursor( Qt::sizeHorCursor );
    }
 
-   if ( ev->button() & LeftButton )
+   if ( ev->button() & Qt::LeftButton )
    {
       emit buildWall( ev->x()/TILE_SIZE, ev->y()/TILE_SIZE, m_vertical );
    }
@@ -345,7 +346,7 @@ JezzGame::JezzGame( const QPixmap &background, int ballNum, QWidget *parent, con
    QString path = kapp->dirs()->findResourceDir( "data", "kbounce/pics/ball0000.png" ) + "kbounce/pics/";
 
    // load gfx
-   m_ballPixmaps = new QCanvasPixmapArray( path + "ball%1.png", 25 );
+   m_ballPixmaps = new Q3CanvasPixmapArray( path + "ball%1.png", 25 );
    for ( unsigned n=0; n<m_ballPixmaps->count(); n++ )
        m_ballPixmaps->image(n)->setOffset( 0, 0 );
    QPixmap tiles( path + "tiles.png" );
@@ -395,7 +396,7 @@ JezzGame::JezzGame( const QPixmap &background, int ballNum, QWidget *parent, con
    }
 
    // create text label
-   m_text = new QCanvasText( m_field );
+   m_text = new Q3CanvasText( m_field );
 
    // create game clock
    m_clock = new QTimer( this );
@@ -593,7 +594,7 @@ void JezzGame::buildWall( int x, int y, bool vertical )
        playSound( "wallstart.au" );
 
       // check whether there is a ball at the moment
-      QCanvasItemList cols = m_field->collisions( QRect(x*TILE_SIZE, y*TILE_SIZE, TILE_SIZE, TILE_SIZE) );
+      Q3CanvasItemList cols = m_field->collisions( QRect(x*TILE_SIZE, y*TILE_SIZE, TILE_SIZE, TILE_SIZE) );
       if ( cols.count()>0 )
       {
          kdDebug(12008) << "Direct collision" << endl;
