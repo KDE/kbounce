@@ -299,7 +299,7 @@ QPixmap KJezzball::getBackgroundPixmap()
     // list directory
     QDir dir( m_backgroundDir, "*.png *.jpg", QDir::Name|QDir::IgnoreCase, QDir::Files );
     if ( !dir.exists() ) {
-        kdDebug(1433) << "Directory not found" << endl;
+        kdDebug(12008) << "Directory not found" << endl;
         return QPixmap();
     }
 
