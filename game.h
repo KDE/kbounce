@@ -22,7 +22,7 @@
 #include <qwidget.h>
 #include <q3canvas.h>
 #include <arts/soundserver.h>
-#include <q3memarray.h>
+
 
 using namespace Arts;
 
@@ -96,7 +96,7 @@ private:
    friend class Ball;
    bool m_background;
    QPixmap m_tiles;
-   Q3MemArray<QPixmap> m_backTiles;
+   QVector<QPixmap> m_backTiles;
 
    void setPixmaps( const QPixmap &tiles, const QPixmap &background );
    void emitBallCollisiton( Ball *ball, int x, int y, int tile )
