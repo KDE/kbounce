@@ -19,12 +19,18 @@
 #include <kapplication.h>
 #include <kcmdlineargs.h>
 #include <kaboutdata.h>
+
+#ifdef HAVE_ARTS
 #include <arts/dispatcher.h>
+#endif
 
 #include "kbounce.h"
 
 using namespace std;
+
+#ifdef HAVE_ARTS
 using namespace Arts;
+#endif
 
 static const char description[] = I18N_NOOP("KDE Bounce Ball Game");
 static const char version[] = "0.5";
@@ -46,7 +52,9 @@ int main(int argc, char **argv)
   KGlobal::locale()->insertCatalogue("libkdegames");
 
   // setup MCOP
+#ifdef HAVE_ARTS
   Dispatcher dispatcher;
+#endif
 
   if (a.isRestored())
       RESTORE(KJezzball)

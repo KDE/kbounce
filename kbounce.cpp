@@ -306,7 +306,7 @@ QPixmap KJezzball::getBackgroundPixmap()
     if (dir.count() > 1)
     {
         // return random pixmap
-        int num = rand() % dir.count();
+        int num = kapp->random() % dir.count();
         return QPixmap( dir.absFilePath( dir[num] ) );
     }
     else if (dir.count()==1)

@@ -6,7 +6,7 @@ METASOURCES = AUTO
 bin_PROGRAMS = kbounce
 kbounce_SOURCES = main.cpp kbounce.cpp game.cpp
 kbounce_LDFLAGS = $(all_libraries) $(KDE_RPATH)
-kbounce_LDADD = $(LIB_KDEGAMES) $(LIB_KFILE) -lsoundserver_idl
+kbounce_LDADD = $(LIB_KDEGAMES) $(LIB_KFILE) $(LIB_ARTS) 
 kbounce_DEPENDENCIES = $(LIB_KDEGAMES_DEP)
 
 xdg_apps_DATA = kbounce.desktop

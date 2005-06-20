@@ -21,10 +21,15 @@
 
 #include <qwidget.h>
 #include <qcanvas.h>
-#include <arts/soundserver.h>
 #include <qmemarray.h>
 
+#ifdef HAVE_ARTS
+#include <arts/soundserver.h>
+#endif
+
+#ifdef HAVE_ARTS
 using namespace Arts;
+#endif
 
 class QTimer;
 class JezzField;
@@ -170,7 +175,9 @@ protected:
    int m_percent;
    bool m_pictured;
 
+#ifdef HAVE_ARTS
    static SimpleSoundServer *m_artsServer;
+#endif
    static QString m_soundPath;
    static bool m_sound;
 };

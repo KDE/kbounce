@@ -1,3 +1,4 @@
-if test "x$build_arts" = "xno"; then
-  DO_NOT_COMPILE="$DO_NOT_COMPILE kbounce"
+if test "x$build_arts" != "xno"; then
+  AC_DEFINE_UNQUOTED(HAVE_ARTS, 1, [Define if aRts is available])
+  LIB_ARTS="-lsoundserver_idl"
 fi
