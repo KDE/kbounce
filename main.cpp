@@ -26,6 +26,9 @@
 
 #include "kbounce.h"
 
+#include <khighscore.h>
+#include <kexthighscore.h>
+
 using namespace std;
 
 #ifdef HAVE_ARTS
@@ -37,6 +40,8 @@ static const char version[] = "0.5";
 
 int main(int argc, char **argv)
 {
+  KHighscore::init("kbounce");
+
   KAboutData aboutData( "kbounce", I18N_NOOP("KBounce"),
     version, description, KAboutData::License_GPL,
     "(c) 2000, Stefan Schimanski");
@@ -50,6 +55,8 @@ int main(int argc, char **argv)
   QApplication::setColorSpec(QApplication::ManyColor);
   KApplication a;
   KGlobal::locale()->insertCatalogue("libkdegames");
+
+  KExtHighscore::Manager manager;
 
   // setup MCOP
 #ifdef HAVE_ARTS

@@ -49,6 +49,7 @@ protected slots:
    void second();
    void switchLevel();
    void gameOverNow();
+   void configureHighscores();
 
 protected:
    void createLevel( int level );
