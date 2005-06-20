@@ -44,7 +44,9 @@
 #define WALL_DELAY 100
 
 
+#ifdef HAVE_ARTS
 SimpleSoundServer *JezzGame::m_artsServer = 0;
+#endif
 QString JezzGame::m_soundPath;
 bool JezzGame::m_sound = true;
 
@@ -351,10 +353,12 @@ JezzGame::JezzGame( const QPixmap &background, int ballNum, QWidget *parent, con
    QPixmap tiles( path + "tiles.png" );
 
    // setup arts
+#ifdef HAVE_ARTS
    m_artsServer = new SimpleSoundServer;
    *m_artsServer = Arts::Reference("global:Arts_SimpleSoundServer");
    if ( m_artsServer->isNull() )
        kdDebug(12008) << "Can't connect to aRts sound server" << endl;
+#endif
    m_soundPath = kapp->dirs()->findResourceDir( "data", "kbounce/sounds/death.au" ) +
                  "kbounce/sounds/";
 
@@ -387,10 +391,10 @@ JezzGame::JezzGame( const QPixmap &background, int ballNum, QWidget *parent, con
    {
       Ball *ball = new Ball( m_ballPixmaps, m_field );
       m_balls.append( ball );
-      ball->setVelocity( ((rand() & 1)*2-1)*2, ((rand() & 1)*2-1)*2 );
-      ball->setFrame( rand() % 25 );
-      ball->move( 4*TILE_SIZE + rand() % ( (FIELD_WIDTH-8)*TILE_SIZE ),
-                  4*TILE_SIZE + rand() % ( (FIELD_HEIGHT-8)*TILE_SIZE ) );
+      ball->setVelocity( ((kapp->random() & 1)*2-1)*2, ((kapp->random() & 1)*2-1)*2 );
+      ball->setFrame( kapp->random() % 25 );
+      ball->move( 4*TILE_SIZE + kapp->random() % ( (FIELD_WIDTH-8)*TILE_SIZE ),
+                  4*TILE_SIZE + kapp->random() % ( (FIELD_HEIGHT-8)*TILE_SIZE ) );
       ball->show();
    }
 
@@ -412,7 +416,9 @@ JezzGame::~JezzGame()
     delete m_view;
     delete m_field;
     delete m_ballPixmaps;
+#ifdef HAVE_ARTS
     delete m_artsServer;
+#endif
 }
 
 
@@ -442,11 +448,15 @@ void JezzGame::display( const QString &text, int size )
 
 void JezzGame::playSound( const QString &name )
 {
+#ifdef HAVE_ARTS
     if( !m_artsServer->isNull() && m_sound)
     {
         QString path = m_soundPath + name;
         m_artsServer->play( path.latin1() );
     }
+#else
+	return;
+#endif
 }
 
 void JezzGame::setBackground( const QPixmap &background )
