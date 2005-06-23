@@ -26,8 +26,9 @@
 #include <kmessagebox.h>
 #include <kdebug.h>
 #include <kfiledialog.h>
-#include <kscoredialog.h>
 #include <kstatusbar.h>
+#include <khighscore.h>
+#include <kexthighscore.h>
 
 #include "kbounce.h"
 #include "game.h"
@@ -129,6 +130,7 @@ void KJezzball::initXMLUI()
     KStdGameAction::highscores(this, SLOT(showHighscore()), actionCollection() );
     m_pauseButton = KStdGameAction::pause(this, SLOT(pauseGame()), actionCollection());
     KStdGameAction::end(this, SLOT(closeGame()), actionCollection());
+    KStdGameAction::configureHighscores(this, SLOT(configureHighscores()),actionCollection());
 
     new KAction( i18n("&Select Background Folder..."), 0, this, SLOT(selectBackground()),
                        actionCollection(), "background_select" );
@@ -233,12 +235,19 @@ void KJezzball::gameOverNow()
 }
 
 /**
+ * Bring up the standard kde high score configure dialog.
+ */
+void KJezzball::configureHighscores()
+{
+	KExtHighscore::configure(this);
+}
+
+/**
  * Bring up the standard kde high score dialog.
  */
 void KJezzball::showHighscore()
 {
-    KScoreDialog h(KScoreDialog::Name | KScoreDialog::Level | KScoreDialog::Score, this);
-    h.exec();
+    KExtHighscore::show(this);
 }
 
 /**
@@ -306,7 +315,7 @@ QPixmap KJezzball::getBackgroundPixmap()
     if (dir.count() > 1)
     {
         // return random pixmap
-        int num = rand() % dir.count();
+        int num = kapp->random() % dir.count();
         return QPixmap( dir.absFilePath( dir[num] ) );
     }
     else if (dir.count()==1)
@@ -473,17 +482,9 @@ i18n("On to level %1. Remember you get %2 lives this time!")).arg(m_game.level+1
 
 void KJezzball::highscore()
 {
-    KScoreDialog d(KScoreDialog::Name | KScoreDialog::Level | KScoreDialog::Score, this);
-
-    KScoreDialog::FieldInfo scoreInfo;
-
-    scoreInfo[KScoreDialog::Level].setNum(m_game.level);
-
-    if (!d.addScore(m_game.score, scoreInfo))
-       return;
-
-    // Show highscore & ask for name.
-    d.exec();
+    KExtHighscore::Score score(KExtHighscore::Won);
+    score.setScore(m_game.score);
+    KExtHighscore::submitScore(score, this);
 }
 
 #include "kbounce.moc"

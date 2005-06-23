@@ -19,18 +19,29 @@
 #include <kapplication.h>
 #include <kcmdlineargs.h>
 #include <kaboutdata.h>
+
+#ifdef HAVE_ARTS
 #include <arts/dispatcher.h>
+#endif
 
 #include "kbounce.h"
 
+#include <khighscore.h>
+#include <kexthighscore.h>
+
 using namespace std;
+
+#ifdef HAVE_ARTS
 using namespace Arts;
+#endif
 
 static const char description[] = I18N_NOOP("KDE Bounce Ball Game");
 static const char version[] = "0.5";
 
 int main(int argc, char **argv)
 {
+  KHighscore::init("kbounce");
+
   KAboutData aboutData( "kbounce", I18N_NOOP("KBounce"),
     version, description, KAboutData::License_GPL,
     "(c) 2000, Stefan Schimanski");
@@ -45,8 +56,12 @@ int main(int argc, char **argv)
   KApplication a;
   KGlobal::locale()->insertCatalogue("libkdegames");
 
+  KExtHighscore::Manager manager;
+
   // setup MCOP
+#ifdef HAVE_ARTS
   Dispatcher dispatcher;
+#endif
 
   if (a.isRestored())
       RESTORE(KJezzball)
