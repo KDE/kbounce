@@ -27,7 +27,7 @@
 #include "kbounce.h"
 
 #include <khighscore.h>
-#include <kexthighscore.h>
+#include <highscores.h>
 
 using namespace std;
 
@@ -56,7 +56,7 @@ int main(int argc, char **argv)
   KApplication a;
   KGlobal::locale()->insertCatalogue("libkdegames");
 
-  KExtHighscore::Manager manager;
+  ExtManager manager;
 
   // setup MCOP
 #ifdef HAVE_ARTS
