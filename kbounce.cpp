@@ -484,6 +484,7 @@ void KJezzball::highscore()
 {
     KExtHighscore::Score score(KExtHighscore::Won);
     score.setScore(m_game.score);
+    score.setData("level", m_game.level);
     KExtHighscore::submitScore(score, this);
 }
 
