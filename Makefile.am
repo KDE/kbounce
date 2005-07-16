@@ -2,11 +2,12 @@ SUBDIRS = pics sounds
 
 INCLUDES = -I$(top_srcdir)/libkdegames -I$(top_srcdir)/libkdegames/highscore $(all_includes)
 METASOURCES = AUTO
+KDE_CXXFLAGS = $(KDE_USE_FPIE)
 
 bin_PROGRAMS = kbounce
 kbounce_SOURCES = main.cpp kbounce.cpp game.cpp highscores.cpp
 kbounce_LDFLAGS = $(all_libraries) $(KDE_RPATH)
-kbounce_LDADD = $(LIB_KDEGAMES) $(LIB_KFILE) $(LIB_ARTS) 
+kbounce_LDADD = $(KDE_USE_PIE) $(LIB_KDEGAMES) $(LIB_KFILE) $(LIB_ARTS) 
 kbounce_DEPENDENCIES = $(LIB_KDEGAMES_DEP)
 
 xdg_apps_DATA = kbounce.desktop
