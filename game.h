@@ -20,8 +20,7 @@
 #define GAME_H_INCLUDED
 
 #include <qwidget.h>
-#include <qcanvas.h>
-#include <qmemarray.h>
+#include <q3canvas.h>
 
 #ifdef HAVE_ARTS
 #include <arts/soundserver.h>
@@ -37,10 +36,10 @@ class JezzField;
 #define FIELD_WIDTH 32
 #define FIELD_HEIGHT 20
 
-class Ball : public QCanvasSprite
+class Ball : public Q3CanvasSprite
 {
  public:
-    Ball(QCanvasPixmapArray* array, QCanvas* canvas);
+    Ball(Q3CanvasPixmapArray* array, Q3Canvas* canvas);
 
     void update();
     void advance(int stage);
@@ -85,7 +84,7 @@ private:
 };
 
 
-class JezzField : public QCanvas
+class JezzField : public Q3Canvas
 {
    Q_OBJECT
 public:
@@ -101,7 +100,7 @@ private:
    friend class Ball;
    bool m_background;
    QPixmap m_tiles;
-   QMemArray<QPixmap> m_backTiles;
+   QVector<QPixmap> m_backTiles;
 
    void setPixmaps( const QPixmap &tiles, const QPixmap &background );
    void emitBallCollisiton( Ball *ball, int x, int y, int tile )
@@ -110,11 +109,11 @@ private:
 };
 
 
-class JezzView : public QCanvasView
+class JezzView : public Q3CanvasView
 {
   Q_OBJECT
 public:
-   JezzView(QCanvas* viewing=0, QWidget* parent=0, const char* name=0, WFlags f=0);
+   JezzView(Q3Canvas* viewing=0, QWidget* parent=0, const char* name=0);
 
 signals:
    void buildWall( int x, int y, bool vertical );
@@ -166,9 +165,9 @@ protected:
 
    Wall *m_wall1, *m_wall2;
 
-   QPtrList<Ball> m_balls;
-   QCanvasPixmapArray *m_ballPixmaps;
-   QCanvasText *m_text;
+   Q3PtrList<Ball> m_balls;
+   Q3CanvasPixmapArray *m_ballPixmaps;
+   Q3CanvasText *m_text;
 
    QTimer *m_clock;
    bool m_running;
