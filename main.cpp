@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2000 Stefan Schimanski <schimmi@kde.org>
+ * Copyright (C) 2000-2005 Stefan Schimanski <schimmi@kde.org>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Library General Public
@@ -44,7 +44,7 @@ int main(int argc, char **argv)
 
   KAboutData aboutData( "kbounce", I18N_NOOP("KBounce"),
     version, description, KAboutData::License_GPL,
-    "(c) 2000, Stefan Schimanski");
+    "(c) 2000-2005, Stefan Schimanski");
 
   aboutData.addAuthor("Stefan Schimanski", I18N_NOOP("Original author"), "schimmi@kde.org");
   aboutData.addAuthor("Sandro Sigala", I18N_NOOP("Highscore"), "ssigala@globalnet.it");

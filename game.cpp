@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2000 Stefan Schimanski <1Stein@gmx.de>
+ * Copyright (C) 2000-2005 Stefan Schimanski <1Stein@gmx.de>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Library General Public
@@ -137,8 +137,8 @@ bool Ball::collide( double dx, double dy )
 
 /*************************************************************************/
 
-Wall::Wall( JezzField *field, int x, int y, Direction dir, int tile, QObject *parent, const char *name )
-    : QObject( parent, name ), m_dir( dir ), m_field( field ), m_startX( x ), m_startY( y ),
+Wall::Wall( JezzField *field, int x, int y, Direction dir, int tile, QObject *parent )
+    : QObject( parent ), m_dir( dir ), m_field( field ), m_startX( x ), m_startY( y ),
       m_tile( tile ), m_delay( MS2TICKS(WALL_DELAY)/2 ), m_active( true )
 {
    //kdDebug(12008) << "Wall::Wall" << endl;
@@ -237,8 +237,8 @@ void Wall::fill( bool black )
 
 /*************************************************************************/
 
-JezzField::JezzField( const QPixmap &tiles, const QPixmap &background, QObject* parent, const char* name )
-    : Q3Canvas( parent, name ), m_tiles( tiles )
+JezzField::JezzField( const QPixmap &tiles, const QPixmap &background, QObject* parent )
+    : Q3Canvas( parent ), m_tiles( tiles )
 {
     setPixmaps( tiles, background );
 }
@@ -315,8 +315,8 @@ void JezzField::setPixmaps( const QPixmap &tiles, const QPixmap &background )
 
 /*************************************************************************/
 
-JezzView::JezzView(Q3Canvas* viewing, QWidget* parent, const char* name)
-   : Q3CanvasView( viewing, parent, name ), m_vertical( false )
+JezzView::JezzView(Q3Canvas* viewing, QWidget* parent)
+   : Q3CanvasView( viewing, parent ), m_vertical( false )
 {
    setResizePolicy( AutoOne );
    setHScrollBarMode( AlwaysOff );
@@ -341,8 +341,8 @@ void JezzView::viewportMouseReleaseEvent( QMouseEvent *ev )
 
 /*************************************************************************/
 
-JezzGame::JezzGame( const QPixmap &background, int ballNum, QWidget *parent, const char *name )
-    : QWidget( parent, name ), m_wall1( 0 ), m_wall2( 0 ),
+JezzGame::JezzGame( const QPixmap &background, int ballNum, QWidget *parent )
+    : QWidget( parent ), m_wall1( 0 ), m_wall2( 0 ),
       m_text( 0 ), m_running( false ), m_percent( 0 ), m_pictured( false )
 {
    QString path = kapp->dirs()->findResourceDir( "data", "kbounce/pics/ball0000.png" ) + "kbounce/pics/";
@@ -364,7 +364,7 @@ JezzGame::JezzGame( const QPixmap &background, int ballNum, QWidget *parent, con
                  "kbounce/sounds/";
 
    // create field
-   m_field = new JezzField( tiles, background, this, "m_field" );
+   m_field = new JezzField( tiles, background, this );
    m_field->resize( TILE_SIZE*FIELD_WIDTH, TILE_SIZE*FIELD_HEIGHT );
 
    for ( int x=0; x<FIELD_WIDTH; x++ )
@@ -382,7 +382,7 @@ JezzGame::JezzGame( const QPixmap &background, int ballNum, QWidget *parent, con
    connect( m_field, SIGNAL(ballCollision(Ball *, int, int, int)), this, SLOT(ballCollision(Ball *, int, int, int)) );
 
    // create view
-   m_view = new JezzView( m_field, this, "m_view" );
+   m_view = new JezzView( m_field, this );
    m_view->move( 0, 0 );
    m_view->adjustSize();
    connect( m_view, SIGNAL(buildWall(int, int, bool)), this, SLOT(buildWall(int, int, bool)) );
@@ -456,6 +456,7 @@ void JezzGame::playSound( const QString &name )
         m_artsServer->play( path.latin1() );
     }
 #else
+    Q_UNUSED(name);
 	return;
 #endif
 }
@@ -501,7 +502,7 @@ void JezzGame::makeBlack()
       }
 
    m_field->update();
-   m_view->repaint();
+   m_view->update();
 
    // count percent value of occupied area
    int p = percent();
@@ -587,7 +588,7 @@ void JezzGame::ballCollision( Ball */*ball*/, int /*x*/, int /*y*/, int tile )
 
       // update view
       m_field->update();
-      m_view->repaint();
+      m_view->update();
 
       // send death msg
       emit died();
@@ -618,7 +619,7 @@ void JezzGame::buildWall( int x, int y, bool vertical )
          m_wall1 = new Wall( m_field, x, y,
                              vertical? Wall::Up : Wall::Left,
                              vertical? TILE_WALLUP : TILE_WALLLEFT,
-                             this, "m_wall1" );
+                             this );
          connect( m_wall1, SIGNAL(finished(Wall *, int)),
                   this, SLOT(wallFinished(Wall *, int)) );            }
 
@@ -627,7 +628,7 @@ void JezzGame::buildWall( int x, int y, bool vertical )
          m_wall2 = new Wall( m_field, x, y,
                              vertical? Wall::Down: Wall::Right,
                              vertical? TILE_WALLDOWN : TILE_WALLRIGHT,
-                             this, "m_wall2" );
+                             this );
          connect( m_wall2, SIGNAL(finished(Wall *, int)),
                   this, SLOT(wallFinished(Wall *, int)) );
       }
@@ -672,7 +673,7 @@ void JezzGame::wallFinished( Wall *wall, int tile )
     }
 
     m_field->update();
-    m_view->repaint();
+    m_view->update();
 
     makeBlack();
 }

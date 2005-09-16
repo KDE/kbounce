@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2000 Stefan Schimanski <1Stein@gmx.de>
+ * Copyright (C) 2000-2005 Stefan Schimanski <1Stein@gmx.de>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Library General Public
@@ -58,7 +58,7 @@ public:
    enum Direction { Up, Down, Left, Right };
 
    Wall( JezzField *field, int x, int y, Direction dir, int tile,
-	 QObject *parent=0, const char *name=0 );
+	 QObject *parent=0 );
 
    void finish();
    void fill( bool black );
@@ -88,7 +88,7 @@ class JezzField : public Q3Canvas
 {
    Q_OBJECT
 public:
-   JezzField( const QPixmap &tiles, const QPixmap &background, QObject* parent = 0, const char* name = 0 );
+   JezzField( const QPixmap &tiles, const QPixmap &background, QObject* parent = 0 );
 
    void setGameTile( int x, int y, bool black );
    void setBackground( const QPixmap &background );
@@ -113,7 +113,7 @@ class JezzView : public Q3CanvasView
 {
   Q_OBJECT
 public:
-   JezzView(Q3Canvas* viewing=0, QWidget* parent=0, const char* name=0);
+   JezzView(Q3Canvas* viewing=0, QWidget* parent=0);
 
 signals:
    void buildWall( int x, int y, bool vertical );
@@ -131,7 +131,7 @@ class JezzGame : public QWidget
    Q_OBJECT
 
 public:
-   JezzGame( const QPixmap &background, int ballNum, QWidget *parent=0, const char *name=0 );
+   JezzGame( const QPixmap &background, int ballNum, QWidget *parent=0 );
    ~JezzGame();
 
    int percent();

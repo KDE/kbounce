@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2000 Stefan Schimanski <1Stein@gmx.de>
+ * Copyright (C) 2000-2005 Stefan Schimanski <1Stein@gmx.de>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Library General Public
@@ -218,7 +218,7 @@ void KJezzball::pauseGame()
 void KJezzball::gameOver()
 {
     stopLevel();
-    m_gameOverTimer->start( 100, TRUE );
+    m_gameOverTimer->start( 100, true );
 }
 
 
@@ -395,7 +395,7 @@ void KJezzball::createLevel( int level )
     else
         m_background = QPixmap();
 
-    m_gameWidget = new JezzGame( m_background, level+1, m_view, "m_gameWidget" );
+    m_gameWidget = new JezzGame( m_background, level+1, m_view );
     m_gameWidget->setSound(m_soundAction->isChecked());
 
     m_gameWidget->show();
@@ -436,7 +436,7 @@ void KJezzball::stopLevel()
 void KJezzball::nextLevel()
 {
     stopLevel();
-    m_nextLevelTimer->start( 100, TRUE );
+    m_nextLevelTimer->start( 100, true );
 }
 
 void KJezzball::switchLevel()
