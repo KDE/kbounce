@@ -27,7 +27,7 @@
 #include "kbounce.h"
 
 #include <khighscore.h>
-#include <highscores.h>
+#include "highscores.h"
 
 using namespace std;
 
@@ -54,7 +54,7 @@ int main(int argc, char **argv)
 
   QApplication::setColorSpec(QApplication::ManyColor);
   KApplication a;
-  KGlobal::locale()->insertCatalogue("libkdegames");
+  KGlobal::locale()->insertCatalog("libkdegames");
 
   ExtManager manager;
 
