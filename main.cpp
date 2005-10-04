@@ -27,6 +27,8 @@
 #include "kbounce.h"
 
 #include <khighscore.h>
+#include <klocale.h>
+#include <kglobal.h>
 #include "highscores.h"
 
 using namespace std;

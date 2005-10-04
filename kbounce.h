@@ -20,6 +20,7 @@
 #define KBOUNCE_H
 
 #include <kmainwindow.h>
+#include <qpixmap.h>
 
 class JezzGame;
 class QLCDNumber;
