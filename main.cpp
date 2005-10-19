@@ -55,7 +55,7 @@ int main(int argc, char **argv)
   KCmdLineArgs::init( argc, argv, &aboutData );
 
   QApplication::setColorSpec(QApplication::ManyColor);
-  KApplication a;
+  KApplication application;
   KGlobal::locale()->insertCatalog("libkdegames");
 
   ExtManager manager;
@@ -65,13 +65,12 @@ int main(int argc, char **argv)
   Dispatcher dispatcher;
 #endif
 
-  if (a.isRestored())
+  if (application.isSessionRestored())
       RESTORE(KJezzball)
   else {
-      KJezzball *w = new KJezzball;
-      a.setMainWidget(w);
-      w->show();
+      KJezzball kjezzball;
+      kjezzball.show();
   }
-  return a.exec();
+  return application.exec();
 }
 

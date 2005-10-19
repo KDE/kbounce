@@ -25,6 +25,7 @@
 #include <qevent.h>
 #include <qimage.h>
 #include <kglobalsettings.h>
+#include <krandom.h>
 
 #include "game.h"
 
@@ -392,10 +393,10 @@ JezzGame::JezzGame( const QPixmap &background, int ballNum, QWidget *parent )
    {
       Ball *ball = new Ball( m_ballPixmaps, m_field );
       m_balls.append( ball );
-      ball->setVelocity( ((kapp->random() & 1)*2-1)*2, ((kapp->random() & 1)*2-1)*2 );
-      ball->setFrame( kapp->random() % 25 );
-      ball->move( 4*TILE_SIZE + kapp->random() % ( (FIELD_WIDTH-8)*TILE_SIZE ),
-                  4*TILE_SIZE + kapp->random() % ( (FIELD_HEIGHT-8)*TILE_SIZE ) );
+      ball->setVelocity( ((KRandom::random() & 1)*2-1)*2, ((KRandom::random() & 1)*2-1)*2 );
+      ball->setFrame( KRandom::random() % 25 );
+      ball->move( 4*TILE_SIZE + KRandom::random() % ( (FIELD_WIDTH-8)*TILE_SIZE ),
+                  4*TILE_SIZE + KRandom::random() % ( (FIELD_HEIGHT-8)*TILE_SIZE ) );
       ball->show();
    }
 
@@ -694,8 +695,6 @@ void JezzGame::tick()
         if ( m_wall1 ) m_wall1->update();
         if ( m_wall2 ) m_wall2->update();
     }
-
-    //kapp->syncX();
 }
 
 #include "game.moc"
