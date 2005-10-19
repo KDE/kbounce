@@ -68,8 +68,8 @@ int main(int argc, char **argv)
   if (application.isSessionRestored())
       RESTORE(KJezzball)
   else {
-      KJezzball kjezzball;
-      kjezzball.show();
+      KJezzball *kjezzball = new KJezzball;
+      kjezzball->show();
   }
   return application.exec();
 }
