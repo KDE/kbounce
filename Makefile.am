@@ -7,7 +7,7 @@ KDE_CXXFLAGS = $(KDE_USE_FPIE)
 bin_PROGRAMS = kbounce
 kbounce_SOURCES = main.cpp kbounce.cpp game.cpp highscores.cpp
 kbounce_LDFLAGS = $(all_libraries) $(KDE_RPATH) $(KDE_USE_PIE)
-kbounce_LDADD = $(LIB_KDEGAMES) $(LIB_KFILE) $(LIB_ARTS) 
+kbounce_LDADD = $(LIB_KDEGAMES) $(LIB_KFILE) $(LIB_ARTS) -lartskde
 kbounce_DEPENDENCIES = $(LIB_KDEGAMES_DEP)
 
 xdg_apps_DATA = kbounce.desktop
