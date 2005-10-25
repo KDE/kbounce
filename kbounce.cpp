@@ -29,6 +29,7 @@
 #include <kstatusbar.h>
 #include <khighscore.h>
 #include <kexthighscore.h>
+#include <krandom.h>
 
 #include "kbounce.h"
 #include "game.h"
@@ -315,7 +316,7 @@ QPixmap KJezzball::getBackgroundPixmap()
     if (dir.count() > 1)
     {
         // return random pixmap
-        int num = kapp->random() % dir.count();
+        int num = KRandom::random() % dir.count();
         return QPixmap( dir.absFilePath( dir[num] ) );
     }
     else if (dir.count()==1)
