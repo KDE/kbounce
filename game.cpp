@@ -323,7 +323,7 @@ JezzView::JezzView(Q3Canvas* viewing, QWidget* parent)
    setHScrollBarMode( AlwaysOff );
    setVScrollBarMode( AlwaysOff );
 
-   setCursor( Qt::sizeHorCursor );
+   setCursor( Qt::SizeHorCursor );
 }
 
 void JezzView::viewportMouseReleaseEvent( QMouseEvent *ev )
@@ -331,7 +331,7 @@ void JezzView::viewportMouseReleaseEvent( QMouseEvent *ev )
    if ( ev->button() & Qt::RightButton )
    {
       m_vertical = !m_vertical;
-      if ( m_vertical ) setCursor( Qt::sizeVerCursor ); else setCursor( Qt::sizeHorCursor );
+      if ( m_vertical ) setCursor( Qt::SizeHorCursor ); else setCursor( Qt::SizeHorCursor );
    }
 
    if ( ev->button() & Qt::LeftButton )
