@@ -30,6 +30,7 @@
 #include <khighscore.h>
 #include <kexthighscore.h>
 #include <krandom.h>
+#include <kglobal.h>
 
 #include "kbounce.h"
 #include "game.h"
@@ -42,7 +43,7 @@ KJezzball::KJezzball()
     m_game.score = 0;
     m_state = Idle;
 
-    KConfig *config = kapp->config();
+    KConfig *config = KGlobal::config();
     m_backgroundDir = config->readPathEntry( "BackgroundDir" );
     m_showBackground = config->readBoolEntry( "ShowBackground", false );
 
@@ -111,7 +112,7 @@ KJezzball::KJezzball()
 
 KJezzball::~KJezzball()
 {
-    KConfig *config = kapp->config();
+    KConfig *config = KGlobal::config();
     config->writeEntry( "PlaySounds", m_soundAction->isChecked() );
 }
 
@@ -265,7 +266,7 @@ void KJezzball::selectBackground()
         m_backgroundShowAction->setEnabled(true);
 
         // save settings
-        KConfig *config = kapp->config();
+        KConfig *config = KGlobal::config();
         config->writePathEntry( "BackgroundDir", m_backgroundDir );
         config->sync();
 
@@ -290,7 +291,7 @@ void KJezzball::showBackground()
         m_showBackground = show;
 
         // save setting
-        KConfig *config = kapp->config();
+        KConfig *config = KGlobal::config();
         config->writeEntry( "ShowBackground", m_showBackground );
         config->sync();
 
