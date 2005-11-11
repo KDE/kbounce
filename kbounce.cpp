@@ -318,11 +318,11 @@ QPixmap KJezzball::getBackgroundPixmap()
     {
         // return random pixmap
         int num = KRandom::random() % dir.count();
-        return QPixmap( dir.absFilePath( dir[num] ) );
+        return QPixmap( dir.absoluteFilePath( dir[num] ) );
     }
     else if (dir.count()==1)
     {
-    	return QPixmap( dir.absFilePath(dir[0]) );
+    	return QPixmap( dir.absoluteFilePath(dir[0]) );
     }
     else return QPixmap();
 }
