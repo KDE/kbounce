@@ -11,7 +11,6 @@ Name[sv]=Kbounce
 Name[ta]=கேபவுன்ஸ்
 Name[tg]=KТӯби ҷаҳанда
 Name[tr]=Zıplayan toplar
-Name[xx]=xxKBouncexx
 Name[zh_TW]=KBounce 彈力球
 
 Type=Application
@@ -49,6 +48,5 @@ GenericName[sr]=Игра одбијања лопте
 GenericName[sr@Latn]=Igra odbijanja lopte
 GenericName[sv]=Studsande boll spel
 GenericName[ta]=திரும்பும் பந்து விளையாட்டு
-GenericName[xx]=xxBounce Ball Gamexx
 X-DCOP-ServiceType=Multi
 Categories=Qt;KDE;Game;ArcadeGame;
