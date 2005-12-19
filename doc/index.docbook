@@ -22,12 +22,11 @@
 </othercredit>
 
 <!-- TRANS:ROLES_OF_TRANSLATORS -->
-
 </authorgroup>
 
 <legalnotice>&FDLNotice;</legalnotice>
 
-<date>2003-09-19</date>
+<date>2005-12-10</date>
 <releaseinfo>0.5</releaseinfo>
 
 <!-- Abstract about this handbook -->
@@ -198,7 +197,7 @@ of the screen.  Rushing will just get you in trouble!</para>
 <guimenuitem>Pause</guimenuitem>
 </menuchoice></term>
 <listitem>
-<para><action>Pause the game.</action></para>
+<para><action>Pause or resume the game.</action></para>
 </listitem>
 </varlistentry>
 
@@ -211,7 +210,10 @@ of the screen.  Rushing will just get you in trouble!</para>
 <guimenuitem>Show Highscores</guimenuitem>
 </menuchoice></term>
 <listitem>
-<para><action>Show the high score table.</action></para>
+<para>Opens a dialog that displays different high score tables. 
+<guibutton>Export</guibutton> the high scores into a file or click on 
+<guibutton>Configure</guibutton> to open a dialog to customize your Nickname 
+and add a Comment.</para>
 </listitem>
 </varlistentry>
 
@@ -229,25 +231,34 @@ of the screen.  Rushing will just get you in trouble!</para>
 </variablelist>
 </sect1>
 
-<sect1 id="background-menu">
-<title>The <guimenu>Background</guimenu> Menu</title>
-
+<sect1 id="settings-menu">
+<title>The <guimenu>Settings</guimenu> Menu</title>
 <variablelist>
+
 <varlistentry>
 <term><menuchoice>
 <guimenu>Settings</guimenu>
 <guimenuitem>Select Background Folder...</guimenuitem>
-</menuchoice>
-</term>
+</menuchoice></term>
 <listitem>
-<para><action>Choose a folder of images for the background.</action></para>
+<para><action>Opens a dialog to select a folder for the background images.</action></para>
 </listitem>
 </varlistentry>
 
 <varlistentry>
 <term><menuchoice>
 <guimenu>Settings</guimenu>
-<guimenuitem>Show Toolbar</guimenuitem>
+<guimenuitem>Show Backgrounds</guimenuitem>
+</menuchoice></term>
+<listitem>
+<para><action>Shows the background images in the selected folder. Only enabled, if a background folder is already selected</action></para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu>Settings</guimenu>
+<guimenuitem>Show/Hide Toolbar</guimenuitem>
 </menuchoice></term>
 <listitem>
 <para><action>Shows/hides the &kbounce; toolbar.</action></para>
@@ -257,13 +268,12 @@ of the screen.  Rushing will just get you in trouble!</para>
 <varlistentry>
 <term><menuchoice>
 <guimenu>Settings</guimenu>
-<guimenuitem>Show Statusbar</guimenuitem>
+<guimenuitem>Show/Hide Statusbar</guimenuitem>
 </menuchoice></term>
 <listitem>
 <para><action>Shows/hides the &kbounce; statusbar.</action></para>
 </listitem>
 </varlistentry>
-
 
 <varlistentry>
 <term><menuchoice>
@@ -292,11 +302,20 @@ you can change the keyboard shortcuts used by &kbounce;.</action></para>
 <guimenuitem>Configure Toolbars...</guimenuitem>
 </menuchoice></term>
 <listitem>
-<para><action>Opens a standard &kde; toolbar configuration dialog, in which
-you can change the items on the toolbar.</action></para>
+<para><action>Opens the standard &kde; toolbar configuration dialog to customize the &kbounce; toolbar.</action></para>
 </listitem>
 </varlistentry>
 
+<varlistentry>
+<term><menuchoice>
+<guimenu>Settings</guimenu>
+<guimenuitem>Configure Highscores...</guimenuitem>
+</menuchoice></term>
+<listitem>
+<para><action>Opens a dialog to customize your <guilabel>Nickname</guilabel> and 
+add a <guilabel>Comment</guilabel>.</action></para>
+</listitem>
+</varlistentry>
 
 </variablelist>
 </sect1>
@@ -330,8 +349,8 @@ Highscore</para>
 </listitem>
 </itemizedlist>
 
-<para>Documentation copyright 2002, Aaron J. Seigo
-<email>aseigo@olympusproject.org</email></para>
+<para>Documentation copyright 2002, &Aaron.J.Seigo;
+&Aaron.J.Seigo.mail;</para>
 
 <para>This handbook is dedicated to Dennis E. Powell.</para>
 
