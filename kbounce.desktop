@@ -15,7 +15,7 @@ Name[xx]=xxKBouncexx
 Name[zh_TW]=KBounce 彈力球
 
 Type=Application
-Exec=kbounce %i %m -caption "%c"
+Exec=kbounce -caption "%c"
 DocPath=kbounce/index.html
 Icon=kbounce
 
