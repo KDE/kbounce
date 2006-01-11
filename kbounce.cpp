@@ -45,12 +45,12 @@ KJezzball::KJezzball()
 
     KConfig *config = KGlobal::config();
     m_backgroundDir = config->readPathEntry( "BackgroundDir" );
-    m_showBackground = config->readBoolEntry( "ShowBackground", false );
+    m_showBackground = config->readEntry( "ShowBackground", false );
 
     statusBar();
     initXMLUI();
 
-    m_soundAction -> setChecked((config->readBoolEntry( "PlaySounds", true )));
+    m_soundAction -> setChecked((config->readEntry( "PlaySounds", true )));
 
     // create widgets
     m_view = new QWidget( this, "m_view" );
