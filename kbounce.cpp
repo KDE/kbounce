@@ -310,7 +310,7 @@ QPixmap KJezzball::getBackgroundPixmap()
     // list directory
     QDir dir( m_backgroundDir, "*.png *.jpg", QDir::Name|QDir::IgnoreCase, QDir::Files );
     if ( !dir.exists() ) {
-        kdDebug(12008) << "Directory not found" << endl;
+        kDebug(12008) << "Directory not found" << endl;
         return QPixmap();
     }
 
@@ -370,7 +370,7 @@ void KJezzball::second()
 
 void KJezzball::died()
 {
-    kdDebug(12008) << "died" << endl;
+    kDebug(12008) << "died" << endl;
     m_level.lifes--;
     m_lifesLCD->display( m_level.lifes );
     if ( m_level.lifes==0 ) gameOver();
