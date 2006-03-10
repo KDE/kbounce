@@ -1,0 +1,51 @@
+kde4_header()
+
+include_directories( ${KDE4_INCLUDE_DIR} ${QT_INCLUDES} ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR}  )
+
+
+########### install files ###############
+
+install_files( ${DATA_INSTALL_DIR}/kbounce/pics FILES ball0000.png  	ball0001.png  	ball0002.png  	ball0003.png  	ball0004.png  	ball0005.png  	ball0006.png  	ball0007.png  	ball0008.png  	ball0009.png  	ball0010.png  	ball0011.png  	ball0012.png  	ball0013.png  	ball0014.png  	ball0015.png  	ball0016.png  	ball0017.png  	ball0018.png  	ball0019.png  	ball0020.png  	ball0021.png  	ball0022.png  	ball0023.png  	ball0024.png  	tiles.png  )
+
+kde4_install_icons( ${ICON_INSTALL_DIR}  hicolor )
+
+kde4_footer()
+
+
+
+#original Makefile.am contents follow:
+
+#pics_DATA = \
+#	ball0000.png \
+#	ball0001.png \
+#	ball0002.png \
+#	ball0003.png \
+#	ball0004.png \
+#	ball0005.png \
+#	ball0006.png \
+#	ball0007.png \
+#	ball0008.png \
+#	ball0009.png \
+#	ball0010.png \
+#	ball0011.png \
+#	ball0012.png \
+#	ball0013.png \
+#	ball0014.png \
+#	ball0015.png \
+#	ball0016.png \
+#	ball0017.png \
+#	ball0018.png \
+#	ball0019.png \
+#	ball0020.png \
+#	ball0021.png \
+#	ball0022.png \
+#	ball0023.png \
+#	ball0024.png \
+#	tiles.png 
+#
+#picsdir = $(kde_datadir)/kbounce/pics
+#
+#KDE_ICON = kbounce
+#
+#EXTRA_DIST = $(pics_DATA)
+#
