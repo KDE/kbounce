@@ -1,4 +1,5 @@
 kde4_header()
+project(kbounce)
 
 add_subdirectory( pics ) 
 add_subdirectory( sounds ) 
