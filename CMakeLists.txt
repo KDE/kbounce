@@ -19,7 +19,7 @@ kde4_automoc(${kbounce_SRCS})
 
 kde4_add_executable(kbounce ${kbounce_SRCS})
 
-target_link_libraries(kbounce  ${LIB_KDEUI}  kdegames )
+target_link_libraries(kbounce  ${KDE4_KDEUI_LIBRARIES}  kdegames )
 
 install_targets(/bin kbounce )
 
