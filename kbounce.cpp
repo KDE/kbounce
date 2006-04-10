@@ -101,8 +101,8 @@ KJezzball::KJezzball()
 
     // create demo game
     createLevel( 1 );
-    statusBar()->message( i18n("Press %1 to start a game!")
-                          .arg(m_newAction->shortcut().toString()) );
+    statusBar()->message( i18n("Press %1 to start a game!",
+                           m_newAction->shortcut().toString()) );
     //m_gameWidget->display( i18n("Press <Space> to start a game!") );
 
     setFocusPolicy(Qt::StrongFocus);
@@ -230,7 +230,7 @@ void KJezzball::gameOverNow()
 
     QString score;
     score.setNum( m_game.score );
-    KMessageBox::information( this, i18n("Game Over! Score: %1").arg(score) );
+    KMessageBox::information( this, i18n("Game Over! Score: %1", score) );
     statusBar()->message(  i18n("Game over. Press <Space> for a new game") );
     //m_gameWidget->display( i18n("Game over. Press <Space> for a new game!") );
     highscore();
@@ -461,12 +461,12 @@ void KJezzball::switchLevel()
     QString level;
     level.setNum( m_game.level );
 
-QString foo = QString(
+QString foo = 
 i18n("You have successfully cleared more than 75% of the board.\n") +
-i18n("%1 points: 15 points per remaining life\n").arg(m_level.lifes*15) +
-i18n("%1 points: Bonus\n").arg((m_gameWidget->percent()-75)*2*(m_game.level+5)) +
-i18n("%1 points: Total score for this level\n").arg(score) +
-i18n("On to level %1. Remember you get %2 lives this time!")).arg(m_game.level+1).arg(m_game.level+2);
+i18n("%1 points: 15 points per remaining life\n", m_level.lifes*15) +
+i18n("%1 points: Bonus\n", (m_gameWidget->percent()-75)*2*(m_game.level+5)) +
+i18n("%1 points: Total score for this level\n", score) +
+i18n("On to level %1. Remember you get %2 lives this time!", m_game.level+1, m_game.level+2);
 
    KMessageBox::information( this,foo );
 
