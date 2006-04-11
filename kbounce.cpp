@@ -125,7 +125,7 @@ void KJezzball::initXMLUI()
     // AB: originally KBounce/KJezzball used Space for new game - but Ctrl+N is
     // default. We solve this by providing space as an alternative key
     KShortcut s = m_newAction->shortcut();
-    s.append(KKeySequence(QKeySequence(Qt::Key_Space)));
+    s.append(QKeySequence(Qt::Key_Space));
     m_newAction->setShortcut(s);
 
     KStdGameAction::quit(this, SLOT(close()), actionCollection() );
