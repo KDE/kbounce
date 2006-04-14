@@ -20,7 +20,7 @@
 #include <kcmdlineargs.h>
 #include <kaboutdata.h>
 
-#ifdef HAVE_ARTS
+#if HAVE_ARTS
 #include <arts/dispatcher.h>
 #endif
 
@@ -33,7 +33,7 @@
 
 using namespace std;
 
-#ifdef HAVE_ARTS
+#if HAVE_ARTS
 using namespace Arts;
 #endif
 
@@ -61,7 +61,7 @@ int main(int argc, char **argv)
   ExtManager manager;
 
   // setup MCOP
-#ifdef HAVE_ARTS
+#if HAVE_ARTS
   Dispatcher dispatcher;
 #endif
 
