@@ -93,7 +93,7 @@ void Ball::advance(int stage)
 
    // emit collision
    QRect r = boundingRect();
-   r.moveBy( xVelocity(), yVelocity() );
+   r.translate( static_cast<int>( xVelocity() ), static_cast<int>( yVelocity() ));
    JezzField* field = (JezzField *)canvas();
 
    int ul = field->tile( r.left() / TILE_SIZE, r.top() / TILE_SIZE );
@@ -125,7 +125,7 @@ void Ball::advance(int stage)
 bool Ball::collide( double dx, double dy )
 {
    QRect r = boundingRect();
-   r.moveBy( dx, dy );
+   r.translate( static_cast<int>(dx), static_cast<int>(dy) );
    JezzField* field = (JezzField *)canvas();
 
    int ul = field->tile( r.left() / TILE_SIZE, r.top() / TILE_SIZE );
@@ -299,9 +299,12 @@ void JezzField::setPixmaps( const QPixmap &tiles, const QPixmap &background )
     } else {
         // handle background
         m_background = true;
-        QImage img = background.convertToImage();
-        QPixmap scalledBackground( img.smoothScale( TILE_SIZE*(FIELD_WIDTH-2),
-                                                      TILE_SIZE*(FIELD_HEIGHT-2) ) );
+        QImage img = background.toImage();
+        QPixmap scalledBackground = QPixmap::fromImage(
+                                   img.scaled( TILE_SIZE*(FIELD_WIDTH-2),
+                                               TILE_SIZE*(FIELD_HEIGHT-2),
+                                               Qt::IgnoreAspectRatio,
+                                               Qt::SmoothTransformation ) );
         bitBlt( &allTiles, 0, 0, &scalledBackground, 0, 0, scalledBackground.width(), scalledBackground.height() );
     }
 
@@ -331,7 +334,7 @@ void JezzView::viewportMouseReleaseEvent( QMouseEvent *ev )
    if ( ev->button() & Qt::RightButton )
    {
       m_vertical = !m_vertical;
-      if ( m_vertical ) setCursor( Qt::SizeHorCursor ); else setCursor( Qt::SizeHorCursor );
+      if ( m_vertical ) setCursor( Qt::SizeVerCursor ); else setCursor( Qt::SizeHorCursor );
    }
 
    if ( ev->button() & Qt::LeftButton )
@@ -492,7 +495,8 @@ void JezzGame::makeBlack()
 
    // fill areas that contains a ball
    for ( Ball *ball=m_balls.first(); ball!=0; ball=m_balls.next() )
-      fill( ball->x()/TILE_SIZE, ball->y()/TILE_SIZE );
+      fill( static_cast<int>( ball->x()/TILE_SIZE ),
+            static_cast<int>( ball->y()/TILE_SIZE ) );
 
    // areas still free can be blacked now
    for ( int y=0; y<FIELD_HEIGHT; y++ )

@@ -53,7 +53,8 @@ KJezzball::KJezzball()
     m_soundAction -> setChecked((config->readEntry( "PlaySounds", true )));
 
     // create widgets
-    m_view = new QWidget( this, "m_view" );
+    m_view = new QWidget( this );
+    m_view->setObjectName( "m_view" );
     setCentralWidget( m_view );
 
     m_layout = new QGridLayout( m_view, 1, 3 );
@@ -90,18 +91,22 @@ KJezzball::KJezzball()
     infoLayout->addWidget( m_timeLCD );
 
     // create timers
-    m_nextLevelTimer = new QTimer( this, "m_nextLevelTimer" );
+    m_nextLevelTimer = new QTimer( this );
+    m_nextLevelTimer->setObjectName( "m_nextLevelTimer" );
     connect( m_nextLevelTimer, SIGNAL(timeout()), this, SLOT(switchLevel()) );
 
-    m_gameOverTimer = new QTimer( this, "m_gameOverTimer" );
+    m_gameOverTimer = new QTimer( this );
+    m_gameOverTimer->setObjectName( "m_gameOverTimer" );
+
     connect( m_gameOverTimer, SIGNAL(timeout()), this, SLOT(gameOverNow()) );
 
-    m_timer = new QTimer( this, "m_timer" );
+    m_timer = new QTimer( this );
+    m_timer->setObjectName( "m_timer" );
     connect( m_timer, SIGNAL(timeout()), this, SLOT(second()) );
 
     // create demo game
     createLevel( 1 );
-    statusBar()->message( i18n("Press %1 to start a game!",
+    statusBar()->showMessage( i18n("Press %1 to start a game!",
                            m_newAction->shortcut().toString()) );
     //m_gameWidget->display( i18n("Press <Space> to start a game!") );
 
@@ -162,7 +167,7 @@ void KJezzball::newGame()
         m_levelLCD->display( m_game.level );
         m_scoreLCD->display( m_game.score );
 
-        statusBar()->clear();
+        statusBar()->clearMessage();
 
         // start new game
         m_state = Running;
@@ -199,7 +204,7 @@ void KJezzball::pauseGame()
     {
     case Running:
         m_state = Paused;
-        statusBar()->message(i18n("Game paused.") );
+        statusBar()->showMessage(i18n("Game paused.") );
         //m_gameWidget->display( i18n("Game paused. Press P to continue!") );
         stopLevel();
         break;
@@ -207,7 +212,7 @@ void KJezzball::pauseGame()
     case Paused:
     case Suspend:
         m_state = Running;
-        statusBar()->clear();
+        statusBar()->clearMessage();
         //m_gameWidget->display( QString::null );
         startLevel();
         break;
@@ -220,7 +225,8 @@ void KJezzball::pauseGame()
 void KJezzball::gameOver()
 {
     stopLevel();
-    m_gameOverTimer->start( 100, true );
+    m_gameOverTimer->setSingleShot( true );
+    m_gameOverTimer->start( 100 );
 }
 
 
@@ -231,7 +237,7 @@ void KJezzball::gameOverNow()
     QString score;
     score.setNum( m_game.score );
     KMessageBox::information( this, i18n("Game Over! Score: %1", score) );
-    statusBar()->message(  i18n("Game over. Press <Space> for a new game") );
+    statusBar()->showMessage(  i18n("Game over. Press <Space> for a new game") );
     //m_gameWidget->display( i18n("Game over. Press <Space> for a new game!") );
     highscore();
 }
@@ -334,7 +340,7 @@ void KJezzball::focusOutEvent( QFocusEvent *ev )
         stopLevel();
         m_state = Suspend;
         m_pauseButton->setChecked(true);
-        statusBar()->message( i18n("Game suspended") );
+        statusBar()->showMessage( i18n("Game suspended") );
         // m_gameWidget->display( i18n("Game suspended") );
     }
 
@@ -347,7 +353,7 @@ void KJezzball::focusInEvent ( QFocusEvent *ev )
     {
         startLevel();
         m_state = Running;
-        statusBar()->clear();
+        statusBar()->clearMessage();
         m_pauseButton->setChecked(false);
         //m_gameWidget->display( QString::null );
     }
@@ -438,7 +444,8 @@ void KJezzball::stopLevel()
 void KJezzball::nextLevel()
 {
     stopLevel();
-    m_nextLevelTimer->start( 100, true );
+    m_nextLevelTimer->setSingleShot( true );
+    m_nextLevelTimer->start( 100 );
 }
 
 void KJezzball::switchLevel()
@@ -486,7 +493,9 @@ void KJezzball::highscore()
 {
     KExtHighscore::Score score(KExtHighscore::Won);
     score.setScore(m_game.score);
-    score.setData("level", m_game.level);
+    // cast m_game.level to uint or it confuses KExtHighscore
+    // which has been told that "level" is uint (see highscore.cpp)
+    score.setData("level", static_cast<uint>(m_game.level));
     KExtHighscore::submitScore(score, this);
 }
 
