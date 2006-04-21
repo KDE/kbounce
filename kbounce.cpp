@@ -57,8 +57,8 @@ KJezzball::KJezzball()
     m_view->setObjectName( "m_view" );
     setCentralWidget( m_view );
 
-    m_layout = new QGridLayout( m_view, 1, 3 );
-    m_layout->setColStretch( 2, 1 );
+    m_layout = new QGridLayout( m_view );
+    m_layout->setColumnStretch( 2, 1 );
 
     QVBoxLayout *infoLayout = new QVBoxLayout;
     m_layout->addLayout( infoLayout, 0, 1 );

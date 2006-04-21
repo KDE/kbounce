@@ -16,14 +16,15 @@
  * Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
+#include <QTimer>
+#include <QMouseEvent>
+#include <QImage>
+#include <QPainter>
 
 #include <stdlib.h>
-#include <qtimer.h>
 #include <kstandarddirs.h>
 #include <kapplication.h>
 #include <kdebug.h>
-#include <qevent.h>
-#include <qimage.h>
 #include <kglobalsettings.h>
 #include <krandom.h>
 
@@ -294,6 +295,7 @@ void JezzField::setPixmaps( const QPixmap &tiles, const QPixmap &background )
     // create new tiles
     QPixmap allTiles( TILE_SIZE*(FIELD_WIDTH-2), TILE_SIZE*(FIELD_HEIGHT-1) );
 
+    QPainter p(&allTiles);
     if ( background.width()==0 || background.height()==0 ) {
         m_background = false;
     } else {
@@ -305,12 +307,11 @@ void JezzField::setPixmaps( const QPixmap &tiles, const QPixmap &background )
                                                TILE_SIZE*(FIELD_HEIGHT-2),
                                                Qt::IgnoreAspectRatio,
                                                Qt::SmoothTransformation ) );
-        bitBlt( &allTiles, 0, 0, &scalledBackground, 0, 0, scalledBackground.width(), scalledBackground.height() );
+        p.drawPixmap(0, 0, scalledBackground);
     }
 
     // handle default tiles
-    bitBlt( &allTiles, 0, TILE_SIZE*(FIELD_HEIGHT-2),
-            &tiles, 0, 0, tiles.width(), tiles.height() );
+    p.drawPixmap( 0, TILE_SIZE*(FIELD_HEIGHT-2), tiles );
 
     // load tiles into canvas
     setTiles( allTiles, FIELD_WIDTH, FIELD_HEIGHT, TILE_SIZE, TILE_SIZE );
