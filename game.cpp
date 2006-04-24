@@ -458,7 +458,7 @@ void JezzGame::playSound( const QString &name )
     if( !m_artsServer->isNull() && m_sound)
     {
         QString path = m_soundPath + name;
-        m_artsServer->play( path.latin1() );
+        m_artsServer->play( path.toLatin1() );
     }
 #else
     Q_UNUSED(name);
