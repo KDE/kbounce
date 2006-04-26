@@ -22,7 +22,7 @@
 #include <qwidget.h>
 #include <q3canvas.h>
 
-#if HAVE_ARTS
+#ifdef HAVE_ARTS
 #include <arts/soundserver.h>
 
 using namespace Arts;
@@ -172,7 +172,7 @@ protected:
    int m_percent;
    bool m_pictured;
 
-#if HAVE_ARTS
+#ifdef HAVE_ARTS
    static SimpleSoundServer *m_artsServer;
 #endif
    static QString m_soundPath;

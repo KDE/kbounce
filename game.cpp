@@ -359,7 +359,7 @@ JezzGame::JezzGame( const QPixmap &background, int ballNum, QWidget *parent )
    QPixmap tiles( path + "tiles.png" );
 
    // setup arts
-#if HAVE_ARTS
+#ifdef HAVE_ARTS
    m_artsServer = new SimpleSoundServer;
    *m_artsServer = Arts::Reference("global:Arts_SimpleSoundServer");
    if ( m_artsServer->isNull() )
@@ -422,7 +422,7 @@ JezzGame::~JezzGame()
     delete m_view;
     delete m_field;
     delete m_ballPixmaps;
-#if HAVE_ARTS
+#ifdef HAVE_ARTS
     delete m_artsServer;
 #endif
 }
@@ -454,7 +454,7 @@ void JezzGame::display( const QString &text, int size )
 
 void JezzGame::playSound( const QString &name )
 {
-#if HAVE_ARTS
+#ifdef HAVE_ARTS
     if( !m_artsServer->isNull() && m_sound)
     {
         QString path = m_soundPath + name;
