@@ -17,8 +17,6 @@ EXTRA_DIST = RULES $(xdg_apps_DATA)
 rcdir = $(kde_datadir)/kbounce
 rc_DATA = kbounceui.rc
 
-messages: rc.cpp
-	$(XGETTEXT) *.cpp -o $(podir)/kbounce.pot
 
 # for system-wide highscore file
 DESTBIN = $(DESTDIR)$(bindir)/$(bin_PROGRAMS)
