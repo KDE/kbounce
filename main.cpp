@@ -20,7 +20,7 @@
 #include <kcmdlineargs.h>
 #include <kaboutdata.h>
 
-#if HAVE_ARTS
+#if defined(HAVE_ARTS)
 #include <arts/dispatcher.h>
 #endif
 
@@ -33,7 +33,7 @@
 
 using namespace std;
 
-#if HAVE_ARTS
+#if defined(HAVE_ARTS)
 using namespace Arts;
 #endif
 
