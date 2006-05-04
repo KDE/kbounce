@@ -139,8 +139,8 @@ void KJezzball::initXMLUI()
     KStdGameAction::end(this, SLOT(closeGame()), actionCollection());
     KStdGameAction::configureHighscores(this, SLOT(configureHighscores()),actionCollection());
 
-    new KAction( i18n("&Select Background Folder..."), 0, this, SLOT(selectBackground()),
-                       actionCollection(), "background_select" );
+    KAction *action = new KAction( i18n("&Select Background Folder..."), actionCollection(), "background_select" );
+    connect(action, SIGNAL(triggered(bool) ), SLOT(selectBackground()));
     m_backgroundShowAction =
         new KToggleAction( i18n("Show &Backgrounds"), 0, this, SLOT(showBackground()),
                            actionCollection(), "background_show" );
