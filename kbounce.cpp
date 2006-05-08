@@ -31,7 +31,7 @@
 #include <kexthighscore.h>
 #include <krandom.h>
 #include <kglobal.h>
-
+#include <ktoggleaction.h>
 #include "kbounce.h"
 #include "game.h"
 
