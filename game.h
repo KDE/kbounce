@@ -19,7 +19,7 @@
 #ifndef GAME_H_INCLUDED
 #define GAME_H_INCLUDED
 
-#include <qwidget.h>
+#include <QWidget>
 #include <q3canvas.h>
 
 #ifdef HAVE_ARTS
