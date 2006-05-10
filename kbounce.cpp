@@ -141,14 +141,13 @@ void KJezzball::initXMLUI()
 
     KAction *action = new KAction( i18n("&Select Background Folder..."), actionCollection(), "background_select" );
     connect(action, SIGNAL(triggered(bool) ), SLOT(selectBackground()));
-    m_backgroundShowAction =
-        new KToggleAction( i18n("Show &Backgrounds"), 0, this, SLOT(showBackground()),
-                           actionCollection(), "background_show" );
+    m_backgroundShowAction = new KToggleAction( i18n("Show &Backgrounds"), actionCollection(), "background_show" );
+    connect(action, SIGNAL(triggered(bool) ), SLOT(showBackground()));
     m_backgroundShowAction->setCheckedState(i18n("Hide &Backgrounds"));
     m_backgroundShowAction->setEnabled( !m_backgroundDir.isEmpty() );
     m_backgroundShowAction->setChecked( m_showBackground );
 
-    m_soundAction = new KToggleAction( i18n("&Play Sounds"), 0, 0, 0, actionCollection(), "toggle_sound");
+    m_soundAction = new KToggleAction( i18n("&Play Sounds"), actionCollection(), "toggle_sound");
 }
 
 void KJezzball::newGame()
