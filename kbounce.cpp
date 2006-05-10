@@ -21,7 +21,7 @@
 #include <kapplication.h>
 #include <kaction.h>
 #include <kstdgameaction.h>
-#include <qtimer.h>
+#include <QTimer>
 #include <qlcdnumber.h>
 #include <kmessagebox.h>
 #include <kdebug.h>
