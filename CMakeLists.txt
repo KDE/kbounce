@@ -1,4 +1,3 @@
-kde4_header()
 project(kbounce)
 
 add_subdirectory( pics ) 
@@ -29,7 +28,6 @@ install_targets(/bin kbounce )
 install_files( ${XDG_APPS_DIR} FILES kbounce.desktop )
 install_files( ${DATA_INSTALL_DIR}/kbounce FILES kbounceui.rc )
 
-kde4_footer()
 
 
 

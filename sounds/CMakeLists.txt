@@ -1,4 +1,3 @@
-kde4_header()
 
 
 
@@ -7,7 +6,6 @@ kde4_header()
 
 install_files( ${DATA_INSTALL_DIR}/kbounce/sounds FILES death.au reflect.au wallstart.au wallend.au seconds.au timeout.au )
 
-kde4_footer()
 
 
 
