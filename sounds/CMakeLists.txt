@@ -4,7 +4,7 @@
 
 ########### install files ###############
 
-install_files( ${DATA_INSTALL_DIR}/kbounce/sounds FILES death.au reflect.au wallstart.au wallend.au seconds.au timeout.au )
+install( FILES death.au reflect.au wallstart.au wallend.au seconds.au timeout.au  DESTINATION  ${DATA_INSTALL_DIR}/kbounce/sounds )
 
 
 
