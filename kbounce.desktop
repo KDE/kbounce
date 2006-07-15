@@ -53,6 +53,7 @@ GenericName[sr]=Игра одбијања лопте
 GenericName[sr@Latn]=Igra odbijanja lopte
 GenericName[sv]=Studsande boll spel
 GenericName[ta]=திரும்பும் பந்து விளையாட்டு
+GenericName[uk]=Кульки-стрибунці
 GenericName[zh_TW]=彈跳球遊戲
 X-DCOP-ServiceType=Multi
 Categories=Qt;KDE;Game;ArcadeGame;
