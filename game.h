@@ -22,14 +22,13 @@
 #include <QWidget>
 #include <q3canvas.h>
 
-#ifdef HAVE_ARTS
-#include <arts/soundserver.h>
-
-using namespace Arts;
-#endif
-
 class QTimer;
 class JezzField;
+
+namespace Phonon
+{
+    class AudioPlayer;
+}
 
 #define FIELD_WIDTH 32
 #define FIELD_HEIGHT 20
@@ -172,9 +171,7 @@ protected:
    int m_percent;
    bool m_pictured;
 
-#ifdef HAVE_ARTS
-   static SimpleSoundServer *m_artsServer;
-#endif
+   static Phonon::AudioPlayer* m_player;
    static QString m_soundPath;
    static bool m_sound;
 };

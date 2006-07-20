@@ -24,9 +24,11 @@
 #include <stdlib.h>
 #include <kstandarddirs.h>
 #include <kapplication.h>
+#include <kurl.h>
 #include <kdebug.h>
 #include <kglobalsettings.h>
 #include <krandom.h>
+#include <phonon/audioplayer.h>
 
 #include "game.h"
 
@@ -47,9 +49,7 @@
 #define WALL_DELAY 100
 
 
-#if HAVE_ARTS
-SimpleSoundServer *JezzGame::m_artsServer = 0;
-#endif
+Phonon::AudioPlayer* JezzGame::m_player = 0;
 QString JezzGame::m_soundPath;
 bool JezzGame::m_sound = true;
 
@@ -358,13 +358,8 @@ JezzGame::JezzGame( const QPixmap &background, int ballNum, QWidget *parent )
        m_ballPixmaps->image(n)->setOffset( 0, 0 );
    QPixmap tiles( path + "tiles.png" );
 
-   // setup arts
-#ifdef HAVE_ARTS
-   m_artsServer = new SimpleSoundServer;
-   *m_artsServer = Arts::Reference("global:Arts_SimpleSoundServer");
-   if ( m_artsServer->isNull() )
-       kDebug(12008) << "Can't connect to aRts sound server" << endl;
-#endif
+   // setup audio player
+   m_player = new Phonon::AudioPlayer(Phonon::GameCategory);
    m_soundPath = kapp->dirs()->findResourceDir( "data", "kbounce/sounds/death.au" ) +
                  "kbounce/sounds/";
 
@@ -422,9 +417,7 @@ JezzGame::~JezzGame()
     delete m_view;
     delete m_field;
     delete m_ballPixmaps;
-#ifdef HAVE_ARTS
-    delete m_artsServer;
-#endif
+    delete m_player;
 }
 
 
@@ -454,16 +447,8 @@ void JezzGame::display( const QString &text, int size )
 
 void JezzGame::playSound( const QString &name )
 {
-#ifdef HAVE_ARTS
-    if( !m_artsServer->isNull() && m_sound)
-    {
-        QString path = m_soundPath + name;
-        m_artsServer->play( path.toLatin1() );
-    }
-#else
-    Q_UNUSED(name);
-	return;
-#endif
+    if( m_player && m_sound)
+        m_player->play( KUrl::fromPath(m_soundPath + name) );
 }
 
 void JezzGame::setBackground( const QPixmap &background )

@@ -20,10 +20,6 @@
 #include <kcmdlineargs.h>
 #include <kaboutdata.h>
 
-#if defined(HAVE_ARTS)
-#include <arts/dispatcher.h>
-#endif
-
 #include "kbounce.h"
 
 #include <khighscore.h>
@@ -32,10 +28,6 @@
 #include "highscores.h"
 
 using namespace std;
-
-#if defined(HAVE_ARTS)
-using namespace Arts;
-#endif
 
 static const char description[] = I18N_NOOP("KDE Bounce Ball Game");
 static const char version[] = "0.5";
@@ -59,11 +51,6 @@ int main(int argc, char **argv)
   KGlobal::locale()->insertCatalog("libkdegames");
 
   ExtManager manager;
-
-  // setup MCOP
-#if HAVE_ARTS
-  Dispatcher dispatcher;
-#endif
 
   if (application.isSessionRestored())
       RESTORE(KJezzball)
