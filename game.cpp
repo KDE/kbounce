@@ -401,7 +401,7 @@ void JezzView::mouseReleaseEvent( QMouseEvent *ev )
    if ( ev->button() & Qt::RightButton )
    {
       m_vertical = !m_vertical;
-      if ( m_vertical ) setCursor( Qt::SizeVerCursor ); else setCursor( Qt::SizeHorCursor );
+      setCursor( m_vertical ? Qt::SizeVerCursor : Qt::SizeHorCursor );
    }
 
    if ( ev->button() & Qt::LeftButton )
