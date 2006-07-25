@@ -39,11 +39,12 @@
 #define TILE_FIRST (0)
 #define TILE_FREE (TILE_FIRST + 0)
 #define TILE_BORDER (TILE_FIRST + 1)
-#define TILE_WALLEND (TILE_FIRST + 2)
-#define TILE_WALLUP (TILE_FIRST + 3)
-#define TILE_WALLDOWN (TILE_FIRST + 4)
-#define TILE_WALLLEFT (TILE_FIRST + 5)
-#define TILE_WALLRIGHT (TILE_FIRST + 6)
+#define TILE_WALL (TILE_FIRST + 2)
+#define TILE_WALLEND (TILE_FIRST + 3)
+#define TILE_WALLUP (TILE_FIRST + 4)
+#define TILE_WALLDOWN (TILE_FIRST + 5)
+#define TILE_WALLLEFT (TILE_FIRST + 6)
+#define TILE_WALLRIGHT (TILE_FIRST + 7)
 
 #define GAME_DELAY 15
 #define BALL_ANIM_DELAY 60
@@ -255,7 +256,7 @@ void Wall::fill( bool black )
 /*************************************************************************/
 
 TiledScene::TiledScene( QObject *parent )
-    : QGraphicsScene(parent)
+    : QGraphicsScene(parent), m_bkgndTileNum(-1)
 {
 
 }
@@ -265,9 +266,10 @@ void TiledScene::setTile( int x, int y, int tilenum )
     m_tiles[y*m_numTilesH + x] = tilenum;
 }
 
-void TiledScene::setTiles( const QPixmap& p, int h, int v, int tilewidth, int tileheight )
+void TiledScene::setTiles( const QPixmap& p, const QPixmap& customBkgnd, int h, int v, int tilewidth, int tileheight )
 {
     m_tilesPix = p;
+    m_customBackground = customBkgnd;
     m_tilew = tilewidth;
     m_tileh = tileheight;
     m_numTilesH = h;
@@ -287,11 +289,22 @@ void TiledScene::drawBackground( QPainter* p, const QRectF& rect )
 {
     // FIXME dimsuz: 
     Q_UNUSED(rect);
+    bool backgroundValid = !m_customBackground.isNull();
     for(int i=0;i<m_tiles.count();++i)
     {
         int tilenum = m_tiles.at(i);
-        QRect srcRect((tilenum % m_numTilesH)*m_tilew, (tilenum/m_numTilesH)*m_tileh, m_tilew, m_tileh);
-        p->drawPixmap( QPoint((i % m_numTilesH)*m_tilew, (i/m_numTilesH)*m_tileh), m_tilesPix, srcRect );
+        if(backgroundValid && (m_bkgndTileNum == tilenum))
+        {
+            // draw a tile from background (same pos)
+            QRect srcRect( (i % m_numTilesH)*m_tilew, (i/m_numTilesH)*m_tileh, m_tilew, m_tileh );
+            p->drawPixmap( srcRect.topLeft(), m_customBackground, srcRect );
+        }
+        else
+        {
+            // draw a tile from m_tilesPix
+            QRect srcRect((tilenum % m_numTilesH)*m_tilew, (tilenum/m_numTilesH)*m_tileh, m_tilew, m_tileh);
+            p->drawPixmap( QPoint((i % m_numTilesH)*m_tilew, (i/m_numTilesH)*m_tileh), m_tilesPix, srcRect );
+        }
     }
 }
 
@@ -306,10 +319,9 @@ JezzField::JezzField( const QPixmap &tiles, const QPixmap &background, QObject* 
 
 void JezzField::setGameTile( int x, int y, bool black )
 {
-    if ( m_background )
-        setTile( x, y, black ? ((x-1)+(y-1)*(FIELD_WIDTH-2)) : TILE_FREE );
-    else
-        setTile( x, y, black ? TILE_BORDER : TILE_FREE );
+    if( m_background )
+        setBackgroundTileNum( TILE_WALL );
+    setTile( x, y, black ? TILE_WALL : TILE_FREE );
 }
 
 void JezzField::setBackground( const QPixmap &background )
@@ -332,13 +344,8 @@ void JezzField::setBackground( const QPixmap &background )
         for ( int x=1; x<FIELD_WIDTH-1; x++ ) {
             int tile = backup[x][y];
 
-            if ( m_background ) {
-                if ( tile==TILE_BORDER || tile<TILE_FIRST )
-                    tile = (x-1)+(y-1)*(FIELD_WIDTH-2);
-            } else {
-                if ( tile<TILE_FIRST )
-                    tile = TILE_BORDER;
-            }
+            if ( tile<TILE_FIRST )
+                tile = TILE_BORDER;
 
             setTile( x, y, tile );
         }
@@ -351,10 +358,8 @@ void JezzField::setBackground( const QPixmap &background )
 
 void JezzField::setPixmaps( const QPixmap &tiles, const QPixmap &background )
 {
-    // create new tiles
-    QPixmap allTiles( TILE_SIZE*(FIELD_WIDTH-2), TILE_SIZE*(FIELD_HEIGHT-1) );
+    QPixmap bkgnd;
 
-    QPainter p(&allTiles);
     if ( background.width()==0 || background.height()==0 ) {
         m_background = false;
     } else {
@@ -366,16 +371,11 @@ void JezzField::setPixmaps( const QPixmap &tiles, const QPixmap &background )
                                                TILE_SIZE*(FIELD_HEIGHT-2),
                                                Qt::IgnoreAspectRatio,
                                                Qt::SmoothTransformation ) );
-        p.drawPixmap(0, 0, scalledBackground);
+        bkgnd = QPixmap( TILE_SIZE*FIELD_WIDTH, TILE_SIZE*FIELD_HEIGHT );
+        QPainter p(&bkgnd);
+        p.drawPixmap( TILE_SIZE, TILE_SIZE, scalledBackground );
     }
-
-#warning fix custom bkgnd case!
-    // NOTE allTiles is unused. At all. Earlier it was passed to setTiles
-    // handle default tiles
-    //p.drawPixmap( 0, TILE_SIZE*(FIELD_HEIGHT-2), tiles );
-
-    // load tiles into canvas
-    setTiles( tiles, FIELD_WIDTH, FIELD_HEIGHT, TILE_SIZE, TILE_SIZE );
+    setTiles( tiles, bkgnd, FIELD_WIDTH, FIELD_HEIGHT, TILE_SIZE, TILE_SIZE );
 }
 
 
@@ -553,8 +553,8 @@ void JezzGame::makeBlack()
             static_cast<int>( ball->y()/TILE_SIZE ) );
 
    // areas still free can be blacked now
-   for ( int y=0; y<FIELD_HEIGHT; y++ )
-      for ( int x=0; x<FIELD_WIDTH; x++ )
+   for ( int y=1; y<FIELD_HEIGHT-1; y++ )
+      for ( int x=1; x<FIELD_WIDTH-1; x++ )
       {
          if ( m_buf[x][y]==TILE_FREE )
              m_field->setGameTile( x, y, true );
@@ -592,7 +592,7 @@ void JezzGame::fill( int x, int y )
    // go left
    int _x=x;
    for ( ; m_buf[_x][y]==TILE_FREE; _x-- )
-      m_buf[_x][y] = TILE_BORDER;
+      m_buf[_x][y] = TILE_WALL;
    int stopx = _x;
 
    // fill above
@@ -605,7 +605,7 @@ void JezzGame::fill( int x, int y )
 
    // go right
    for ( _x=x+1; m_buf[_x][y]==TILE_FREE; _x++ )
-      m_buf[_x][y] = TILE_BORDER;
+      m_buf[_x][y] = TILE_WALL;
    stopx = _x;
 
    // fill above
@@ -619,7 +619,7 @@ void JezzGame::fill( int x, int y )
 
 void JezzGame::ballCollision( Ball */*ball*/, int /*x*/, int /*y*/, int tile )
 {
-   if ( tile!=TILE_BORDER && tile>TILE_FREE && tile!=TILE_WALLEND )
+   if ( tile!=TILE_BORDER && tile != TILE_WALL && tile>TILE_FREE && tile!=TILE_WALLEND )
    {
       kDebug(12008) << "Collision" << endl;
 

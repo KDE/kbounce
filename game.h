@@ -106,9 +106,14 @@ public:
      */
     void setTile( int x, int y, int tilenum );
     /**
+     *  Sets tile number which should be replaced by the tile from the customBkgnd rather
+     *  then from m_tilesPix.
+     */
+    void setBackgroundTileNum( int num ) { m_bkgndTileNum = num; }
+    /**
      *  @see Q3Canvas::setTiles
      */
-    void setTiles( const QPixmap& p, int h, int v, int tilewidth, int tileheight );
+    void setTiles( const QPixmap& p, const QPixmap& customBkgnd, int h, int v, int tilewidth, int tileheight );
     /**
      *  @see Q3Canvas::tile
      */
@@ -120,6 +125,16 @@ private:
      *  Pixmap which serves as origin for tiles
      */
     QPixmap m_tilesPix;
+    /**
+     *  Custom background (@see setBkgndTileNum)
+     */
+    QPixmap m_customBackground;
+    /**
+     *  Specifies that if the cell contains tile number m_bkgndTileNum then it should
+     *  be painted with tile from customBkgnd (@see setTiles)
+     *  if customBkgnd wasn't set this has no effect
+     */
+    int m_bkgndTileNum;
     /**
      *  Holds the tiles numbers
      *  @see Q3Canvas::setTiles
