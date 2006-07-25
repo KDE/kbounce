@@ -20,8 +20,9 @@
 #include <QMouseEvent>
 #include <QImage>
 #include <QPainter>
+#include <QFileInfo>
+#include <QDir>
 
-#include <stdlib.h>
 #include <kstandarddirs.h>
 #include <kapplication.h>
 #include <kurl.h>
@@ -35,7 +36,7 @@
 
 #define TILE_SIZE 16
 
-#define TILE_FIRST ((FIELD_WIDTH-2)*(FIELD_HEIGHT-2))
+#define TILE_FIRST (0)
 #define TILE_FREE (TILE_FIRST + 0)
 #define TILE_BORDER (TILE_FIRST + 1)
 #define TILE_WALLEND (TILE_FIRST + 2)
@@ -55,9 +56,20 @@ bool JezzGame::m_sound = true;
 
 #define MS2TICKS( ms ) ((ms)/GAME_DELAY)
 
-Ball::Ball(Q3CanvasPixmapArray* array, Q3Canvas* canvas)
-    : Q3CanvasSprite( array, canvas ), m_animDelay( 0 ), m_soundDelay( MS2TICKS(BALL_ANIM_DELAY)/2 )
+Ball::Ball(const QList<QPixmap> &array, QGraphicsScene *scene)
+    : QGraphicsPixmapItem( 0, scene ), m_animDelay( 0 ), m_soundDelay( MS2TICKS(BALL_ANIM_DELAY)/2 ),
+    m_frames(array), m_currentFrame(0), m_xVelocity(0), m_yVelocity(0)
 {
+    setFrame(0);
+}
+
+void Ball::setFrame(int frame)
+{
+    if( !m_frames.isEmpty() )
+    {
+        m_currentFrame = frame % m_frames.count();
+        setPixmap( m_frames.at( m_currentFrame ) );
+    }
 }
 
 void Ball::update()
@@ -77,6 +89,8 @@ void Ball::update()
 
 void Ball::advance(int stage)
 {
+   if(stage == 0)
+       return;
    bool reflectX = false;
    bool reflectY = false;
 
@@ -93,9 +107,9 @@ void Ball::advance(int stage)
    if ( !reflectX && !reflectY && collide(xVelocity(), yVelocity()) ) reflectX = reflectY = true;
 
    // emit collision
-   QRect r = boundingRect();
+   QRect r = sceneBoundingRect().toRect();
    r.translate( static_cast<int>( xVelocity() ), static_cast<int>( yVelocity() ));
-   JezzField* field = (JezzField *)canvas();
+   JezzField* field = static_cast<JezzField*>(scene());
 
    int ul = field->tile( r.left() / TILE_SIZE, r.top() / TILE_SIZE );
    int ur = field->tile( r.right() / TILE_SIZE, r.top() / TILE_SIZE );
@@ -118,16 +132,17 @@ void Ball::advance(int stage)
        m_soundDelay = 0;
    }
 
+   setFrame(++m_currentFrame);
+   moveBy( m_xVelocity, m_yVelocity );
    // update field
    update();
-   Q3CanvasSprite::advance( stage );
 }
 
 bool Ball::collide( double dx, double dy )
 {
-   QRect r = boundingRect();
+   QRect r = sceneBoundingRect().toRect();
    r.translate( static_cast<int>(dx), static_cast<int>(dy) );
-   JezzField* field = (JezzField *)canvas();
+   JezzField* field = static_cast<JezzField*>(scene());
 
    int ul = field->tile( r.left() / TILE_SIZE, r.top() / TILE_SIZE );
    int ur = field->tile( r.right() / TILE_SIZE, r.top() / TILE_SIZE );
@@ -172,7 +187,7 @@ bool Wall::isFree( int x, int y )
     if ( m_field->tile(x, y)==TILE_FREE )
     {
         // check whether there is a ball at the moment
-        Q3CanvasItemList cols = m_field->collisions( QRect(x*TILE_SIZE, y*TILE_SIZE,
+        QList<QGraphicsItem*> cols = m_field->items( QRect(x*TILE_SIZE, y*TILE_SIZE,
                                                           TILE_SIZE, TILE_SIZE) );
         if ( cols.count()==0 )
             return true;
@@ -239,11 +254,55 @@ void Wall::fill( bool black )
 
 /*************************************************************************/
 
+TiledScene::TiledScene( QObject *parent )
+    : QGraphicsScene(parent)
+{
+
+}
+
+void TiledScene::setTile( int x, int y, int tilenum )
+{
+    m_tiles[y*m_numTilesH + x] = tilenum;
+}
+
+void TiledScene::setTiles( const QPixmap& p, int h, int v, int tilewidth, int tileheight )
+{
+    m_tilesPix = p;
+    m_tilew = tilewidth;
+    m_tileh = tileheight;
+    m_numTilesH = h;
+    m_numTilesV = v;
+    for(int i=0;i<m_numTilesH*m_numTilesV;++i)
+        m_tiles.append(0);
+}
+
+int TiledScene::tile( int x, int y ) const
+{
+    if(x >= m_numTilesH || x < 0 || y >= m_numTilesV || y < 0)
+        return 0;
+    return m_tiles.at( y*m_numTilesH + x );
+}
+
+void TiledScene::drawBackground( QPainter* p, const QRectF& rect )
+{
+    // FIXME dimsuz: 
+    Q_UNUSED(rect);
+    for(int i=0;i<m_tiles.count();++i)
+    {
+        int tilenum = m_tiles.at(i);
+        QRect srcRect((tilenum % m_numTilesH)*m_tilew, (tilenum/m_numTilesH)*m_tileh, m_tilew, m_tileh);
+        p->drawPixmap( QPoint((i % m_numTilesH)*m_tilew, (i/m_numTilesH)*m_tileh), m_tilesPix, srcRect );
+    }
+}
+
+/*************************************************************************/
+
 JezzField::JezzField( const QPixmap &tiles, const QPixmap &background, QObject* parent )
-    : Q3Canvas( parent ), m_tiles( tiles )
+    : TiledScene( parent ), m_tiles(tiles)
 {
     setPixmaps( tiles, background );
 }
+
 
 void JezzField::setGameTile( int x, int y, bool black )
 {
@@ -310,27 +369,30 @@ void JezzField::setPixmaps( const QPixmap &tiles, const QPixmap &background )
         p.drawPixmap(0, 0, scalledBackground);
     }
 
+#warning fix custom bkgnd case!
+    // NOTE allTiles is unused. At all. Earlier it was passed to setTiles
     // handle default tiles
-    p.drawPixmap( 0, TILE_SIZE*(FIELD_HEIGHT-2), tiles );
+    //p.drawPixmap( 0, TILE_SIZE*(FIELD_HEIGHT-2), tiles );
 
     // load tiles into canvas
-    setTiles( allTiles, FIELD_WIDTH, FIELD_HEIGHT, TILE_SIZE, TILE_SIZE );
+    setTiles( tiles, FIELD_WIDTH, FIELD_HEIGHT, TILE_SIZE, TILE_SIZE );
 }
 
 
 /*************************************************************************/
 
-JezzView::JezzView(Q3Canvas* viewing, QWidget* parent)
-   : Q3CanvasView( viewing, parent ), m_vertical( false )
+JezzView::JezzView(QGraphicsScene* viewing, QWidget* parent)
+   : QGraphicsView( viewing, parent ), m_vertical( false )
 {
-   setResizePolicy( AutoOne );
-   setHScrollBarMode( AlwaysOff );
-   setVScrollBarMode( AlwaysOff );
+   //setResizePolicy( AutoOne );
+   setHorizontalScrollBarPolicy( Qt::ScrollBarAlwaysOff );
+   setVerticalScrollBarPolicy( Qt::ScrollBarAlwaysOff );
+   setCacheMode( QGraphicsView::CacheBackground );
 
    setCursor( Qt::SizeHorCursor );
 }
 
-void JezzView::viewportMouseReleaseEvent( QMouseEvent *ev )
+void JezzView::mouseReleaseEvent( QMouseEvent *ev )
 {
    if ( ev->button() & Qt::RightButton )
    {
@@ -353,9 +415,10 @@ JezzGame::JezzGame( const QPixmap &background, int ballNum, QWidget *parent )
    QString path = kapp->dirs()->findResourceDir( "data", "kbounce/pics/ball0000.png" ) + "kbounce/pics/";
 
    // load gfx
-   m_ballPixmaps = new Q3CanvasPixmapArray( path + "ball%1.png", 25 );
-   for ( unsigned n=0; n<m_ballPixmaps->count(); n++ )
-       m_ballPixmaps->image(n)->setOffset( 0, 0 );
+   QFileInfo fi(path + "ball*.png");
+   m_ballPixmaps = new QList<QPixmap>;
+   foreach( QString entry, QDir(fi.path(), fi.fileName()).entryList() )
+       m_ballPixmaps->append( fi.path() + "/" + entry );
    QPixmap tiles( path + "tiles.png" );
 
    // setup audio player
@@ -365,7 +428,7 @@ JezzGame::JezzGame( const QPixmap &background, int ballNum, QWidget *parent )
 
    // create field
    m_field = new JezzField( tiles, background, this );
-   m_field->resize( TILE_SIZE*FIELD_WIDTH, TILE_SIZE*FIELD_HEIGHT );
+   m_field->setSceneRect( 0, 0, TILE_SIZE*FIELD_WIDTH, TILE_SIZE*FIELD_HEIGHT );
 
    for ( int x=0; x<FIELD_WIDTH; x++ )
          m_field->setTile( x, 0, TILE_BORDER );
@@ -390,17 +453,17 @@ JezzGame::JezzGame( const QPixmap &background, int ballNum, QWidget *parent )
    // create balls
    for ( int n=0; n<ballNum; n++ )
    {
-      Ball *ball = new Ball( m_ballPixmaps, m_field );
+      Ball *ball = new Ball( *m_ballPixmaps, m_field );
       m_balls.append( ball );
       ball->setVelocity( ((KRandom::random() & 1)*2-1)*2, ((KRandom::random() & 1)*2-1)*2 );
       ball->setFrame( KRandom::random() % 25 );
-      ball->move( 4*TILE_SIZE + KRandom::random() % ( (FIELD_WIDTH-8)*TILE_SIZE ),
+      ball->setPos( 4*TILE_SIZE + KRandom::random() % ( (FIELD_WIDTH-8)*TILE_SIZE ),
                   4*TILE_SIZE + KRandom::random() % ( (FIELD_HEIGHT-8)*TILE_SIZE ) );
       ball->show();
    }
 
    // create text label
-   m_text = new Q3CanvasText( m_field );
+   m_text = new QGraphicsSimpleTextItem( 0, m_field );
 
    // create game clock
    m_clock = new QTimer( this );
@@ -413,6 +476,7 @@ JezzGame::JezzGame( const QPixmap &background, int ballNum, QWidget *parent )
 
 JezzGame::~JezzGame()
 {
+    qDeleteAll( m_balls );
     m_balls.clear();
     delete m_view;
     delete m_field;
@@ -423,7 +487,7 @@ JezzGame::~JezzGame()
 
 void JezzGame::display( const QString &text, int size )
 {
-    qDebug("This function \"display\" shouldn't be called!!!");
+    kDebug(12008) << "This function \"display\" shouldn't be called!!!" << endl;
     if ( !text.isEmpty() )
     {
         //kDebug(12008) << "text = " << text << endl;
@@ -434,8 +498,8 @@ void JezzGame::display( const QString &text, int size )
         m_text->setFont( font );
         m_text->setText( text );
 
-        QRect size = m_text->boundingRect();
-        m_text->move( ( FIELD_WIDTH*TILE_SIZE - size.width() ) / 2,
+        QRect size = m_text->boundingRect().toRect();
+        m_text->setPos( ( FIELD_WIDTH*TILE_SIZE - size.width() ) / 2,
                       ( FIELD_HEIGHT*TILE_SIZE - size.height() ) / 2 );
 
         m_text->show();
@@ -447,8 +511,12 @@ void JezzGame::display( const QString &text, int size )
 
 void JezzGame::playSound( const QString &name )
 {
+#warning reenable me after phonon is set up
+    Q_UNUSED(name);
+    /* FIXME: TEMPORARILY COMMENTED OUT to prevent error mboxes from phonon
     if( m_player && m_sound)
         m_player->play( KUrl::fromPath(m_soundPath + name) );
+         */
 }
 
 void JezzGame::setBackground( const QPixmap &background )
@@ -480,7 +548,7 @@ void JezzGame::makeBlack()
          m_buf[x][y] = m_field->tile( x, y );
 
    // fill areas that contains a ball
-   for ( Ball *ball=m_balls.first(); ball!=0; ball=m_balls.next() )
+   foreach( Ball *ball, m_balls )
       fill( static_cast<int>( ball->x()/TILE_SIZE ),
             static_cast<int>( ball->y()/TILE_SIZE ) );
 
@@ -577,6 +645,7 @@ void JezzGame::ballCollision( Ball */*ball*/, int /*x*/, int /*y*/, int tile )
           m_wall2 = 0;
       }
 
+      m_view->resetCachedContent(); //redraw background
       // update view
       m_field->update();
       m_view->update();
@@ -596,7 +665,7 @@ void JezzGame::buildWall( int x, int y, bool vertical )
        playSound( "wallstart.au" );
 
       // check whether there is a ball at the moment
-      Q3CanvasItemList cols = m_field->collisions( QRect(x*TILE_SIZE, y*TILE_SIZE, TILE_SIZE, TILE_SIZE) );
+      QList<QGraphicsItem*> cols = m_field->items( QRect(x*TILE_SIZE, y*TILE_SIZE, TILE_SIZE, TILE_SIZE) );
       if ( cols.count()>0 )
       {
          kDebug(12008) << "Direct collision" << endl;
@@ -663,10 +732,8 @@ void JezzGame::wallFinished( Wall *wall, int tile )
         }
     }
 
-    m_field->update();
-    m_view->update();
-
     makeBlack();
+    m_view->resetCachedContent(); //redraw background
 }
 
 void JezzGame::tick()
@@ -676,14 +743,18 @@ void JezzGame::tick()
         if ( m_field ) m_field->advance();
         if ( m_wall1 ) m_wall1->advance();
         if ( m_wall2 ) m_wall2->advance();
+        if( m_wall1 || m_wall2 )
+            m_view->resetCachedContent(); //redraw background
     } else
     {
-        for ( Ball *ball=m_balls.first(); ball!=0; ball=m_balls.next() )
+        foreach( Ball *ball, m_balls )
             ball->update();
 
         if ( m_field ) m_field->update();
         if ( m_wall1 ) m_wall1->update();
         if ( m_wall2 ) m_wall2->update();
+        if( m_wall1 || m_wall2 )
+            m_view->resetCachedContent(); //redraw background
     }
 }
 

@@ -19,8 +19,10 @@
 #ifndef GAME_H_INCLUDED
 #define GAME_H_INCLUDED
 
-#include <QWidget>
-#include <q3canvas.h>
+#include <QGraphicsView>
+#include <QGraphicsScene>
+#include <QGraphicsPixmapItem>
+#include <QList>
 
 class QTimer;
 class JezzField;
@@ -33,18 +35,30 @@ namespace Phonon
 #define FIELD_WIDTH 32
 #define FIELD_HEIGHT 20
 
-class Ball : public Q3CanvasSprite
+class Ball : public QGraphicsPixmapItem
 {
  public:
-    Ball(Q3CanvasPixmapArray* array, Q3Canvas* canvas);
+    Ball(const QList<QPixmap> &frames, QGraphicsScene* scene);
 
     void update();
     void advance(int stage);
     bool collide( double dx=0, double dy=0 );
 
+    void setFrame(int frame);
+    int frame() const { return m_currentFrame; }
+    int frameCount() const { return m_frames.count(); }
+    void setVelocity(qreal xv, qreal yv) { m_xVelocity = xv; m_yVelocity = yv; }
+    void setXVelocity(qreal xv) { m_xVelocity = xv; }
+    void setYVelocity(qreal yv) { m_yVelocity = yv; }
+    qreal xVelocity() const { return m_xVelocity; }
+    qreal yVelocity() const { return m_yVelocity; }
  protected:
     int m_animDelay;
     int m_soundDelay;
+    QList<QPixmap> m_frames;
+    int m_currentFrame;
+    qreal m_xVelocity;
+    qreal m_yVelocity;
 };
 
 
@@ -80,12 +94,61 @@ private:
    bool m_active;
 };
 
+/**
+ *  Convenience class to provide a tile functionality that Q3Canvas had
+ */
+class TiledScene : public QGraphicsScene
+{
+public:
+    TiledScene( QObject* parent = 0 );
+    /**
+     *  @see Q3Canvas::setTile
+     */
+    void setTile( int x, int y, int tilenum );
+    /**
+     *  @see Q3Canvas::setTiles
+     */
+    void setTiles( const QPixmap& p, int h, int v, int tilewidth, int tileheight );
+    /**
+     *  @see Q3Canvas::tile
+     */
+    int  tile( int x, int y ) const;
+protected:
+    virtual void drawBackground( QPainter*, const QRectF& ); // reimp
+private:
+    /**
+     *  Pixmap which serves as origin for tiles
+     */
+    QPixmap m_tilesPix;
+    /**
+     *  Holds the tiles numbers
+     *  @see Q3Canvas::setTiles
+     */
+    QList<int> m_tiles;
+    /**
+     *  Width of single tile
+     */
+    int m_tilew;
+    /**
+     *  Height of single tile
+     */
+    int m_tileh;
+    /**
+     *  Number of tiles in horizontal direction
+     */
+    int m_numTilesH;
+    /**
+     *  Number of tiles in vertical direction
+     */
+    int m_numTilesV;
+};
 
-class JezzField : public Q3Canvas
+class JezzField : public TiledScene
 {
    Q_OBJECT
 public:
    JezzField( const QPixmap &tiles, const QPixmap &background, QObject* parent = 0 );
+
 
    void setGameTile( int x, int y, bool black );
    void setBackground( const QPixmap &background );
@@ -94,29 +157,28 @@ signals:
    void ballCollision( Ball *ball, int x, int y, int tile );
 
 private:
-   friend class Ball;
    bool m_background;
    QPixmap m_tiles;
-   QVector<QPixmap> m_backTiles;
 
    void setPixmaps( const QPixmap &tiles, const QPixmap &background );
+   friend class Ball;
    void emitBallCollisiton( Ball *ball, int x, int y, int tile )
       { emit ballCollision( ball, x, y, tile ); };
 
 };
 
 
-class JezzView : public Q3CanvasView
+class JezzView : public QGraphicsView
 {
   Q_OBJECT
 public:
-   JezzView(Q3Canvas* viewing=0, QWidget* parent=0);
+   JezzView(QGraphicsScene* viewing=0, QWidget* parent=0);
 
 signals:
    void buildWall( int x, int y, bool vertical );
 
 protected:
-   void viewportMouseReleaseEvent( QMouseEvent * );
+   void mouseReleaseEvent( QMouseEvent * );
 
 private:
    bool m_vertical;
@@ -162,9 +224,9 @@ protected:
 
    Wall *m_wall1, *m_wall2;
 
-   Q3PtrList<Ball> m_balls;
-   Q3CanvasPixmapArray *m_ballPixmaps;
-   Q3CanvasText *m_text;
+   QList<Ball*> m_balls;
+   QList<QPixmap> *m_ballPixmaps;
+   QGraphicsSimpleTextItem *m_text;
 
    QTimer *m_clock;
    bool m_running;

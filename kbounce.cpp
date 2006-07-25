@@ -334,6 +334,12 @@ QPixmap KJezzball::getBackgroundPixmap()
 
 void KJezzball::focusOutEvent( QFocusEvent *ev )
 {
+#warning fixme (read the full version here)
+    // FIXME this event is triggered when right-clicking on QGraphicsView. Why?
+    // Need to find why :).
+    // Because it prevents a walls from being built.
+    // Commented for now
+    /* 
     if ( m_state==Running )
     {
         stopLevel();
@@ -343,6 +349,7 @@ void KJezzball::focusOutEvent( QFocusEvent *ev )
         // m_gameWidget->display( i18n("Game suspended") );
     }
 
+     */
     KMainWindow::focusOutEvent( ev );
 }
 
