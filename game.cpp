@@ -320,7 +320,11 @@ JezzField::JezzField( const QPixmap &tiles, const QPixmap &background, QObject* 
 void JezzField::setGameTile( int x, int y, bool black )
 {
     if( m_background )
+    {
+        // this will ensure that upon redraw TILE_WALL tiles 
+        // will be taken from background image and not from usual tileset
         setBackgroundTileNum( TILE_WALL );
+    }
     setTile( x, y, black ? TILE_WALL : TILE_FREE );
 }
 
