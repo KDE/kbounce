@@ -422,7 +422,7 @@ JezzGame::JezzGame( const QPixmap &background, int ballNum, QWidget *parent )
    QFileInfo fi(path + "ball*.png");
    m_ballPixmaps = new QList<QPixmap>;
    foreach( QString entry, QDir(fi.path(), fi.fileName()).entryList() )
-       m_ballPixmaps->append( fi.path() + "/" + entry );
+       m_ballPixmaps->append( fi.path() + '/' + entry );
    QPixmap tiles( path + "tiles.png" );
 
    // setup audio player

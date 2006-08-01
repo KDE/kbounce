@@ -334,7 +334,6 @@ QPixmap KJezzball::getBackgroundPixmap()
 
 void KJezzball::focusOutEvent( QFocusEvent *ev )
 {
-#warning fixme (read the full version here)
     // FIXME this event is triggered when right-clicking on QGraphicsView. Why?
     // Need to find why :).
     // Because it prevents a walls from being built.
