@@ -4,7 +4,10 @@ add_subdirectory( pics )
 add_subdirectory( sounds ) 
 
 include_directories( ${CMAKE_SOURCE_DIR}/libkdegames ${CMAKE_SOURCE_DIR}/libkdegames/highscore  )
-
+ 
+if(KDE4_ENABLE_FPIE)
+    set ( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${KDE4_CXX_FPIE_FLAGS}")
+endif(KDE4_ENABLE_FPIE)
 
 ########### next target ###############
 
@@ -18,7 +21,12 @@ kde4_automoc(${kbounce_SRCS})
 
 kde4_add_executable(kbounce ${kbounce_SRCS})
 
-target_link_libraries(kbounce  ${KDE4_KDEUI_LIBS}  kdegames ${KDE4_PHONONCORE_LIBRARIES})
+if(KDE4_ENABLE_FPIE)
+    target_link_libraries(kbounce  ${KDE4_KDEUI_LIBS}  kdegames ${KDE4_PHONONCORE_LIBRARIES} ${KDE4_PIE_LDFLAGS})
+else(KDE4_ENABLE_FPIE)
+    target_link_libraries(kbounce  ${KDE4_KDEUI_LIBS}  kdegames ${KDE4_PHONONCORE_LIBRARIES})
+endif(KDE4_ENABLE_FPIE)
+
 
 install(TARGETS kbounce  DESTINATION ${BIN_INSTALL_DIR} )
 
