@@ -143,7 +143,7 @@ void KJezzball::initXMLUI()
     connect(action, SIGNAL(triggered(bool) ), SLOT(selectBackground()));
     m_backgroundShowAction = new KToggleAction( i18n("Show &Backgrounds"), actionCollection(), "background_show" );
     connect(action, SIGNAL(triggered(bool) ), SLOT(showBackground()));
-    m_backgroundShowAction->setCheckedState(i18n("Hide &Backgrounds"));
+    m_backgroundShowAction->setCheckedState(KGuiItem(i18n("Hide &Backgrounds")));
     m_backgroundShowAction->setEnabled( !m_backgroundDir.isEmpty() );
     m_backgroundShowAction->setChecked( m_showBackground );
 
