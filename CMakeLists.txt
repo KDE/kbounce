@@ -17,7 +17,7 @@ set(kbounce_SRCS
    game.cpp 
    highscores.cpp )
 
-kde4_automoc(${kbounce_SRCS})
+kde4_automoc(kbounce ${kbounce_SRCS})
 
 kde4_add_executable(kbounce ${kbounce_SRCS})
 
