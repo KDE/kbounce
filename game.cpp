@@ -515,7 +515,9 @@ void JezzGame::display( const QString &text, int size )
 
 void JezzGame::playSound( const QString &name )
 {
+#ifdef __GNUC__
 #warning reenable me after phonon is set up
+#endif
     Q_UNUSED(name);
     /* FIXME: TEMPORARILY COMMENTED OUT to prevent error mboxes from phonon
     if( m_player && m_sound)
@@ -621,7 +623,7 @@ void JezzGame::fill( int x, int y )
       if ( m_buf[_x][y+1]==TILE_FREE ) fill( _x, y+1 );
 }
 
-void JezzGame::ballCollision( Ball */*ball*/, int /*x*/, int /*y*/, int tile )
+void JezzGame::ballCollision( Ball * /*ball*/, int /*x*/, int /*y*/, int tile )
 {
    if ( tile!=TILE_BORDER && tile != TILE_WALL && tile>TILE_FREE && tile!=TILE_WALLEND )
    {
