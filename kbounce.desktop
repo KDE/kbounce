@@ -11,5 +11,5 @@ Icon=kbounce
 GenericName=Bounce Ball Game
 GenericName[fr]=Jeu de balles rebondissantes
 GenericName[x-test]=xxBounce Ball Gamexx
-X-DCOP-ServiceType=Multi
+X-DBUS-StartupType=Multi
 Categories=Qt;KDE;Game;ArcadeGame;
