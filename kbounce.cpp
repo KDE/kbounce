@@ -20,7 +20,7 @@
 #include <klocale.h>
 #include <kapplication.h>
 #include <kaction.h>
-#include <kstdgameaction.h>
+#include <kstandardgameaction.h>
 #include <QTimer>
 #include <qlcdnumber.h>
 #include <kmessagebox.h>
@@ -126,18 +126,18 @@ KJezzball::~KJezzball()
  */
 void KJezzball::initXMLUI()
 {
-    m_newAction = KStdGameAction::gameNew( this, SLOT(newGame()), actionCollection() );
+    m_newAction = KStandardGameAction::gameNew( this, SLOT(newGame()), actionCollection() );
     // AB: originally KBounce/KJezzball used Space for new game - but Ctrl+N is
     // default. We solve this by providing space as an alternative key
     KShortcut s = m_newAction->shortcut();
     s.setAlternate(QKeySequence(Qt::Key_Space));
     m_newAction->setShortcut(s);
 
-    KStdGameAction::quit(this, SLOT(close()), actionCollection() );
-    KStdGameAction::highscores(this, SLOT(showHighscore()), actionCollection() );
-    m_pauseButton = KStdGameAction::pause(this, SLOT(pauseGame()), actionCollection());
-    KStdGameAction::end(this, SLOT(closeGame()), actionCollection());
-    KStdGameAction::configureHighscores(this, SLOT(configureHighscores()),actionCollection());
+    KStandardGameAction::quit(this, SLOT(close()), actionCollection() );
+    KStandardGameAction::highscores(this, SLOT(showHighscore()), actionCollection() );
+    m_pauseButton = KStandardGameAction::pause(this, SLOT(pauseGame()), actionCollection());
+    KStandardGameAction::end(this, SLOT(closeGame()), actionCollection());
+    KStandardGameAction::configureHighscores(this, SLOT(configureHighscores()),actionCollection());
 
     KAction *action = new KAction( i18n("&Select Background Folder..."), actionCollection(), "background_select" );
     connect(action, SIGNAL(triggered(bool) ), SLOT(selectBackground()));
