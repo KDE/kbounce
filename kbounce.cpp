@@ -183,7 +183,7 @@ void KJezzball::closeGame()
         int old_state = m_state;
         if (old_state == Running)
             pauseGame();
-        int ret = KMessageBox::questionYesNo( this, i18n("Do you really want to close the running game?"), QString::null, KStdGuiItem::close(), KStdGuiItem::cancel() );
+        int ret = KMessageBox::questionYesNo( this, i18n("Do you really want to close the running game?"), QString::null, KStandardGuiItem::close(), KStandardGuiItem::cancel() );
         if ( ret==KMessageBox::Yes )
         {
             stopLevel();
