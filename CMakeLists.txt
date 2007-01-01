@@ -22,9 +22,9 @@ kde4_automoc(${kbounce_SRCS})
 kde4_add_executable(kbounce ${kbounce_SRCS})
 
 if(KDE4_ENABLE_FPIE)
-    target_link_libraries(kbounce  ${KDE4_KDEUI_LIBS}  kdegames ${KDE4_PHONONCORE_LIBRARIES} ${KDE4_PIE_LDFLAGS})
+    target_link_libraries(kbounce  ${KDE4_KDEUI_LIBS}  kdegames ${KDE4_PHONONCORE_LIBS} ${KDE4_PIE_LDFLAGS})
 else(KDE4_ENABLE_FPIE)
-    target_link_libraries(kbounce  ${KDE4_KDEUI_LIBS}  kdegames ${KDE4_PHONONCORE_LIBRARIES})
+    target_link_libraries(kbounce  ${KDE4_KDEUI_LIBS}  kdegames ${KDE4_PHONONCORE_LIBS})
 endif(KDE4_ENABLE_FPIE)
 
 
