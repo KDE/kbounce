@@ -32,6 +32,7 @@
 #include <krandom.h>
 #include <kglobal.h>
 #include <ktoggleaction.h>
+#include <kactioncollection.h>
 #include "kbounce.h"
 #include "game.h"
 
@@ -133,21 +134,29 @@ void KJezzball::initXMLUI()
     s.setAlternate(QKeySequence(Qt::Key_Space));
     m_newAction->setShortcut(s);
 
-    KStandardGameAction::quit(this, SLOT(close()), actionCollection() );
-    KStandardGameAction::highscores(this, SLOT(showHighscore()), actionCollection() );
-    m_pauseButton = KStandardGameAction::pause(this, SLOT(pauseGame()), actionCollection());
-    KStandardGameAction::end(this, SLOT(closeGame()), actionCollection());
-    KStandardGameAction::configureHighscores(this, SLOT(configureHighscores()),actionCollection());
+    QAction *action = KStandardGameAction::quit(this, SLOT(close()), this);
+    actionCollection()->addAction(action->objectName(), action);
+    action = KStandardGameAction::highscores(this, SLOT(showHighscore()), this);
+    actionCollection()->addAction(action->objectName(), action);
+    m_pauseButton = KStandardGameAction::pause(this, SLOT(pauseGame()), this);
+    actionCollection()->addAction(m_pauseButton->objectName(), m_pauseButton);
+    action = KStandardGameAction::end(this, SLOT(closeGame()), this);
+    actionCollection()->addAction(action->objectName(), action);
+    action = KStandardGameAction::configureHighscores(this, SLOT(configureHighscores()), this);
+    actionCollection()->addAction(action->objectName(), action);
 
-    KAction *action = new KAction( i18n("&Select Background Folder..."), actionCollection(), "background_select" );
+    action = actionCollection()->addAction( "background_select" );
+    action->setText( i18n("&Select Background Folder...") );
     connect(action, SIGNAL(triggered(bool) ), SLOT(selectBackground()));
-    m_backgroundShowAction = new KToggleAction( i18n("Show &Backgrounds"), actionCollection(), "background_show" );
+    m_backgroundShowAction = new KToggleAction( i18n("Show &Backgrounds"), this );
+    actionCollection()->addAction( "background_show", m_backgroundShowAction );
     connect(action, SIGNAL(triggered(bool) ), SLOT(showBackground()));
     m_backgroundShowAction->setCheckedState(KGuiItem(i18n("Hide &Backgrounds")));
     m_backgroundShowAction->setEnabled( !m_backgroundDir.isEmpty() );
     m_backgroundShowAction->setChecked( m_showBackground );
 
-    m_soundAction = new KToggleAction( i18n("&Play Sounds"), actionCollection(), "toggle_sound");
+    m_soundAction = new KToggleAction( i18n("&Play Sounds"), this );
+    actionCollection()->addAction( "toggle_sound", m_soundAction );
 }
 
 void KJezzball::newGame()
@@ -338,7 +347,7 @@ void KJezzball::focusOutEvent( QFocusEvent *ev )
     // Need to find why :).
     // Because it prevents a walls from being built.
     // Commented for now
-    /* 
+    /*
     if ( m_state==Running )
     {
         stopLevel();
@@ -473,7 +482,7 @@ void KJezzball::switchLevel()
     QString level;
     level.setNum( m_game.level );
 
-QString foo = 
+QString foo =
 i18n("You have successfully cleared more than 75% of the board.\n") +
 i18n("%1 points: 15 points per remaining life\n", m_level.lifes*15) +
 i18n("%1 points: Bonus\n", (m_gameWidget->percent()-75)*2*(m_game.level+5)) +
