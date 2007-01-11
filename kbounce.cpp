@@ -18,7 +18,6 @@
 
 #include <QLayout>
 #include <klocale.h>
-#include <kapplication.h>
 #include <kaction.h>
 #include <kstandardgameaction.h>
 #include <QTimer>
