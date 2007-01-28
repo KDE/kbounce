@@ -43,7 +43,7 @@ KJezzball::KJezzball()
     m_game.score = 0;
     m_state = Idle;
 
-    KConfig *config = KGlobal::config();
+    KSharedConfig::Ptr config = KGlobal::config();
     m_backgroundDir = config->readPathEntry( "BackgroundDir" );
     m_showBackground = config->readEntry( "ShowBackground", false );
 
@@ -117,7 +117,7 @@ KJezzball::KJezzball()
 
 KJezzball::~KJezzball()
 {
-    KConfig *config = KGlobal::config();
+    KSharedConfig::Ptr config = KGlobal::config();
     config->writeEntry( "PlaySounds", m_soundAction->isChecked() );
 }
 
@@ -279,7 +279,7 @@ void KJezzball::selectBackground()
         m_backgroundShowAction->setEnabled(true);
 
         // save settings
-        KConfig *config = KGlobal::config();
+        KSharedConfig::Ptr config = KGlobal::config();
         config->writePathEntry( "BackgroundDir", m_backgroundDir );
         config->sync();
 
@@ -304,7 +304,7 @@ void KJezzball::showBackground()
         m_showBackground = show;
 
         // save setting
-        KConfig *config = KGlobal::config();
+        KSharedConfig::Ptr config = KGlobal::config();
         config->writeEntry( "ShowBackground", m_showBackground );
         config->sync();
 

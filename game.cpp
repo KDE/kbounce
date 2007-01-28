@@ -416,7 +416,7 @@ JezzGame::JezzGame( const QPixmap &background, int ballNum, QWidget *parent )
     : QWidget( parent ), m_wall1( 0 ), m_wall2( 0 ),
       m_text( 0 ), m_running( false ), m_percent( 0 ), m_pictured( false )
 {
-   QString path = kapp->dirs()->findResourceDir( "data", "kbounce/pics/ball0000.png" ) + "kbounce/pics/";
+   QString path = KGlobal::mainComponent().dirs()->findResourceDir( "data", "kbounce/pics/ball0000.png" ) + "kbounce/pics/";
 
    // load gfx
    QFileInfo fi(path + "ball*.png");
@@ -427,7 +427,7 @@ JezzGame::JezzGame( const QPixmap &background, int ballNum, QWidget *parent )
 
    // setup audio player
    m_player = new Phonon::AudioPlayer(Phonon::GameCategory);
-   m_soundPath = kapp->dirs()->findResourceDir( "data", "kbounce/sounds/death.au" ) +
+   m_soundPath = KGlobal::mainComponent().dirs()->findResourceDir( "data", "kbounce/sounds/death.au" ) +
                  "kbounce/sounds/";
 
    // create field
