@@ -100,7 +100,7 @@ private:
 class TiledScene : public QGraphicsScene
 {
 public:
-    TiledScene( QObject* parent = 0 );
+    explicit TiledScene( QObject* parent = 0 );
     /**
      *  @see Q3Canvas::setTile
      */
@@ -187,7 +187,7 @@ class JezzView : public QGraphicsView
 {
   Q_OBJECT
 public:
-   JezzView(QGraphicsScene* viewing=0, QWidget* parent=0);
+   explicit JezzView(QGraphicsScene* viewing=0, QWidget* parent=0);
 
 signals:
    void buildWall( int x, int y, bool vertical );
