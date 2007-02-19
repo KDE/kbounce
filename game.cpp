@@ -136,7 +136,7 @@ void Ball::advance(int stage)
    setFrame(++m_currentFrame);
    moveBy( m_xVelocity, m_yVelocity );
    // update field
-   update();
+   //update();
 }
 
 bool Ball::collide( double dx, double dy )
@@ -203,7 +203,7 @@ void Wall::update()
 
 void Wall::advance()
 {
-    update();
+    //update();
 
     // move wall
     if ( m_active )
@@ -566,8 +566,8 @@ void JezzGame::makeBlack()
              m_field->setGameTile( x, y, true );
       }
 
-   m_field->update();
-   m_view->update();
+   //m_field->update();
+   //m_view->update();
 
    // count percent value of occupied area
    int p = percent();
@@ -653,8 +653,8 @@ void JezzGame::ballCollision( Ball * /*ball*/, int /*x*/, int /*y*/, int tile )
 
       m_view->resetCachedContent(); //redraw background
       // update view
-      m_field->update();
-      m_view->update();
+      //m_field->update();
+      //m_view->update();
 
       // send death msg
       emit died();
@@ -756,9 +756,9 @@ void JezzGame::tick()
         foreach( Ball *ball, m_balls )
             ball->update();
 
-        if ( m_field ) m_field->update();
-        if ( m_wall1 ) m_wall1->update();
-        if ( m_wall2 ) m_wall2->update();
+ //       if ( m_field ) m_field->update();
+ //       if ( m_wall1 ) m_wall1->update();
+ //       if ( m_wall2 ) m_wall2->update();
         if( m_wall1 || m_wall2 )
             m_view->resetCachedContent(); //redraw background
     }
