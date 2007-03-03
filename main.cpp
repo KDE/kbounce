@@ -16,11 +16,11 @@
  * Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#include <kapplication.h>
-#include <kcmdlineargs.h>
-#include <kaboutdata.h>
+#include <KAboutData>
+#include <KApplication>
+#include <KCmdLineArgs>
 
-#include "kbounce.h"
+#include "mainwindow.h"
 
 #include <khighscore.h>
 #include <klocale.h>
@@ -45,6 +45,7 @@ int main(int argc, char **argv)
   aboutData.addAuthor("Benjamin Meyer", I18N_NOOP("Contributions"), "ben+kbounce@meyerhome.net");
 
   aboutData.addCredit("Dmitry Suzdalev", I18N_NOOP("Port to QGraphicsView framework"), "dimsuz@gmail.com");
+  aboutData.addCredit("Tomasz Boczkowski", 0, "tboczkowski@onet.pl");
 
   KCmdLineArgs::init( argc, argv, &aboutData );
 
@@ -55,10 +56,10 @@ int main(int argc, char **argv)
   ExtManager manager;
 
   if (application.isSessionRestored())
-      RESTORE(KJezzball)
+      RESTORE(KBounceMainWindow)
   else {
-      KJezzball *kjezzball = new KJezzball;
-      kjezzball->show();
+      KBounceMainWindow *w = new KBounceMainWindow;
+      w->show();
   }
   return application.exec();
 }
