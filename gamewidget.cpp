@@ -60,6 +60,7 @@ int KBounceGameWidget::level()
 
 int KBounceGameWidget::score()
 {
+    kDebug() << k_funcinfo << "Score: " << m_score << endl;
     return m_score;
 }
 
@@ -215,7 +216,11 @@ void KBounceGameWidget::mouseReleaseEvent( QMouseEvent* event )
 
 void KBounceGameWidget::closeLevel()
 {   
-    m_bonus = ( m_board->filled() - MIN_FILL_PERCENT ) * 2 * ( m_level + 5 );
+    m_bonus = 0;
+    if ( m_board->filled() >= MIN_FILL_PERCENT )
+    {
+	m_bonus = ( m_board->filled() - MIN_FILL_PERCENT ) * 2 * ( m_level + 5 );
+    }
     m_score += m_bonus;
     m_score += POINTS_FOR_LIFE * m_lives;
     emit scoreChanged( m_score );

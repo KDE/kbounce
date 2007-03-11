@@ -53,7 +53,7 @@ int main(int argc, char **argv)
   KApplication application;
   KGlobal::locale()->insertCatalog("libkdegames");
 
-  ExtManager manager;
+  KExtHighscore::ExtManager manager;
 
   if (application.isSessionRestored())
       RESTORE(KBounceMainWindow)

@@ -16,6 +16,8 @@
  * Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
+#include <cmath>
+
 #include <kdebug.h>
 #include <KRandom>
 
@@ -246,8 +248,8 @@ void KBounceWall::update()
     if ( dx == 0 && dy != 0 ) dx = 1;
     if ( dy == 0 && dx != 0 ) dy = 1;
 
-    int width = static_cast<int>( dx * m_tileSize.width() );
-    int height = static_cast<int>( dy * m_tileSize.height()  );
+    int width = static_cast<int>( ceil( dx * m_tileSize.width() ) );
+    int height = static_cast<int>( ceil( dy * m_tileSize.height()  ) );
     int tileWidth = m_tileSize.width();
     int tileHeight = m_tileSize.height();
 	
@@ -269,40 +271,72 @@ void KBounceWall::update()
     switch( m_dir )
     {
 	case Up:
-	    p.drawPixmap( QRect( 0, tileHeight, width, height - tileHeight ),
-		    m_renderer->renderElement( "wallV", QSize( tileWidth, 18 * tileHeight ) ),
-		    QRect( 0, 18 * tileHeight - height, width, height - tileHeight ) );
-	    if ( dy > 1 )
+	    if ( dy <= 1 )
+	    {
+		p.drawPixmap( QRect( 0, 0, tileWidth, height ),
+		    m_renderer->renderElement( "wallEndUp", m_tileSize ),
+		    QRect( 0, 0, tileWidth, height ) );
+	    }
+	    else
+	    {
+		p.drawPixmap( QRect( 0, tileHeight, width, height - tileHeight ),
+			m_renderer->renderElement( "wallV", QSize( tileWidth, 18 * tileHeight ) ),
+			QRect( 0, 18 * tileHeight - height, width, height - tileHeight ) );
 		p.drawPixmap( QRect( 0, 0, tileWidth, tileHeight ),
 			m_renderer->renderElement( "wallEndUp", m_tileSize ),
 			QRect( 0, 0, tileWidth, tileHeight ) );
+	    }
 	    break;
 	case Right:
-	    p.drawPixmap( QRect( 0, 0, width - tileWidth, height ),
-		    m_renderer->renderElement( "wallH", QSize( 32 * tileWidth, tileHeight ) ),
-		    QRect( 0, 0,width - tileWidth, height ) );
-	    if ( dx > 1 )
+	    if ( dx <= 1 )
+	    {
+		p.drawPixmap( QRect( 0, 0, width, tileHeight ),
+			m_renderer->renderElement( "wallEndRight", m_tileSize ),
+			QRect( tileWidth - width, 0, width, tileHeight ) );
+	    }
+	    else
+	    {
+		p.drawPixmap( QRect( 0, 0, width - tileWidth, height ),
+			m_renderer->renderElement( "wallH", QSize( 32 * tileWidth, tileHeight ) ),
+			QRect( 0, 0,width - tileWidth, height ) );
 		p.drawPixmap( QRect( width - tileWidth, 0, tileWidth, tileHeight ),
 			m_renderer->renderElement( "wallEndRight", m_tileSize ),
 		       QRect( 0, 0, tileWidth, tileHeight ) );
+	    }
 	    break;
 	case Down:
-	    p.drawPixmap( QRect( 0, 0, width, height - tileHeight ),
+	    if ( dy <= 1 )
+	    {
+		p.drawPixmap( QRect( 0, 0, tileWidth, height ),
+			m_renderer->renderElement( "wallEndDown", m_tileSize ),
+			QRect( 0, tileHeight - height, tileWidth, height ) );
+	    }
+	    else
+	    {
+		p.drawPixmap( QRect( 0, 0, width, height - tileHeight ),
 		    m_renderer->renderElement( "wallV", QSize( tileWidth, 18 * tileHeight ) ),
 		    QRect( 0, 0, width, height - tileHeight ) );
-	    if ( dy > 1 )
 		p.drawPixmap( QRect( 0, height - tileHeight, tileWidth, tileHeight ),
 			m_renderer->renderElement( "wallEndDown", m_tileSize ),
 			QRect( 0, 0, tileWidth, tileHeight ) );
+	    }
 	    break;
 	case Left:
-	    p.drawPixmap( QRect( tileWidth, 0, width - tileWidth, height ),
-		    m_renderer->renderElement( "wallH", QSize( 32 * tileWidth, tileHeight ) ),
-		    QRect( 32 * tileWidth - width, 0, width - tileWidth, height ) );
-	    if ( dx > 1 )
+	    if ( dx <= 1 )
+	    {
+		p.drawPixmap( QRect( 0, 0, width, tileHeight ),
+			m_renderer->renderElement( "wallEndLeft", m_tileSize ),
+			QRect( 0, 0, width, tileHeight ) );
+	    }
+	    else
+	    {
+		p.drawPixmap( QRect( tileWidth, 0, width - tileWidth, height ),
+			m_renderer->renderElement( "wallH", QSize( 32 * tileWidth, tileHeight ) ),
+			QRect( 32 * tileWidth - width, 0, width - tileWidth, height ) );
 		p.drawPixmap( QRect( 0, 0, tileWidth, tileHeight ),
 			m_renderer->renderElement( "wallEndLeft", m_tileSize ),
 			QRect( 0, 0, tileWidth, tileHeight ) );
+	    }
 	    break;
     }
 

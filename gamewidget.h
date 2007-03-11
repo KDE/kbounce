@@ -32,7 +32,7 @@ class KBounceGameWidget : public KGameCanvasWidget
     public:
 	enum State { BeforeFirstGame, Running, BetweenLevels, Paused, Suspended, GameOver };
 
-	KBounceGameWidget( const QString& theme, QWidget* parent = 0 );
+	explicit KBounceGameWidget( const QString& theme, QWidget* parent = 0 );
 	~KBounceGameWidget();
 
 	int level();

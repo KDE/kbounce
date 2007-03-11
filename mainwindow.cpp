@@ -133,7 +133,7 @@ void KBounceMainWindow::closeGame()
     KBounceGameWidget::State old_state = m_gameWidget->state();
     if ( old_state == KBounceGameWidget::Running )
 	m_gameWidget->setPaused( true );
-    int ret = KMessageBox::questionYesNo( this, i18n( "Do you really want to close the running game?" ), QString::null,
+    int ret = KMessageBox::questionYesNo( this, i18n( "Do you really want to close the running game?" ), QString(),
 	    KStandardGuiItem::close(), KStandardGuiItem::cancel() );
     if ( ret == KMessageBox::Yes )
     {
@@ -169,13 +169,13 @@ void KBounceMainWindow::showHighscore()
 
 void KBounceMainWindow::highscore()
 {
+    kDebug() << k_funcinfo << endl;
     KExtHighscore::Score score( KExtHighscore::Won );
     score.setScore( m_gameWidget->score() );
     // cast m_game.level to uint or it confuses KExtHighscore
     // which has been told that "level" is uint (see highscore.cpp)
     score.setData( "level", static_cast<uint>( m_gameWidget->level() ) );
-    //FIXME: Commented out due to a bug that causes hangup
-    //KExtHighscore::submitScore(score, this);
+    KExtHighscore::submitScore( score, this );
 }
 
 void KBounceMainWindow::updateLevel( int level )
