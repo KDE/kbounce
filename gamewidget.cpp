@@ -23,10 +23,10 @@
 
 #include "gamewidget.h"
 
-static const int GAME_DELAY = 1000;
+static const int GAME_TIME_DELAY = 1000;
 static const int MIN_FILL_PERCENT = 75;
 static const int POINTS_FOR_LIFE = 15;
-static const int TICKS_PER_SECOND = 1000 / GAME_DELAY;
+static const int TICKS_PER_SECOND = 1000 / GAME_TIME_DELAY;
 
 KBounceGameWidget::KBounceGameWidget( const QString& theme, QWidget* parent )
     : KGameCanvasWidget( parent ), m_renderer( theme ), m_state( BeforeFirstGame ),
@@ -41,7 +41,7 @@ KBounceGameWidget::KBounceGameWidget( const QString& theme, QWidget* parent )
     m_overlay->hide();
 
     m_clock = new QTimer( this );
-    m_clock->setInterval( GAME_DELAY );
+    m_clock->setInterval( GAME_TIME_DELAY );
     connect( m_clock, SIGNAL( timeout() ), this, SLOT( tick() ) );
 
     setCursor( Qt::SizeHorCursor );
