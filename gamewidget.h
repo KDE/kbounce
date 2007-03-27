@@ -38,7 +38,7 @@ class KBounceGameWidget : public KGameCanvasWidget
 	int level();
 	int score();
 
-	KBounceGameWidget::State state() const { return m_state; };
+	KBounceGameWidget::State state() const { return m_state; }
 
 	QSize minimumSizeHint() const;
 
