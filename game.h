@@ -103,7 +103,7 @@ private:
 
    void setPixmaps( const QPixmap &tiles, const QPixmap &background );
    void emitBallCollisiton( Ball *ball, int x, int y, int tile )
-      { emit ballCollision( ball, x, y, tile ); };
+      { emit ballCollision( ball, x, y, tile ); }
 
 };
 
