@@ -16,12 +16,12 @@
  * Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
+#include "renderer.h"
+
 #include <kdebug.h>
 #include <KPixmapEffect>
 
 #include <QPainter>
-
-#include "renderer.h"
 
 KBounceRenderer::KBounceRenderer( const QString& fileName )
 	: m_svgRenderer( fileName ), m_backgroundSize( QSize( 0, 0 ) )

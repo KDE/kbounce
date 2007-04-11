@@ -16,6 +16,8 @@
  * Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
+#include "board.h"
+
 #include <kdebug.h>
 #include <KGlobal>
 #include <KLocale>
@@ -23,8 +25,6 @@
 #include <KStandardDirs>
 
 #include <QTimer>
-
-#include "board.h"
 #include "gameobjects.h"
 
 #define DIR_UP 0

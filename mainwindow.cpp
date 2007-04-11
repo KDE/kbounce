@@ -16,6 +16,8 @@
  * Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
+#include "mainwindow.h"
+
 #include <KAction>
 #include <KActionCollection>
 #include <kdebug.h>
@@ -34,8 +36,6 @@
 #include <QLayout>
 #include <QLCDNumber>
 #include <QTimer>
-
-#include "mainwindow.h"
 #include "gamewidget.h"
 
 KBounceMainWindow::KBounceMainWindow()

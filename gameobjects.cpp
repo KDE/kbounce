@@ -16,6 +16,8 @@
  * Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
+#include "gameobjects.h"
+
 #include <cmath>
 
 #include <kdebug.h>
@@ -24,7 +26,6 @@
 #include <QString>
 
 #include "board.h"
-#include "gameobjects.h"
 #include "renderer.h"
 
 #define BALL_ANIM_DELAY 60
