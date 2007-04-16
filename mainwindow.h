@@ -19,7 +19,7 @@
 #ifndef KBOUNCE_H
 #define KBOUNCE_H
 
-#include <KMainWindow>
+#include <KXmlGuiWindow>
 
 #include <QPixmap>
 
@@ -29,7 +29,7 @@ class KAction;
 class KStatusBar;
 class KToggleAction;
 
-class KBounceMainWindow : public KMainWindow
+class KBounceMainWindow : public KXmlGuiWindow
 {
    Q_OBJECT
 
