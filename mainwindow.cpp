@@ -49,7 +49,7 @@ KBounceMainWindow::KBounceMainWindow()
     m_statusBar->insertItem( "Lives: XX", 4, 1 );
     m_statusBar->insertItem( "Time: XXX", 5, 1 );
 
-    m_gameWidget = new KBounceGameWidget( KStandardDirs::locate( "appdata", "pics/default_theme.svgz"), this ); 
+    m_gameWidget = new KBounceGameWidget( KStandardDirs::locate( "appdata", "pics/default_theme.svgz"), this );
     connect( m_gameWidget, SIGNAL( levelChanged( int ) ), this, SLOT( updateLevel( int ) ) );
     connect( m_gameWidget, SIGNAL( scoreChanged( int ) ), this, SLOT( updateScore( int ) ) );
     connect( m_gameWidget, SIGNAL( livesChanged( int ) ), this, SLOT( updateLives( int ) ) );
@@ -58,7 +58,7 @@ KBounceMainWindow::KBounceMainWindow()
     connect( m_gameWidget, SIGNAL( stateChanged( KBounceGameWidget::State ) ), this, SLOT( updateState( KBounceGameWidget::State ) ) );
     connect( m_gameWidget, SIGNAL( gameOver() ), this, SLOT( gameOverNow() ) );
     setCentralWidget( m_gameWidget );
-   
+
     setFocusPolicy(Qt::StrongFocus);
     setFocus();
     setupGUI();
@@ -78,7 +78,7 @@ KBounceMainWindow::~KBounceMainWindow()
  */
 void KBounceMainWindow::initXMLUI()
 {
-    
+
     m_newAction = KStandardGameAction::gameNew( this, SLOT(newGame()), actionCollection() );
     // AB: originally KBounce/KBounceMainWindow used Space for new game - but Ctrl+N is
     // default. We solve this by providing space as an alternative key
@@ -234,13 +234,13 @@ void KBounceMainWindow::focusOutEvent( QFocusEvent *ev )
     }
 
      */
-    KMainWindow::focusOutEvent( ev );
+    KXmlGuiWindow::focusOutEvent( ev );
 }
 
 void KBounceMainWindow::focusInEvent ( QFocusEvent *ev )
 {
     //m_board->setSuspended( true );
-    KMainWindow::focusInEvent( ev );
+    KXmlGuiWindow::focusInEvent( ev );
 }
 
 // void KBounceMainWindow::switchLevel()
