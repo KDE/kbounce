@@ -23,7 +23,7 @@
 
 #include <QList>
 #include <QObject>
-#include <QString>
+
 
 class KBounceRenderer;
 class KBounceBoard;

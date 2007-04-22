@@ -21,7 +21,7 @@
 
 #include <KSvgRenderer>
 
-#include <QString>
+
 #include <QSize>
 #include <QHash>
 #include <QPixmap>

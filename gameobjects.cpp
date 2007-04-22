@@ -23,7 +23,7 @@
 #include <kdebug.h>
 #include <KRandom>
 
-#include <QString>
+
 
 #include "board.h"
 #include "renderer.h"
