@@ -15,7 +15,6 @@ set(kbounce_SRCS
    board.cpp 
    gameobjects.cpp
    gamewidget.cpp
-   highscores.cpp
    main.cpp 
    mainwindow.cpp 
    renderer.cpp )

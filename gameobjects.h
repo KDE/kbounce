@@ -1,19 +1,23 @@
 /*
  * Copyright (C) 2000-2005 Stefan Schimanski <1Stein@gmx.de>
+ * Copyright (C) 2007 Tomasz Boczkowski <tboczkowski@onet.pl>
  *
- * This program is free software; you can redistribute it and/or
+ * This file is part of the KDE project "KBounce"
+ *
+ * KBounce is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Library General Public
  * License as published by the Free Software Foundation; either
  * version 2 of the License, or (at your option) any later version.
  *
- * This program is distributed in the hope that it will be useful,
+ * KBounce is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Library General Public License for more details.
  *
  * You should have received a copy of the GNU Library General Public
- * License along with this program; if not, write to the Free
- * Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ * License along with KBounce; if not, write to the Free
+ * Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+ * Boston, MA  02110-1301, USA.
  */
 
 #ifndef GAMEOBJECTS_H
@@ -24,40 +28,95 @@
 #include <QList>
 #include <QObject>
 
-
 class KBounceRenderer;
 class KBounceBoard;
 
+/**
+ * KGameCanvasPixmap that displays balls
+ */
 class KBounceBall : public KGameCanvasPixmap
 {
- public:
-    KBounceBall( KBounceRenderer* renderer, KBounceBoard* board );
-    ~KBounceBall();
+    public:
+	/**
+	 * Constructor
+	 */
+	KBounceBall( KBounceRenderer* renderer, KBounceBoard* board );
+	/**
+	 * Destructor
+	 */
+	~KBounceBall();
+	/**
+	 * Performs move and collision calculations.
+	 * This method is called once per frame
+	 */
+	void advance();
+	/**
+	 * Updates ball position and pixmap.
+	 * This method is called once per frame.
+	 */
+	void update();
+	/**
+	 * Sets width and height of ball.
+	 */
+	void resize( const QSize& tileSize );
+	/**
+	 * Rechecks the number of frames of ball animation and sets new pixmaps.
+	 * This method is useful when changing game theme.
+	 */
+	void resetPixmaps();
+	/**
+	 * Sets ball's current frame
+	 */
+	void setFrame(int frame);
+	/**
+	 * Sets a random ball's frame
+	 */
+	void setRandomFrame();
+	/*
+	 * Returns ball's bounding rect in board coordinate system
+	 * @see relativePos()
+	 */
+	QRectF relativeBoundingRect() const;
+	/**
+	 * Returns ball's position in board coordinate system.
+	 * Relative board's coordinates are indepentent of actual GameWidget size.
+	 */
+	QPointF relativePos();
+	/**
+	 * Sets ball's position in board coordinate system.
+	 * @see relativePos()
+	 */
+	void setRelativePos( qreal x, qreal y );
+	/**
+	 * Sets ball's position in board coordinate system
+	 */
+	void setVelocity( qreal vX, qreal vY );
 
-    void advance();
-    void update();
-
-    void resize( const QSize& tileSize );
-    void resetPixmaps();
-    void setFrame(int frame);
-    void setRandomFrame();
-
-    QRectF relativeBoundingRect() const;
-    QPointF relativePos();
-    void setRelativePos( qreal x, qreal y );
-    void setVelocity( qreal vX, qreal vY );
-
- protected:
-    KBounceRenderer* m_renderer;
-    KBounceBoard* m_board;
-    int m_soundDelay;
-    QSize m_size;
-    QList<QString> m_frames;
-    int m_frame;
-    qreal m_xPos;
-    qreal m_yPos;
-    qreal m_xVelocity;
-    qreal m_yVelocity;
+     protected:
+	KBounceRenderer* m_renderer;
+	KBounceBoard* m_board;
+	/**
+	 * Time after emiting previous sound. If the value is too small,
+	 * ball will not emit hit sound.
+	 */
+	int m_soundDelay;
+	/**
+	 * Size of a ball in GameWidget depentant coordinate system
+	 */
+	QSize m_size;
+	/**
+	 * List of subsequent frame pixmap's names. Pixmaps are retrieved form
+	 * KBounceRenderer by using pixmap's names.
+	 */
+	QList<QString> m_frames;
+	/**
+	 * Current frame of ball's animation.
+	 */
+	int m_frame;
+	qreal m_xPos;
+	qreal m_yPos;
+	qreal m_xVelocity;
+	qreal m_yVelocity;
 };
 
 

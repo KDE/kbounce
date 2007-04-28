@@ -22,10 +22,8 @@
 
 #include "mainwindow.h"
 
-#include <khighscore.h>
 #include <klocale.h>
 #include <kglobal.h>
-#include "highscores.h"
 
 using namespace std;
 
@@ -34,8 +32,6 @@ static const char version[] = "0.5";
 
 int main(int argc, char **argv)
 {
-  KHighscore::init("kbounce");
-
   KAboutData aboutData( "kbounce", I18N_NOOP("KBounce"),
     version, description, KAboutData::License_GPL,
     "(c) 2000-2005, Stefan Schimanski");
@@ -52,8 +48,6 @@ int main(int argc, char **argv)
   QApplication::setColorSpec(QApplication::ManyColor);
   KApplication application;
   KGlobal::locale()->insertCatalog("libkdegames");
-
-  KExtHighscore::ExtManager manager;
 
   if (application.isSessionRestored())
       RESTORE(KBounceMainWindow)

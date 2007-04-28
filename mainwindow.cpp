@@ -30,8 +30,7 @@
 #include <KToggleAction>
 
 #include <kstandardgameaction.h>
-#include <khighscore.h>
-#include <kexthighscore.h>
+#include <KScoreDialog>
 
 #include <QLayout>
 #include <QLCDNumber>
@@ -40,8 +39,6 @@
 
 KBounceMainWindow::KBounceMainWindow()
 {
-    initXMLUI();
-
     m_statusBar = statusBar();
     m_statusBar->insertItem( "Level: XX", 1, 1 );
     m_statusBar->insertItem( "Score: XXXXXX", 2, 1 );
@@ -50,6 +47,7 @@ KBounceMainWindow::KBounceMainWindow()
     m_statusBar->insertItem( "Time: XXX", 5, 1 );
 
     m_gameWidget = new KBounceGameWidget( KStandardDirs::locate( "appdata", "pics/default_theme.svgz"), this );
+    m_gameWidget->setSoundPath( KStandardDirs::locate( "appdata", "sounds/" ) );
     connect( m_gameWidget, SIGNAL( levelChanged( int ) ), this, SLOT( updateLevel( int ) ) );
     connect( m_gameWidget, SIGNAL( scoreChanged( int ) ), this, SLOT( updateScore( int ) ) );
     connect( m_gameWidget, SIGNAL( livesChanged( int ) ), this, SLOT( updateLives( int ) ) );
@@ -59,18 +57,19 @@ KBounceMainWindow::KBounceMainWindow()
     connect( m_gameWidget, SIGNAL( gameOver() ), this, SLOT( gameOverNow() ) );
     setCentralWidget( m_gameWidget );
 
+    initXMLUI();
+
     setFocusPolicy(Qt::StrongFocus);
     setFocus();
     setupGUI();
 
-    KSharedConfig::Ptr config = KGlobal::config();
-    //m_soundAction -> setChecked((config->readEntry( "PlaySounds", true )));
+    KConfigGroup cfg( KGlobal::config(), QString() );
+    bool playSounds = cfg.readEntry( "PlaySounds", false );
+    m_soundAction -> setChecked( playSounds );
 }
 
 KBounceMainWindow::~KBounceMainWindow()
 {
-    KSharedConfig::Ptr config = KGlobal::config();
-    //config->writeEntry( "PlaySounds", m_soundAction->isChecked() );
 }
 
 /**
@@ -94,11 +93,10 @@ void KBounceMainWindow::initXMLUI()
     actionCollection()->addAction( m_pauseButton->objectName(), m_pauseButton );
     action = KStandardGameAction::end( this, SLOT( closeGame() ), this );
     actionCollection()->addAction( action->objectName(), action );
-    action = KStandardGameAction::configureHighscores( this, SLOT( configureHighscores() ), this );
-    actionCollection()->addAction( action->objectName(), action );
 
-    //m_soundAction = new KToggleAction( i18n("&Play Sounds"), this );
-    //actionCollection()->addAction( "toggle_sound", m_soundAction );
+    m_soundAction = new KToggleAction( i18n("&Play Sounds"), this );
+    actionCollection()->addAction( "toggle_sound", m_soundAction );
+    connect( m_soundAction, SIGNAL( triggered( bool ) ), this, SLOT( setSounds( bool ) ) );
 }
 
 void KBounceMainWindow::newGame()
@@ -152,30 +150,29 @@ void KBounceMainWindow::gameOverNow()
 }
 
 /**
- * Bring up the standard kde high score configure dialog.
- */
-void KBounceMainWindow::configureHighscores()
-{
-	KExtHighscore::configure(this);
-}
-
-/**
  * Bring up the standard kde high score dialog.
  */
 void KBounceMainWindow::showHighscore()
 {
-    KExtHighscore::show(this);
+    KScoreDialog ksdialog( KScoreDialog::Name | KScoreDialog::Score | KScoreDialog::Level, this );
+    ksdialog.exec();
 }
 
 void KBounceMainWindow::highscore()
 {
     kDebug() << k_funcinfo << endl;
-    KExtHighscore::Score score( KExtHighscore::Won );
-    score.setScore( m_gameWidget->score() );
-    // cast m_game.level to uint or it confuses KExtHighscore
-    // which has been told that "level" is uint (see highscore.cpp)
-    score.setData( "level", static_cast<uint>( m_gameWidget->level() ) );
-    KExtHighscore::submitScore( score, this );
+    KScoreDialog ksdialog( KScoreDialog::Name | KScoreDialog::Score | KScoreDialog::Level, this );
+
+    KScoreDialog::FieldInfo info;
+    info[KScoreDialog::Score].setNum( m_gameWidget->score() );
+    info[KScoreDialog::Level].setNum( m_gameWidget->level() );
+    if ( ksdialog.addScore( info ) );
+	ksdialog.exec();
+}
+
+void KBounceMainWindow::setSounds( bool val )
+{
+    m_gameWidget->setSounds( val );
 }
 
 void KBounceMainWindow::updateLevel( int level )

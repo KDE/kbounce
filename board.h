@@ -29,6 +29,11 @@
 #define TILE_NUM_H 20
 #define TILE_NUM_W 32
 
+namespace Phonon
+{
+    class AudioPlayer;
+}
+
 class KBounceBall;
 class KBounceWall;
 
@@ -58,6 +63,10 @@ class KBounceBoard: public QObject, public KGameCanvasGroup
 	QPoint mapPosition( const QPointF& pos ) const;
 	QPointF unmapPosition( const QPoint& pos ) const;
 
+	void playSound( const QString& name );
+	void setSoundPath( const QString& path );
+	void setSounds( bool val );
+
     signals:
 	void ballsChanged( int balls );
 	void fillChanged( int fill );
@@ -82,6 +91,10 @@ class KBounceBoard: public QObject, public KGameCanvasGroup
 	QList<KBounceWall*> m_walls;
 
 	QTimer* m_clock;
+
+	Phonon::AudioPlayer* m_audioPlayer;
+	bool m_playSounds;
+	QString m_soundPath;
 };
 
 #endif // BOARD_H

@@ -25,6 +25,8 @@
 #include "board.h"
 #include "renderer.h"
 
+class KBounceButton;
+
 class KBounceGameWidget : public KGameCanvasWidget
 {
     Q_OBJECT
@@ -37,7 +39,6 @@ class KBounceGameWidget : public KGameCanvasWidget
 
 	int level();
 	int score();
-
 	KBounceGameWidget::State state() const { return m_state; }
 
 	QSize minimumSizeHint() const;
@@ -46,6 +47,8 @@ class KBounceGameWidget : public KGameCanvasWidget
 	void closeGame();
         void newGame();
 	void setPaused( bool );
+	void setSounds( bool );
+	void setSoundPath( const QString& path );
 	void setSuspended( bool );
 
     signals:
@@ -65,6 +68,7 @@ class KBounceGameWidget : public KGameCanvasWidget
     protected:
 	virtual void resizeEvent( QResizeEvent* event );
 	virtual void mouseReleaseEvent( QMouseEvent* event );
+	virtual void mouseMoveEvent( QMouseEvent* event );
 
 	void closeLevel();
 	void newLevel();
@@ -86,6 +90,9 @@ class KBounceGameWidget : public KGameCanvasWidget
 	void generateOverlay();
 
 	bool m_vertical;
+
+	//TEMP:
+	KBounceButton* m_button;
 };
 
 #endif

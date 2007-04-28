@@ -42,8 +42,8 @@ protected slots:
    void pauseGame();
    void closeGame();
    void gameOverNow();
+   void setSounds( bool val );
    void showHighscore();
-   void configureHighscores();
    void updateLevel( int level );
    void updateScore( int score );
    void updateFilled( int filled );

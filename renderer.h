@@ -1,19 +1,22 @@
 /*
- * Copyright (C) 2000-2005 Stefan Schimanski <1Stein@gmx.de>
+ * Copyright (C) 2006 Dmitry Suzdalev <dimsuz@gmail.com>
+ * Copyright (C) 2007 Tomasz Boczkowski <tboczkowski@onet.pl>
  *
- * This program is free software; you can redistribute it and/or
+ * This file is part of the KDE project "KBounce"
+ *
+ * KBounce is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Library General Public
  * License as published by the Free Software Foundation; either
  * version 2 of the License, or (at your option) any later version.
  *
- * This program is distributed in the hope that it will be useful,
+ * KBounce is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Library General Public License for more details.
  *
  * You should have received a copy of the GNU Library General Public
- * License along with this program; if not, write to the Free
- * Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ * License along with KBounce; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
 #ifndef RENDERER_H
@@ -26,17 +29,39 @@
 #include <QHash>
 #include <QPixmap>
 
+/**
+ * Class for rendering elements of game SVG to QPixmap
+ */
 class KBounceRenderer 
 {
     public:
-	KBounceRenderer( const QString& fileName );
+	/**
+	 * Constructor.
+	 * @param fileName path to SVG containing game graphics
+	 */
+	explicit KBounceRenderer( const QString& fileName );
+	/**
+	 * Destructor.
+	 */
 	~KBounceRenderer();
-
+	/**
+	 * Checks if specified element is included in loaded SVG.
+	 */
         bool elementExists( const QString& id );
-
+	/**
+	 * Sets Background size and invalidates background cache
+	 */
 	void setBackgroundSize( const QSize& size);
-
+	/**
+	 * Renders elements to pixmap.
+	 * @param size if == QSize( 0, 0 ) will return rendered element
+	 * of former size.
+	 */
 	QPixmap renderElement( const QString& id, const QSize& size = QSize( 0, 0 ) );
+	/**
+	 * Renders background to QPixmap of size set by setBachgroundSize
+	 * Background pixmap is cached (setBackgroundSize() invalidates the cache)
+	 */
 	QPixmap renderBackground();
 
     private:
@@ -46,6 +71,5 @@ class KBounceRenderer
 	QHash<QString, QPixmap> m_tileCache;
 };
 
-#endif
-
+#endif //RENDERER_H
 

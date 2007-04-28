@@ -23,6 +23,8 @@
 #include <KLocale>
 #include <KRandom>
 #include <KStandardDirs>
+#include <KUrl>
+#include <Phonon/AudioPlayer>
 
 #include <QTimer>
 #include "gameobjects.h"
@@ -57,6 +59,10 @@ KBounceBoard::KBounceBoard( KBounceRenderer* renderer, KGameCanvasAbstract* canv
     }
 
     clear();
+
+    m_audioPlayer = 0;
+    m_playSounds = false;
+    m_soundPath = QString();
 }
 
 KBounceBoard::~KBounceBoard()
@@ -64,6 +70,7 @@ KBounceBoard::~KBounceBoard()
     qDeleteAll( m_balls );
     qDeleteAll( m_walls );
     delete m_tilesPix;
+    delete m_audioPlayer;
 }
 
 void KBounceBoard::resize( QSize& size )
@@ -215,6 +222,8 @@ bool KBounceBoard::checkCollision( const QRectF& rect, bool feedback )
 
 bool KBounceBoard::checkCollisionTiles( const QRectF& rect, bool feedback)
 {
+    Q_UNUSED( feedback );
+
     QPointF p = rect.topLeft();  
     int ul = m_tiles[static_cast<int>( p.x() )][static_cast<int>( p.y() )];
     p = rect.topRight();
@@ -236,6 +245,27 @@ QPoint KBounceBoard::mapPosition( const QPointF& pos ) const
 QPointF KBounceBoard::unmapPosition( const QPoint& pos ) const
 {
     return QPointF( 1.0 * pos.x() / m_tileSize.width(), 1.0 * pos.y() / m_tileSize.height() );
+}
+
+void KBounceBoard::playSound( const QString& name )
+{
+    if ( m_playSounds == true && m_soundPath != QString() )
+    {
+	QString fileName = m_soundPath + name;
+	m_audioPlayer->play( KUrl::fromPath( fileName ) );
+    }
+}
+
+void KBounceBoard::setSounds( bool val )
+{
+    m_playSounds = val;
+    if ( val == true && m_audioPlayer == 0 )
+	m_audioPlayer = new Phonon::AudioPlayer( Phonon::GameCategory );
+}
+
+void KBounceBoard::setSoundPath( const QString& path )
+{
+    m_soundPath = path;
 }
 
 void KBounceBoard::tick()

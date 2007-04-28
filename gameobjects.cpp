@@ -23,8 +23,6 @@
 #include <kdebug.h>
 #include <KRandom>
 
-
-
 #include "board.h"
 #include "renderer.h"
 
@@ -33,10 +31,11 @@
 #define GAME_DELAY 15
 #define WALL_VELOCITY 0.125
 #define MS2TICKS( ms ) ((ms)/GAME_DELAY)
+#define SOUND_DELAY MS2TICKS( BALL_ANIM_DELAY ) 
 
 KBounceBall::KBounceBall( KBounceRenderer* renderer, KBounceBoard* board )
     : KGameCanvasPixmap( board ), m_renderer( renderer ), m_board( board ),
-    m_soundDelay( MS2TICKS(BALL_ANIM_DELAY)/2 ), m_size( QSize( 16, 16 ) ), m_frame( 0 ),
+    m_soundDelay( 0 ), m_size( QSize( 16, 16 ) ), m_frame( 0 ),
     m_xPos( 0 ), m_yPos( 0 ), m_xVelocity( 0 ), m_yVelocity( 0 )
 {
     resetPixmaps();
@@ -90,8 +89,11 @@ void KBounceBall::advance()
    m_soundDelay++;
    if ( reflectX || reflectY )
    {
-     //TODO: readd sound support  if ( m_soundDelay>50 ) JezzGame::playSound( "reflect.au" );
-       m_soundDelay = 0;
+       if( m_soundDelay > SOUND_DELAY )
+       {
+	   m_board->playSound( "reflect.au" );
+	   m_soundDelay = 0;
+       }
    }
 
    m_xPos += m_xVelocity;
@@ -221,6 +223,7 @@ void KBounceWall::advance()
 	    emit finished( static_cast<int>( m_x1 ), static_cast<int>( m_y1 ),
 		    static_cast<int>( m_x2 - 0.1 ), static_cast<int>( m_y2 ) );
 	hide();
+	m_board->playSound( "wallend.au" );
     }
     else
     {
@@ -358,6 +361,7 @@ void KBounceWall::collide( const QRectF& )
 {
     emit died();
     hide();
+    m_board->playSound( "death.au" );
 }
 
 void KBounceWall::build( int x, int y )
@@ -367,10 +371,11 @@ void KBounceWall::build( int x, int y )
 
     m_x1 = m_x2 = x;
     m_y1 = m_y2 = y;
-
     update();
     moveTo( m_board->mapPosition( QPointF( x, y ) ) );
     show();
+
+    m_board->playSound( "wallstart.au" );
 }
 
 QRectF KBounceWall::relativeBoundingRect() const

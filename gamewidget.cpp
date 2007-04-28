@@ -16,12 +16,12 @@
  * Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#include "gamewidget.h"
-
 #include <QPalette>
 #include <QTimer>
 
 #include <KLocale>
+
+#include "gamewidget.h"
 
 static const int GAME_TIME_DELAY = 1000;
 static const int MIN_FILL_PERCENT = 75;
@@ -45,6 +45,7 @@ KBounceGameWidget::KBounceGameWidget( const QString& theme, QWidget* parent )
     connect( m_clock, SIGNAL( timeout() ), this, SLOT( tick() ) );
 
     setCursor( Qt::SizeHorCursor );
+    setMouseTracking( true );
 }
 
 KBounceGameWidget::~KBounceGameWidget()
@@ -135,6 +136,17 @@ void KBounceGameWidget::setSuspended( bool val )
     redraw();
 }
 
+void KBounceGameWidget::setSounds( bool val )
+{
+    m_board->setSounds( val );
+}
+
+void KBounceGameWidget::setSoundPath( const QString& path )
+{
+    kDebug() << k_funcinfo << " sound path: " << path << endl;
+    m_board->setSoundPath( path );
+}
+
 void KBounceGameWidget::onFillChanged( int fill )
 {
     emit filledChanged( fill );
@@ -212,6 +224,11 @@ void KBounceGameWidget::mouseReleaseEvent( QMouseEvent* event )
 	   newLevel();
        }
    }
+}
+
+void KBounceGameWidget::mouseMoveEvent( QMouseEvent* event )
+{
+    Q_UNUSED( event );
 }
 
 void KBounceGameWidget::closeLevel()
@@ -307,6 +324,9 @@ void KBounceGameWidget::generateOverlay()
 	    break;
 	case GameOver:
 	    text = i18n( "Game over." );
+	    break;
+	default:
+	    text = QString();
     }
 
     QFont font;
@@ -319,7 +339,7 @@ void KBounceGameWidget::generateOverlay()
 	fontSize--;
 	font.setPointSize( fontSize );
 	p.setFont( font );
-	int textWidth = p.boundingRect( p.viewport(), Qt::AlignCenter | Qt::AlignVCenter, text ).width();
+	textWidth = p.boundingRect( p.viewport(), Qt::AlignCenter | Qt::AlignVCenter, text ).width();
     }
 
     p.setPen( QColor( 0, 0, 0, 255 ) );
