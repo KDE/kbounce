@@ -16,12 +16,12 @@
  * Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
+#include "gamewidget.h"
+
 #include <QPalette>
 #include <QTimer>
 
 #include <KLocale>
-
-#include "gamewidget.h"
 
 static const int GAME_TIME_DELAY = 1000;
 static const int MIN_FILL_PERCENT = 75;
