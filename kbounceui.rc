@@ -1,17 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE kpartgui SYSTEM "kpartgui.dtd">
-<kpartgui name="kbounce" version="6">
+<gui name="kbounce" version="6">
 
 <MenuBar>
-	<Menu name="settings">
-		<Action name="background_select"/>
-		<Action name="background_show"/>
-		<Action name="toggle_sound" append="save_merge"/>
-	</Menu>
+    <Menu name="settings">
+        <Action name="background_select"/>
+        <Action name="background_show"/>
+        <Action name="toggle_sound" append="save_merge"/>
+    </Menu>
 </MenuBar>
 
 <ToolBar noMerge="1" name="mainToolBar"><text>Main Toolbar</text>
-	   <Action name="game_new"/>
-       <Action name="game_pause"/>
+    <Action name="game_new"/>
+    <Action name="game_pause"/>
 </ToolBar>
 
-</kpartgui>
+</gui>
