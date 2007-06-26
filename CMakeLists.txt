@@ -1,6 +1,6 @@
 project(kbounce)
 
-add_subdirectory( pics ) 
+add_subdirectory( themes ) 
 add_subdirectory( sounds ) 
 
 include_directories( ${CMAKE_SOURCE_DIR}/libkdegames ${CMAKE_SOURCE_DIR}/libkdegames/highscore  )
@@ -21,6 +21,8 @@ set(kbounce_SRCS
 
 kde4_automoc(${kbounce_SRCS})
 
+kde4_add_kcfg_files(kbounce_SRCS settings.kcfgc)
+
 kde4_add_executable(kbounce ${kbounce_SRCS})
 
 if(KDE4_ENABLE_FPIE)
@@ -37,9 +39,6 @@ install(TARGETS kbounce  DESTINATION ${BIN_INSTALL_DIR} )
 
 install( FILES kbounce.desktop  DESTINATION  ${XDG_APPS_DIR} )
 install( FILES kbounceui.rc  DESTINATION  ${DATA_INSTALL_DIR}/kbounce )
-install( FILES default_theme.svgz DESTINATION ${DATA_INSTALL_DIR}/kbounce/pics/ )
-
-
 
 
 #original Makefile.am contents follow:

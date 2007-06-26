@@ -42,14 +42,17 @@ protected slots:
    void pauseGame();
    void closeGame();
    void gameOverNow();
+   void configureSettings();
+   void readSettings();
+   void settingsChanged();
    void setSounds( bool val );
    void showHighscore();
-   void updateLevel( int level );
-   void updateScore( int score );
-   void updateFilled( int filled );
-   void updateLives( int lives );
-   void updateTime( int time );
-   void updateState( KBounceGameWidget::State state );
+   void displayLevel( int level );
+   void displayScore( int score );
+   void displayFilled( int filled );
+   void displayLives( int lives );
+   void displayTime( int time );
+   void gameStateChanged( KBounceGameWidget::State state );
 
 protected:
    void initXMLUI();
@@ -62,7 +65,7 @@ protected:
 
    KStatusBar* m_statusBar;
 
-   KToggleAction *m_pauseButton, *m_backgroundShowAction, *m_soundAction;
+   KToggleAction *m_pauseAction, *m_backgroundShowAction, *m_soundAction;
    KAction *m_newAction;
 };
 

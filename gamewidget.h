@@ -1,18 +1,21 @@
 /*
  * Copyright (C) 2000-2005 Stefan Schimanski <1Stein@gmx.de>
+ * Copyright (C) 2007 Tomasz Boczkowski <tboczkowski@onet.pl>
  *
- * This program is free software; you can redistribute it and/or
+ * This file is part of the KDE project "KBounce"
+ *
+ * KBounce is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Library General Public
  * License as published by the Free Software Foundation; either
  * version 2 of the License, or (at your option) any later version.
  *
- * This program is distributed in the hope that it will be useful,
+ * KBounce is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Library General Public License for more details.
  *
  * You should have received a copy of the GNU Library General Public
- * License along with this program; if not, write to the Free
+ * License along with KBounce; if not, write to the Free
  * Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
@@ -25,7 +28,7 @@
 #include "board.h"
 #include "renderer.h"
 
-class KBounceButton;
+class KGameTheme;
 
 class KBounceGameWidget : public KGameCanvasWidget
 {
@@ -34,7 +37,7 @@ class KBounceGameWidget : public KGameCanvasWidget
     public:
 	enum State { BeforeFirstGame, Running, BetweenLevels, Paused, Suspended, GameOver };
 
-	explicit KBounceGameWidget( const QString& theme, QWidget* parent = 0 );
+	explicit KBounceGameWidget( QWidget* parent = 0 );
 	~KBounceGameWidget();
 
 	int level();
@@ -47,6 +50,7 @@ class KBounceGameWidget : public KGameCanvasWidget
 	void closeGame();
         void newGame();
 	void setPaused( bool );
+	void settingsChanged();
 	void setSounds( bool );
 	void setSoundPath( const QString& path );
 	void setSuspended( bool );
@@ -76,6 +80,7 @@ class KBounceGameWidget : public KGameCanvasWidget
 	void redraw();
 
 	KBounceRenderer m_renderer;
+	KGameTheme *m_theme;
 
 	QTimer* m_clock;
 	KBounceBoard* m_board;
@@ -90,9 +95,6 @@ class KBounceGameWidget : public KGameCanvasWidget
 	void generateOverlay();
 
 	bool m_vertical;
-
-	//TEMP:
-	KBounceButton* m_button;
 };
 
 #endif

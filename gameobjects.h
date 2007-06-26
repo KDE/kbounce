@@ -105,14 +105,13 @@ class KBounceBall : public KGameCanvasPixmap
 	 */
 	QSize m_size;
 	/**
-	 * List of subsequent frame pixmap's names. Pixmaps are retrieved form
-	 * KBounceRenderer by using pixmap's names.
-	 */
-	QList<QString> m_frames;
-	/**
 	 * Current frame of ball's animation.
 	 */
 	int m_frame;
+	/**
+	 * Number of frames of ball's animation.
+	 */
+	int m_framesNum;
 	qreal m_xPos;
 	qreal m_yPos;
 	qreal m_xVelocity;

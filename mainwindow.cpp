@@ -20,6 +20,7 @@
 
 #include <KAction>
 #include <KActionCollection>
+#include <KConfigDialog>
 #include <kdebug.h>
 #include <KGlobal>
 #include <KLocale>
@@ -31,11 +32,14 @@
 
 #include <kstandardgameaction.h>
 #include <KScoreDialog>
+#include <KGameThemeSelector>
 
 #include <QLayout>
 #include <QLCDNumber>
 #include <QTimer>
+
 #include "gamewidget.h"
+#include "settings.h"
 
 KBounceMainWindow::KBounceMainWindow()
 {
@@ -46,15 +50,15 @@ KBounceMainWindow::KBounceMainWindow()
     m_statusBar->insertItem( "Lives: XX", 4, 1 );
     m_statusBar->insertItem( "Time: XXX", 5, 1 );
 
-    m_gameWidget = new KBounceGameWidget( KStandardDirs::locate( "appdata", "pics/default_theme.svgz"), this );
+    m_gameWidget = new KBounceGameWidget( this );
     m_gameWidget->setSoundPath( KStandardDirs::locate( "appdata", "sounds/" ) );
-    connect( m_gameWidget, SIGNAL( levelChanged( int ) ), this, SLOT( updateLevel( int ) ) );
-    connect( m_gameWidget, SIGNAL( scoreChanged( int ) ), this, SLOT( updateScore( int ) ) );
-    connect( m_gameWidget, SIGNAL( livesChanged( int ) ), this, SLOT( updateLives( int ) ) );
-    connect( m_gameWidget, SIGNAL( filledChanged( int ) ), this, SLOT( updateFilled( int ) ) );
-    connect( m_gameWidget, SIGNAL( timeChanged( int ) ), this, SLOT( updateTime( int ) ) );
-    connect( m_gameWidget, SIGNAL( stateChanged( KBounceGameWidget::State ) ), this, SLOT( updateState( KBounceGameWidget::State ) ) );
-    connect( m_gameWidget, SIGNAL( gameOver() ), this, SLOT( gameOverNow() ) );
+    connect( m_gameWidget, SIGNAL( levelChanged( int ) ), this, SLOT( displayLevel( int ) ) );
+    connect( m_gameWidget, SIGNAL( scoreChanged( int ) ), this, SLOT( displayScore( int ) ) );
+    connect( m_gameWidget, SIGNAL( livesChanged( int ) ), this, SLOT( displayLives( int ) ) );
+    connect( m_gameWidget, SIGNAL( filledChanged( int ) ), this, SLOT( displayFilled( int ) ) );
+    connect( m_gameWidget, SIGNAL( timeChanged( int ) ), this, SLOT( displayTime( int ) ) );
+    connect( m_gameWidget, SIGNAL( stateChanged( KBounceGameWidget::State ) ), this, SLOT( gameStateChanged( KBounceGameWidget::State ) ) );
+    //connect( m_gameWidget, SIGNAL( gameOver() ), this, SLOT( gameOverNow() ) );
     setCentralWidget( m_gameWidget );
 
     initXMLUI();
@@ -63,9 +67,7 @@ KBounceMainWindow::KBounceMainWindow()
     setFocus();
     setupGUI();
 
-    KConfigGroup cfg( KGlobal::config(), QString() );
-    bool playSounds = cfg.readEntry( "PlaySounds", false );
-    m_soundAction -> setChecked( playSounds );
+    readSettings();
 }
 
 KBounceMainWindow::~KBounceMainWindow()
@@ -80,7 +82,7 @@ void KBounceMainWindow::initXMLUI()
     // Game
     m_newAction = KStandardGameAction::gameNew(this, SLOT(newGame()), actionCollection());
     KStandardGameAction::end(this, SLOT(closeGame()), actionCollection());
-    m_pauseButton = KStandardGameAction::pause(this, SLOT(pauseGame()), actionCollection());
+    m_pauseAction = KStandardGameAction::pause(this, SLOT(pauseGame()), actionCollection());
     KStandardGameAction::highscores(this, SLOT(showHighscore()), actionCollection());
     KStandardGameAction::quit(this, SLOT(close()), actionCollection());
   
@@ -91,6 +93,7 @@ void KBounceMainWindow::initXMLUI()
     m_newAction->setShortcut( s );
   
     // Settings
+    KStandardAction::preferences( this, SLOT( configureSettings() ), actionCollection() );
     m_soundAction = new KToggleAction( i18n("&Play Sounds"), this );
     actionCollection()->addAction( "toggle_sound", m_soundAction );
     connect( m_soundAction, SIGNAL( triggered( bool ) ), this, SLOT( setSounds( bool ) ) );
@@ -167,38 +170,76 @@ void KBounceMainWindow::highscore()
 	ksdialog.exec();
 }
 
-void KBounceMainWindow::setSounds( bool val )
+void KBounceMainWindow::configureSettings()
 {
-    m_gameWidget->setSounds( val );
+    if ( KConfigDialog::showDialog( "settings" ) ) return;
+
+    KConfigDialog* dialog = new KConfigDialog( this, "settings", KBounceSettings::self());
+    dialog->addPage( new KGameThemeSelector( dialog, KBounceSettings::self() ), i18n( "Theme" ), "game_theme" );
+    dialog->show();
+    connect( dialog, SIGNAL( settingsChanged( const QString& ) ), this, SLOT( settingsChanged() ) );
 }
 
-void KBounceMainWindow::updateLevel( int level )
+void KBounceMainWindow::readSettings()
+{
+    m_soundAction->setChecked( KBounceSettings::playSounds() );
+    settingsChanged();
+}
+
+void KBounceMainWindow::settingsChanged()
+{
+    m_gameWidget->settingsChanged();
+}
+
+void KBounceMainWindow::setSounds( bool val )
+{
+    KBounceSettings::setPlaySounds( val );
+    settingsChanged();
+}
+
+void KBounceMainWindow::displayLevel( int level )
 {
     m_statusBar->changeItem( i18n( "Level: %1", level ), 1 );
 }
 
-void KBounceMainWindow::updateScore( int score )
+void KBounceMainWindow::displayScore( int score )
 {
     m_statusBar->changeItem( i18n( "Score: %1", score ), 2 );
 }
 
-void KBounceMainWindow::updateFilled( int filled )
+void KBounceMainWindow::displayFilled( int filled )
 {
     m_statusBar->changeItem( i18n( "Filled: %1%", filled ), 3 );
 }
 
-void KBounceMainWindow::updateLives( int lives )
+void KBounceMainWindow::displayLives( int lives )
 {
     m_statusBar->changeItem( i18n( "Lives: %1", lives ), 4 );
 }
 
-void KBounceMainWindow::updateTime( int time )
+void KBounceMainWindow::displayTime( int time )
 {
     m_statusBar->changeItem( i18n( "Time: %1", time ), 5 );
 }
 
-void KBounceMainWindow::updateState( KBounceGameWidget::State state )
+void KBounceMainWindow::gameStateChanged( KBounceGameWidget::State state )
 {
+    switch ( state )
+    {
+	case KBounceGameWidget::Paused :
+	    m_pauseAction->setChecked( true );
+	    m_statusBar->clearMessage();
+	    break;
+	case KBounceGameWidget::Running :
+	    m_pauseAction->setChecked( false );
+	    m_statusBar->clearMessage();
+	    break;
+	case KBounceGameWidget::GameOver :
+	    statusBar()->showMessage(  i18n("Game over. Press <Space> for a new game") );
+	    highscore(); 
+	    break;
+    }
+/*
     if ( state == KBounceGameWidget::Paused )
     {
 	m_pauseButton->setChecked( true );
@@ -209,6 +250,7 @@ void KBounceMainWindow::updateState( KBounceGameWidget::State state )
 	m_pauseButton->setChecked( false );
         m_statusBar->clearMessage();
     }
+    */
 }
 
 void KBounceMainWindow::focusOutEvent( QFocusEvent *ev )

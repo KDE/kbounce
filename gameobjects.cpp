@@ -106,11 +106,11 @@ void KBounceBall::advance()
 void KBounceBall::update()
 {
     m_frame++;
-    if ( m_frame >= m_frames.count() )
+    if ( m_frame >= m_framesNum )
 	m_frame = 0;
 
     setFrame( m_frame );
-   moveTo( m_board->mapPosition( QPointF( m_xPos, m_yPos ) ) );
+    moveTo( m_board->mapPosition( QPointF( m_xPos, m_yPos ) ) );
 }
 
 void KBounceBall::resize( const QSize& tileSize )
@@ -120,46 +120,27 @@ void KBounceBall::resize( const QSize& tileSize )
     m_size.setWidth( static_cast<int>( BALL_RELATIVE_SIZE * tileSize.width() ) );
     m_size.setHeight( static_cast<int> ( BALL_RELATIVE_SIZE * tileSize.height() ) );
     moveTo( m_board->mapPosition( QPointF( m_xPos, m_yPos ) ) ); 
-    if( !m_frames.isEmpty() )
-    {
-        setPixmap( m_renderer->renderElement( m_frames.at( m_frame ), m_size ) );
-    }
+    setFrame( m_frame );
 } 
 
 void KBounceBall::resetPixmaps()
 {
-    m_frames.clear();
-
-    QString name = "ball";
-    int frames = 0;
-    while ( m_renderer->elementExists( QString( "%1_%2" ).arg( name ).arg( frames )  ) )
-    {
-       m_frames.append( QString( "%1_%2" ).arg( name ).arg( frames ) );
-       frames++;
-    }
-
-    kDebug() << k_funcinfo << ". Frames: " << frames << endl;
-	
     m_frame = 0;
+    m_framesNum = m_renderer->frames( QString( "ball" ) );
     setFrame( m_frame );
 }
 
 void KBounceBall::setFrame(int frame)
 {
-    if( !m_frames.isEmpty() )
-    {
-        setPixmap( m_renderer->renderElement( m_frames.at( frame ), m_size ) );
-    }
+    setPixmap( m_renderer->renderElement(  QString( "ball" ), frame , m_size ) );
 }
 
 void KBounceBall::setRandomFrame()
 {
-    if ( !m_frames.empty() )
-    {
-	int frame = KRandom::random() % m_frames.count();
-    	kDebug() << k_funcinfo << endl;
-	setFrame( frame );
-    }
+    int frame = 0;
+    if ( m_framesNum > 0 )
+	frame = KRandom::random() % m_framesNum;
+    setFrame( frame );
 }
 
 QRectF KBounceBall::relativeBoundingRect() const
@@ -184,6 +165,8 @@ void KBounceBall::setVelocity( qreal vX, qreal vY )
     m_xVelocity = vX;
     m_yVelocity = vY;
 }
+
+//------------------------------------------------------------------------
 
 
 KBounceWall::KBounceWall( Direction dir, KBounceRenderer* renderer, KBounceBoard* board )

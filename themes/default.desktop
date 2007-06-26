@@ -1,0 +1,15 @@
+[KGameTheme]
+VersionFormat=1
+Name=Default
+Name[be]=Прадвызначаны
+Name[el]=Προκαθορισμένο
+Name[ga]=Réamhshocrú
+Name[ja]=デフォルト
+Name[sv]=Förval
+Name[uk]=Типові
+Name[x-test]=xxDefaultxx
+FileName=default_theme.svgz
+Author=Johann Ollivier Lapeyre
+AuthorEmail=johann.ollivierlapeyre@gmail.com
+Preview=default_preview.png
+

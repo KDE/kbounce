@@ -39,15 +39,23 @@ class KBounceRenderer
 	 * Constructor.
 	 * @param fileName path to SVG containing game graphics
 	 */
-	explicit KBounceRenderer( const QString& fileName );
+	explicit KBounceRenderer();
 	/**
 	 * Destructor.
 	 */
 	~KBounceRenderer();
 	/**
+	 * Loads SVG file and invalidates pixmap cache
+	 */
+	bool load( const QString& fileName );
+	/**
 	 * Checks if specified element is included in loaded SVG.
 	 */
         bool elementExists( const QString& id );
+	/**
+	 * Returns number of frames for element in SVG with specified ID
+	 */
+	int frames( const QString& id );
 	/**
 	 * Sets Background size and invalidates background cache
 	 */
@@ -58,6 +66,12 @@ class KBounceRenderer
 	 * of former size.
 	 */
 	QPixmap renderElement( const QString& id, const QSize& size = QSize( 0, 0 ) );
+	/**
+	 * Renders frame of an element to pixmap
+	 * @param size if == QSize( 0, 0 ) will return rendered element
+	 * of former size
+	 */
+	QPixmap renderElement( const QString& id, int frame, const QSize& size = QSize( 0, 0 ) );
 	/**
 	 * Renders background to QPixmap of size set by setBachgroundSize
 	 * Background pixmap is cached (setBackgroundSize() invalidates the cache)

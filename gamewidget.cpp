@@ -17,21 +17,26 @@
  */
 
 #include "gamewidget.h"
+#include "settings.h"
 
 #include <QPalette>
 #include <QTimer>
 
 #include <KLocale>
+#include <KGameTheme>
 
 static const int GAME_TIME_DELAY = 1000;
 static const int MIN_FILL_PERCENT = 75;
 static const int POINTS_FOR_LIFE = 15;
 static const int TICKS_PER_SECOND = 1000 / GAME_TIME_DELAY;
 
-KBounceGameWidget::KBounceGameWidget( const QString& theme, QWidget* parent )
-    : KGameCanvasWidget( parent ), m_renderer( theme ), m_state( BeforeFirstGame ),
+KBounceGameWidget::KBounceGameWidget( QWidget* parent )
+    : KGameCanvasWidget( parent ), m_state( BeforeFirstGame ),
     m_bonus( 0 ), m_level( 0 ), m_lives( 0 ), m_time( 0 ), m_vertical( false )
 {
+    m_theme = new KGameTheme( "KGameTheme" );
+    m_theme->loadDefault();
+
     m_board = new KBounceBoard( &m_renderer, this, this );
     connect( m_board, SIGNAL( fillChanged( int ) ), this, SLOT( onFillChanged( int ) ) );
     connect( m_board, SIGNAL( wallDied() ), this, SLOT( onWallDied() ) );
@@ -52,6 +57,7 @@ KBounceGameWidget::~KBounceGameWidget()
 {
     delete m_board;
     delete m_overlay;
+    delete m_theme;
 }
 
 int KBounceGameWidget::level()
@@ -136,6 +142,19 @@ void KBounceGameWidget::setSuspended( bool val )
     redraw();
 }
 
+void KBounceGameWidget::settingsChanged()
+{
+    kDebug() << k_funcinfo << endl;
+    
+    m_board->setSounds( KBounceSettings::playSounds() );
+
+    if ( !m_theme->load( KBounceSettings::theme() ) )
+	m_theme->loadDefault();
+
+    m_renderer.load( m_theme->graphics() );
+    redraw();
+}
+
 void KBounceGameWidget::setSounds( bool val )
 {
     m_board->setSounds( val );
@@ -195,6 +214,7 @@ void KBounceGameWidget::tick()
 
 void KBounceGameWidget::resizeEvent( QResizeEvent* ev )
 {
+    kDebug() << k_funcinfo << " Size " << ev->size() << endl;
     m_renderer.setBackgroundSize( ev->size() );
 
     QSize boardSize( ev->size().width() - 30, ev->size().height() - 30 );
@@ -267,7 +287,11 @@ void KBounceGameWidget::newLevel()
 
 void KBounceGameWidget::redraw()
 {
+    if ( size().isEmpty() )
+	return;
+
     QPalette palette;
+    m_renderer.setBackgroundSize( size() );
     palette.setBrush( backgroundRole(), m_renderer.renderBackground() );
     setPalette( palette );
     setAutoFillBackground( true );
@@ -290,6 +314,7 @@ void KBounceGameWidget::redraw()
 	    break;
     }
     m_board->redraw();
+    update();
 }
 
 void KBounceGameWidget::generateOverlay()
