@@ -32,16 +32,16 @@ static const char version[] = "0.5";
 
 int main(int argc, char **argv)
 {
-  KAboutData aboutData( "kbounce", I18N_NOOP("KBounce"),
-    version, description, KAboutData::License_GPL,
-    "(c) 2000-2005, Stefan Schimanski");
+  KAboutData aboutData( "kbounce", 0, ki18n("KBounce"),
+    version, ki18n(description), KAboutData::License_GPL,
+    ki18n("(c) 2000-2005, Stefan Schimanski"));
 
-  aboutData.addAuthor("Stefan Schimanski", I18N_NOOP("Original author"), "schimmi@kde.org");
-  aboutData.addAuthor("Sandro Sigala", I18N_NOOP("Highscore"), "ssigala@globalnet.it");
-  aboutData.addAuthor("Benjamin Meyer", I18N_NOOP("Contributions"), "ben+kbounce@meyerhome.net");
+  aboutData.addAuthor(ki18n("Stefan Schimanski"), ki18n("Original author"), "schimmi@kde.org");
+  aboutData.addAuthor(ki18n("Sandro Sigala"), ki18n("Highscore"), "ssigala@globalnet.it");
+  aboutData.addAuthor(ki18n("Benjamin Meyer"), ki18n("Contributions"), "ben+kbounce@meyerhome.net");
 
-  aboutData.addCredit("Dmitry Suzdalev", I18N_NOOP("Port to QGraphicsView framework"), "dimsuz@gmail.com");
-  aboutData.addCredit("Tomasz Boczkowski", 0, "tboczkowski@onet.pl");
+  aboutData.addCredit(ki18n("Dmitry Suzdalev"), ki18n("Port to QGraphicsView framework"), "dimsuz@gmail.com");
+  aboutData.addCredit(ki18n("Tomasz Boczkowski"), KLocalizedString(), "tboczkowski@onet.pl");
 
   KCmdLineArgs::init( argc, argv, &aboutData );
 
