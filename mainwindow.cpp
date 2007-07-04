@@ -166,7 +166,7 @@ void KBounceMainWindow::highscore()
     KScoreDialog::FieldInfo info;
     info[KScoreDialog::Score].setNum( m_gameWidget->score() );
     info[KScoreDialog::Level].setNum( m_gameWidget->level() );
-    if ( ksdialog.addScore( info ) );
+    if ( ksdialog.addScore( info ) )
 	ksdialog.exec();
 }
 
