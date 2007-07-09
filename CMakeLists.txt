@@ -19,8 +19,6 @@ set(kbounce_SRCS
    mainwindow.cpp 
    renderer.cpp )
 
-kde4_automoc(${kbounce_SRCS})
-
 kde4_add_kcfg_files(kbounce_SRCS settings.kcfgc)
 
 kde4_add_executable(kbounce ${kbounce_SRCS})
