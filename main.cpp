@@ -45,7 +45,6 @@ int main(int argc, char **argv)
 
   KCmdLineArgs::init( argc, argv, &aboutData );
 
-  QApplication::setColorSpec(QApplication::ManyColor);
   KApplication application;
   KGlobal::locale()->insertCatalog("libkdegames");
 
