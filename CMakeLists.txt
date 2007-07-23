@@ -35,7 +35,7 @@ install(TARGETS kbounce  DESTINATION ${BIN_INSTALL_DIR} )
 
 ########### install files ###############
 
-install( FILES kbounce.desktop  DESTINATION  ${XDG_APPS_DIR} )
+install( FILES kbounce.desktop  DESTINATION  ${XDG_APPS_INSTALL_DIR} )
 install( FILES kbounceui.rc  DESTINATION  ${DATA_INSTALL_DIR}/kbounce )
 
 
