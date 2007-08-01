@@ -38,7 +38,7 @@ KBounceRenderer::~KBounceRenderer()
 
 bool KBounceRenderer::load( const QString& fileName )
 {
-    kDebug() << k_funcinfo << " File name: " << fileName << endl;
+    kDebug() << k_funcinfo << "File name:" << fileName;
     m_tileCache.clear();
     m_cachedBackground = QPixmap();
     return m_svgRenderer.load( fileName );
@@ -70,7 +70,7 @@ QPixmap KBounceRenderer::renderBackground()
 {
     if (m_cachedBackground.isNull())
     {
-	kDebug() << "Rendering the background. Size: " << m_backgroundSize << endl;
+	kDebug() << "Rendering the background. Size:" << m_backgroundSize;
 	m_cachedBackground = QPixmap( m_backgroundSize );
 	QPainter p( &m_cachedBackground );
 	m_svgRenderer.render( &p, "background" );
@@ -82,13 +82,13 @@ QPixmap KBounceRenderer::renderElement( const QString& id, const QSize& size )
 {
     if ( !m_tileCache.contains( id ) && size.isEmpty() )
     {
-	kDebug() << k_funcinfo << "Rendering element of no size id: " << id << endl;
+	kDebug() << k_funcinfo << "Rendering element of no size id:" << id;
 	return QPixmap();
     }
 
     if ( !m_tileCache.contains( id ) || ( size != QSize( 0, 0 ) && size != m_tileCache[id].size() ) )
     {
-	kDebug() << k_funcinfo << " Rendering " << id << " size: " << size << endl;
+	kDebug() << k_funcinfo << "Rendering" << id << "size:" << size;
 	QImage baseImage( size, QImage::Format_ARGB32_Premultiplied );
 	baseImage.fill( 0 );
 	QPainter p( &baseImage );

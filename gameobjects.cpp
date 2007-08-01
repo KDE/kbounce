@@ -57,7 +57,7 @@ void KBounceBall::advance()
    // sometimes stop when clicked on
    r = relativeBoundingRect();
    if ( m_board->checkCollision( r, false ) ) 
-       kDebug() << k_funcinfo << "On wall " << endl;
+       kDebug() << k_funcinfo << "On wall ";
 
    r = relativeBoundingRect();
    r.translate( m_xVelocity, 0.0 );
@@ -115,7 +115,7 @@ void KBounceBall::update()
 
 void KBounceBall::resize( const QSize& tileSize )
 {
-    kDebug() << k_funcinfo << " New size: " << tileSize << endl;
+    kDebug() << k_funcinfo << "New size:" << tileSize;
 
     m_size.setWidth( static_cast<int>( BALL_RELATIVE_SIZE * tileSize.width() ) );
     m_size.setHeight( static_cast<int> ( BALL_RELATIVE_SIZE * tileSize.height() ) );

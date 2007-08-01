@@ -67,7 +67,7 @@ int KBounceGameWidget::level()
 
 int KBounceGameWidget::score()
 {
-    kDebug() << k_funcinfo << "Score: " << m_score << endl;
+    kDebug() << k_funcinfo << "Score:" << m_score;
     return m_score;
 }
 
@@ -144,7 +144,7 @@ void KBounceGameWidget::setSuspended( bool val )
 
 void KBounceGameWidget::settingsChanged()
 {
-    kDebug() << k_funcinfo << endl;
+    kDebug() << k_funcinfo;
     
     m_board->setSounds( KBounceSettings::playSounds() );
 
@@ -162,7 +162,7 @@ void KBounceGameWidget::setSounds( bool val )
 
 void KBounceGameWidget::setSoundPath( const QString& path )
 {
-    kDebug() << k_funcinfo << " sound path: " << path << endl;
+    kDebug() << k_funcinfo << "sound path:" << path;
     m_board->setSoundPath( path );
 }
 
@@ -214,7 +214,7 @@ void KBounceGameWidget::tick()
 
 void KBounceGameWidget::resizeEvent( QResizeEvent* ev )
 {
-    kDebug() << k_funcinfo << " Size " << ev->size() << endl;
+    kDebug() << k_funcinfo << "Size" << ev->size();
     m_renderer.setBackgroundSize( ev->size() );
 
     QSize boardSize( ev->size().width() - 30, ev->size().height() - 30 );
