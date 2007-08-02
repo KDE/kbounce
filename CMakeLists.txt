@@ -3,7 +3,7 @@ project(kbounce)
 add_subdirectory( themes ) 
 add_subdirectory( sounds ) 
 
-include_directories( ${CMAKE_SOURCE_DIR}/libkdegames ${CMAKE_SOURCE_DIR}/libkdegames/highscore  )
+include_directories(${CMAKE_SOURCE_DIR}/libkdegames/highscore)
  
 if(KDE4_ENABLE_FPIE)
     set ( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${KDE4_CXX_FPIE_FLAGS}")
