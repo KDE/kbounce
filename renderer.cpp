@@ -80,13 +80,15 @@ QPixmap KBounceRenderer::renderBackground()
 
 QPixmap KBounceRenderer::renderElement( const QString& id, const QSize& size )
 {
-    if ( !m_tileCache.contains( id ) && size.isEmpty() )
+    QHash<QString, QPixmap>::const_iterator elementIt = m_tileCache.constFind(id);
+    QHash<QString, QPixmap>::const_iterator itEnd = m_tileCache.constEnd();
+    if ( elementIt == itEnd && size.isEmpty() )
     {
 	kDebug() << k_funcinfo << "Rendering element of no size id:" << id;
 	return QPixmap();
     }
 
-    if ( !m_tileCache.contains( id ) || ( size != QSize( 0, 0 ) && size != m_tileCache[id].size() ) )
+    if ( elementIt == itEnd || ( size != QSize( 0, 0 ) && size != elementIt.value().size() ) )
     {
 	kDebug() << k_funcinfo << "Rendering" << id << "size:" << size;
 	QImage baseImage( size, QImage::Format_ARGB32_Premultiplied );
@@ -94,9 +96,9 @@ QPixmap KBounceRenderer::renderElement( const QString& id, const QSize& size )
 	QPainter p( &baseImage );
 	m_svgRenderer.render( &p, id );
 	QPixmap renderedTile = QPixmap::fromImage( baseImage );
-	m_tileCache[id] = renderedTile;
+	elementIt = m_tileCache.insert(id, renderedTile);
     }
-    return m_tileCache[id];
+    return elementIt.value();
 }
 
 QPixmap KBounceRenderer::renderElement( const QString& id, int frame, const QSize& size )
