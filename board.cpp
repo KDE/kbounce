@@ -24,7 +24,7 @@
 #include <KRandom>
 #include <KStandardDirs>
 #include <KUrl>
-#include <Phonon/AudioPlayer>
+#include <Phonon/MediaObject>
 
 #include <QTimer>
 #include "gameobjects.h"
@@ -270,7 +270,8 @@ void KBounceBoard::playSound( const QString& name )
     if ( m_playSounds == true && m_soundPath != QString() )
     {
 	QString fileName = m_soundPath + name;
-	m_audioPlayer->play( KUrl::fromPath( fileName ) );
+	m_audioPlayer->setCurrentSource( fileName );
+	m_audioPlayer->play();
     }
 }
 
@@ -278,7 +279,7 @@ void KBounceBoard::setSounds( bool val )
 {
     m_playSounds = val;
     if ( val == true && m_audioPlayer == 0 )
-	m_audioPlayer = new Phonon::AudioPlayer( Phonon::GameCategory );
+	m_audioPlayer = Phonon::createPlayer( Phonon::GameCategory );
 }
 
 void KBounceBoard::setSoundPath( const QString& path )

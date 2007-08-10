@@ -31,7 +31,7 @@
 
 namespace Phonon
 {
-    class AudioPlayer;
+    class MediaObject;
 }
 
 class KBounceBall;
@@ -92,7 +92,7 @@ class KBounceBoard: public QObject, public KGameCanvasGroup
 
 	QTimer* m_clock;
 
-	Phonon::AudioPlayer* m_audioPlayer;
+	Phonon::MediaObject* m_audioPlayer;
 	bool m_playSounds;
 	QString m_soundPath;
 };
