@@ -160,7 +160,7 @@ void KBounceMainWindow::showHighscore()
 
 void KBounceMainWindow::highscore()
 {
-    kDebug() << k_funcinfo;
+    kDebug() ;
     KScoreDialog ksdialog( KScoreDialog::Name | KScoreDialog::Score | KScoreDialog::Level, this );
 
     KScoreDialog::FieldInfo info;

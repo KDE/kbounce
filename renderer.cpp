@@ -38,7 +38,7 @@ KBounceRenderer::~KBounceRenderer()
 
 bool KBounceRenderer::load( const QString& fileName )
 {
-    kDebug() << k_funcinfo << "File name:" << fileName;
+    kDebug() << "File name:" << fileName;
     m_tileCache.clear();
     m_cachedBackground = QPixmap();
     return m_svgRenderer.load( fileName );
@@ -84,13 +84,13 @@ QPixmap KBounceRenderer::renderElement( const QString& id, const QSize& size )
     QHash<QString, QPixmap>::const_iterator itEnd = m_tileCache.constEnd();
     if ( elementIt == itEnd && size.isEmpty() )
     {
-	kDebug() << k_funcinfo << "Rendering element of no size id:" << id;
+	kDebug() << "Rendering element of no size id:" << id;
 	return QPixmap();
     }
 
     if ( elementIt == itEnd || ( size != QSize( 0, 0 ) && size != elementIt.value().size() ) )
     {
-	kDebug() << k_funcinfo << "Rendering" << id << "size:" << size;
+	kDebug() << "Rendering" << id << "size:" << size;
 	QImage baseImage( size, QImage::Format_ARGB32_Premultiplied );
 	baseImage.fill( 0 );
 	QPainter p( &baseImage );
