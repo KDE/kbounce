@@ -16,8 +16,8 @@
  * Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#ifndef KBOUNCE_H
-#define KBOUNCE_H
+#ifndef KBOUNCE_MAINWINDOW_H
+#define KBOUNCE_MAINWINDOW_H
 
 #include <KXmlGuiWindow>
 
@@ -69,5 +69,4 @@ protected:
    KAction *m_newAction;
 };
 
-#endif // KBOUNCE_h
-
+#endif // KBOUNCE_MAINWINDOW_H
