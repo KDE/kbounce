@@ -27,14 +27,16 @@
 #include <Phonon/MediaObject>
 
 #include <QTimer>
-#include "gameobjects.h"
+#include "ball.h"
+#include "gameobject.h"
+#include "wall.h"
+
+#include <cmath>
 
 #define DIR_UP 0
 #define DIR_RIGHT 1
 #define DIR_DOWN 2
 #define DIR_LEFT 3
-#define GAME_DELAY 15
-
 
 KBounceBoard::KBounceBoard( KBounceRenderer* renderer, KGameCanvasAbstract* canvas, QWidget* parent )
     : QObject( parent ), KGameCanvasGroup( canvas ), m_renderer( renderer )
@@ -221,37 +223,106 @@ int KBounceBoard::filled()
     return m_filled;
 }
 
-bool KBounceBoard::checkCollision( const QRectF& rect, bool feedback )
+KBounceCollision KBounceBoard::checkCollision( void* object, const QRectF& rect, int type )
 {
-    bool result = checkCollisionTiles( rect, feedback );
-
-    foreach( KBounceWall* wall, m_walls )
+    KBounceCollision result;
+    
+    if ( type & TILE != 0 )
     {
-	if ( wall->visible() && rect.intersects( wall->relativeBoundingRect() ) )
+	result += checkCollisionTiles( rect );
+    }
+
+    if ( type & WALL != 0 )
+    {
+	foreach( KBounceWall* wall, m_walls )
 	{
-	    result = true;
-	    if ( feedback )
-		wall->collide( rect );
+	    if ( object != wall )
+	    {
+		if ( wall->visible() && rect.intersects( wall->nextBoundingRect() ) )
+		{
+		    KBounceHit hit;
+		    hit.type = WALL;
+		    hit.boundingRect = wall->nextBoundingRect();
+		    hit.normal = KBounceVector::normal( rect, hit.boundingRect );
+		    result += hit;
+		}
+	    }
+	}
+    }
+
+    if ( type & BALL != 0 )
+    {
+	foreach( KBounceBall* ball, m_balls )
+	{
+	    if ( object != ball )
+	    {
+		if ( rect.intersects( ball->nextBoundingRect() ) )
+		{
+		    KBounceHit hit;
+		    hit.type = BALL;
+		    hit.boundingRect = ball->nextBoundingRect();
+		    hit.normal = KBounceVector::normal( rect, hit.boundingRect );
+		    result += hit; 
+		}
+	    }
 	}
     }
 
     return result;
 }
 
-bool KBounceBoard::checkCollisionTiles( const QRectF& rect, bool feedback)
+KBounceCollision KBounceBoard::checkCollisionTiles( const QRectF& rect)
 {
-    Q_UNUSED( feedback );
+    KBounceVector normal( 0, 0 );
+
+    // This small constant is added to each of the coordinates to 
+    // avoid positive collision test result when tested rect lies 
+    // on the edge of non-free space
+    qreal D = 0.01;
 
     QPointF p = rect.topLeft();  
-    int ul = m_tiles[static_cast<int>( p.x() )][static_cast<int>( p.y() )];
-    p = rect.topRight();
-    int ur = m_tiles[static_cast<int>( p.x() )][static_cast<int>( p.y() )];
-    p = rect.bottomRight();
-    int lr = m_tiles[static_cast<int>( p.x() )][static_cast<int>( p.y() )];
-    p = rect.bottomLeft();
-    int ll = m_tiles[static_cast<int>( p.x() )][static_cast<int>( p.y() )];
+    int ul = m_tiles[static_cast<int>( p.x() + D )][static_cast<int>( p.y() + D )];
+    if ( ul != Free ) normal += KBounceVector( 1, 1 );
 
-    return (ul != Free ) || ( ur != Free ) || ( lr != Free ) || ( ll != Free );
+    p = rect.topRight();
+    int ur = m_tiles[static_cast<int>( p.x() - D )][static_cast<int>( p.y() + D )];
+    if ( ur != Free) normal += KBounceVector( -1, 1 );
+
+    p = rect.bottomRight();
+    int lr = m_tiles[static_cast<int>( p.x() - D )][static_cast<int>( p.y() - D )];
+    if ( lr != Free ) normal += KBounceVector( -1, -1 );
+
+    p = rect.bottomLeft();
+    int ll = m_tiles[static_cast<int>( p.x() + D )][static_cast<int>( p.y() - D )];
+    if ( ll != Free ) normal += KBounceVector( 1, -1 );
+
+    KBounceCollision collision;
+    if ( (ul != Free ) || ( ur != Free ) || ( lr != Free ) || ( ll != Free ) )
+    {
+	KBounceHit hit;
+	hit.type = TILE;
+	hit.normal = normal;
+	collision += hit;
+    }
+    return collision;
+}
+
+void KBounceBoard::checkCollisions()
+{
+    foreach( KBounceWall* wall, m_walls )
+    {
+	QRectF rect = wall->nextBoundingRect();
+	KBounceCollision collision;
+	collision = checkCollision( wall, rect, ALL );
+	wall->collide( collision );
+    }
+    foreach( KBounceBall* ball, m_balls )
+    {
+	QRectF rect = ball->nextBoundingRect();
+	KBounceCollision collision;
+	collision = checkCollision( ball, rect, ALL );
+	ball->collide( collision );
+    }
 }
 
 QPoint KBounceBoard::mapPosition( const QPointF& pos ) const
@@ -289,25 +360,23 @@ void KBounceBoard::setSoundPath( const QString& path )
 
 void KBounceBoard::tick()
 {
+    checkCollisions();
+
     foreach( KBounceBall* ball, m_balls )
 	ball->advance(); 
     foreach( KBounceWall* wall, m_walls )
 	wall->advance();
 
-    static int count = 2;
-    count--;
-    if ( count == 0 )
-    {
-	count = 2;
-	foreach( KBounceBall* ball, m_balls )
-	    ball->update();
-    }
+    foreach( KBounceBall* ball, m_balls )
+	ball->update();
+    foreach( KBounceWall* wall, m_walls )
+	wall->update();
 }
 
 void KBounceBoard::wallFinished( int x1, int y1, int x2, int y2 )
 {
-    for ( int x = x1; x <= x2; x++ )
-	for ( int y = y1; y <= y2; y++ )
+    for ( int x = x1; x < x2; x++ )
+	for ( int y = y1; y < y2; y++ )
 	    m_tiles[x][y] = Wall;
 
     foreach ( KBounceBall* ball, m_balls )

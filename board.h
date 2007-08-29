@@ -24,6 +24,7 @@
 #include <QList>
 #include <QSize>
 
+#include "gameobject.h"
 #include "renderer.h"
 
 #define TILE_NUM_H 20
@@ -58,8 +59,10 @@ class KBounceBoard: public QObject, public KGameCanvasGroup
 	int balls();
 	int filled();
 
-	bool checkCollision( const QRectF& rect, bool feedback = false );
-	bool checkCollisionTiles( const QRectF& rect, bool feedback = false );
+	KBounceCollision checkCollision( void* object, const QRectF& rect, int type );
+	KBounceCollision checkCollisionTiles( const QRectF& rect );
+	void checkCollisions();
+
 	QPoint mapPosition( const QPointF& pos ) const;
 	QPointF unmapPosition( const QPoint& pos ) const;
 

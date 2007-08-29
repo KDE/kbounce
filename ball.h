@@ -20,23 +20,28 @@
  * Boston, MA  02110-1301, USA.
  */
 
-#ifndef GAMEOBJECTS_H
-#define GAMEOBJECTS_H
+#ifndef BALL_H
+#define BALL_H
 
 #include "kgamecanvas.h"
 
 #include <QList>
 #include <QObject>
 
+#include "gameobject.h"
+
 class KBounceRenderer;
 class KBounceBoard;
 
 /**
- * KGameCanvasPixmap that displays balls
+ * KGameCanvasPixmap representing a ball 
  */
 class KBounceBall : public KGameCanvasPixmap
 {
     public:
+	static const int BALL_ANIM_DELAY = 60;
+	static const qreal BALL_RELATIVE_SIZE = 0.8;
+
 	/**
 	 * Constructor
 	 */
@@ -45,8 +50,14 @@ class KBounceBall : public KGameCanvasPixmap
 	 * Destructor
 	 */
 	~KBounceBall();
+
 	/**
-	 * Performs move and collision calculations.
+	 * Changes ball's state when collisions have been detected
+	 * Called once per frame before advance()
+	 */
+	void collide( const KBounceCollision& collision );
+	/**
+	 * Performs move calculations
 	 * This method is called once per frame
 	 */
 	void advance();
@@ -55,6 +66,37 @@ class KBounceBall : public KGameCanvasPixmap
 	 * This method is called once per frame.
 	 */
 	void update();
+
+	/*
+	 * Returns ball's bounding rect in board coordinate system
+	 * @see relativePos()
+	 */
+	QRectF boundingRect() const;
+	/*
+	 * Returns ball's bounding rect expected in next frame
+	 * used by colision test
+	 */
+	QRectF nextBoundingRect() const;
+	/**
+	 * Returns ball's position in board coordinate system.
+	 * Relative board's coordinates are indepentent of actual GameWidget size.
+	 */
+	QPointF relativePos();
+	/**
+	 * Sets ball's position in board coordinate system.
+	 * @see relativePos()
+	 */
+	void setRelativePos( qreal x, qreal y );
+	/**
+	 * Sets ball's position in board coordinate system
+	 */
+	void setVelocity( qreal vX, qreal vY );
+	/**
+	 * Returns ball's velocity in board coordinate system
+	 */
+	KBounceVector velocity() const;
+
+
 	/**
 	 * Sets width and height of ball.
 	 */
@@ -72,25 +114,7 @@ class KBounceBall : public KGameCanvasPixmap
 	 * Sets a random ball's frame
 	 */
 	void setRandomFrame();
-	/*
-	 * Returns ball's bounding rect in board coordinate system
-	 * @see relativePos()
-	 */
-	QRectF relativeBoundingRect() const;
-	/**
-	 * Returns ball's position in board coordinate system.
-	 * Relative board's coordinates are indepentent of actual GameWidget size.
-	 */
-	QPointF relativePos();
-	/**
-	 * Sets ball's position in board coordinate system.
-	 * @see relativePos()
-	 */
-	void setRelativePos( qreal x, qreal y );
-	/**
-	 * Sets ball's position in board coordinate system
-	 */
-	void setVelocity( qreal vX, qreal vY );
+	
 
      protected:
 	KBounceRenderer* m_renderer;
@@ -114,43 +138,12 @@ class KBounceBall : public KGameCanvasPixmap
 	int m_framesNum;
 	qreal m_xPos;
 	qreal m_yPos;
-	qreal m_xVelocity;
-	qreal m_yVelocity;
+	KBounceVector m_velocity;
+	bool m_reflectX;
+	bool m_reflectY;
+	QRectF m_nextBoundingRect;
 };
 
 
-class KBounceWall : public QObject, public KGameCanvasPixmap
-{
-    Q_OBJECT
-
-    public:
-	enum Direction { Up = 0, Down, Left, Right };
-
-	KBounceWall( Direction dir, KBounceRenderer* renderer, KBounceBoard* board );
-	~KBounceWall();
-
-	void advance();
-    	void update();
-
-	void resize( const QSize& tileSize );
-
-	void collide( const QRectF& rect );
-	void build( int x, int y );
-	QRectF relativeBoundingRect() const;
-
-    signals:
-	void finished( int x1, int y1, int x2, int y2 );
-	void died();
-
-    private:
-	KBounceRenderer *m_renderer;
-	KBounceBoard *m_board;
-	QSize m_tileSize;
-	Direction m_dir;
-	qreal m_x1, m_y1;
-	qreal m_x2, m_y2;
-	qreal m_velocityX, m_velocityY;
-};
-
-#endif //GAMEOBJECTS_H
+#endif
 

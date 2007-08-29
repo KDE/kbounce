@@ -12,12 +12,14 @@ endif(KDE4_ENABLE_FPIE)
 ########### next target ###############
 
 set(kbounce_SRCS
-   board.cpp 
-   gameobjects.cpp
-   gamewidget.cpp
-   main.cpp 
-   mainwindow.cpp 
-   renderer.cpp )
+    ball.cpp
+    board.cpp
+    gameobject.cpp
+    gamewidget.cpp
+    main.cpp 
+    mainwindow.cpp 
+    renderer.cpp
+    wall.cpp )
 
 kde4_add_kcfg_files(kbounce_SRCS settings.kcfgc)
 
