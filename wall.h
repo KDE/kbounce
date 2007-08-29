@@ -43,7 +43,7 @@ class KBounceWall : public QObject, public KGameCanvasPixmap
 
     public:
 	enum Direction { Up = 0, Down, Left, Right };
-	static const qreal WALL_VELOCITY = 0.125;
+	static const qreal WALL_VELOCITY;
 
 	/**
 	 * Constructor

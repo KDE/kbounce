@@ -26,6 +26,7 @@
 #include "board.h"
 #include "renderer.h"
 
+const qreal KBounceWall::WALL_VELOCITY = 0.125;
 
 KBounceWall::KBounceWall( Direction dir, KBounceRenderer* renderer, KBounceBoard* board )
     : KGameCanvasPixmap( board ), m_renderer( renderer ), m_board( board ), 
