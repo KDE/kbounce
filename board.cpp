@@ -227,12 +227,12 @@ KBounceCollision KBounceBoard::checkCollision( void* object, const QRectF& rect,
 {
     KBounceCollision result;
     
-    if ( type & TILE != 0 )
+    if ( (type & TILE) != 0 )
     {
 	result += checkCollisionTiles( rect );
     }
 
-    if ( type & WALL != 0 )
+    if ( (type & WALL) != 0 )
     {
 	foreach( KBounceWall* wall, m_walls )
 	{
@@ -250,7 +250,7 @@ KBounceCollision KBounceBoard::checkCollision( void* object, const QRectF& rect,
 	}
     }
 
-    if ( type & BALL != 0 )
+    if ( (type & BALL) != 0 )
     {
 	foreach( KBounceBall* ball, m_balls )
 	{
