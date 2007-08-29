@@ -34,13 +34,13 @@ class KBounceRenderer;
 class KBounceBoard;
 
 /**
- * KGameCanvasPixmap representing a ball 
+ * KGameCanvasPixmap representing a ball
  */
 class KBounceBall : public KGameCanvasPixmap
 {
     public:
-	static const int BALL_ANIM_DELAY = 60;
-	static const qreal BALL_RELATIVE_SIZE = 0.8;
+	static const int BALL_ANIM_DELAY;
+	static const qreal BALL_RELATIVE_SIZE;
 
 	/**
 	 * Constructor
@@ -114,7 +114,7 @@ class KBounceBall : public KGameCanvasPixmap
 	 * Sets a random ball's frame
 	 */
 	void setRandomFrame();
-	
+
 
      protected:
 	KBounceRenderer* m_renderer;

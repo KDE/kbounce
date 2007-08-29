@@ -27,6 +27,9 @@
 #include "board.h"
 #include "renderer.h"
 
+const int KBounceBall::BALL_ANIM_DELAY = 60;
+const qreal KBounceBall::BALL_RELATIVE_SIZE = 0.8;
+
 KBounceBall::KBounceBall( KBounceRenderer* renderer, KBounceBoard* board )
     : KGameCanvasPixmap( board ), m_renderer( renderer ), m_board( board ),
     m_soundDelay( 0 ), m_size( QSize( 16, 16 ) ), m_frame( 0 ),
@@ -61,7 +64,7 @@ void KBounceBall::advance()
    m_nextBoundingRect.moveTo( m_xPos + m_velocity.x, m_yPos + m_velocity.y );
 }
 
-void KBounceBall::collide( const KBounceCollision& collision ) 
+void KBounceBall::collide( const KBounceCollision& collision )
 {
     foreach ( KBounceHit hit, collision )
     {
@@ -95,9 +98,9 @@ void KBounceBall::resize( const QSize& tileSize )
 
     m_size.setWidth( static_cast<int>( BALL_RELATIVE_SIZE * tileSize.width() ) );
     m_size.setHeight( static_cast<int> ( BALL_RELATIVE_SIZE * tileSize.height() ) );
-    moveTo( m_board->mapPosition( QPointF( m_xPos, m_yPos ) ) ); 
+    moveTo( m_board->mapPosition( QPointF( m_xPos, m_yPos ) ) );
     setFrame( m_frame );
-} 
+}
 
 void KBounceBall::resetPixmaps()
 {
