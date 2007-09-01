@@ -59,9 +59,9 @@ struct KBounceVector
 };
 
 /*
- * This struct contains infomation about collision of one pair of objects
- * Collision testing functions in this game choose one objects refered as
- * "beeing hited" and check if it intersects whith another refered as
+ * This struct contains information about collision of one pair of objects
+ * Collision testing functions in this game choose one objects referred as
+ * "being hitted" and check if it intersects with another referred as
  * "hitters"
  */
 struct KBounceHit
@@ -79,7 +79,7 @@ struct KBounceHit
      */
     KBounceVector velocity;
     /*
-     * Vector perpendicular to object's beeing hitted surface in
+     * Vector perpendicular to object's being hitted surface in
      * the area of intersection with hitter
      */
     KBounceVector normal;

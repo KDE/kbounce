@@ -73,7 +73,7 @@ class KBounceWall : public QObject, public KGameCanvasPixmap
     	void update();
 
 	/**
-	 * Starts building wall beggining from tile specified by x and y
+	 * Starts building wall beginning from tile specified by x and y
 	 * The direction has been specified in constructor
 	 */
 	void build( int x, int y );
