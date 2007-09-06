@@ -16,7 +16,7 @@ Name[zh_TW]=KBounce 彈力球
 
 Type=Application
 Exec=kbounce -caption "%c"
-DocPath=kbounce/index.html
+X-DocPath=kbounce/index.html
 Icon=kbounce
 
 GenericName=Bounce Ball Game
