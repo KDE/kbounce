@@ -23,9 +23,8 @@
 #include "renderer.h"
 
 #include <kdebug.h>
-#include <KPixmapEffect>
 
-#include <QPainter>
+#include <QtGui/QPainter>
 
 KBounceRenderer::KBounceRenderer()
 	: m_svgRenderer(), m_backgroundSize( QSize( 0, 0 ) )
