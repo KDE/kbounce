@@ -58,6 +58,7 @@ GenericName[sv]=Studsande boll spel
 GenericName[ta]=திரும்பும் பந்து விளையாட்டு
 GenericName[uk]=Кульки-стрибунці
 GenericName[x-test]=xxBounce Ball Gamexx
+GenericName[zh_CN]=弹球游戏
 GenericName[zh_TW]=彈跳球遊戲
 X-DBUS-StartupType=Multi
 Categories=Qt;KDE;Game;ArcadeGame;
