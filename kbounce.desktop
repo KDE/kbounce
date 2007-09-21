@@ -19,7 +19,7 @@ Exec=kbounce -caption "%c"
 X-DocPath=kbounce/index.html
 Icon=kbounce
 
-GenericName=Bounce Ball Game
+GenericName=Ball Bouncing Game
 GenericName[be]=Гульня ў шарыкі
 GenericName[ca]=Joc de boles rebotadores
 GenericName[cs]=Hra s poskakujícími míčky
@@ -57,7 +57,7 @@ GenericName[sr@latin]=Igra odbijanja lopte
 GenericName[sv]=Studsande boll spel
 GenericName[ta]=திரும்பும் பந்து விளையாட்டு
 GenericName[uk]=Кульки-стрибунці
-GenericName[x-test]=xxBounce Ball Gamexx
+GenericName[x-test]=xxBall Bouncing Gamexx
 GenericName[zh_CN]=弹球游戏
 GenericName[zh_TW]=彈跳球遊戲
 X-DBUS-StartupType=Multi
