@@ -20,5 +20,8 @@ X-DocPath=kbounce/index.html
 Icon=kbounce
 
 GenericName=Ball Bouncing Game
+GenericName[de]=Spiel zum Einfangen von Bällen
+GenericName[pt]=Jogo de Bolas aos Saltos
+GenericName[pt_BR]=Jogo de Bolas aos Saltos
 X-DBUS-StartupType=Multi
 Categories=Qt;KDE;Game;ArcadeGame;
