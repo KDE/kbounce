@@ -23,5 +23,6 @@ GenericName=Ball Bouncing Game
 GenericName[de]=Spiel zum Einfangen von Bällen
 GenericName[pt]=Jogo de Bolas aos Saltos
 GenericName[pt_BR]=Jogo de Bolas aos Saltos
+GenericName[sv]=Studsande bollar
 X-DBUS-StartupType=Multi
 Categories=Qt;KDE;Game;ArcadeGame;
