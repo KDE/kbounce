@@ -44,11 +44,11 @@
 KBounceMainWindow::KBounceMainWindow()
 {
     m_statusBar = statusBar();
-    m_statusBar->insertItem( i18n("Level: XX"), 1, 1 );
-    m_statusBar->insertItem( i18n("Score: XXXXXX"), 2, 1 );
-    m_statusBar->insertItem( i18n("Filled: XX"), 3, 1 );
-    m_statusBar->insertItem( i18n("Lives: XX"), 4, 1 );
-    m_statusBar->insertItem( i18n("Time: XXX"), 5, 1 );
+    m_statusBar->insertItem( i18n( "Level: %1", QString::fromLatin1( "XX" ) ), 1, 1 );
+    m_statusBar->insertItem( i18n( "Score: %1", QString::fromLatin1( "XXXXXX" ) ), 2, 1 );
+    m_statusBar->insertItem( i18n( "Filled: %1%", QString::fromLatin1( "XX" ) ), 3, 1 );
+    m_statusBar->insertItem( i18n( "Lives: %1", QString::fromLatin1( "XX" ) ), 4, 1 );
+    m_statusBar->insertItem( i18n( "Time: %1", QString::fromLatin1( "XXX" ) ), 5, 1 );
 
     m_gameWidget = new KBounceGameWidget( this );
     m_gameWidget->setSoundPath( KStandardDirs::locate( "appdata", "sounds/" ) );
