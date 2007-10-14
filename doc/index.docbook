@@ -7,92 +7,112 @@
 ]>
 
 <book lang="&language;">
-
 <bookinfo>
 <title>The &kbounce; Handbook</title>
 
 <authorgroup>
 <author>
-&Aaron.J.Seigo; &Aaron.J.Seigo.mail;
+<firstname>Tomasz</firstname>
+<surname>Boczkowski</surname>
+<affiliation>
+<address><email>tboczkowski@onet.pl</email></address>
+</affiliation>
 </author>
 
-<othercredit role="reviewer">
-&Lauri.Watts; &Lauri.Watts.mail;
-<!-- <contrib>Reviewer</contrib> -->
-</othercredit>
+<author>
+&Aaron.J.Seigo; &Aaron.J.Seigo.mail;
+</author>
 
 <!-- TRANS:ROLES_OF_TRANSLATORS -->
 </authorgroup>
 
-<legalnotice>&FDLNotice;</legalnotice>
-
-<date>2005-12-10</date>
+<date>2007-10-13</date>
 <releaseinfo>0.5</releaseinfo>
 
-<!-- Abstract about this handbook -->
+<copyright>
+<year>2002</year>
+<holder>&Aaron.J.Seigo;</holder>
+</copyright>
+
+<copyright>
+<year>2007</year>
+<holder>Tomasz Boczkowski</holder>
+</copyright>
+
+<legalnotice>&FDLNotice;</legalnotice>
 
 <abstract>
 <para>
-&kbounce; is a ball game for &kde;.
+&kbounce;, a ball game for &kde;.
 </para>
 </abstract>
 
 
 <keywordset>
-<keyword>KDE</keyword>
-<keyword>kdegames</keyword>
+<keyword>balls</keyword>
+<keyword>game</keyword>
 <keyword>jezzball</keyword>
+<keyword>KBounce</keyword>
+<keyword>KDE</keyword>
 </keywordset>
 
 </bookinfo>
 
+<chapter id="introduction">
+<title>Introduction</title>
+
+<para>
+&kbounce; is a single player arcade game.
+</para>
+
+<para>
+It is played on a field, surrounded by wall, with two or more balls
+ that move about in the field bouncing off of wals. The player can
+build new walls, decreasing the size of active field
+</para>
+
+<para>
+The goal of the game is to fill at least 75&percnt; of the field 
+ and advance to the next level.
+</para>
+</chapter>
+
 <chapter id="how-to-play">
 <title>How To Play</title>
 
-<para>&kbounce; is played on a field, surrounded by a wall, with two or
-more balls that move about in the field bouncing off of the
-walls.</para>
+<para>
+The player is presented a rectangular tiled field surrounded by wall.
+Two or more balls move about in the field and bounce off of the walls.
+The object of the game is to limit the size of room in which the balls
+ are.
+</para>
 
-<para>Walls are a darker color while the active areas of the field are
-a lighter color.</para>
-
-<para>The size of the active area of the field is decreased by making
+<para>
+The size of the active area of the field is decreased by making
 new walls that enclose areas without balls in them.  To complete a
 level, the player must decrease the size of the active field by at
-least 75&percnt; within the time allowed.</para>
+least 75&percnt; within the time allowed.
+</para>
 
-<para>With each new level, another ball is added to the field, and the
-player is given one more life than in the level before.  The time
-allotted to complete the level is also increased.</para>
-
-<para>Scoring is based on how much of the field is cleared.</para>
-
-<para>New walls are built by clicking the
+<para>
+New walls are built by clicking the
 <mousebutton>left</mousebutton> mouse button in an active area of the
 field, at which point two walls will begin to grow in opposite
-directions from the square the mouse was clicked in.  Only two walls
-may be growing on the screen at any given time.</para>
+directions from the square the mouse was clicked in.  Only one wall
+in each direction may be growing on the screen at any given time.
+</para>
 
-<screenshot>
-<screeninfo>A new wall growing</screeninfo>
-<mediaobject>
-<imageobject>
-<imagedata fileref="jezball_newWall.png" format="PNG"/>
-</imageobject>
-<textobject>
-<phrase>A new wall growing</phrase>
-</textobject>
-</mediaobject>
-</screenshot>
-
-<para>When the mouse is on the field, the cursor is shown as a pair of
+<para>
+When the mouse is on the field, the cursor is shown as a pair of
 arrows pointing in opposite directions, either horizontally or
 vertically.  The arrows point in the direction the walls will grow
 when the <mousebutton>left</mousebutton> is clicked.  This direction
 can be changed by clicking the <mousebutton>right</mousebutton> mouse
-button.</para>
+button.
+</para>
 
-<para>A new wall has a <quote>head</quote> which moves away from the
+<para>
+A new wall has a <quote>head</quote> which moves away from the
 point where the mouse was clicked.  A wall is not permanent until this
 <quote>head</quote> runs into another wall.  If a ball collides with
 any part of the wall except the head, before the head has run into
@@ -101,28 +121,74 @@ be lost.  If a ball collides with the head in the direction of the
 wall's growth, the wall will stop growing there, and become permanent,
 with no loss of life.  If a ball collides with the head from any other
 side, the ball will bounce off and the wall will continue to grow
-normally.</para>
+normally.
+</para>
+</chapter>
 
+<chapter id="rules">
+<title>Game Rules</title>
+
+<para>
+The game starts with level 1 in which two balls move about in the
+field. The player has two lifes and 90 seconds to successfully complete
+the level.
+</para>
+
+<para>
+In n-th level there are n + 1 balls. The player is given n + 1 lives. They
+have 30 * ( n + 2 ) seconds to complete it.
+</para>
+
+<para>
+When a ball collides with a growing wall the player looses one life.
+An exception is the collision with wall's <quote>head</quote> when
+no life is lost.
+</para>
+
+<para>
+The goal of each level is to cover at least 75&percnt; of the field
+with wall.  
+</para>
+
+<para>
+The loss of all lives and exceeding the time alloted result in the
+end of the game.
+</para>
+
+<para>
+If a player completes a level he receives 15 points for each life left,
+ and bonus depending on the number of balls and the number of tiles filled
+above 75&percnt;. They also advance to the next level.
+</para>
+ 
 </chapter>
 
 <chapter id="strategy">
-<title>Strategy</title>
+<title>Strategies and Tips</title>
+<itemizedlist>
 
-<para>Many players find the game becomes quite difficult by only the
+<listitem>
+<para>
+Many players find the game becomes quite difficult by only the
 third or fourth level, given the number of balls on the field at
-once.</para>
+once.
+</para>
+</listitem>
 
-<para>The trick to playing &kbounce; successfully is to build
+<listitem>
+<para>
+The trick to playing &kbounce; successfully is to build
 <quote>corridors</quote>.  To build a corridor, start a pair of walls
 growing close to another wall, and time it such that one of the walls
 will be hit by a ball and one of the walls will not, and thus become
-permanent.</para>
+permanent.
+</para>
 
 <screenshot>
 <screeninfo>Building a corridor</screeninfo>
 <mediaobject>
 <imageobject>
-<imagedata fileref="jezball_corridor1.png" format="PNG"/>
+<imagedata fileref="kbounce_corridor1.png" format="PNG"/>
 </imageobject>
 <textobject>
 <phrase>Building a corridor</phrase>
@@ -130,39 +196,144 @@ permanent.</para>
 </mediaobject>
 </screenshot>
 
-<para>This will leave a narrow corridor only a few squares high on the
+<para>
+This will leave a narrow corridor only a few squares high on the
 field, surrounded on three sides by walls.  Wait for the balls to
 bounce into the open end of the corridor, and close the corridor
 behind the ball with a new wall.  Although you will most likely lose a
 life for each corridor created, you can trap several balls in a single
-corridor.</para>
+corridor.
+</para>
 
 <screenshot>
 <screeninfo>Capturing balls in a corridor</screeninfo>
 <mediaobject>
 <imageobject>
-<imagedata fileref="jezball_corridor2.png" format="PNG"/>
+<imagedata fileref="kbounce_corridor2.png" format="PNG"/>
 </imageobject>
 <textobject>
 <phrase>Capturing balls in a corridor</phrase>
 </textobject>
 </mediaobject>
 </screenshot>
+</listitem>
 
-<para>A final tip &mdash; take your time!  There is plenty of time, as
-shown in the <guilabel>Time</guilabel> display on the right hand side
-of the screen.  Rushing will just get you in trouble!</para>
-
+<listitem>
+<para>
+A final tip &mdash; take your time!  There is plenty of time, as
+shown in the <guilabel>Time</guilabel> display at the bottom 
+of the screen.  Rushing will just get you in trouble!
+</para>
+</listitem>
+</itemizedlist>
 </chapter>
 
-<chapter id="menu-reference">
-<title>Menu Reference</title>
+<chapter id="interface-overview">
+<title>Interface Overview</title>
 
-<sect1 id="game-menu">
+<sect1 id="the-tool-bar">
+<title>The Tool Bar</title>
+
+<mediaobject>
+<imageobject>
+<imagedata format="PNG" fileref="toolbar.png"/>
+</imageobject>
+<textobject><phrase>Toolbar</phrase></textobject>
+</mediaobject>
+
+<para>
+The toolbar provides buttons for the commonly used functions.
+</para>
+
+<table>
+<title>Toolbar Buttons</title>
+<tgroup cols="4">
+
+<thead>
+<row>
+<entry>Button</entry>
+<entry>Name</entry>
+<entry>Menu Equivalent</entry>
+<entry>Action</entry>
+</row>
+</thead>
+
+<tbody>
+<row>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata format="PNG" fileref="button-new.png"/>
+</imageobject>
+<textobject><phrase>New Game Button</phrase></textobject>
+</inlinemediaobject>
+</entry>
+
+<entry>
+<guiicon>New</guiicon>
+</entry>
+
+<entry>
+<link linkend="game-new">
+<menuchoice>
+<guimenu>Game</guimenu> <guimenuitem>New</guimenuitem>
+</menuchoice>
+</link>
+</entry>
+
+<entry>
+Starts a new game. If a game is currently played clears the field
+and sets the level to 1.
+</entry>
+</row>
+
+<row>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata format="PNG" fileref="button-pause.png"/>
+</imageobject>
+<textobject>
+<phrase>Pause Button></phrase></textobject>
+</inlinemediaobject>
+</entry>
+
+<entry>
+<guiicon>Pause</guiicon>
+</entry>
+
+<entry>
+<link linkend="game-pause">
+<menuchoice>
+<guimenu>Game</guimenu> <guimenuitem>Pause</guimenuitem></menuchoice>
+</link>
+</entry>
+
+<entry>
+Pauses or resumes the current game.
+</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+</sect1>
+
+<sect1 id="the-menu-items">
+<title>The Menu Items</title>
+
+<sect2>
 <title>The <guimenu>Game</guimenu> Menu</title>
 
+<mediaobject>
+<imageobject>
+<imagedata format="PNG" fileref="menu-game.png"/>
+</imageobject>
+<textobject>
+<phrase><guimenu>File</guimenu> Menu</phrase></textobject>
+</mediaobject>
+
 <variablelist>
-<varlistentry>
+<varlistentry id="game-new">
 <term>
 <menuchoice><shortcut>
 <keycombo action="simul">&Ctrl;<keycap>N</keycap></keycombo>
@@ -171,11 +342,11 @@ of the screen.  Rushing will just get you in trouble!</para>
 <guimenuitem>New</guimenuitem>
 </menuchoice></term>
 <listitem>
-<para><action>Start a new game.</action></para>
+<para><action>Starts a new game.</action></para>
 </listitem>
 </varlistentry>
 
-<varlistentry>
+<varlistentry id="game-end">
 <term>
 <menuchoice><shortcut>
 <keycombo action="simul">&Ctrl;<keycap>End</keycap>
@@ -185,11 +356,11 @@ of the screen.  Rushing will just get you in trouble!</para>
 <guimenuitem>End Game</guimenuitem>
 </menuchoice></term>
 <listitem>
-<para><action>End the current game.</action></para>
+<para><action>Ends the current game.</action></para>
 </listitem>
 </varlistentry>
 
-<varlistentry>
+<varlistentry id="game-pause">
 <term>
 <menuchoice><shortcut>
 <keycap>P</keycap></shortcut>
@@ -197,27 +368,26 @@ of the screen.  Rushing will just get you in trouble!</para>
 <guimenuitem>Pause</guimenuitem>
 </menuchoice></term>
 <listitem>
-<para><action>Pause or resume the game.</action></para>
+<para><action>Pauses or resumes the game.</action></para>
 </listitem>
 </varlistentry>
 
-<varlistentry>
+<varlistentry id="game-highscores">
 <term>
 <menuchoice><shortcut>
 <keycombo action="simul">&Ctrl;<keycap>H</keycap></keycombo>
 </shortcut>
 <guimenu>Game</guimenu>
-<guimenuitem>Show Highscores</guimenuitem>
+<guimenuitem>Show Highscores...</guimenuitem>
 </menuchoice></term>
 <listitem>
-<para>Opens a dialog that displays different high score tables. 
-<guibutton>Export</guibutton> the high scores into a file or click on 
-<guibutton>Configure</guibutton> to open a dialog to customize your Nickname 
-and add a Comment.</para>
+<para>
+Opens a dialog that displays different high score tables. 
+</para>
 </listitem>
 </varlistentry>
 
-<varlistentry>
+<varlistentry id="game-quit">
 <term><menuchoice><shortcut>
 <keycombo action="simul">&Ctrl;<keycap>Q</keycap></keycombo>
 </shortcut>
@@ -225,57 +395,47 @@ and add a Comment.</para>
 <guimenuitem>Quit</guimenuitem>
 </menuchoice></term>
 <listitem>
-<para><action>Quit</action> and close &kbounce;.</para>
+<para><action>Quit</action> and close &kbounce;.
+If a game is currently played, it's status is lost</para>
 </listitem>
 </varlistentry>
 </variablelist>
-</sect1>
+</sect2>
 
-<sect1 id="settings-menu">
+<sect2 id="settings-menu">
 <title>The <guimenu>Settings</guimenu> Menu</title>
+
+<mediaobject>
+<imageobject>
+<imagedata format="PNG" fileref="menu-settings.png"/>
+</imageobject>
+<textobject>
+<phrase>Settings Menu</phrase></textobject>
+</mediaobject>
+
 <variablelist>
 
-<varlistentry>
+<varlistentry id="settings-toolbar">
 <term><menuchoice>
 <guimenu>Settings</guimenu>
-<guimenuitem>Select Background Folder...</guimenuitem>
-</menuchoice></term>
-<listitem>
-<para><action>Opens a dialog to select a folder for the background images.</action></para>
-</listitem>
-</varlistentry>
-
-<varlistentry>
-<term><menuchoice>
-<guimenu>Settings</guimenu>
-<guimenuitem>Show Backgrounds</guimenuitem>
-</menuchoice></term>
-<listitem>
-<para><action>Shows the background images in the selected folder. Only enabled, if a background folder is already selected</action></para>
-</listitem>
-</varlistentry>
-
-<varlistentry>
-<term><menuchoice>
-<guimenu>Settings</guimenu>
-<guimenuitem>Show/Hide Toolbar</guimenuitem>
+<guimenuitem>Show Toolbar</guimenuitem>
 </menuchoice></term>
 <listitem>
 <para><action>Shows/hides the &kbounce; toolbar.</action></para>
 </listitem>
 </varlistentry>
 
-<varlistentry>
+<varlistentry id="settings-statusbar">
 <term><menuchoice>
 <guimenu>Settings</guimenu>
-<guimenuitem>Show/Hide Statusbar</guimenuitem>
+<guimenuitem>Show Statusbar</guimenuitem>
 </menuchoice></term>
 <listitem>
 <para><action>Shows/hides the &kbounce; statusbar.</action></para>
 </listitem>
 </varlistentry>
 
-<varlistentry>
+<varlistentry id="settings-sounds">
 <term><menuchoice>
 <guimenu>Settings</guimenu>
 <guimenuitem>Play Sounds</guimenuitem>
@@ -288,7 +448,7 @@ and add a Comment.</para>
 <varlistentry>
 <term><menuchoice>
 <guimenu>Settings</guimenu>
-<guimenuitem>Configure Shortcuts...</guimenuitem>
+<guimenuitem>Configure Shortcuts</guimenuitem>
 </menuchoice></term>
 <listitem>
 <para><action>Opens a standard &kde; shortcut configuration dialog, in which
@@ -299,7 +459,7 @@ you can change the keyboard shortcuts used by &kbounce;.</action></para>
 <varlistentry>
 <term><menuchoice>
 <guimenu>Settings</guimenu>
-<guimenuitem>Configure Toolbars...</guimenuitem>
+<guimenuitem>Configure Toolbars</guimenuitem>
 </menuchoice></term>
 <listitem>
 <para><action>Opens the standard &kde; toolbar configuration dialog to customize the &kbounce; toolbar.</action></para>
@@ -309,25 +469,32 @@ you can change the keyboard shortcuts used by &kbounce;.</action></para>
 <varlistentry>
 <term><menuchoice>
 <guimenu>Settings</guimenu>
-<guimenuitem>Configure Highscores...</guimenuitem>
+<guimenuitem>Configure &kbounce;</guimenuitem>
 </menuchoice></term>
 <listitem>
-<para><action>Opens a dialog to customize your <guilabel>Nickname</guilabel> and 
-add a <guilabel>Comment</guilabel>.</action></para>
+<para><action>Opens a dialog to customize the game. It allows to
+select themes.</action></para>
 </listitem>
 </varlistentry>
 
 </variablelist>
-</sect1>
+</sect2>
 
 
-<sect1 id="help-menu">
+<sect2 id="help-menu">
 <title>The <guimenu>Help</guimenu> Menu</title>
+<mediaobject>
+<imageobject>
+<imagedata format="PNG" fileref="menu-help.png"/>
+</imageobject>
+<textobject>
+<phrase>Help Menu</phrase></textobject>
+</mediaobject>
 
 &help.menu.documentation;
 
+</sect2>
 </sect1>
-
 </chapter>
 
 <chapter id="credits-and-licenses">
@@ -336,21 +503,32 @@ add a <guilabel>Comment</guilabel>.</action></para>
 
 <para>&kbounce;</para>
 
-<para>Copyright 2000, Stefan Schimanski</para>
-
 <itemizedlist>
-<title>Developers</title>
 <listitem>
-<para>Stefan Schimanski <email>schimmi@kde.org</email></para>
+<para>Stefan Schimanski <email>schimmi@kde.org</email> -
+Original Author</para>
 </listitem>
 <listitem>
 <para>Sandro Sigala <email>ssigala@globalnet.it</email> -
 Highscore</para>
 </listitem>
+<listitem>
+<para>Benjamin Meyer <email>ben+kbounce@meyerhome.net</email> - 
+Contributions</para>
+</listitem>
+<listitem>
+<para>Dmitry Suzdalev <email>dimsuz@gmail.com</email></para>
+</listitem>
+<listitem>
+<para>Tomasz Boczkowski <email>tboczkowski@onet.pl</email> - 
+Port to KDE4 and KGameCavas</para>
+</listitem>
 </itemizedlist>
 
 <para>Documentation copyright 2002, &Aaron.J.Seigo;
 &Aaron.J.Seigo.mail;</para>
+<para>Documentation copyright 2007, Tomasz Boczkowski
+<email>tboczkowski@onet.pl</email></para>
 
 <para>This handbook is dedicated to Dennis E. Powell.</para>
 
