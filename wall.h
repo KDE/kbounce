@@ -106,6 +106,13 @@ class KBounceWall : public QObject, public KGameCanvasPixmap
 	 * edge.
 	 */
 	bool safeEdgeHit( const QRectF& rect2 ) const;
+	/**
+	 * Helper function replacing emiting long finished signal
+	 * It also hides the wall and plays corresponding sound
+	 * If &param shorten is true the wall will be one unit in
+	 * direction &param dir shorter than normal 
+	 */
+	void finish( bool shorten = false, Direction dir = Up);
 
 	KBounceRenderer *m_renderer;
 	KBounceBoard *m_board;

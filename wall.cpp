@@ -47,18 +47,24 @@ void KBounceWall::collide( KBounceCollision collision )
     {
 	if ( hit.type == TILE )
 	{
-	    emit finished( 
-		    static_cast<int>( m_nextBoundingRect.left() ),
-		    static_cast<int>( m_nextBoundingRect.top() ),
-		    static_cast<int>( m_nextBoundingRect.right() ),
-		    static_cast<int>( m_nextBoundingRect.bottom() ) );
-	    hide();
-	    m_board->playSound( "wallend.au" );
+	    finish();
 	}
 	if ( hit.type == BALL )
 	{
 	    if ( safeEdgeHit( hit.boundingRect ) )
-		kDebug() << "Safe edge hit";
+	    {
+		KBounceVector normal = hit.normal;
+		bool vertical = qAbs(normal.x) < qAbs(normal.y);
+
+		if ( vertical && ( (m_dir == Up) || (m_dir == Down) ) )
+		{
+		    finish( true, m_dir );
+		}
+		if ( !vertical && ( (m_dir == Left) || (m_dir == Right ) ) )
+		{
+		    finish( true, m_dir );
+		}
+	    }
 	    else
 	    {
 		emit died();
@@ -69,13 +75,7 @@ void KBounceWall::collide( KBounceCollision collision )
 	{
 	    if ( safeEdgeHit( hit.boundingRect ) )
 	    {
-		emit finished(
-			static_cast<int>( m_boundingRect.left() ),
-			static_cast<int>( m_boundingRect.top() ),
-			static_cast<int>( m_boundingRect.right() ),
-			static_cast<int>( m_boundingRect.bottom() ) );
-		hide();
-		m_board->playSound( "wallend.au" );
+		finish();
 	    }
 	}
     }
@@ -267,6 +267,29 @@ bool KBounceWall::safeEdgeHit( const QRectF& rect2 ) const
 	    safeEdgeHit = true;
 
 	return safeEdgeHit;
+}
+
+void KBounceWall::finish( bool shorten, Direction dir )
+{
+    int left = static_cast<int>( m_boundingRect.left() );
+    int top = static_cast<int>( m_boundingRect.top() );
+    int right = static_cast<int>( m_boundingRect.right() );
+    int bottom = static_cast<int>( m_boundingRect.bottom() );
+
+    if ( shorten ) 
+    {
+	switch ( dir )
+	{
+	    case Left: left++; break;
+	    case Up: top++; break;
+	    case Right: right--; break;
+	    case Down: bottom--; break;
+	}
+    }
+
+    emit finished( left, top, right, bottom );
+    hide();
+    m_board->playSound( "wallend.au" );
 }
 
 #include "wall.moc"
