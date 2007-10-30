@@ -29,6 +29,7 @@ GenericName[pt]=Jogo de Bolas aos Saltos
 GenericName[pt_BR]=Jogo de Bolas aos Saltos
 GenericName[sv]=Studsande bollar
 GenericName[x-test]=xxBall Bouncing Gamexx
+GenericName[zh_CN]=弹球游戏
 GenericName[zh_TW]=彈力球遊戲
 X-DBUS-StartupType=Multi
 Categories=Qt;KDE;Game;ArcadeGame;
