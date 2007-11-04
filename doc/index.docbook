@@ -1,6 +1,9 @@
 <?xml version="1.0" ?>
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.2-Based Variant V1.1//EN" "dtd/kdex.dtd" [
-  <!ENTITY kappname "&kbounce;">
+  <!ENTITY kapp-name "&kbounce;">
+  <!ENTITY kappversion "0.5"><!--Applicaion version. Use this variable everywhere it's needed.-->
+  <!ENTITY docversion "1.0"><!--Document version. Use this variable everywhere it's needed.-->
+  <!ENTITY docupdate "2007-10-13"><!--Document version. Use this variable everywhere it's needed.-->
   <!ENTITY package "kdegames">
   <!ENTITY % English "INCLUDE" > 
   <!ENTITY % addindex "IGNORE">
@@ -8,26 +11,20 @@
 
 <book lang="&language;">
 <bookinfo>
-<title>The &kbounce; Handbook</title>
+<title>The &kapp-name; Handbook</title>
 
 <authorgroup>
 <author>
-<firstname>Tomasz</firstname>
-<surname>Boczkowski</surname>
-<affiliation>
-<address><email>tboczkowski@onet.pl</email></address>
-</affiliation>
+<firstname>Tomasz</firstname><surname>Boczkowski</surname>
+<affiliation><address><email>tboczkowski@onet.pl</email></address></affiliation>
 </author>
-
-<author>
-&Aaron.J.Seigo; &Aaron.J.Seigo.mail;
-</author>
-
+<othercredit role="reviewer">
+<firstname>Eugene</firstname><surname>Trounev</surname>
+<contrib>Reviewer</contrib>
+<affiliation><address>eugene.trounev@gmail.com</address></affiliation>
+</othercredit>
 <!-- TRANS:ROLES_OF_TRANSLATORS -->
 </authorgroup>
-
-<date>2007-10-13</date>
-<releaseinfo>0.5</releaseinfo>
 
 <copyright>
 <year>2002</year>
@@ -41,39 +38,43 @@
 
 <legalnotice>&FDLNotice;</legalnotice>
 
+
+<date>&docupdate;</date><!-- Date of (re)writing, ro update. Use the variable definitions within header to change this value.-->
+<releaseinfo>&docversion;</releaseinfo><!-- Application version number. Use the variable definitions within header to change this value.-->
+
 <abstract>
-<para>
-&kbounce;, a ball game for &kde;.
-</para>
+	<para>This documentation describes the game of &kapp-name; version &kappversion;</para>
 </abstract>
 
 
 <keywordset>
-<keyword>balls</keyword>
-<keyword>game</keyword>
-<keyword>jezzball</keyword>
-<keyword>KBounce</keyword>
-<keyword>KDE</keyword>
+	<keyword>KDE</keyword> <!-- do not change this! -->
+	<keyword>kdegames</keyword> <!-- do not change this! -->
+	<keyword>game</keyword> <!-- do not change this! -->
+<!-- Game genre. use as many as necessary.Available game types are: Arcade, Board, Card, Dice, Toys, Logic, Strategy.-->
+	<keyword>arcade</keyword>
+	<keyword>puzzle</keyword>
+	<keyword>balls</keyword>
+	<keyword>jezzball</keyword>
+	<keyword>KBounce</keyword>
 </keywordset>
 
 </bookinfo>
 
 <chapter id="introduction">
 <title>Introduction</title>
-
+<note><title>Gametype:</title><para>Puzzle, Arcade</para></note><!-- Game genre. use as many as necessary.Available game types are: Arcade, Board, Card, Dice, Toys, Logic, Strategy.-->
+	<note><title>Number of possible players:</title><para>One</para></note><!--Number of possible players. It can be: One, Two,..., Multiplayer-->
 <para>
-&kbounce; is a single player arcade game.
+&kapp-name; is a single player arcade game with the elements of puzzle.
 </para>
 
 <para>
-It is played on a field, surrounded by wall, with two or more balls
- that move about in the field bouncing off of wals. The player can
-build new walls, decreasing the size of active field
+It is played on a field, surrounded by wall, with two or more balls that move about in the field bouncing off of wals. The player can build new walls, decreasing the size of active field.
 </para>
 
 <para>
-The goal of the game is to fill at least 75&percnt; of the field 
- and advance to the next level.
+The goal of the game is to fill at least 75&percnt; of the field and advance to the next level.
 </para>
 </chapter>
 
@@ -81,51 +82,28 @@ The goal of the game is to fill at least 75&percnt; of the field
 <title>How To Play</title>
 
 <para>
-The player is presented a rectangular tiled field surrounded by wall.
-Two or more balls move about in the field and bounce off of the walls.
-The object of the game is to limit the size of room in which the balls
- are.
+The player is presented a rectangular tiled field surrounded by wall. Two or more balls move about in the field and bounce off of the walls. The object of the game is to limit the size of room in which the balls are.
 </para>
 
 <para>
-The size of the active area of the field is decreased by making
-new walls that enclose areas without balls in them.  To complete a
-level, the player must decrease the size of the active field by at
-least 75&percnt; within the time allowed.
+The size of the active area of the field is decreased by making new walls that enclose areas without balls in them.  To complete a level, the player must decrease the size of the active field by at least 75&percnt; within the time allowed.
 </para>
 
 <para>
-New walls are built by clicking the
-<mousebutton>left</mousebutton> mouse button in an active area of the
-field, at which point two walls will begin to grow in opposite
-directions from the square the mouse was clicked in.  Only one wall
-in each direction may be growing on the screen at any given time.
+New walls are built by clicking the <mousebutton>left</mousebutton> mouse button in an active area of the field, at which point two walls will begin to grow in opposite directions from the square the mouse was clicked in.  Only one wall in each direction may be growing on the screen at any given time.
 </para>
 
 <para>
-When the mouse is on the field, the cursor is shown as a pair of
-arrows pointing in opposite directions, either horizontally or
-vertically.  The arrows point in the direction the walls will grow
-when the <mousebutton>left</mousebutton> is clicked.  This direction
-can be changed by clicking the <mousebutton>right</mousebutton> mouse
-button.
+When the mouse is on the field, the cursor is shown as a pair ofarrows pointing in opposite directions, either horizontally or vertically.  The arrows point in the direction the walls will grow when the <mousebutton>left</mousebutton> is clicked.  This direction can be changed by clicking the <mousebutton>right</mousebutton> mouse button.
 </para>
 
 <para>
-A new wall has a <quote>head</quote> which moves away from the
-point where the mouse was clicked.  A wall is not permanent until this
-<quote>head</quote> runs into another wall.  If a ball collides with
-any part of the wall except the head, before the head has run into
-another wall, the new wall will disappear completely and one life will
-be lost.  If a ball collides with the head in the direction of the
-wall's growth, the wall will stop growing there, and become permanent,
-with no loss of life.  If a ball collides with the head from any other
-side, the ball will bounce off and the wall will continue to grow
-normally.
+A new wall has a <quote>head</quote> which moves away from the point where the mouse was clicked.  A wall is not permanent until this <quote>head</quote> runs into another wall.  If a ball collides with any part of the wall except the head, before the head has run into another wall, the new wall will disappear completely and one life will be lost.  If a ball collides with the head in the direction of the wall's growth, the wall will stop growing there, and become permanent, with no loss of life.  If a ball collides with the head from any other side, the ball will bounce off and the wall will continue to grow normally.
 </para>
 </chapter>
 
-<chapter id="rules">
+<chapter id="rules_and_tips"><title>Game Rules, Strategies and Tips</title> <!-- do not change this! -->
+<sect1 id="rules">
 <title>Game Rules</title>
 
 <para>
@@ -161,9 +139,9 @@ If a player completes a level he receives 15 points for each life left,
 above 75&percnt;. They also advance to the next level.
 </para>
  
-</chapter>
+</sect1>
 
-<chapter id="strategy">
+<sect1 id="strategy">
 <title>Strategies and Tips</title>
 <itemizedlist>
 
@@ -177,7 +155,7 @@ once.
 
 <listitem>
 <para>
-The trick to playing &kbounce; successfully is to build
+The trick to playing &kapp-name; successfully is to build
 <quote>corridors</quote>.  To build a corridor, start a pair of walls
 growing close to another wall, and time it such that one of the walls
 will be hit by a ball and one of the walls will not, and thus become
@@ -226,6 +204,7 @@ of the screen.  Rushing will just get you in trouble!
 </para>
 </listitem>
 </itemizedlist>
+</sect1>
 </chapter>
 
 <chapter id="interface-overview">
@@ -395,7 +374,7 @@ Opens a dialog that displays different high score tables.
 <guimenuitem>Quit</guimenuitem>
 </menuchoice></term>
 <listitem>
-<para><action>Quit</action> and close &kbounce;.
+<para><action>Quit</action> and close &kapp-name;.
 If a game is currently played, it's status is lost</para>
 </listitem>
 </varlistentry>
@@ -421,7 +400,7 @@ If a game is currently played, it's status is lost</para>
 <guimenuitem>Show Toolbar</guimenuitem>
 </menuchoice></term>
 <listitem>
-<para><action>Shows/hides the &kbounce; toolbar.</action></para>
+<para><action>Shows/hides the &kapp-name; toolbar.</action></para>
 </listitem>
 </varlistentry>
 
@@ -431,7 +410,7 @@ If a game is currently played, it's status is lost</para>
 <guimenuitem>Show Statusbar</guimenuitem>
 </menuchoice></term>
 <listitem>
-<para><action>Shows/hides the &kbounce; statusbar.</action></para>
+<para><action>Shows/hides the &kapp-name; statusbar.</action></para>
 </listitem>
 </varlistentry>
 
@@ -441,7 +420,7 @@ If a game is currently played, it's status is lost</para>
 <guimenuitem>Play Sounds</guimenuitem>
 </menuchoice></term>
 <listitem>
-<para><action>If checked, &kbounce; game sounds are played.</action></para>
+<para><action>If checked, &kapp-name; game sounds are played.</action></para>
 </listitem>
 </varlistentry>
 
@@ -452,7 +431,7 @@ If a game is currently played, it's status is lost</para>
 </menuchoice></term>
 <listitem>
 <para><action>Opens a standard &kde; shortcut configuration dialog, in which
-you can change the keyboard shortcuts used by &kbounce;.</action></para>
+you can change the keyboard shortcuts used by &kapp-name;.</action></para>
 </listitem>
 </varlistentry>
 
@@ -462,14 +441,14 @@ you can change the keyboard shortcuts used by &kbounce;.</action></para>
 <guimenuitem>Configure Toolbars</guimenuitem>
 </menuchoice></term>
 <listitem>
-<para><action>Opens the standard &kde; toolbar configuration dialog to customize the &kbounce; toolbar.</action></para>
+<para><action>Opens the standard &kde; toolbar configuration dialog to customize the &kapp-name; toolbar.</action></para>
 </listitem>
 </varlistentry>
 
 <varlistentry>
 <term><menuchoice>
 <guimenu>Settings</guimenu>
-<guimenuitem>Configure &kbounce;</guimenuitem>
+<guimenuitem>Configure &kapp-name;</guimenuitem>
 </menuchoice></term>
 <listitem>
 <para><action>Opens a dialog to customize the game. It allows to
@@ -497,11 +476,74 @@ select themes.</action></para>
 </sect1>
 </chapter>
 
+<chapter id="faq"><title>Frequently asked questions</title> <!-- do not change this! -->
+<!--This chapter is for frequently asked questions. Please use <qandaset> <qandaentry> only!-->
+<qandaset>
+<!--Following is a standard list of FAQ questions.-->
+<qandaentry>
+<question><para>Who made this game?</para></question>
+ <answer><para>The kdegames team. You can find their website here.</para></answer>
+</qandaentry>
+<qandaentry>
+ <question><para>Where can I get cheatcodes? </para></question>
+ <answer><para>You can't get cheatcodes for KDE games.</para></answer>
+</qandaentry>
+<qandaentry>
+ <question><para>How do I start a new game? </para></question>
+ <answer><para>The start a new game please use <menuchoice><guimenu>Game</guimenu><guimenuitem>New</guimenuitem></menuchoice> option on the menubar.</para></answer>
+</qandaentry>
+<qandaentry>
+ <question><para>How do I restart a &kapp-name;? </para></question>
+ <answer><para>To restart the game you can use <menuchoice><guimenu>Game</guimenu><guimenuitem>New</guimenuitem></menuchoice> option on the menubar.</para></answer>
+</qandaentry>
+<qandaentry>
+ <question><para>How do I pause the game? </para></question>
+ <answer><para>To pause &kapp-name; use <menuchoice><guimenu>Game</guimenu><guimenuitem>Pause</guimenuitem></menuchoice> option on the menubar.</para></answer>
+</qandaentry>
+<qandaentry>
+ <question><para>I want to change the way this game looks. Can I? </para></question>
+ <answer><para>Yes. To change &kapp-name; visual theme you can use <menuchoice><guimenu>Settings</guimenu><guimenuitem>Configure &kapp-name;...</guimenuitem></menuchoice> option on the menubar.</para></answer>
+</qandaentry>
+<qandaentry>
+ <question><para>I have made a mistake. Can I undo? </para></question>
+ <answer><para>&kapp-name; does not have an 'Undo' feature.</para></answer>
+</qandaentry>
+<qandaentry>
+ <question><para>Can I use keyboard?</para></question>
+ <answer><para>No. &kapp-name; can not be played using keyboard.</para></answer>
+</qandaentry>
+<qandaentry>
+ <question><para>I can't figure out what to do here! Are there hints? </para></question>
+ <answer><para>No. &kapp-name; does not have a 'Hint' feature.</para></answer>
+</qandaentry>
+<qandaentry>
+ <question><para>I have to quit the game now, but I'm not finished yet. Can I save my progress?</para></question>
+  <answer><para>&kapp-name; does not have a 'Save' feature at this moment.</para></answer>
+</qandaentry>
+<qandaentry>
+ <question><para>Where are the highscores?</para></question>
+ <answer><para>To access the highscores simply use <link linkend="game-highscores">'Show Highscores...'</link> option on the menubar.</para></answer>
+</qandaentry>
+<qandaentry>
+ <question><para>I want to change the game configuration. Where do I go? </para></question>
+ <answer><para>To change the game configuration you can use <menuchoice><guimenu>Settings</guimenu><guimenuitem>Configure &kapp-name;...</guimenuitem></menuchoice> option on the menubar.</para></answer>
+</qandaentry>
+</qandaset>
+</chapter>
+
+<chapter id="configuration"><title>Game Configuration</title> <!-- do not change this! -->
+  <para>&kapp-name; configuration dialog allows you to select &kapp-name; visual themes.</para>
+  <para>To select a new theme simply choose the theme's name from the selection list.</para>
+  <note><title>Note:</title><para>For your convenience a quick preview screenshot will be displayed on the right hand sided of the selection list as soon as you select the theme you're interested in.</para></note>
+  <para>Once you are satisfied with the theme you have selected you can either click <guibutton>Apply</guibutton>, or simply click <guibutton>Ok</guibutton> button, located at the bottom part of this dialog.</para>
+  <para>If, however you are dissatisfied with your selection – simply click <guimenu>Cancel</guimenu> to discard the changes.</para>
+</chapter>
+
 <chapter id="credits-and-licenses">
 <title>Credits and Licenses</title>
 
 
-<para>&kbounce;</para>
+<para>&kapp-name;</para>
 
 <itemizedlist>
 <listitem>
