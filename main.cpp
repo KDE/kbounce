@@ -28,20 +28,21 @@
 using namespace std;
 
 static const char description[] = I18N_NOOP("KDE Bounce Ball Game");
-static const char version[] = "0.5";
+static const char version[] = "0.9";
+static const char copyleft[] = "(c) 2000-2005, Stefan Schimanski\n(c) 2007, Tomasz Boczkowski";
 
 int main(int argc, char **argv)
 {
   KAboutData aboutData( "kbounce", 0, ki18n("KBounce"),
     version, ki18n(description), KAboutData::License_GPL,
-    ki18n("(c) 2000-2005, Stefan Schimanski"));
+    ki18n(copyleft));
 
   aboutData.addAuthor(ki18n("Stefan Schimanski"), ki18n("Original author"), "schimmi@kde.org");
   aboutData.addAuthor(ki18n("Sandro Sigala"), ki18n("Highscore"), "ssigala@globalnet.it");
   aboutData.addAuthor(ki18n("Benjamin Meyer"), ki18n("Contributions"), "ben+kbounce@meyerhome.net");
+  aboutData.addAuthor(ki18n("Tomasz Boczkowski"), ki18n("Port to KDE4. Current maintainer"), "tboczkowski@onet.pl" );
 
   aboutData.addCredit(ki18n("Dmitry Suzdalev"), ki18n("Port to QGraphicsView framework"), "dimsuz@gmail.com");
-  aboutData.addCredit(ki18n("Tomasz Boczkowski"), KLocalizedString(), "tboczkowski@onet.pl");
 
   KCmdLineArgs::init( argc, argv, &aboutData );
 

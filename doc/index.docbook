@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.2-Based Variant V1.1//EN" "dtd/kdex.dtd" [
   <!ENTITY kapp-name "&kbounce;">
-  <!ENTITY kappversion "0.5"><!--Applicaion version. Use this variable everywhere it's needed.-->
+  <!ENTITY kappversion "0.9"><!--Applicaion version. Use this variable everywhere it's needed.-->
   <!ENTITY docversion "1.0"><!--Document version. Use this variable everywhere it's needed.-->
   <!ENTITY docupdate "2007-10-13"><!--Document version. Use this variable everywhere it's needed.-->
   <!ENTITY package "kdegames">
