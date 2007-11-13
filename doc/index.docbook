@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.2-Based Variant V1.1//EN" "dtd/kdex.dtd" [
-  <!ENTITY kapp-name "&kbounce;">
+  <!ENTITY kappname "&kbounce;">
   <!ENTITY kappversion "0.9"><!--Applicaion version. Use this variable everywhere it's needed.-->
   <!ENTITY docversion "1.0"><!--Document version. Use this variable everywhere it's needed.-->
   <!ENTITY docupdate "2007-10-13"><!--Document version. Use this variable everywhere it's needed.-->
@@ -11,7 +11,7 @@
 
 <book lang="&language;">
 <bookinfo>
-<title>The &kapp-name; Handbook</title>
+<title>The &kappname; Handbook</title>
 
 <authorgroup>
 <author>
@@ -43,7 +43,7 @@
 <releaseinfo>&docversion;</releaseinfo><!-- Application version number. Use the variable definitions within header to change this value.-->
 
 <abstract>
-	<para>This documentation describes the game of &kapp-name; version &kappversion;</para>
+	<para>This documentation describes the game of &kappname; version &kappversion;</para>
 </abstract>
 
 
@@ -66,7 +66,7 @@
 <note><title>Gametype:</title><para>Puzzle, Arcade</para></note><!-- Game genre. use as many as necessary.Available game types are: Arcade, Board, Card, Dice, Toys, Logic, Strategy.-->
 	<note><title>Number of possible players:</title><para>One</para></note><!--Number of possible players. It can be: One, Two,..., Multiplayer-->
 <para>
-&kapp-name; is a single player arcade game with the elements of puzzle.
+&kappname; is a single player arcade game with the elements of puzzle.
 </para>
 
 <para>
@@ -155,7 +155,7 @@ once.
 
 <listitem>
 <para>
-The trick to playing &kapp-name; successfully is to build
+The trick to playing &kappname; successfully is to build
 <quote>corridors</quote>.  To build a corridor, start a pair of walls
 growing close to another wall, and time it such that one of the walls
 will be hit by a ball and one of the walls will not, and thus become
@@ -374,7 +374,7 @@ Opens a dialog that displays different high score tables.
 <guimenuitem>Quit</guimenuitem>
 </menuchoice></term>
 <listitem>
-<para><action>Quit</action> and close &kapp-name;.
+<para><action>Quit</action> and close &kappname;.
 If a game is currently played, it's status is lost</para>
 </listitem>
 </varlistentry>
@@ -400,7 +400,7 @@ If a game is currently played, it's status is lost</para>
 <guimenuitem>Show Toolbar</guimenuitem>
 </menuchoice></term>
 <listitem>
-<para><action>Shows/hides the &kapp-name; toolbar.</action></para>
+<para><action>Shows/hides the &kappname; toolbar.</action></para>
 </listitem>
 </varlistentry>
 
@@ -410,7 +410,7 @@ If a game is currently played, it's status is lost</para>
 <guimenuitem>Show Statusbar</guimenuitem>
 </menuchoice></term>
 <listitem>
-<para><action>Shows/hides the &kapp-name; statusbar.</action></para>
+<para><action>Shows/hides the &kappname; statusbar.</action></para>
 </listitem>
 </varlistentry>
 
@@ -420,7 +420,7 @@ If a game is currently played, it's status is lost</para>
 <guimenuitem>Play Sounds</guimenuitem>
 </menuchoice></term>
 <listitem>
-<para><action>If checked, &kapp-name; game sounds are played.</action></para>
+<para><action>If checked, &kappname; game sounds are played.</action></para>
 </listitem>
 </varlistentry>
 
@@ -431,7 +431,7 @@ If a game is currently played, it's status is lost</para>
 </menuchoice></term>
 <listitem>
 <para><action>Opens a standard &kde; shortcut configuration dialog, in which
-you can change the keyboard shortcuts used by &kapp-name;.</action></para>
+you can change the keyboard shortcuts used by &kappname;.</action></para>
 </listitem>
 </varlistentry>
 
@@ -441,14 +441,14 @@ you can change the keyboard shortcuts used by &kapp-name;.</action></para>
 <guimenuitem>Configure Toolbars</guimenuitem>
 </menuchoice></term>
 <listitem>
-<para><action>Opens the standard &kde; toolbar configuration dialog to customize the &kapp-name; toolbar.</action></para>
+<para><action>Opens the standard &kde; toolbar configuration dialog to customize the &kappname; toolbar.</action></para>
 </listitem>
 </varlistentry>
 
 <varlistentry>
 <term><menuchoice>
 <guimenu>Settings</guimenu>
-<guimenuitem>Configure &kapp-name;</guimenuitem>
+<guimenuitem>Configure &kappname;</guimenuitem>
 </menuchoice></term>
 <listitem>
 <para><action>Opens a dialog to customize the game. It allows to
@@ -493,32 +493,32 @@ select themes.</action></para>
  <answer><para>The start a new game please use <menuchoice><guimenu>Game</guimenu><guimenuitem>New</guimenuitem></menuchoice> option on the menubar.</para></answer>
 </qandaentry>
 <qandaentry>
- <question><para>How do I restart a &kapp-name;? </para></question>
+ <question><para>How do I restart a &kappname;? </para></question>
  <answer><para>To restart the game you can use <menuchoice><guimenu>Game</guimenu><guimenuitem>New</guimenuitem></menuchoice> option on the menubar.</para></answer>
 </qandaentry>
 <qandaentry>
  <question><para>How do I pause the game? </para></question>
- <answer><para>To pause &kapp-name; use <menuchoice><guimenu>Game</guimenu><guimenuitem>Pause</guimenuitem></menuchoice> option on the menubar.</para></answer>
+ <answer><para>To pause &kappname; use <menuchoice><guimenu>Game</guimenu><guimenuitem>Pause</guimenuitem></menuchoice> option on the menubar.</para></answer>
 </qandaentry>
 <qandaentry>
  <question><para>I want to change the way this game looks. Can I? </para></question>
- <answer><para>Yes. To change &kapp-name; visual theme you can use <menuchoice><guimenu>Settings</guimenu><guimenuitem>Configure &kapp-name;...</guimenuitem></menuchoice> option on the menubar.</para></answer>
+ <answer><para>Yes. To change &kappname; visual theme you can use <menuchoice><guimenu>Settings</guimenu><guimenuitem>Configure &kappname;...</guimenuitem></menuchoice> option on the menubar.</para></answer>
 </qandaentry>
 <qandaentry>
  <question><para>I have made a mistake. Can I undo? </para></question>
- <answer><para>&kapp-name; does not have an 'Undo' feature.</para></answer>
+ <answer><para>&kappname; does not have an 'Undo' feature.</para></answer>
 </qandaentry>
 <qandaentry>
  <question><para>Can I use keyboard?</para></question>
- <answer><para>No. &kapp-name; can not be played using keyboard.</para></answer>
+ <answer><para>No. &kappname; can not be played using keyboard.</para></answer>
 </qandaentry>
 <qandaentry>
  <question><para>I can't figure out what to do here! Are there hints? </para></question>
- <answer><para>No. &kapp-name; does not have a 'Hint' feature.</para></answer>
+ <answer><para>No. &kappname; does not have a 'Hint' feature.</para></answer>
 </qandaentry>
 <qandaentry>
  <question><para>I have to quit the game now, but I'm not finished yet. Can I save my progress?</para></question>
-  <answer><para>&kapp-name; does not have a 'Save' feature at this moment.</para></answer>
+  <answer><para>&kappname; does not have a 'Save' feature at this moment.</para></answer>
 </qandaentry>
 <qandaentry>
  <question><para>Where are the highscores?</para></question>
@@ -526,13 +526,13 @@ select themes.</action></para>
 </qandaentry>
 <qandaentry>
  <question><para>I want to change the game configuration. Where do I go? </para></question>
- <answer><para>To change the game configuration you can use <menuchoice><guimenu>Settings</guimenu><guimenuitem>Configure &kapp-name;...</guimenuitem></menuchoice> option on the menubar.</para></answer>
+ <answer><para>To change the game configuration you can use <menuchoice><guimenu>Settings</guimenu><guimenuitem>Configure &kappname;...</guimenuitem></menuchoice> option on the menubar.</para></answer>
 </qandaentry>
 </qandaset>
 </chapter>
 
 <chapter id="configuration"><title>Game Configuration</title> <!-- do not change this! -->
-  <para>&kapp-name; configuration dialog allows you to select &kapp-name; visual themes.</para>
+  <para>&kappname; configuration dialog allows you to select &kappname; visual themes.</para>
   <para>To select a new theme simply choose the theme's name from the selection list.</para>
   <note><title>Note:</title><para>For your convenience a quick preview screenshot will be displayed on the right hand sided of the selection list as soon as you select the theme you're interested in.</para></note>
   <para>Once you are satisfied with the theme you have selected you can either click <guibutton>Apply</guibutton>, or simply click <guibutton>Ok</guibutton> button, located at the bottom part of this dialog.</para>
@@ -543,7 +543,7 @@ select themes.</action></para>
 <title>Credits and Licenses</title>
 
 
-<para>&kapp-name;</para>
+<para>&kappname;</para>
 
 <itemizedlist>
 <listitem>
