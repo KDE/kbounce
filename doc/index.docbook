@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" ?>
+<?xml version="1.0" ?>
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.2-Based Variant V1.1//EN" "dtd/kdex.dtd" [
   <!ENTITY kappname "&kbounce;">
   <!ENTITY kappversion "0.9"><!--Applicaion version. Use this variable everywhere it's needed.-->
@@ -273,7 +273,7 @@ and sets the level to 1.
 <imagedata format="PNG" fileref="button-pause.png"/>
 </imageobject>
 <textobject>
-<phrase>Pause Button></phrase></textobject>
+<phrase>Pause Button</phrase></textobject>
 </inlinemediaobject>
 </entry>
 
@@ -308,7 +308,7 @@ Pauses or resumes the current game.
 <imagedata format="PNG" fileref="menu-game.png"/>
 </imageobject>
 <textobject>
-<phrase><guimenu>File</guimenu> Menu</phrase></textobject>
+<phrase><guimenu>Game</guimenu> Menu</phrase></textobject>
 </mediaobject>
 
 <variablelist>
