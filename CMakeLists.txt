@@ -24,11 +24,11 @@ set(kbounce_SRCS
 kde4_add_kcfg_files(kbounce_SRCS settings.kcfgc)
 
 set(kbounce_icons
-	pics/hi16-app-kbounce.png
-	pics/hi32-app-kbounce.png
-	pics/hi48-app-kbounce.png
-	pics/hi64-app-kbounce.png
-	pics/hi128-app-kbounce.png
+	${CMAKE_CURRENT_SOURCE_DIR}/pics/hi16-app-kbounce.png
+	${CMAKE_CURRENT_SOURCE_DIR}/pics/hi32-app-kbounce.png
+	${CMAKE_CURRENT_SOURCE_DIR}/pics/hi48-app-kbounce.png
+	${CMAKE_CURRENT_SOURCE_DIR}/pics/hi64-app-kbounce.png
+	${CMAKE_CURRENT_SOURCE_DIR}/pics/hi128-app-kbounce.png
 )
 kde4_add_win32_app_icon(kbounce_SRCS ${kbounce_icons})
 kde4_add_executable(kbounce ${kbounce_SRCS})
