@@ -21,7 +21,6 @@
 
 #include <KXmlGuiWindow>
 
-#include <QPixmap>
 
 #include "gamewidget.h"
 

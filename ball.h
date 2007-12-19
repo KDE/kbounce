@@ -25,8 +25,6 @@
 
 #include "kgamecanvas.h"
 
-#include <QList>
-#include <QObject>
 
 #include "gameobject.h"
 

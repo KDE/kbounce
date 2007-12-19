@@ -34,9 +34,6 @@
 #include <KScoreDialog>
 #include <KGameThemeSelector>
 
-#include <QLayout>
-#include <QLCDNumber>
-#include <QTimer>
 
 #include "gamewidget.h"
 #include "settings.h"
