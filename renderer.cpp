@@ -94,6 +94,7 @@ QPixmap KBounceRenderer::renderElement( const QString& id, const QSize& size )
 	baseImage.fill( 0 );
 	QPainter p( &baseImage );
 	m_svgRenderer.render( &p, id );
+	p.end();
 	QPixmap renderedTile = QPixmap::fromImage( baseImage );
 	elementIt = m_tileCache.insert(id, renderedTile);
     }

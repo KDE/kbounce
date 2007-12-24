@@ -183,6 +183,7 @@ void KBounceWall::update()
 			width - tileWidth, tileHeight ) );
     }
     moveTo( m_board->mapPosition( m_boundingRect.topLeft() ) );
+    p.end();
     setPixmap( px );
 }
 
