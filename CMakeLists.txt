@@ -23,14 +23,7 @@ set(kbounce_SRCS
 
 kde4_add_kcfg_files(kbounce_SRCS settings.kcfgc)
 
-set(kbounce_icons
-	${CMAKE_CURRENT_SOURCE_DIR}/pics/hi16-app-kbounce.png
-	${CMAKE_CURRENT_SOURCE_DIR}/pics/hi32-app-kbounce.png
-	${CMAKE_CURRENT_SOURCE_DIR}/pics/hi48-app-kbounce.png
-	${CMAKE_CURRENT_SOURCE_DIR}/pics/hi64-app-kbounce.png
-	${CMAKE_CURRENT_SOURCE_DIR}/pics/hi128-app-kbounce.png
-)
-kde4_add_win32_app_icon(kbounce_SRCS ${kbounce_icons})
+kde4_add_app_icon(kbounce_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/pics/hi*-app-kbounce.png")
 kde4_add_executable(kbounce ${kbounce_SRCS})
 
 if(KDE4_ENABLE_FPIE)
@@ -47,5 +40,6 @@ install(TARGETS kbounce  DESTINATION ${BIN_INSTALL_DIR} )
 
 install( FILES kbounce.desktop  DESTINATION  ${XDG_APPS_INSTALL_DIR} )
 install( FILES kbounceui.rc  DESTINATION  ${DATA_INSTALL_DIR}/kbounce )
+
 
 
