@@ -43,7 +43,7 @@ void KBounceWall::collide( KBounceCollision collision )
     if ( !visible() )
 	return;
 
-    foreach( KBounceHit hit, collision )
+    foreach( const KBounceHit &hit, collision )
     {
 	if ( hit.type == TILE )
 	{

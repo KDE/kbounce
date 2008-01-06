@@ -66,7 +66,7 @@ void KBounceBall::advance()
 
 void KBounceBall::collide( const KBounceCollision& collision )
 {
-    foreach ( KBounceHit hit, collision )
+    foreach ( const KBounceHit &hit, collision )
     {
 	if ( hit.type == TILE || hit.type == WALL )
 	{
