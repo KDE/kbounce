@@ -215,7 +215,12 @@ void KBounceGameWidget::tick()
 void KBounceGameWidget::resizeEvent( QResizeEvent* ev )
 {
     kDebug() << "Size" << ev->size();
+
+    QPalette palette;
     m_renderer.setBackgroundSize( ev->size() );
+    palette.setBrush( backgroundRole(), m_renderer.renderBackground() );
+    setPalette( palette );
+    setAutoFillBackground( true );
 
     QSize boardSize( ev->size().width() - 30, ev->size().height() - 30 );
     m_board->resize( boardSize );
@@ -242,6 +247,10 @@ void KBounceGameWidget::mouseReleaseEvent( QMouseEvent* event )
        else if ( m_state == BetweenLevels )
        {
 	   newLevel();
+       }
+       else if ( m_state == BeforeFirstGame )
+       {
+	   newGame();
        }
    }
 }
@@ -290,12 +299,7 @@ void KBounceGameWidget::redraw()
     if ( size().isEmpty() )
 	return;
 
-    QPalette palette;
-    m_renderer.setBackgroundSize( size() );
-    palette.setBrush( backgroundRole(), m_renderer.renderBackground() );
-    setPalette( palette );
-    setAutoFillBackground( true );
-
+   
     switch ( m_state )
     {
 	case BeforeFirstGame:
@@ -335,7 +339,7 @@ void KBounceGameWidget::generateOverlay()
     switch( m_state )
     {
 	case BeforeFirstGame:
-	    text = i18n( "Welcome to KBounce.\n Press Ctrl+N or space to start a game" );
+	    text = i18n( "Welcome to KBounce.\n Click to start a game" );
 	    break;
 	case Paused:
 	    text = i18n( "Paused" );

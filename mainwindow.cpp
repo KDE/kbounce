@@ -83,12 +83,6 @@ void KBounceMainWindow::initXMLUI()
     KStandardGameAction::highscores(this, SLOT(showHighscore()), actionCollection());
     KStandardGameAction::quit(this, SLOT(close()), actionCollection());
   
-    // AB: originally KBounce/KBounceMainWindow used Space for new game - but Ctrl+N is
-    // default. We solve this by providing space as an alternative key
-    KShortcut s = m_newAction->shortcut();
-    s.setAlternate( QKeySequence( Qt::Key_Space ) );
-    m_newAction->setShortcut( s );
-  
     // Settings
     KStandardAction::preferences( this, SLOT( configureSettings() ), actionCollection() );
     m_soundAction = new KToggleAction( i18n("&Play Sounds"), this );

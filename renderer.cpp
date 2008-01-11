@@ -24,7 +24,9 @@
 
 #include <kdebug.h>
 
+#include <QtGui/QApplication>
 #include <QtGui/QPainter>
+#include <QtGui/QPalette>
 
 KBounceRenderer::KBounceRenderer()
 	: m_svgRenderer(), m_backgroundSize( QSize( 0, 0 ) )
@@ -69,8 +71,11 @@ QPixmap KBounceRenderer::renderBackground()
 {
     if (m_cachedBackground.isNull())
     {
+	//This is a dirty fix to the qt's m_svgRenderer.render() method that
+	//leaves an garbage-filled border of a pixmap
 	kDebug() << "Rendering the background. Size:" << m_backgroundSize;
 	m_cachedBackground = QPixmap( m_backgroundSize );
+	m_cachedBackground.fill(QApplication::palette().window().color());
 	QPainter p( &m_cachedBackground );
 	m_svgRenderer.render( &p, "background" );
     }
