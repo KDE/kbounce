@@ -167,6 +167,7 @@ void KBounceMainWindow::configureSettings()
 
     KConfigDialog* dialog = new KConfigDialog( this, "settings", KBounceSettings::self());
     dialog->addPage( new KGameThemeSelector( dialog, KBounceSettings::self(), KGameThemeSelector::NewStuffDisableDownload ), i18n( "Theme" ), "games-config-theme" );
+    dialog->setHelp(QString(),"kbounce");
     dialog->show();
     connect( dialog, SIGNAL( settingsChanged( const QString& ) ), this, SLOT( settingsChanged() ) );
 }
