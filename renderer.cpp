@@ -53,7 +53,7 @@ bool KBounceRenderer::elementExists( const QString& id )
 int KBounceRenderer::frames( const QString& id )
 {
     int frame = 0;
-    while ( elementExists( id + "_" + QString::number( frame ) ) )
+    while ( elementExists( id + '_' + QString::number( frame ) ) )
 	frame++;
     return frame;
 }
@@ -108,7 +108,7 @@ QPixmap KBounceRenderer::renderElement( const QString& id, const QSize& size )
 
 QPixmap KBounceRenderer::renderElement( const QString& id, int frame, const QSize& size )
 {
-    QString name = id + "_" + QString::number( frame );
+    QString name = id + '_' + QString::number( frame );
     return renderElement( name, size );
 }
 
