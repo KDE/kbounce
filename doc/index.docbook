@@ -493,10 +493,6 @@ select themes.</action></para>
  <answer><para>The start a new game please use the <menuchoice><guimenu>Game</guimenu><guimenuitem>New</guimenuitem></menuchoice> option on the menubar.</para></answer>
 </qandaentry>
 <qandaentry>
- <question><para>How do I restart a &kbounce;? </para></question>
- <answer><para>To restart the game you can use <menuchoice><guimenu>Game</guimenu><guimenuitem>New</guimenuitem></menuchoice> option on the menubar.</para></answer>
-</qandaentry>
-<qandaentry>
  <question><para>How do I pause the game? </para></question>
  <answer><para>To pause &kbounce; use the <menuchoice><guimenu>Game</guimenu><guimenuitem>Pause</guimenuitem></menuchoice> option on the menubar.</para></answer>
 </qandaentry>
