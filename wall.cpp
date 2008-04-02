@@ -116,9 +116,9 @@ void KBounceWall::update()
 	return;
 
     int width = static_cast<int>
-	( ceil( m_boundingRect.width() * m_tileSize.width() ) );
+	( std::ceil( m_boundingRect.width() * m_tileSize.width() ) );
     int height = static_cast<int>
-	( ceil( m_boundingRect.height() * m_tileSize.height()  ) );
+	( std::ceil( m_boundingRect.height() * m_tileSize.height()  ) );
 
     if ( width == 0 || height == 0 )
 	return;
