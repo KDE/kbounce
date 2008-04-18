@@ -35,7 +35,7 @@ int main(int argc, char **argv)
 {
   KAboutData aboutData( "kbounce", 0, ki18n("KBounce"),
     version, ki18n(description), KAboutData::License_GPL,
-    ki18n(copyleft));
+    ki18n(copyleft), KLocalizedString(), "http://games.kde.org/kbounce" );
 
   aboutData.addAuthor(ki18n("Stefan Schimanski"), ki18n("Original author"), "schimmi@kde.org");
   aboutData.addAuthor(ki18n("Sandro Sigala"), ki18n("Highscore"), "ssigala@globalnet.it");
