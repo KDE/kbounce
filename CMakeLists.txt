@@ -2,6 +2,7 @@ project(kbounce)
 
 add_subdirectory( themes ) 
 add_subdirectory( sounds ) 
+add_subdirectory( pics ) 
 
 include_directories(${CMAKE_SOURCE_DIR}/libkdegames/highscore)
  
