@@ -1,0 +1,10 @@
+[KGameTheme]
+VersionFormat=1
+Name=Strange Geometry
+Name[x-test]=xxDefaultxx
+Description=A simple high-contrast theme for those who like it clean.
+FileName=kbounce.svg
+Author=Eugene Trounev
+AuthorEmail=eugene.trounev@gmail.com
+Preview=geometry.png
+
