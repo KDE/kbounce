@@ -34,7 +34,7 @@ else(KDE4_ENABLE_FPIE)
 endif(KDE4_ENABLE_FPIE)
 
 
-install(TARGETS kbounce  DESTINATION ${BIN_INSTALL_DIR} )
+install(TARGETS kbounce  ${INSTALL_TARGETS_DEFAULT_ARGS} )
 
 
 ########### install files ###############
