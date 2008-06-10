@@ -1,11 +1,13 @@
 [KGameTheme]
 VersionFormat=1
 Name=Strange Geometry
+Name[el]=Περίεργη γεωμετρία
 Name[es]=Extraña geometría
 Name[ga]=Céimseata Aisteach
 Name[gl]=Xeometría extrana
 Name[ja]=奇妙な幾何学模様
 Name[km]=ភូមិសាស្ដ្រ​ចម្លែក
+Name[lv]=Dīvaina ģeometrija
 Name[nds]=Snaaksch Geometrie
 Name[pt]=Geometria Estranha
 Name[pt_BR]=Geometria Estranha
@@ -14,11 +16,13 @@ Name[uk]=Дивна геометрія
 Name[zh_CN]=畸形几何
 Name[zh_TW]=奇怪的形狀
 Description=A simple high-contrast theme for those who like it clean.
+Description[el]=Ένα απλό θέμα υψηλής αντίθεσης γι' αυτούς που επιθυμούν ένα καθαρό θέμα.
 Description[es]=Un tema sencillo de alto contraste que da un aspecto limpio.
 Description[ga]=Téama simplí ardchodarsnachta do dhaoine ar mhaith leo téamaí glana.
 Description[gl]=Un tema sinxelo de alto contraste.
 Description[ja]=高コントラストのシンプルできれいなテーマ
 Description[km]=ស្បែក​ដែលមាន​ពន្លឺ​ខ្ពស់​សម្រាប់​អ្នក​ទាំងដែល​ចូលចិត្ត​ភាព​ស្អាត ។
+Description[lv]=Vienkārša augsta kontrasta tēma, tiem kam patīk vienkāršība.
 Description[nds]=En eenfach Hoochkontrast-Muster för Lüü, de dat püük möögt.
 Description[pt]=Um tema simples e de alto contraste para os que gostam de temas limpos.
 Description[pt_BR]=Um tema simples e de alto contraste para os que gostam de temas limpos.
