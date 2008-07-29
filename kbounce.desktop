@@ -11,7 +11,6 @@ Name[ru]=Неуёмные шарики
 Name[sv]=Kbounce
 Name[ta]=கேபவுன்ஸ்
 Name[tg]=KТӯби ҷаҳанда
-Name[tr]=Zıplayan toplar
 Name[x-test]=xxKBouncexx
 Name[zh_TW]=KBounce 彈力球
 
@@ -48,6 +47,7 @@ GenericName[pt]=Jogo de Bolas aos Saltos
 GenericName[pt_BR]=Jogo de bolas rebatidas
 GenericName[sl]=Odbijajoča se žogica
 GenericName[sv]=Studsande bollar
+GenericName[tr]=Top Zıplatma Oyunu
 GenericName[uk]=Гра з відбиття м’ячика
 GenericName[x-test]=xxBall Bouncing Gamexx
 GenericName[zh_CN]=弹球游戏
