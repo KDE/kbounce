@@ -1,6 +1,12 @@
 [KGameTheme]
 VersionFormat=1
 Name=Oxygen
+Name[es]=Oxígeno
+Name[fa]=اکسیژن
+Name[km]=អុកស៊ីសែន
+Name[ne]=अक्सिजन
+Name[te]=ఆక్సీజన్
+Name[wa]=Ocsidjinne
 Name[x-test]=xxOxygenxx
 FileName=oxygen.svgz
 Author=Johann Ollivier Lapeyre
