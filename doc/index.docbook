@@ -357,7 +357,7 @@ Pauses or resumes the current game.
 <keycombo action="simul">&Ctrl;<keycap>H</keycap></keycombo>
 </shortcut>
 <guimenu>Game</guimenu>
-<guimenuitem>Show High Scores...</guimenuitem>
+<guimenuitem>Show High Scores</guimenuitem>
 </menuchoice></term>
 <listitem>
 <para>
@@ -518,7 +518,7 @@ select themes.</action></para>
 </qandaentry>
 <qandaentry>
  <question><para>Where are the high scores?</para></question>
- <answer><para>To access the highs cores simply use <link linkend="game-highscores">'Show High Scores...'</link> option on the menubar.</para></answer>
+ <answer><para>To access the highs cores simply use <link linkend="game-highscores">'Show High Scores'</link> option on the menubar.</para></answer>
 </qandaentry>
 <qandaentry>
  <question><para>I want to change the game configuration. Where do I go? </para></question>
