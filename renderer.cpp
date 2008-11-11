@@ -84,8 +84,8 @@ QPixmap KBounceRenderer::renderBackground()
 
 QPixmap KBounceRenderer::renderElement( const QString& id, const QSize& size )
 {
-    QHash<QString, QPixmap>::const_iterator elementIt = m_tileCache.constFind(id);
-    QHash<QString, QPixmap>::const_iterator itEnd = m_tileCache.constEnd();
+    QHash<QString, QPixmap>::Iterator elementIt = m_tileCache.find(id);
+    QHash<QString, QPixmap>::Iterator itEnd = m_tileCache.end();
     if ( elementIt == itEnd && size.isEmpty() )
     {
 	kDebug() << "Rendering element of no size id:" << id;
