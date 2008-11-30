@@ -363,7 +363,7 @@ void KBounceGameWidget::generateOverlay()
     p.setFont( font );
     int textWidth = p.boundingRect( p.viewport(), Qt::AlignCenter | Qt::AlignVCenter, text ).width();
     int fontSize = 28;
-    while ( ( textWidth > itemWidth * 0.95 ) )
+    while ( ( textWidth > itemWidth * 0.95 ) && fontSize > 1 )
     {
 	fontSize--;
 	font.setPointSize( fontSize );
