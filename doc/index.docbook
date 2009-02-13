@@ -481,22 +481,6 @@ select themes.</action></para>
 <qandaset>
 <!--Following is a standard list of FAQ questions.-->
 <qandaentry>
-<question><para>Who made this game?</para></question>
- <answer><para>The kdegames team. You can find their website <ulink url="http://games.kde.org">here</ulink>.</para></answer>
-</qandaentry>
-<qandaentry>
- <question><para>Where can I get cheatcodes? </para></question>
- <answer><para>You cannot get cheatcodes for &kde; games.</para></answer>
-</qandaentry>
-<qandaentry>
- <question><para>How do I start a new game? </para></question>
- <answer><para>The start a new game please use the <menuchoice><guimenu>Game</guimenu><guimenuitem>New</guimenuitem></menuchoice> option on the menubar.</para></answer>
-</qandaentry>
-<qandaentry>
- <question><para>How do I pause the game? </para></question>
- <answer><para>To pause &kbounce; use the <menuchoice><guimenu>Game</guimenu><guimenuitem>Pause</guimenuitem></menuchoice> option on the menubar.</para></answer>
-</qandaentry>
-<qandaentry>
  <question><para>I want to change the way this game looks. Can I? </para></question>
  <answer><para>Yes. To change &kbounce; visual theme you can use <menuchoice><guimenu>Settings</guimenu><guimenuitem>Configure &kbounce;...</guimenuitem></menuchoice> option on the menubar.</para></answer>
 </qandaentry>
@@ -505,24 +489,12 @@ select themes.</action></para>
  <answer><para>&kbounce; does not have an <quote>Undo</quote> feature.</para></answer>
 </qandaentry>
 <qandaentry>
- <question><para>Can I use keyboard?</para></question>
+ <question><para>Can I use the keyboard to play this game?</para></question>
  <answer><para>No. &kbounce; cannot be played using keyboard.</para></answer>
 </qandaentry>
 <qandaentry>
- <question><para>I cannot figure out what to do here! Are there hints? </para></question>
- <answer><para>No. &kbounce; does not have a <quote>Hint</quote> feature.</para></answer>
-</qandaentry>
-<qandaentry>
  <question><para>I have to quit the game now, but I am not finished yet. Can I save my progress?</para></question>
-  <answer><para>&kbounce; does not have a <quote>Save</quote> feature at this moment.</para></answer>
-</qandaentry>
-<qandaentry>
- <question><para>Where are the high scores?</para></question>
- <answer><para>To access the highs cores simply use <link linkend="game-highscores">'Show High Scores'</link> option on the menubar.</para></answer>
-</qandaentry>
-<qandaentry>
- <question><para>I want to change the game configuration. Where do I go? </para></question>
- <answer><para>To change the game configuration you can use <menuchoice><guimenu>Settings</guimenu><guimenuitem>Configure &kbounce;...</guimenuitem></menuchoice> option on the menubar.</para></answer>
+  <answer><para>&kbounce; does not have a <quote>Save</quote> feature at the moment.</para></answer>
 </qandaentry>
 </qandaset>
 </chapter>
