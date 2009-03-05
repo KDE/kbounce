@@ -2,8 +2,6 @@
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.2-Based Variant V1.1//EN" "dtd/kdex.dtd" [
   <!ENTITY kappname "&kbounce;">
   <!ENTITY kappversion "0.9"><!--Applicaion version. Use this variable everywhere it's needed.-->
-  <!ENTITY docversion "1.0"><!--Document version. Use this variable everywhere it's needed.-->
-  <!ENTITY docupdate "2007-10-13"><!--Document version. Use this variable everywhere it's needed.-->
   <!ENTITY package "kdegames">
   <!ENTITY % English "INCLUDE" > 
   <!ENTITY % addindex "IGNORE">
@@ -39,8 +37,8 @@
 <legalnotice>&FDLNotice;</legalnotice>
 
 
-<date>&docupdate;</date><!-- Date of (re)writing, or update. Use the variable definitions within header to change this value.-->
-<releaseinfo>&docversion;</releaseinfo><!-- Application version number. Use the variable definitions within header to change this value.-->
+<date>2007-10-13</date><!-- Date of (re)writing, or update.-->
+<releaseinfo>&kappversion;</releaseinfo><!-- Application version number. Use the variable definitions within header to change this value.-->
 
 <abstract>
 	<para>This documentation describes the game of &kbounce; version &kappversion;</para>
