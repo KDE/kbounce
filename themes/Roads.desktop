@@ -2,11 +2,13 @@
 VersionFormat=1
 Name=Roads
 Name[ga]=Bóithre
+Name[nds]=Straten
 Name[pt]=Estradas
 Name[pt_BR]=Estradas
 Name[sv]=Vägar
 Name[uk]=Дороги
 Description=Roads, cones and wheels.
+Description[nds]=Straten, Kegels un Rööd.
 Description[pt]=Estradas, cones e rodas.
 Description[pt_BR]=Estradas, cones e rodas.
 Description[sv]=Vägar, koner och hjul.
