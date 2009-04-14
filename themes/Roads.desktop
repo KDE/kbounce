@@ -2,6 +2,7 @@
 VersionFormat=1
 Name=Roads
 Name[de]=Straßen
+Name[et]=Teed
 Name[ga]=Bóithre
 Name[nds]=Straten
 Name[pt]=Estradas
@@ -11,6 +12,7 @@ Name[uk]=Дороги
 Name[x-test]=xxRoadsxx
 Description=Roads, cones and wheels.
 Description[de]=Straßen, Kegel und Räder.
+Description[et]=Teed, rummud ja rattad.
 Description[nds]=Straten, Kegels un Rööd.
 Description[pt]=Estradas, cones e rodas.
 Description[pt_BR]=Estradas, cones e rodas.

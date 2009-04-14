@@ -1,12 +1,14 @@
 [KGameTheme]
 VersionFormat=1
 Name=Egyptian Bounce
+Name[et]=Egiptuse sära
 Name[pt]=Bounce Egípcio
 Name[pt_BR]=Bounce Egípcio
 Name[sv]=Egyptisk Bounce
 Name[uk]=Єгипетський стрибок
 Name[zh_TW]=埃及彈跳
 Description=KBounce, Egyptian style.
+Description[et]=KBounce Egiptuse stiilis.
 Description[pt]=KBounce, estilo Egípcio.
 Description[pt_BR]=KBounce, estilo Egípcio.
 Description[sv]=Kbounce, egyptisk stil.
