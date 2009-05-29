@@ -1,6 +1,7 @@
 [KGameTheme]
 VersionFormat=1
 Name=Egyptian Bounce
+Name[da]=Egyptisk bounce
 Name[el]=Αιγυπτιακή αναπήδηση
 Name[et]=Egiptuse sära
 Name[nn]=Egyptisk sprettball
@@ -14,6 +15,7 @@ Name[x-test]=xxEgyptian Bouncexx
 Name[zh_CN]=埃及弹球
 Name[zh_TW]=埃及彈跳
 Description=KBounce, Egyptian style.
+Description[da]=KBounce, egyptisk stil.
 Description[el]=KBounce, Αιγυπτιακό στυλ.
 Description[et]=KBounce Egiptuse stiilis.
 Description[nn]=KBounce i egyptisk stil.
