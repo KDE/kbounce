@@ -248,7 +248,7 @@ void KBounceGameWidget::mouseReleaseEvent( QMouseEvent* event )
        {
 	   newLevel();
        }
-       else if ( m_state == BeforeFirstGame )
+       else if ( m_state == BeforeFirstGame || m_state == GameOver )
        {
 	   newGame();
        }
@@ -352,7 +352,7 @@ void KBounceGameWidget::generateOverlay()
 		i18n( "On to level %1. Remember you get %2 lives this time!", m_level, m_level + 1 );
 	    break;
 	case GameOver:
-	    text = i18n( "Game over." );
+	    text = i18n( "Game over.\n Click to start a game" );
 	    break;
 	default:
 	    text = QString();

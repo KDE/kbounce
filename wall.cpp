@@ -253,9 +253,14 @@ bool KBounceWall::safeEdgeHit( const QRectF& rect2 ) const
 	    case Down:
 		p1 = m_nextBoundingRect.bottomRight();
 		p2 = m_nextBoundingRect.bottomLeft();
+		break;
 	    case Left:
 		p1 = m_nextBoundingRect.bottomLeft();
 		p2 = m_nextBoundingRect.topLeft();
+		break;
+		default:
+		Q_ASSERT(false);
+		break;
 	}
 	p3.setX( ( p1.x() + p2.x() ) / 2.0 );
 	p3.setY( ( p1.y() + p2.y() ) / 2.0 );

@@ -181,6 +181,7 @@ void KBounceMainWindow::readSettings()
 void KBounceMainWindow::settingsChanged()
 {
     m_gameWidget->settingsChanged();
+	KBounceSettings::self()->writeConfig(); // Bug 184606
 }
 
 void KBounceMainWindow::setSounds( bool val )
