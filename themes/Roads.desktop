@@ -1,6 +1,7 @@
 [KGameTheme]
 VersionFormat=1
 Name=Roads
+Name[ca]=Carreteres
 Name[da]=Veje
 Name[de]=Straßen
 Name[el]=Δρόμοι
@@ -17,6 +18,7 @@ Name[uk]=Дороги
 Name[x-test]=xxRoadsxx
 Name[zh_CN]=道路
 Description=Roads, cones and wheels.
+Description[ca]=Carreteres, cons i rodes.
 Description[da]=Veje, kegler og hjul
 Description[de]=Straßen, Kegel und Räder.
 Description[el]=Δρόμοι, κώνοι και τροχοί.
