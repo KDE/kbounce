@@ -1,23 +1,9 @@
 project(kbounce)
 
-cmake_minimum_required(VERSION 2.6)
-
-# Find the required Libaries
-find_package(KDE4 REQUIRED)
-include(KDE4Defaults)
- 
-add_definitions (${QT_DEFINITIONS} ${KDE4_DEFINITIONS})
-
 add_subdirectory( themes ) 
 add_subdirectory( sounds ) 
 add_subdirectory( pics ) 
 
-include_directories(
-   ${CMAKE_SOURCE_DIR}
-   ${CMAKE_BINARY_DIR}
-   ${KDE4_INCLUDES}
-   )
- 
 include_directories(${CMAKE_SOURCE_DIR}/libkdegames/highscore)
  
 if(KDE4_ENABLE_FPIE)
