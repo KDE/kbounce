@@ -2,6 +2,7 @@
 VersionFormat=1
 Name=Strange Geometry
 Name[ca]=Estranya geometria
+Name[ca@valencia]=Estranya geometria
 Name[da]=Underlig geometri
 Name[de]=Seltsame Geometrie
 Name[el]=Περίεργη γεωμετρία
@@ -38,6 +39,7 @@ Name[zh_CN]=畸形几何
 Name[zh_TW]=奇怪的形狀
 Description=A simple high-contrast theme for those who like it clean.
 Description[ca]=Un tema senzill en alt contrast per aquells als que els agrada un aspecte net.
+Description[ca@valencia]=Un tema senzill en alt contrast per aquells als que els agrada un aspecte net.
 Description[da]=Et simpelt tema med høj kontrast for dem der kan li' det enkelt.
 Description[de]=Ein klares Design mit hohem Kontrast.
 Description[el]=Ένα απλό θέμα υψηλής αντίθεσης γι' αυτούς που επιθυμούν ένα καθαρό θέμα.
