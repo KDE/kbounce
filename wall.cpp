@@ -222,7 +222,7 @@ void KBounceWall::build( int x, int y )
     moveTo( m_board->mapPosition( QPointF( x, y ) ) );
     show();
 
-    m_board->playSound( "wallstart.au" );
+    m_board->playSound( "wallstart.wav" );
 }
 
 QRectF KBounceWall::boundingRect() const
@@ -295,7 +295,7 @@ void KBounceWall::finish( bool shorten, Direction dir )
 
     emit finished( left, top, right, bottom );
     hide();
-    m_board->playSound( "wallend.au" );
+    m_board->playSound( "wallend.wav" );
 }
 
 #include "wall.moc"
