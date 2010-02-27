@@ -20,10 +20,11 @@ set(kbounce_SRCS
     main.cpp 
     mainwindow.cpp 
     renderer.cpp
-    wall.cpp )
+    wall.cpp 
+    backgroundselector.cpp)
 
 kde4_add_kcfg_files(kbounce_SRCS settings.kcfgc)
-
+kde4_add_ui_files(kbounce_SRCS  backgroundselector.ui )
 kde4_add_app_icon(kbounce_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/pics/hi*-app-kbounce.png")
 kde4_add_executable(kbounce ${kbounce_SRCS})
 

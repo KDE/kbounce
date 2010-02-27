@@ -5,8 +5,17 @@
 	http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
     <kcfgfile name="kbouncerc"/>
     <group name="General">
+        <entry name="UseRandomBackgroundPictures" type="Bool" key="UseRandomBackgroundPictures">
+	  <default>false</default>
+        </entry>
+        <entry name="BackgroundPicturePath" type="String" key="BackgroundPicturePath">
+        </entry>
         <entry name="Theme" type="String" key="Theme">
 	    <label>The graphical theme to be used.</label>
+	</entry>
+	 <entry name="level" type="Int">
+	  <label>Difficulty level</label>
+	  <default>30</default>
 	</entry>
     </group>
     <group name="Sound">

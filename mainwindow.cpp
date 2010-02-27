@@ -37,6 +37,7 @@
 
 #include "gamewidget.h"
 #include "settings.h"
+#include "backgroundselector.h"
 
 KBounceMainWindow::KBounceMainWindow()
 {
@@ -83,11 +84,39 @@ void KBounceMainWindow::initXMLUI()
     KStandardGameAction::highscores(this, SLOT(showHighscore()), actionCollection());
     KStandardGameAction::quit(this, SLOT(close()), actionCollection());
   
+    // Difficulty
+    KGameDifficulty::init(this, this, SLOT(levelChanged(KGameDifficulty::standardLevel)));
+    KGameDifficulty::addStandardLevel(KGameDifficulty::Easy);
+    KGameDifficulty::addStandardLevel(KGameDifficulty::Medium);
+    KGameDifficulty::addStandardLevel(KGameDifficulty::Hard);
+
+	
+    levelChanged((KGameDifficulty::standardLevel) (KBounceSettings::level()));
+    KGameDifficulty::setLevel(m_level);
+	
     // Settings
     KStandardAction::preferences( this, SLOT( configureSettings() ), actionCollection() );
     m_soundAction = new KToggleAction( i18n("&Play Sounds"), this );
     actionCollection()->addAction( "toggle_sound", m_soundAction );
     connect( m_soundAction, SIGNAL( triggered( bool ) ), this, SLOT( setSounds( bool ) ) );
+}
+
+void KBounceMainWindow::levelChanged(KGameDifficulty::standardLevel level)
+{
+    switch(level) {
+	    case KGameDifficulty::Easy:
+	    default:
+		    break;
+	    case KGameDifficulty::Medium:
+		   
+		    break;
+	    case KGameDifficulty::Hard:
+		   
+		    break;
+    }
+
+    m_level = level;
+    KBounceSettings::setLevel((int)(m_level));
 }
 
 void KBounceMainWindow::newGame()
@@ -136,7 +165,7 @@ void KBounceMainWindow::closeGame()
 
 void KBounceMainWindow::gameOverNow()
 {
-    statusBar()->showMessage(  i18n("Game over. Press <Space> for a new game") );
+    statusBar()->showMessage(  i18n("Game over. Click to start a game") );
     highscore();
 }
 
@@ -145,7 +174,10 @@ void KBounceMainWindow::gameOverNow()
  */
 void KBounceMainWindow::showHighscore()
 {
-    KScoreDialog ksdialog( KScoreDialog::Name | KScoreDialog::Score | KScoreDialog::Level, this );
+    KScoreDialog ksdialog( KScoreDialog::Name | KScoreDialog::Score, this );
+    ksdialog.addLocalizedConfigGroupNames(KGameDifficulty::localizedLevelStrings());
+    ksdialog.setConfigGroupWeights(KGameDifficulty::levelWeights());
+    ksdialog.setConfigGroup(KGameDifficulty::localizedLevelString());
     ksdialog.exec();
 }
 
@@ -153,7 +185,9 @@ void KBounceMainWindow::highscore()
 {
     kDebug() ;
     KScoreDialog ksdialog( KScoreDialog::Name | KScoreDialog::Score | KScoreDialog::Level, this );
-
+    ksdialog.addLocalizedConfigGroupNames(KGameDifficulty::localizedLevelStrings());
+    ksdialog.setConfigGroupWeights(KGameDifficulty::levelWeights());
+    ksdialog.setConfigGroup(KGameDifficulty::localizedLevelString());
     KScoreDialog::FieldInfo info;
     info[KScoreDialog::Score].setNum( m_gameWidget->score() );
     info[KScoreDialog::Level].setNum( m_gameWidget->level() );
@@ -167,6 +201,7 @@ void KBounceMainWindow::configureSettings()
 
     KConfigDialog* dialog = new KConfigDialog( this, "settings", KBounceSettings::self());
     dialog->addPage( new KGameThemeSelector( dialog, KBounceSettings::self(), KGameThemeSelector::NewStuffDisableDownload ), i18n( "Theme" ), "games-config-theme" );
+    dialog->addPage( new BackgroundSelector(dialog,KBounceSettings::self() ),i18n("Background"),"games-config-background");
     dialog->setHelp(QString(),"kbounce");
     dialog->show();
     connect( dialog, SIGNAL( settingsChanged( const QString& ) ), this, SLOT( settingsChanged() ) );
@@ -181,7 +216,7 @@ void KBounceMainWindow::readSettings()
 void KBounceMainWindow::settingsChanged()
 {
     m_gameWidget->settingsChanged();
-	KBounceSettings::self()->writeConfig(); // Bug 184606
+    KBounceSettings::self()->writeConfig(); // Bug 184606
 }
 
 void KBounceMainWindow::setSounds( bool val )
@@ -228,7 +263,7 @@ void KBounceMainWindow::gameStateChanged( KBounceGameWidget::State state )
 	    m_statusBar->clearMessage();
 	    break;
 	case KBounceGameWidget::GameOver :
-	    statusBar()->showMessage(  i18n("Game over. Press <Space> for a new game") );
+	    statusBar()->showMessage(  i18n("Game over. Click to start a game") );
 	    highscore(); 
 	    break;
     }

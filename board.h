@@ -69,7 +69,7 @@ class KBounceBoard: public QObject, public KGameCanvasGroup
 	void playSound( const QString& name );
 	void setSoundPath( const QString& path );
 	void setSounds( bool val );
-
+	void setBallVelocity(qreal velocity);
     signals:
 	void ballsChanged( int balls );
 	void fillChanged( int fill );
@@ -98,6 +98,7 @@ class KBounceBoard: public QObject, public KGameCanvasGroup
 	Phonon::MediaObject* m_audioPlayer;
 	bool m_playSounds;
 	QString m_soundPath;
+	qreal m_ballVelocity;
 };
 
 #endif // BOARD_H

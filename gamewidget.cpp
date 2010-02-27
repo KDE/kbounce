@@ -24,6 +24,7 @@
 
 #include <KLocale>
 #include <KGameTheme>
+#include <KColorScheme>
 
 static const int GAME_TIME_DELAY = 1000;
 static const int MIN_FILL_PERCENT = 75;
@@ -49,7 +50,6 @@ KBounceGameWidget::KBounceGameWidget( QWidget* parent )
     m_clock->setInterval( GAME_TIME_DELAY );
     connect( m_clock, SIGNAL( timeout() ), this, SLOT( tick() ) );
 
-    setCursor( Qt::SizeHorCursor );
     setMouseTracking( true );
 }
 
@@ -80,20 +80,20 @@ void KBounceGameWidget::closeGame()
 {
     if ( m_state != BeforeFirstGame && m_state != GameOver )
     {
-	closeLevel();
+        closeLevel();
+        unsetCursor();
+        m_state = GameOver;
+        emit stateChanged( m_state );
+        emit gameOver();
 
-	m_state = GameOver;
-	emit stateChanged( m_state );
-	emit gameOver();
-
-	redraw();
+        redraw();
     }
 }
 
 void KBounceGameWidget::newGame()
 {
     closeGame();
-    
+    setCursor( m_vertical ? Qt::SizeVerCursor : Qt::SizeHorCursor );
     m_level = 1;
     m_score = 0;
 
@@ -107,17 +107,17 @@ void KBounceGameWidget::setPaused( bool val )
 {
     if ( m_state == Paused && val == false )
     {
-	m_clock->start();
-	m_board->setPaused( false );
-	m_state = Running;
-	emit stateChanged( m_state );
+        m_clock->start();
+        m_board->setPaused( false );
+        m_state = Running;
+        emit stateChanged( m_state );
     }
     else if ( m_state == Running && val == true )
     {
-	m_clock->stop();
-	m_board->setPaused( true );
-	m_state = Paused;
-	emit stateChanged( m_state );
+        m_clock->stop();
+        m_board->setPaused( true );
+        m_state = Paused;
+        emit stateChanged( m_state );
     }
 
     redraw();
@@ -127,31 +127,40 @@ void KBounceGameWidget::setSuspended( bool val )
 {
     if ( m_state == Suspended && val == false )
     {
-	m_clock->start();
-	m_board->setPaused( false );
-	m_state = Running;
-	emit stateChanged( m_state );
+        m_clock->start();
+        m_board->setPaused( false );
+        m_state = Running;
+        emit stateChanged( m_state );
     }
     if ( m_state == Running && val == true )
     {
-	m_clock->stop();
-	m_board->setPaused( true );
-	m_state = Suspended;
-	emit stateChanged( m_state );
+        m_clock->stop();
+        m_board->setPaused( true );
+        m_state = Suspended;
+        emit stateChanged( m_state );
     }
     redraw();
 }
 
 void KBounceGameWidget::settingsChanged()
 {
-    kDebug() ;
+    kDebug() << "Settings changed";
     
     m_board->setSounds( KBounceSettings::playSounds() );
 
     if ( !m_theme->load( KBounceSettings::theme() ) )
-	m_theme->loadDefault();
+        m_theme->loadDefault();
 
+    if (KBounceSettings::useRandomBackgroundPictures())
+    {
+        m_renderer.setCustomBackgroundPath(KBounceSettings::backgroundPicturePath());
+    }
+    else
+    {
+        m_renderer.setCustomBackgroundPath(QString());
+    }
     m_renderer.load( m_theme->graphics() );
+    renderBackground();
     redraw();
 }
 
@@ -171,14 +180,14 @@ void KBounceGameWidget::onFillChanged( int fill )
     emit filledChanged( fill );
     if ( fill >= MIN_FILL_PERCENT )
     {
-	closeLevel();
-	m_level++;
-	emit levelChanged( m_level );
+        closeLevel();
+        m_level++;
+        emit levelChanged( m_level );
 
-	m_state = BetweenLevels;
-	emit stateChanged( m_state );
+        m_state = BetweenLevels;
+        emit stateChanged( m_state );
 
-	redraw();
+        redraw();
     }
 }
 
@@ -186,12 +195,12 @@ void KBounceGameWidget::onWallDied()
 {
     if ( m_lives <= 1 )
     {
-	closeGame();
+        closeGame();
     }
     else
     {
-	m_lives--;
-	emit livesChanged( m_lives );
+        m_lives--;
+        emit livesChanged( m_lives );
     }
 }
 
@@ -201,27 +210,22 @@ void KBounceGameWidget::tick()
     ticks--;
     if ( ticks <= 0 )
     {
-	if ( m_time == 1 )
-	    closeGame();
-	else
-	{
-	    m_time--;
-	    emit timeChanged( m_time );
-	}
-	ticks = TICKS_PER_SECOND;
+        if ( m_time == 1 )
+            closeGame();
+        else
+        {
+            m_time--;
+            emit timeChanged( m_time );
+        }
+        ticks = TICKS_PER_SECOND;
     }
 }
 
 void KBounceGameWidget::resizeEvent( QResizeEvent* ev )
 {
     kDebug() << "Size" << ev->size();
-
-    QPalette palette;
     m_renderer.setBackgroundSize( ev->size() );
-    palette.setBrush( backgroundRole(), m_renderer.renderBackground() );
-    setPalette( palette );
-    setAutoFillBackground( true );
-
+    renderBackground();
     QSize boardSize( ev->size().width() - 30, ev->size().height() - 30 );
     m_board->resize( boardSize );
     m_board->moveTo( ( ev->size().width() - boardSize.width() ) / 2, ( ev->size().height() - boardSize.height() ) / 2 );
@@ -229,43 +233,48 @@ void KBounceGameWidget::resizeEvent( QResizeEvent* ev )
     redraw();
 }
 
+void KBounceGameWidget::renderBackground()
+{
+    QPalette palette;
+    palette.setBrush( backgroundRole(), m_renderer.renderBackground() );
+    setPalette( palette );
+    setAutoFillBackground( true );
+}
+
+
 void KBounceGameWidget::mouseReleaseEvent( QMouseEvent* event )
 {
-   if ( event->button() & Qt::RightButton )
-   {
-      m_vertical = !m_vertical;
-      setCursor( m_vertical ? Qt::SizeVerCursor : Qt::SizeHorCursor );
-   }
+    if ( event->button() & Qt::RightButton )
+    {
+        m_vertical = !m_vertical;
+        setCursor( m_vertical ? Qt::SizeVerCursor : Qt::SizeHorCursor );
+    }
 
-   if ( event->button() & Qt::LeftButton )
-   {
-       if ( m_state == Running )
-       {
-	   QPoint pos( event->pos().x() - m_board->pos().x(), event->pos().y() - m_board->pos().y() );
-	   m_board->buildWall( pos, m_vertical );
-       } 
-       else if ( m_state == BetweenLevels )
-       {
-	   newLevel();
-       }
-       else if ( m_state == BeforeFirstGame || m_state == GameOver )
-       {
-	   newGame();
-       }
-   }
+    if ( event->button() & Qt::LeftButton )
+    {
+        if ( m_state == Running )
+        {
+            QPoint pos( event->pos().x() - m_board->pos().x(), event->pos().y() - m_board->pos().y() );
+            m_board->buildWall( pos, m_vertical );
+        }
+        else if ( m_state == BetweenLevels )
+        {
+            newLevel();
+        }
+        else if ( m_state == BeforeFirstGame || m_state == GameOver )
+        {
+            newGame();
+        }
+    }
 }
 
-void KBounceGameWidget::mouseMoveEvent( QMouseEvent* event )
-{
-    Q_UNUSED( event );
-}
 
 void KBounceGameWidget::closeLevel()
 {   
     m_bonus = 0;
     if ( m_board->filled() >= MIN_FILL_PERCENT )
     {
-	m_bonus = ( m_board->filled() - MIN_FILL_PERCENT ) * 2 * ( m_level + 5 );
+        m_bonus = ( m_board->filled() - MIN_FILL_PERCENT ) * 2 * ( m_level + 5 );
     }
     m_score += m_bonus;
     m_score += POINTS_FOR_LIFE * m_lives;
@@ -290,6 +299,11 @@ void KBounceGameWidget::newLevel()
     emit livesChanged( m_lives );
     emit timeChanged( m_time );
 
+    if (KBounceSettings::useRandomBackgroundPictures())
+    {
+        m_renderer.loadNewBackgroundPixmap();
+        renderBackground();
+    }
     redraw();
 }  
 
@@ -327,12 +341,12 @@ void KBounceGameWidget::generateOverlay()
     int itemHeight = qRound( 0.6 * size().height() );
 
     QPixmap px( itemWidth, itemHeight );
-    px.fill( QColor( 0, 0, 0, 0 ) );
+    px.fill( Qt::transparent );
 
     QPainter p( &px );
-    p.setPen( QColor( 0, 0, 0, 0 ) );
+    p.setPen( Qt::transparent );
     p.setBrush( QBrush( QColor( 188, 202, 222, 155 ) ) );
-    p.setRenderHint( QPainter::Antialiasing );
+    p.setRenderHint(QPainter::Antialiasing );
     p.drawRoundRect( 0, 0, itemWidth, itemHeight, 25 );
 
     QString text;
@@ -365,13 +379,13 @@ void KBounceGameWidget::generateOverlay()
     int fontSize = 28;
     while ( ( textWidth > itemWidth * 0.95 ) && fontSize > 1 )
     {
-	fontSize--;
-	font.setPointSize( fontSize );
-	p.setFont( font );
-	textWidth = p.boundingRect( p.viewport(), Qt::AlignCenter | Qt::AlignVCenter, text ).width();
+        fontSize--;
+        font.setPointSize( fontSize );
+        p.setFont( font );
+        textWidth = p.boundingRect( p.viewport(), Qt::AlignCenter | Qt::AlignVCenter, text ).width();
     }
-
-    p.setPen( QColor( 0, 0, 0, 255 ) );
+    KColorScheme kcs = KColorScheme( QPalette::Normal, KColorScheme::Window );
+    p.setPen( kcs.foreground(KColorScheme::NormalText).color()); 
     p.drawText( p.viewport(), Qt::AlignCenter | Qt::AlignVCenter, text );
     p.end();
 

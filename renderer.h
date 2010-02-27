@@ -77,12 +77,25 @@ class KBounceRenderer
 	 * Background pixmap is cached (setBackgroundSize() invalidates the cache)
 	 */
 	QPixmap renderBackground();
+	/**
+	* Set s the path were custom background pictures are located.
+	*/
+	void setCustomBackgroundPath(const QString &path);
+	/**
+	* Returns a random pixmap from the custom background path.
+	* If no picture is located in this path the pixmap is null.
+	*/
+	QPixmap getRandomBackgroundPixmap(const QString& path);
+    bool loadNewBackgroundPixmap();
 
     private:
 	KSvgRenderer m_svgRenderer;
 	QSize m_backgroundSize;
 	QPixmap m_cachedBackground;
+    QPixmap m_randomBackground;
 	QHash<QString, QPixmap> m_tileCache;
+	QString m_customBackgroundPath;
+	bool m_useRandomBackgrounds;
 };
 
 #endif //RENDERER_H

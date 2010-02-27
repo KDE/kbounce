@@ -72,8 +72,7 @@ class KBounceGameWidget : public KGameCanvasWidget
     protected:
 	virtual void resizeEvent( QResizeEvent* event );
 	virtual void mouseReleaseEvent( QMouseEvent* event );
-	virtual void mouseMoveEvent( QMouseEvent* event );
-
+	void renderBackground();
 	void closeLevel();
 	void newLevel();
 

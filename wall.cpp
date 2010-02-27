@@ -115,18 +115,18 @@ void KBounceWall::update()
     if ( !visible() )
 	return;
 
-    int width = static_cast<int>
+    int boundingRectWidth = static_cast<int>
 	( std::ceil( m_boundingRect.width() * m_tileSize.width() ) );
-    int height = static_cast<int>
+    int boundingRectHeight = static_cast<int>
 	( std::ceil( m_boundingRect.height() * m_tileSize.height()  ) );
 
-    if ( width == 0 || height == 0 )
+    if ( boundingRectWidth == 0 || boundingRectHeight == 0 )
 	return;
 
     int tileWidth = m_tileSize.width();
     int tileHeight = m_tileSize.height();
 
-    QPixmap px( width, height );
+    QPixmap px( boundingRectWidth, boundingRectHeight );
     px.fill( QColor( 0, 0, 0, 0 ) );
     QPainter p( &px );
 
@@ -134,53 +134,53 @@ void KBounceWall::update()
     {
 	case Up:
 	    p.drawPixmap( 
-		    QRect( 0, 0, tileWidth, qMin( tileHeight, height ) ),
+		    QRect( 0, 0, tileWidth, qMin( tileHeight, boundingRectHeight ) ),
 		    m_renderer->renderElement( "wallEndUp", m_tileSize ),
-		    QRect( 0, 0, tileWidth, qMin( tileHeight, height ) ) );
+		    QRect( 0, 0, tileWidth, qMin( tileHeight, boundingRectHeight ) ) );
 	    p.drawPixmap( 
-		    QRect( 0, tileHeight, tileWidth, height - tileHeight ),
+		    QRect( 0, tileHeight, tileWidth, boundingRectHeight - tileHeight ),
 		    m_renderer->renderElement( "wallV",
 			QSize( tileWidth,  18 * tileHeight ) ),
-		    QRect( 0, 18 * tileHeight - height + tileHeight,
-		       	tileWidth, height - tileHeight ) );
+		    QRect( 0, 18 * tileHeight - boundingRectHeight + tileHeight,
+		       	tileWidth, boundingRectHeight - tileHeight ) );
 	    break;
 	case Right:
 	    p.drawPixmap(
-		    QRect( width - tileWidth, 0, qMin( tileWidth, width ), 
+		    QRect( boundingRectWidth - tileWidth, 0, qMin( tileWidth, boundingRectWidth ), 
 			    tileHeight ), 
 		    m_renderer->renderElement( "wallEndRight", m_tileSize ),
-		    QRect( 0, 0, qMin( tileWidth, width ), tileHeight ) );
+		    QRect( 0, 0, qMin( tileWidth, boundingRectWidth ), tileHeight ) );
 	    p.drawPixmap(
-		    QRect( 0, 0, width - tileWidth, tileHeight ),
+		    QRect( 0, 0, boundingRectWidth - tileWidth, tileHeight ),
 		    m_renderer->renderElement( "wallH", 
 			QSize( 32 * tileWidth, tileHeight ) ),
-		    QRect( 0, 0, width - tileWidth, tileHeight ) );
+		    QRect( 0, 0, boundingRectWidth - tileWidth, tileHeight ) );
 	    break;
 	case Down:
 	    p.drawPixmap(
-		    QRect( 0, height - tileHeight, tileWidth,
-			qMin( tileHeight, height ) ),
+		    QRect( 0, boundingRectHeight - tileHeight, tileWidth,
+			qMin( tileHeight, boundingRectHeight ) ),
 		    m_renderer->renderElement( "wallEndDown", m_tileSize ),
-		    QRect( 0, qMax( 0, tileHeight - height ), tileWidth,
-			qMin( tileHeight, height ) ) );
+		    QRect( 0, qMax( 0, tileHeight - boundingRectHeight ), tileWidth,
+			qMin( tileHeight, boundingRectHeight ) ) );
 	    p.drawPixmap(
-		    QRect( 0, 0, tileWidth, height - tileHeight ),
+		    QRect( 0, 0, tileWidth, boundingRectHeight - tileHeight ),
 		    m_renderer->renderElement( "wallV",
 			QSize( tileWidth, 18 * tileHeight ) ),
-		    QRect( 0, 0, tileWidth, height - tileHeight ) );
+		    QRect( 0, 0, tileWidth, boundingRectHeight - tileHeight ) );
 	    break;
 	case Left:
 	    p.drawPixmap( 
-		    QRect( 0, 0, qMin( width, tileWidth ), tileHeight ),
+		    QRect( 0, 0, qMin( boundingRectWidth, tileWidth ), tileHeight ),
 		    m_renderer->renderElement( "wallEndLeft", m_tileSize ),
-		    QRect( qMax( 0, tileWidth - width ), 0,
+		    QRect( qMax( 0, tileWidth - boundingRectWidth ), 0,
 			tileWidth, tileHeight ) );
 	    p.drawPixmap( 
-		    QRect( tileWidth, 0, width - tileWidth, tileHeight ),
+		    QRect( tileWidth, 0, boundingRectWidth - tileWidth, tileHeight ),
 		    m_renderer->renderElement( "wallH", 
 			QSize( 32 * tileWidth, tileHeight ) ),
-		    QRect( 32 * tileWidth - width + tileWidth, 0, 
-			width - tileWidth, tileHeight ) );
+		    QRect( 32 * tileWidth - boundingRectWidth + tileWidth, 0, 
+			boundingRectWidth - tileWidth, tileHeight ) );
     }
     moveTo( m_board->mapPosition( m_boundingRect.topLeft() ) );
     p.end();

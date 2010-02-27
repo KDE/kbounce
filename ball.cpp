@@ -27,7 +27,7 @@
 #include "board.h"
 #include "renderer.h"
 
-const int KBounceBall::BALL_ANIM_DELAY = 60;
+const int KBounceBall::BALL_ANIM_DELAY = 50;
 const qreal KBounceBall::BALL_RELATIVE_SIZE = 0.8;
 
 KBounceBall::KBounceBall( KBounceRenderer* renderer, KBounceBoard* board )

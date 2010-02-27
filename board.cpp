@@ -65,6 +65,7 @@ KBounceBoard::KBounceBoard( KBounceRenderer* renderer, KGameCanvasAbstract* canv
     m_audioPlayer = 0;
     m_playSounds = false;
     m_soundPath = QString();
+    m_ballVelocity = 0.125; // TODO:Set this later via difficulty
 }
 
 KBounceBoard::~KBounceBoard()
@@ -77,6 +78,8 @@ KBounceBoard::~KBounceBoard()
 
 void KBounceBoard::resize( QSize& size )
 {
+    //Pause the clock to prevent ticks during resize ...
+    setPaused(true);
     int minTileSize;
     if ( TILE_NUM_H * size.width() - TILE_NUM_W * size.height() > 0 )
 	minTileSize = size.height() / TILE_NUM_H;
@@ -93,14 +96,15 @@ void KBounceBoard::resize( QSize& size )
 
     size.setWidth( minTileSize * TILE_NUM_W );
     size.setHeight( minTileSize * TILE_NUM_H );
+    setPaused(false);
 }
 
 void KBounceBoard::redraw()
 {
     if ( m_tileSize.isEmpty() )
     {
-	m_tilesPix->setPixmap( QPixmap() );
-	m_tilesPix->hide();
+        m_tilesPix->setPixmap( QPixmap() );
+        m_tilesPix->hide();
     }
     else
     {
@@ -114,18 +118,18 @@ void KBounceBoard::redraw()
 	{
 	    for ( int j = 0; j < TILE_NUM_H; j++ )
 	    {
-		switch ( m_tiles[i][j] )
-		{
-		    case Free: 
-			p.drawPixmap( i * m_tileSize.width(), j* m_tileSize.height(), m_renderer->renderElement( "gridTile", m_tileSize ) );
-			break;
-		    case Border:
-		    case Wall:
-			p.drawPixmap( i * m_tileSize.width(), j * m_tileSize.height(), m_renderer->renderElement( "wallTile", m_tileSize ) );
-			break;
-		    default:
-			break;
-		}
+            switch ( m_tiles[i][j] )
+            {
+                case Free:
+                p.drawPixmap( i * m_tileSize.width(), j* m_tileSize.height(), m_renderer->renderElement( "gridTile", m_tileSize ) );
+                break;
+                case Border:
+                case Wall:
+                p.drawPixmap( i * m_tileSize.width(), j * m_tileSize.height(), m_renderer->renderElement( "wallTile", m_tileSize ) );
+                break;
+                default:
+                break;
+            }
 	    }
 	}
 
@@ -137,11 +141,11 @@ void KBounceBoard::redraw()
 
     foreach( KBounceBall* ball, m_balls )
     {
-	ball->resetPixmaps();
+        ball->resetPixmaps();
     }
     foreach( KBounceWall* wall, m_walls )
     {
-	wall->update();
+        wall->update();
     }
 }
 
@@ -153,39 +157,44 @@ void KBounceBoard::newLevel( int level )
 
     while ( m_balls.count() > level + 1 )
     {
-	delete m_balls.back();
-	m_balls.removeLast();
+        delete m_balls.back();
+        m_balls.removeLast();
     }
     while ( m_balls.count() < level + 1)
     {
-	KBounceBall* ball = new KBounceBall( m_renderer, this );
-	ball->resize( m_tileSize );
-	m_balls.append( ball );
+        KBounceBall* ball = new KBounceBall( m_renderer, this );
+        ball->resize( m_tileSize );
+        m_balls.append( ball );
     }
     foreach( KBounceBall* ball, m_balls )
     {
-	ball->setRelativePos( 4 + KRandom::random() % ( TILE_NUM_W - 8 ),
-	    4 + KRandom::random() % ( TILE_NUM_H - 8 ) );
-	ball->setVelocity( ((KRandom::random() & 1)*2-1)*0.125, 
-		((KRandom::random() & 1)*2-1)*0.125 );
-	ball->raise();
-	ball->setRandomFrame();
-	ball->show();
+        ball->setRelativePos( 4 + KRandom::random() % ( TILE_NUM_W - 8 ),
+            4 + KRandom::random() % ( TILE_NUM_H - 8 ) );
+        ball->setVelocity( ((KRandom::random() & 1)*2-1)*m_ballVelocity,
+            ((KRandom::random() & 1)*2-1)*m_ballVelocity );
+        ball->raise();
+        ball->setRandomFrame();
+        ball->show();
     }
     emit ballsChanged( level + 1 );
 
     foreach( KBounceWall* wall, m_walls )
     {
-	wall->hide();
+        wall->hide();
     }
 }
 
 void KBounceBoard::setPaused( bool val )
 {
     if ( val )
-	m_clock->stop();
+        m_clock->stop();
     else
-	m_clock->start();
+        m_clock->start();
+}
+
+void KBounceBoard::setBallVelocity(qreal val)
+{
+    m_ballVelocity=val;
 }
 
 void KBounceBoard::buildWall( const QPoint& pos, bool vertical )
@@ -195,21 +204,30 @@ void KBounceBoard::buildWall( const QPoint& pos, bool vertical )
     int y = static_cast<int>( unmapped.y() );
 
     if ( x < 0 || x >= TILE_NUM_W )
-	return;
+    {
+        kDebug() << "Wall x position out of board.";
+        return;
+    }
     if ( y < 0 || y >= TILE_NUM_H )
-	return;
+    {
+        kDebug() << "Wall y position out of board.";
+        return;
+    }
     if ( m_tiles[x][y] != Free )
-	return;
+    {
+        kDebug() << "Wall could not be build in a field which is not free.";
+        return;
+    }
 
     if ( !vertical )
     {
-	m_walls[DIR_LEFT]->build( x, y );
-	m_walls[DIR_RIGHT]->build( x, y );
+        m_walls[DIR_LEFT]->build( x, y );
+        m_walls[DIR_RIGHT]->build( x, y );
     }
     else
     {
-	m_walls[DIR_UP]->build( x, y );
-	m_walls[DIR_DOWN]->build( x, y );
+        m_walls[DIR_UP]->build( x, y );
+        m_walls[DIR_DOWN]->build( x, y );
     }
 }
 
@@ -229,43 +247,43 @@ KBounceCollision KBounceBoard::checkCollision( void* object, const QRectF& rect,
     
     if ( (type & TILE) != 0 )
     {
-	result += checkCollisionTiles( rect );
+        result += checkCollisionTiles( rect );
     }
 
     if ( (type & WALL) != 0 )
     {
-	foreach( KBounceWall* wall, m_walls )
-	{
-	    if ( object != wall )
-	    {
-		if ( wall->visible() && rect.intersects( wall->nextBoundingRect() ) )
-		{
-		    KBounceHit hit;
-		    hit.type = WALL;
-		    hit.boundingRect = wall->nextBoundingRect();
-		    hit.normal = KBounceVector::normal( rect, hit.boundingRect );
-		    result += hit;
-		}
-	    }
-	}
+        foreach( KBounceWall* wall, m_walls )
+        {
+            if ( object != wall )
+            {
+                if ( wall->visible() && rect.intersects( wall->nextBoundingRect() ) )
+                {
+                    KBounceHit hit;
+                    hit.type = WALL;
+                    hit.boundingRect = wall->nextBoundingRect();
+                    hit.normal = KBounceVector::normal( rect, hit.boundingRect );
+                    result += hit;
+                }
+            }
+        }
     }
 
     if ( (type & BALL) != 0 )
     {
-	foreach( KBounceBall* ball, m_balls )
-	{
-	    if ( object != ball )
-	    {
-		if ( rect.intersects( ball->nextBoundingRect() ) )
-		{
-		    KBounceHit hit;
-		    hit.type = BALL;
-		    hit.boundingRect = ball->nextBoundingRect();
-		    hit.normal = KBounceVector::normal( rect, hit.boundingRect );
-		    result += hit; 
-		}
-	    }
-	}
+        foreach( KBounceBall* ball, m_balls )
+        {
+            if ( object != ball )
+            {
+                if ( rect.intersects( ball->nextBoundingRect() ) )
+                {
+                    KBounceHit hit;
+                    hit.type = BALL;
+                    hit.boundingRect = ball->nextBoundingRect();
+                    hit.normal = KBounceVector::normal( rect, hit.boundingRect );
+                    result += hit;
+                }
+            }
+        }
     }
 
     return result;
@@ -299,10 +317,10 @@ KBounceCollision KBounceBoard::checkCollisionTiles( const QRectF& rect)
     KBounceCollision collision;
     if ( (ul != Free ) || ( ur != Free ) || ( lr != Free ) || ( ll != Free ) )
     {
-	KBounceHit hit;
-	hit.type = TILE;
-	hit.normal = normal;
-	collision += hit;
+        KBounceHit hit;
+        hit.type = TILE;
+        hit.normal = normal;
+        collision += hit;
     }
     return collision;
 }
@@ -311,17 +329,17 @@ void KBounceBoard::checkCollisions()
 {
     foreach( KBounceWall* wall, m_walls )
     {
-	QRectF rect = wall->nextBoundingRect();
-	KBounceCollision collision;
-	collision = checkCollision( wall, rect, ALL );
-	wall->collide( collision );
+        QRectF rect = wall->nextBoundingRect();
+        KBounceCollision collision;
+        collision = checkCollision( wall, rect, ALL );
+        wall->collide( collision );
     }
     foreach( KBounceBall* ball, m_balls )
     {
-	QRectF rect = ball->nextBoundingRect();
-	KBounceCollision collision;
-	collision = checkCollision( ball, rect, ALL );
-	ball->collide( collision );
+        QRectF rect = ball->nextBoundingRect();
+        KBounceCollision collision;
+        collision = checkCollision( ball, rect, ALL );
+        ball->collide( collision );
     }
 }
 
@@ -340,9 +358,9 @@ void KBounceBoard::playSound( const QString& name )
 {
     if ( m_playSounds == true && m_soundPath != QString() )
     {
-	QString fileName = m_soundPath + name;
-	m_audioPlayer->setCurrentSource( fileName );
-	m_audioPlayer->play();
+        QString fileName = m_soundPath + name;
+        m_audioPlayer->setCurrentSource( fileName );
+        m_audioPlayer->play();
     }
 }
 
@@ -381,9 +399,9 @@ void KBounceBoard::wallFinished( int x1, int y1, int x2, int y2 )
 
     foreach ( KBounceBall* ball, m_balls )
     {
-	int x = static_cast<int>( ball->relativePos().x() );
-	int y = static_cast<int>( ball->relativePos().y() );
-	fill( x, y );
+        int x = static_cast<int>( ball->relativePos().x() );
+        int y = static_cast<int>( ball->relativePos().y() );
+        fill( x, y );
     }
 
     for ( int x = 0; x < TILE_NUM_W; x++ )
