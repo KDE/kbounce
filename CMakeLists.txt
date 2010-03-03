@@ -29,9 +29,9 @@ kde4_add_app_icon(kbounce_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/pics/hi*-app-kbounce
 kde4_add_executable(kbounce ${kbounce_SRCS})
 
 if(KDE4_ENABLE_FPIE)
-    target_link_libraries(kbounce  ${KDE4_KDEUI_LIBS}  kdegames ${KDE4_PHONON_LIBS} ${KDE4_PIE_LDFLAGS})
+    target_link_libraries(kbounce  ${KDE4_KDEUI_LIBS}  kdegames ${KDE4_PHONON_LIBS} ${KDE4_KIO_LIBS} ${KDE4_PIE_LDFLAGS})
 else(KDE4_ENABLE_FPIE)
-    target_link_libraries(kbounce  ${KDE4_KDEUI_LIBS}  kdegames ${KDE4_PHONON_LIBS})
+    target_link_libraries(kbounce  ${KDE4_KDEUI_LIBS}  kdegames ${KDE4_PHONON_LIBS} ${KDE4_KIO_LIBS})
 endif(KDE4_ENABLE_FPIE)
 
 
