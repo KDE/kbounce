@@ -132,6 +132,7 @@ void KBounceGameWidget::setSuspended( bool val )
         m_state = Running;
         emit stateChanged( m_state );
     }
+
     if ( m_state == Running && val == true )
     {
         m_clock->stop();
@@ -162,6 +163,29 @@ void KBounceGameWidget::settingsChanged()
     m_renderer.load( m_theme->graphics() );
     renderBackground();
     redraw();
+}
+
+void KBounceGameWidget::levelChanged(KGameDifficulty::standardLevel level)
+{
+    switch(level) {
+        case KGameDifficulty::Easy:
+            m_board->setBallVelocity(0.100);
+            m_board->setWallVelocity(0.250);
+            break;
+        case KGameDifficulty::Medium:
+            m_board->setWallVelocity(0.125);
+            m_board->setBallVelocity(0.125);
+            break;
+        case KGameDifficulty::Hard:
+            m_board->setWallVelocity(0.100);
+            m_board->setBallVelocity(0.250);
+            break;
+        default:
+            break;
+    }
+    m_difficultyLevel = level;
+    KBounceSettings::setLevel(level);
+    KBounceSettings::self()->writeConfig();
 }
 
 void KBounceGameWidget::setSounds( bool val )

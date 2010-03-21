@@ -70,6 +70,7 @@ class KBounceBoard: public QObject, public KGameCanvasGroup
 	void setSoundPath( const QString& path );
 	void setSounds( bool val );
 	void setBallVelocity(qreal velocity);
+	void setWallVelocity(qreal velocity);
     signals:
 	void ballsChanged( int balls );
 	void fillChanged( int fill );
@@ -99,6 +100,7 @@ class KBounceBoard: public QObject, public KGameCanvasGroup
 	bool m_playSounds;
 	QString m_soundPath;
 	qreal m_ballVelocity;
+	qreal m_wallVelocity;
 };
 
 #endif // BOARD_H

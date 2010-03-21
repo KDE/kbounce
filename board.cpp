@@ -65,7 +65,10 @@ KBounceBoard::KBounceBoard( KBounceRenderer* renderer, KGameCanvasAbstract* canv
     m_audioPlayer = 0;
     m_playSounds = false;
     m_soundPath = QString();
-    m_ballVelocity = 0.125; // TODO:Set this later via difficulty
+
+    // Initialize this members with the old default values.
+    m_ballVelocity = 0.125;
+    m_wallVelocity = 0.125;
 }
 
 KBounceBoard::~KBounceBoard()
@@ -180,6 +183,7 @@ void KBounceBoard::newLevel( int level )
 
     foreach( KBounceWall* wall, m_walls )
     {
+        wall->setWallVelocity(m_wallVelocity);
         wall->hide();
     }
 }
@@ -192,10 +196,16 @@ void KBounceBoard::setPaused( bool val )
         m_clock->start();
 }
 
-void KBounceBoard::setBallVelocity(qreal val)
+void KBounceBoard::setBallVelocity(qreal vel)
 {
-    m_ballVelocity=val;
+    m_ballVelocity = vel;
 }
+
+void KBounceBoard::setWallVelocity(qreal vel)
+{
+    m_wallVelocity = vel;
+}
+
 
 void KBounceBoard::buildWall( const QPoint& pos, bool vertical )
 {

@@ -32,8 +32,6 @@ class KToggleAction;
 class KBounceMainWindow : public KXmlGuiWindow
 {
    Q_OBJECT
-    KGameDifficulty::standardLevel m_level;
-
 public:
    KBounceMainWindow();
    ~KBounceMainWindow();
@@ -54,8 +52,6 @@ protected slots:
    void displayLives( int lives );
    void displayTime( int time );
    void gameStateChanged( KBounceGameWidget::State state );
-   void levelChanged(KGameDifficulty::standardLevel level);
-
 protected:
    void initXMLUI();
    void highscore();

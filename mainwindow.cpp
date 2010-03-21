@@ -85,15 +85,11 @@ void KBounceMainWindow::initXMLUI()
     KStandardGameAction::quit(this, SLOT(close()), actionCollection());
   
     // Difficulty
-    KGameDifficulty::init(this, this, SLOT(levelChanged(KGameDifficulty::standardLevel)));
+    KGameDifficulty::init(this, m_gameWidget, SLOT(levelChanged(KGameDifficulty::standardLevel)));
     KGameDifficulty::addStandardLevel(KGameDifficulty::Easy);
     KGameDifficulty::addStandardLevel(KGameDifficulty::Medium);
     KGameDifficulty::addStandardLevel(KGameDifficulty::Hard);
 
-	
-    levelChanged((KGameDifficulty::standardLevel) (KBounceSettings::level()));
-    KGameDifficulty::setLevel(m_level);
-	
     // Settings
     KStandardAction::preferences( this, SLOT( configureSettings() ), actionCollection() );
     m_soundAction = new KToggleAction( i18n("&Play Sounds"), this );
@@ -101,24 +97,8 @@ void KBounceMainWindow::initXMLUI()
     connect( m_soundAction, SIGNAL( triggered( bool ) ), this, SLOT( setSounds( bool ) ) );
 }
 
-void KBounceMainWindow::levelChanged(KGameDifficulty::standardLevel level)
-{
-    switch(level) {
-	    case KGameDifficulty::Easy:
-	    default:
-		    break;
-	    case KGameDifficulty::Medium:
 		   
-		    break;
-	    case KGameDifficulty::Hard:
 		   
-		    break;
-    }
-
-    m_level = level;
-    KBounceSettings::setLevel((int)(m_level));
-}
-
 void KBounceMainWindow::newGame()
 {
     // Check for running game
@@ -209,6 +189,7 @@ void KBounceMainWindow::configureSettings()
 
 void KBounceMainWindow::readSettings()
 {
+    KGameDifficulty::setLevel((KGameDifficulty::standardLevel)KBounceSettings::level());
     m_soundAction->setChecked( KBounceSettings::playSounds() );
     settingsChanged();
 }
@@ -259,27 +240,17 @@ void KBounceMainWindow::gameStateChanged( KBounceGameWidget::State state )
 	    m_statusBar->clearMessage();
 	    break;
 	case KBounceGameWidget::Running :
+	    KGameDifficulty::setEnabled( false );
 	    m_pauseAction->setChecked( false );
 	    m_statusBar->clearMessage();
 	    break;
 	case KBounceGameWidget::GameOver :
 	    statusBar()->showMessage(  i18n("Game over. Click to start a game") );
 	    highscore(); 
+	    KGameDifficulty::setEnabled(true);
 	    break;
     }
-/*
-    if ( state == KBounceGameWidget::Paused )
-    {
-	m_pauseButton->setChecked( true );
-        m_statusBar->clearMessage();
     }
-    if ( state == KBounceGameWidget::Running )
-    {
-	m_pauseButton->setChecked( false );
-        m_statusBar->clearMessage();
-    }
-    */
-}
 
 void KBounceMainWindow::focusOutEvent( QFocusEvent *ev )
 {

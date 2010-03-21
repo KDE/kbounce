@@ -28,7 +28,7 @@
 using namespace std;
 
 static const char description[] = I18N_NOOP("KDE Bounce Ball Game");
-static const char version[] = "0.9";
+static const char version[] = "0.10";
 static const char copyleft[] = "(c) 2000-2005, Stefan Schimanski\n(c) 2007, Tomasz Boczkowski";
 
 int main(int argc, char **argv)

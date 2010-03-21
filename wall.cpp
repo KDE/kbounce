@@ -26,12 +26,13 @@
 #include "board.h"
 #include "renderer.h"
 
-const qreal KBounceWall::WALL_VELOCITY = 0.125;
 
 KBounceWall::KBounceWall( Direction dir, KBounceRenderer* renderer, KBounceBoard* board )
     : KGameCanvasPixmap( board ), m_renderer( renderer ), m_board( board ), 
     m_dir( dir ), m_tileSize( QSize( 16, 16 ) )
 {
+    // The wall velocity would initialised on every new level.
+    m_wallVelocity = 0.0;
 }
 
 KBounceWall::~KBounceWall()
@@ -92,20 +93,20 @@ void KBounceWall::advance()
     switch( m_dir )
     {
 	case Up:
-	    m_boundingRect.setTop( m_boundingRect.top() - WALL_VELOCITY );
-	    m_nextBoundingRect.setTop( m_boundingRect.top() - WALL_VELOCITY );
+	    m_boundingRect.setTop( m_boundingRect.top() - m_wallVelocity );
+	    m_nextBoundingRect.setTop( m_boundingRect.top() - m_wallVelocity );
 	    break;
 	case Left:
-	    m_boundingRect.setLeft( m_boundingRect.left() - WALL_VELOCITY );
-	    m_nextBoundingRect.setLeft( m_boundingRect.left() - WALL_VELOCITY );
+	    m_boundingRect.setLeft( m_boundingRect.left() - m_wallVelocity );
+	    m_nextBoundingRect.setLeft( m_boundingRect.left() - m_wallVelocity );
 	    break;
 	case Down:
-	    m_boundingRect.setBottom( m_boundingRect.bottom() + WALL_VELOCITY );
-	    m_nextBoundingRect.setBottom( m_boundingRect.bottom() + WALL_VELOCITY );
+	    m_boundingRect.setBottom( m_boundingRect.bottom() + m_wallVelocity );
+	    m_nextBoundingRect.setBottom( m_boundingRect.bottom() + m_wallVelocity );
 	    break;
 	case Right:
-	    m_boundingRect.setRight( m_boundingRect.right() + WALL_VELOCITY );
-	    m_nextBoundingRect.setRight( m_boundingRect.right() + WALL_VELOCITY );
+	    m_boundingRect.setRight( m_boundingRect.right() + m_wallVelocity );
+	    m_nextBoundingRect.setRight( m_boundingRect.right() + m_wallVelocity );
 	    break;
     }
 }
@@ -219,6 +220,7 @@ void KBounceWall::build( int x, int y )
     m_nextBoundingRect = m_boundingRect;
 
     setPixmap( QPixmap( 0, 0 ) );
+
     moveTo( m_board->mapPosition( QPointF( x, y ) ) );
     show();
 
@@ -297,6 +299,12 @@ void KBounceWall::finish( bool shorten, Direction dir )
     hide();
     m_board->playSound( "wallend.wav" );
 }
+
+void KBounceWall::setWallVelocity(qreal velocity)
+{
+    m_wallVelocity = velocity;
+}
+
 
 #include "wall.moc"
 

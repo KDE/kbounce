@@ -5,7 +5,6 @@
 #include "renderer.h"
 #include <QPainter>
 #include <KColorScheme>
-#include <QResizeEvent>
 
 BackgroundSelector::BackgroundSelector(QWidget* parent, KConfigSkeleton* config) :
     QWidget(parent),

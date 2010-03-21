@@ -23,9 +23,7 @@
 #define WALL_H
 
 #include "kgamecanvas.h"
-
 #include <QObject>
-
 #include "gameobject.h"
 
 class KBounceRenderer;
@@ -43,7 +41,6 @@ class KBounceWall : public QObject, public KGameCanvasPixmap
 
     public:
 	enum Direction { Up = 0, Down, Left, Right };
-	static const qreal WALL_VELOCITY;
 
 	/**
 	 * Constructor
@@ -95,6 +92,11 @@ class KBounceWall : public QObject, public KGameCanvasPixmap
 	 */
 	void resize( const QSize& tileSize );
 
+	/**
+	* Set the wall velocity for wall filling speed.
+	*/
+	void setWallVelocity(qreal velocity);
+
     signals:
 	void finished( int left, int top, int right, int bottom );
 	void died();
@@ -120,6 +122,7 @@ class KBounceWall : public QObject, public KGameCanvasPixmap
 	QSize m_tileSize;
 	QRectF m_boundingRect;
 	QRectF m_nextBoundingRect;
+	qreal m_wallVelocity;
 };
 
 #endif
