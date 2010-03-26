@@ -41,8 +41,8 @@ int main(int argc, char **argv)
   aboutData.addAuthor(ki18n("Sandro Sigala"), ki18n("Highscore"), "ssigala@globalnet.it");
   aboutData.addAuthor(ki18n("Benjamin Meyer"), ki18n("Contributions"), "ben+kbounce@meyerhome.net");
   aboutData.addAuthor(ki18n("Tomasz Boczkowski"), ki18n("Port to KDE4. Current maintainer"), "tboczkowski@onet.pl" );
-
   aboutData.addCredit(ki18n("Dmitry Suzdalev"), ki18n("Port to QGraphicsView framework"), "dimsuz@gmail.com");
+  aboutData.addCredit(ki18n("Andreas Scherf"), ki18n("Image Backgound and Fixes"), "ascherfy@gmail.com");
 
   KCmdLineArgs::init( argc, argv, &aboutData );
 

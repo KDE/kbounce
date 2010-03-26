@@ -46,39 +46,39 @@ void KBounceWall::collide( KBounceCollision collision )
 
     foreach( const KBounceHit &hit, collision )
     {
-	if ( hit.type == TILE )
-	{
-	    finish();
-	}
-	if ( hit.type == BALL )
-	{
-	    if ( safeEdgeHit( hit.boundingRect ) )
-	    {
-		KBounceVector normal = hit.normal;
-		bool vertical = qAbs(normal.x) < qAbs(normal.y);
+        switch (hit.type)
+        {
+            case TILE:
+            finish();
+            break;
+            case BALL:
+            if ( safeEdgeHit( hit.boundingRect ) )
+            {
+                KBounceVector normal = hit.normal;
+                bool vertical = qAbs(normal.x) < qAbs(normal.y);
 
-		if ( vertical && ( (m_dir == Up) || (m_dir == Down) ) )
-		{
-		    finish( true, m_dir );
-		}
-		if ( !vertical && ( (m_dir == Left) || (m_dir == Right ) ) )
-		{
-		    finish( true, m_dir );
-		}
-	    }
-	    else
-	    {
-		emit died();
-		hide();
-	    }
-	}
-	if ( hit.type == WALL )
-	{
-	    if ( safeEdgeHit( hit.boundingRect ) )
-	    {
-		finish();
-	    }
-	}
+                if ( vertical && ( (m_dir == Up) || (m_dir == Down) ) )
+                {
+                    finish( true, m_dir );
+                }
+                if ( !vertical && ( (m_dir == Left) || (m_dir == Right ) ) )
+                {
+                    finish( true, m_dir );
+                }
+            }
+            else
+            {
+                emit died();
+                hide();
+            }
+            break;
+            case WALL:
+            if ( safeEdgeHit( hit.boundingRect ) )
+            {
+                finish();
+            }
+            break;
+        }
     }
 }
 
@@ -87,7 +87,7 @@ void KBounceWall::advance()
 {
     if ( !visible() ) 
     {
-	return;
+		return;
     }
 
     switch( m_dir )
@@ -192,8 +192,8 @@ void KBounceWall::resize( const QSize& tileSize )
 {
     if ( tileSize != m_tileSize )
     {
-	m_tileSize = tileSize;
-	update();
+		m_tileSize = tileSize;
+		update();
     }
 }
 
@@ -202,20 +202,38 @@ void KBounceWall::build( int x, int y )
     if ( visible() )
 	return;
 
-    if ( m_dir == Up || m_dir == Down )
+   if ( m_dir == Up || m_dir == Down )
     {
-	m_boundingRect.setTop( y );
-	m_boundingRect.setBottom( y );
-	m_boundingRect.setLeft( x );
-	m_boundingRect.setRight( x + 1 );
+        m_boundingRect.setTop( y );
+
+        if (m_dir == Down)
+        {
+            m_boundingRect.setBottom(y + 1);
+        }
+        else
+        {
+            m_boundingRect.setBottom( y );
+        }
+
+        m_boundingRect.setLeft( x );
+        m_boundingRect.setRight( x + 1 );
     }
-    if ( m_dir == Left || m_dir == Right )
+    else if ( m_dir == Left || m_dir == Right )
     {
-	m_boundingRect.setTop( y );
-	m_boundingRect.setBottom( y + 1 );
-	m_boundingRect.setLeft( x );
-	m_boundingRect.setRight( x );
+        m_boundingRect.setTop( y );
+        m_boundingRect.setBottom( y + 1 );
+        m_boundingRect.setLeft( x );
+
+        if (m_dir == Right)
+        {
+            m_boundingRect.setRight(x + 1);
+        }
+        else
+        {
+            m_boundingRect.setRight( x );
+        }
     }
+
 
     m_nextBoundingRect = m_boundingRect;
 
@@ -286,13 +304,13 @@ void KBounceWall::finish( bool shorten, Direction dir )
 
     if ( shorten ) 
     {
-	switch ( dir )
-	{
-	    case Left: left++; break;
-	    case Up: top++; break;
-	    case Right: right--; break;
-	    case Down: bottom--; break;
-	}
+		switch ( dir )
+		{
+		    case Left: left++; break;
+		    case Up: top++; break;
+		    case Right: right--; break;
+		    case Down: bottom--; break;
+		}
     }
 
     emit finished( left, top, right, bottom );
