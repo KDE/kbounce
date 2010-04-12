@@ -78,7 +78,7 @@ class KBounceBoard: public QObject, public KGameCanvasGroup
 
     protected slots:
 	void tick();
-        void wallFinished( int x1, int y1, int x2, int y2 );
+	void wallFinished( int x1, int y1, int x2, int y2 );
 
     private:
 	void clear();
@@ -98,7 +98,7 @@ class KBounceBoard: public QObject, public KGameCanvasGroup
 
 	Phonon::MediaObject* m_audioPlayer;
 	bool m_playSounds;
-	QString m_soundPath;
+    
 	qreal m_ballVelocity;
 	qreal m_wallVelocity;
 };

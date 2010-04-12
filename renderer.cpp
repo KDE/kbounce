@@ -107,22 +107,22 @@ bool KBounceRenderer::loadNewBackgroundPixmap()
 
 QPixmap KBounceRenderer::renderBackground()
 {
-    if (m_cachedBackground.isNull())
+    if (m_cachedBackground.isNull() && !m_backgroundSize.isNull())
     {
-	//This is a dirty fix to the qt's m_svgRenderer.render() method that
-	//leaves an garbage-filled border of a pixmap
-	kDebug() << "Rendering the background. Size:" << m_backgroundSize;
-    if (m_useRandomBackgrounds && loadNewBackgroundPixmap())
-    {
-        return m_cachedBackground;
-    }
-	
-	// If no valid backgound pixmap found use the original from theme ...
-	m_cachedBackground = QPixmap( m_backgroundSize );
-	m_cachedBackground.fill(QApplication::palette().window().color());
-	QPainter p( &m_cachedBackground );
-      
-	m_svgRenderer.render( &p, "background" );
+		//This is a dirty fix to the qt's m_svgRenderer.render() method that
+		//leaves an garbage-filled border of a pixmap
+		kDebug() << "Rendering the background. Size:" << m_backgroundSize;
+		if (m_useRandomBackgrounds && loadNewBackgroundPixmap())
+		{
+		    return m_cachedBackground;
+		}
+
+		// If no valid backgound pixmap found use the original from theme ...
+		m_cachedBackground = QPixmap( m_backgroundSize );
+		m_cachedBackground.fill( QApplication::palette().window().color() );
+		QPainter p( &m_cachedBackground );
+
+		m_svgRenderer.render( &p, "background" );
     }
     return m_cachedBackground;
 }
@@ -152,7 +152,7 @@ QPixmap KBounceRenderer::getRandomBackgroundPixmap(const QString& path)
 
 QPixmap KBounceRenderer::renderElement( const QString& id, const QSize& size )
 {
-    QHash<QString, QPixmap>::Iterator elementIt = m_tileCache.find(id);
+    QHash<QString, QPixmap>::Iterator elementIt = m_tileCache.find(id); 
     QHash<QString, QPixmap>::Iterator itEnd = m_tileCache.end();
     if ( elementIt == itEnd && size.isEmpty() )
     {
@@ -160,7 +160,7 @@ QPixmap KBounceRenderer::renderElement( const QString& id, const QSize& size )
         return QPixmap();
     }
 
-    if ( elementIt == itEnd || ( size != QSize( 0, 0 ) && size != elementIt.value().size() ) )
+    if ( elementIt == itEnd || ( !size.isNull() && size != elementIt.value().size() ) )
     {
         kDebug() << "Rendering" << id << "size:" << size;
         QImage baseImage( size, QImage::Format_ARGB32_Premultiplied );

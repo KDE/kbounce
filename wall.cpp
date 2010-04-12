@@ -41,57 +41,59 @@ KBounceWall::~KBounceWall()
 
 void KBounceWall::collide( KBounceCollision collision )
 {
-    if ( !visible() )
+	if ( !visible() )
 	return;
 
-    foreach( const KBounceHit &hit, collision )
-    {
-        switch (hit.type)
-        {
-            case TILE:
-            finish();
-            break;
-            case BALL:
-            if ( safeEdgeHit( hit.boundingRect ) )
-            {
-                KBounceVector normal = hit.normal;
-                bool vertical = qAbs(normal.x) < qAbs(normal.y);
+	foreach( const KBounceHit &hit, collision )
+	{
+	    switch (hit.type)
+	    {
+			case ALL:
+				break;
+	        case TILE:
+				finish();
+				break;
+	        case BALL:
+				if ( safeEdgeHit( hit.boundingRect ) )
+				{
+				    KBounceVector normal = hit.normal;
+				    bool vertical = qAbs(normal.x) < qAbs(normal.y);
 
-                if ( vertical && ( (m_dir == Up) || (m_dir == Down) ) )
-                {
-                    finish( true, m_dir );
-                }
-                if ( !vertical && ( (m_dir == Left) || (m_dir == Right ) ) )
-                {
-                    finish( true, m_dir );
-                }
-            }
-            else
-            {
-                emit died();
-                hide();
-            }
-            break;
-            case WALL:
-            if ( safeEdgeHit( hit.boundingRect ) )
-            {
-                finish();
-            }
-            break;
-        }
-    }
+				    if ( vertical && ( (m_dir == Up) || (m_dir == Down) ) )
+				    {
+				        finish( true, m_dir );
+				    }
+				    if ( !vertical && ( (m_dir == Left) || (m_dir == Right ) ) )
+				    {
+				        finish( true, m_dir );
+				    }
+				}
+				else
+				{
+				    emit died();
+				    hide();
+				}
+				break;
+	        case WALL:
+				if ( safeEdgeHit( hit.boundingRect ) )
+				{
+				    finish();
+				}
+				break;
+	    }
+	}
 }
 
 
 void KBounceWall::advance()
 {
-    if ( !visible() ) 
-    {
+	if ( !visible() )
+	{
 		return;
-    }
+	}
 
-    switch( m_dir )
-    {
+	switch( m_dir )
+	{
 	case Up:
 	    m_boundingRect.setTop( m_boundingRect.top() - m_wallVelocity );
 	    m_nextBoundingRect.setTop( m_boundingRect.top() - m_wallVelocity );
@@ -113,26 +115,26 @@ void KBounceWall::advance()
 
 void KBounceWall::update()
 {
-    if ( !visible() )
+	if ( !visible() )
 	return;
 
-    int boundingRectWidth = static_cast<int>
+	int boundingRectWidth = static_cast<int>
 	( std::ceil( m_boundingRect.width() * m_tileSize.width() ) );
-    int boundingRectHeight = static_cast<int>
+	int boundingRectHeight = static_cast<int>
 	( std::ceil( m_boundingRect.height() * m_tileSize.height()  ) );
 
-    if ( boundingRectWidth == 0 || boundingRectHeight == 0 )
+	if ( boundingRectWidth == 0 || boundingRectHeight == 0 )
 	return;
 
-    int tileWidth = m_tileSize.width();
-    int tileHeight = m_tileSize.height();
+	int tileWidth = m_tileSize.width();
+	int tileHeight = m_tileSize.height();
 
-    QPixmap px( boundingRectWidth, boundingRectHeight );
-    px.fill( QColor( 0, 0, 0, 0 ) );
-    QPainter p( &px );
+	QPixmap px( boundingRectWidth, boundingRectHeight );
+	px.fill( Qt::transparent );
+	QPainter p( &px );
 
-    switch ( m_dir ) 
-    {
+	switch ( m_dir )
+	{
 	case Up:
 	    p.drawPixmap( 
 		    QRect( 0, 0, tileWidth, qMin( tileHeight, boundingRectHeight ) ),
@@ -182,19 +184,19 @@ void KBounceWall::update()
 			QSize( 32 * tileWidth, tileHeight ) ),
 		    QRect( 32 * tileWidth - boundingRectWidth + tileWidth, 0, 
 			boundingRectWidth - tileWidth, tileHeight ) );
-    }
-    moveTo( m_board->mapPosition( m_boundingRect.topLeft() ) );
-    p.end();
-    setPixmap( px );
+	}
+	moveTo( m_board->mapPosition( m_boundingRect.topLeft() ) );
+	p.end();
+	setPixmap( px );
 }
 
 void KBounceWall::resize( const QSize& tileSize )
 {
-    if ( tileSize != m_tileSize )
-    {
+	if ( tileSize != m_tileSize )
+	{
 		m_tileSize = tileSize;
 		update();
-    }
+	}
 }
 
 void KBounceWall::build( int x, int y )
@@ -247,12 +249,12 @@ void KBounceWall::build( int x, int y )
 
 QRectF KBounceWall::boundingRect() const
 {
-    return m_boundingRect;
+	return m_boundingRect;
 }
 
 QRectF KBounceWall::nextBoundingRect() const
 {
-    return m_nextBoundingRect;
+	return m_nextBoundingRect;
 }
 
 bool KBounceWall::safeEdgeHit( const QRectF& rect2 ) const
@@ -320,7 +322,7 @@ void KBounceWall::finish( bool shorten, Direction dir )
 
 void KBounceWall::setWallVelocity(qreal velocity)
 {
-    m_wallVelocity = velocity;
+	m_wallVelocity = velocity;
 }
 
 

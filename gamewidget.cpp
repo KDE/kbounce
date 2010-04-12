@@ -49,6 +49,7 @@ KBounceGameWidget::KBounceGameWidget( QWidget* parent )
     m_clock = new QTimer( this );
     m_clock->setInterval( GAME_TIME_DELAY );
     connect( m_clock, SIGNAL( timeout() ), this, SLOT( tick() ) );
+	connect( this, SIGNAL( livesChanged( int )),this,SLOT( onLivesChanged( int ) ) );
 
     setMouseTracking( true );
 }
@@ -228,6 +229,15 @@ void KBounceGameWidget::onWallDied()
     }
 }
 
+void KBounceGameWidget::onLivesChanged(int lives)
+{
+	if ( lives < ( m_level + 1 ) )
+	{
+		m_board->playSound("timeout.wav");
+	}
+}
+
+
 void KBounceGameWidget::tick()
 {
     static int ticks = TICKS_PER_SECOND;
@@ -305,7 +315,7 @@ void KBounceGameWidget::closeLevel()
     emit scoreChanged( m_score );
 
     m_clock->stop();
-    m_board->setPaused( true );
+	m_board->setPaused( true );
 }
 
 void KBounceGameWidget::newLevel()
@@ -337,7 +347,6 @@ void KBounceGameWidget::redraw()
     if ( size().isEmpty() )
 	return;
 
-   
     switch ( m_state )
     {
 	case BeforeFirstGame:
@@ -364,18 +373,33 @@ void KBounceGameWidget::generateOverlay()
     int itemWidth = qRound( 0.8 * size().width() );
     int itemHeight = qRound( 0.6 * size().height() );
 
-    QPixmap px( itemWidth, itemHeight );
-    px.fill( Qt::transparent );
+	QSize backgroundSize( itemWidth,itemHeight );
 
-    QPainter p( &px );
-    p.setPen( Qt::transparent );
-    p.setBrush( QBrush( QColor( 188, 202, 222, 155 ) ) );
-    p.setRenderHint(QPainter::Antialiasing );
-    p.drawRoundRect( 0, 0, itemWidth, itemHeight, 25 );
+	QPixmap px( backgroundSize );
+	px.fill( Qt::transparent );
 
-    QString text;
-    switch( m_state )
-    {
+	QPainter p( &px );
+	
+	p.setPen( Qt::transparent );
+	p.setRenderHint(QPainter::Antialiasing );
+	
+	if ( m_renderer.elementExists("overlayBackground") )
+	{
+		QPixmap themeBackgound = m_renderer.renderElement("overlayBackground",backgroundSize);
+		p.setCompositionMode( QPainter::CompositionMode_Source );
+		p.drawPixmap( p.viewport(), themeBackgound );
+		p.setCompositionMode( QPainter::CompositionMode_DestinationIn );
+		p.fillRect(px.rect(), QColor( 0, 0, 0, 160 ));
+	}
+	else
+	{
+		p.setBrush( QBrush( QColor( 188, 202, 222, 155 ) ) );
+		p.drawRoundRect( 0, 0, itemWidth, itemHeight, 25 );
+	}
+	
+	QString text;
+	switch( m_state )
+	{
 	case BeforeFirstGame:
 	    text = i18n( "Welcome to KBounce.\n Click to start a game" );
 	    break;
@@ -416,6 +440,7 @@ void KBounceGameWidget::generateOverlay()
     m_overlay->setPixmap( px );
     m_overlay->moveTo( ( size().width() - itemWidth ) / 2, ( size().height() - itemHeight ) / 2 );
 }
+
 
 #include "gamewidget.moc"
 

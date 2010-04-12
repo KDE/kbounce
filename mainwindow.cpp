@@ -101,52 +101,51 @@ void KBounceMainWindow::initXMLUI()
 		   
 void KBounceMainWindow::newGame()
 {
-    // Check for running game
+	// Check for running game
     closeGame();
-    if ( m_gameWidget->state() == KBounceGameWidget::BeforeFirstGame || m_gameWidget->state() == KBounceGameWidget::GameOver )
-    {
-	m_gameWidget->newGame();
-    }
+	if ( m_gameWidget->state() == KBounceGameWidget::BeforeFirstGame || m_gameWidget->state() == KBounceGameWidget::GameOver )
+	{
+		m_gameWidget->newGame();
+	}
 }
 
 void KBounceMainWindow::pauseGame()
 {
-    if ( m_gameWidget->state() == KBounceGameWidget::Paused )
-    {
-	m_gameWidget->setPaused( false );
-    }
+	if ( m_gameWidget->state() == KBounceGameWidget::Paused )
+	{
+		m_gameWidget->setPaused( false );
+	}
     else
-    {
-	m_gameWidget->setPaused( true );
-    }
+	{
+		m_gameWidget->setPaused( true );
+	}
 }
 
 void KBounceMainWindow::closeGame()
 {
-    if ( m_gameWidget->state() == KBounceGameWidget::BeforeFirstGame || m_gameWidget->state() == KBounceGameWidget::GameOver )
-    {
-	return;
-    }
+	if ( m_gameWidget->state() == KBounceGameWidget::BeforeFirstGame || m_gameWidget->state() == KBounceGameWidget::GameOver )
+	{
+		return;
+	}
 
-    KBounceGameWidget::State old_state = m_gameWidget->state();
-    if ( old_state == KBounceGameWidget::Running )
-	m_gameWidget->setPaused( true );
-    int ret = KMessageBox::questionYesNo( this, i18n( "Do you really want to close the running game?" ), QString(),
-	    KStandardGuiItem::close(), KStandardGuiItem::cancel() );
-    if ( ret == KMessageBox::Yes )
-    {
-	m_gameWidget->closeGame();
-    }
-    else if ( old_state == KBounceGameWidget::Running )
-    {
-	m_gameWidget->setPaused( false );
-    }
+	KBounceGameWidget::State old_state = m_gameWidget->state();
+	if ( old_state == KBounceGameWidget::Running )
+		m_gameWidget->setPaused( true );
+	int ret = KMessageBox::questionYesNo( this, i18n( "Do you really want to close the running game?" ), QString(),  KStandardGuiItem::close(), KStandardGuiItem::cancel() );
+	if ( ret == KMessageBox::Yes )
+	{
+		m_gameWidget->closeGame();
+	}
+	else if ( old_state == KBounceGameWidget::Running )
+	{
+		m_gameWidget->setPaused( false );
+	}
 }
 
 void KBounceMainWindow::gameOverNow()
 {
-    statusBar()->showMessage(  i18n("Game over. Click to start a game") );
-    highscore();
+	statusBar()->showMessage(  i18n("Game over. Click to start a game") );
+	highscore();
 }
 
 /**
@@ -154,11 +153,11 @@ void KBounceMainWindow::gameOverNow()
  */
 void KBounceMainWindow::showHighscore()
 {
-    KScoreDialog ksdialog( KScoreDialog::Name | KScoreDialog::Score, this );
-    ksdialog.addLocalizedConfigGroupNames(KGameDifficulty::localizedLevelStrings());
-    ksdialog.setConfigGroupWeights(KGameDifficulty::levelWeights());
-    ksdialog.setConfigGroup(KGameDifficulty::localizedLevelString());
-    ksdialog.exec();
+	KScoreDialog ksdialog( KScoreDialog::Name | KScoreDialog::Score, this );
+	ksdialog.addLocalizedConfigGroupNames(KGameDifficulty::localizedLevelStrings());
+	ksdialog.setConfigGroupWeights(KGameDifficulty::levelWeights());
+	ksdialog.setConfigGroup(KGameDifficulty::localizedLevelString());
+	ksdialog.exec();
 }
 
 void KBounceMainWindow::highscore()
@@ -235,22 +234,28 @@ void KBounceMainWindow::gameStateChanged( KBounceGameWidget::State state )
 {
     switch ( state )
     {
-	case KBounceGameWidget::Paused :
-	    m_pauseAction->setChecked( true );
-	    m_statusBar->clearMessage();
-	    break;
-	case KBounceGameWidget::Running :
-	    KGameDifficulty::setEnabled( false );
-	    m_pauseAction->setChecked( false );
-	    m_statusBar->clearMessage();
-	    break;
-	case KBounceGameWidget::GameOver :
-	    statusBar()->showMessage(  i18n("Game over. Click to start a game") );
-	    highscore(); 
-	    KGameDifficulty::setEnabled(true);
-	    break;
-    }
-    }
+		case KBounceGameWidget::BeforeFirstGame :
+			break;
+		case KBounceGameWidget::BetweenLevels :
+			break;
+		case KBounceGameWidget::Suspended :
+			break;
+		case KBounceGameWidget::Paused :
+		    m_pauseAction->setChecked( true );
+		    m_statusBar->clearMessage();
+		    break;
+		case KBounceGameWidget::Running :
+		    KGameDifficulty::setEnabled( false );
+		    m_pauseAction->setChecked( false );
+		    m_statusBar->clearMessage();
+		    break;
+		case KBounceGameWidget::GameOver :
+		    statusBar()->showMessage(  i18n("Game over. Click to start a game") );
+		    highscore();
+		    KGameDifficulty::setEnabled(true);
+		    break;
+	    }
+}
 
 void KBounceMainWindow::focusOutEvent( QFocusEvent *ev )
 {
@@ -319,9 +324,6 @@ i18n("On to level %1. Remember you get %2 lives this time!", m_game.level+1, m_g
     startLevel();
     */
 // }
-
-
-
 
 
 #include "mainwindow.moc"

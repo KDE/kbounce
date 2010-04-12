@@ -68,18 +68,23 @@ void KBounceBall::collide( const KBounceCollision& collision )
 {
     foreach ( const KBounceHit &hit, collision )
     {
-	if ( hit.type == TILE || hit.type == WALL )
-	{
-	    if ( hit.normal.x > 0 && m_velocity.x < 0 )
-		m_reflectX = true;
-	    if ( hit.normal.x < 0 && m_velocity.x > 0 )
-		m_reflectX = true;
-	    if ( hit.normal.y > 0 && m_velocity.y < 0 )
-		m_reflectY = true;
-	    if ( hit.normal.y < 0 && m_velocity.y > 0 )
-		m_reflectY = true;
-	}
+		if ( hit.type == TILE || hit.type == WALL )
+		{
+		    if ( hit.normal.x > 0 && m_velocity.x < 0 )
+			m_reflectX = true;
+		    if ( hit.normal.x < 0 && m_velocity.x > 0 )
+			m_reflectX = true;
+		    if ( hit.normal.y > 0 && m_velocity.y < 0 )
+			m_reflectY = true;
+		    if ( hit.normal.y < 0 && m_velocity.y > 0 )
+			m_reflectY = true;
+		}
     }
+    
+    if (m_reflectX || m_reflectY)
+	{
+		m_board->playSound("reflect.wav");
+	}
 }
 
 void KBounceBall::update()

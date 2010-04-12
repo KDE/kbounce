@@ -33,9 +33,9 @@ class KGameTheme;
 
 class KBounceGameWidget : public KGameCanvasWidget
 {
-    Q_OBJECT
+	Q_OBJECT
 
-    public:
+	public:
 	enum State { BeforeFirstGame, Running, BetweenLevels, Paused, Suspended, GameOver };
 
 	explicit KBounceGameWidget( QWidget* parent = 0 );
@@ -49,7 +49,7 @@ class KBounceGameWidget : public KGameCanvasWidget
 
     public slots:
 	void closeGame();
-        void newGame();
+	void newGame();
 	void setPaused( bool );
 	void settingsChanged();
 	void setSounds( bool );
@@ -67,7 +67,8 @@ class KBounceGameWidget : public KGameCanvasWidget
 	void stateChanged( KBounceGameWidget::State state );
 
     protected slots:
-        void onFillChanged( int filled );
+	void onFillChanged( int filled );
+	void onLivesChanged( int lives );
 	void onWallDied();
 	void tick();
 	

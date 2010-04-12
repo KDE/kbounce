@@ -51,7 +51,7 @@ class KBounceRenderer
 	/**
 	 * Checks if specified element is included in loaded SVG.
 	 */
-        bool elementExists( const QString& id );
+	bool elementExists( const QString& id );
 	/**
 	 * Returns number of frames for element in SVG with specified ID
 	 */

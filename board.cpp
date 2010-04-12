@@ -26,7 +26,10 @@
 #include <KUrl>
 #include <Phonon/MediaObject>
 
+
 #include <QTimer>
+#include <QDir>
+
 #include "ball.h"
 #include "gameobject.h"
 #include "wall.h"
@@ -37,6 +40,7 @@
 #define DIR_RIGHT 1
 #define DIR_DOWN 2
 #define DIR_LEFT 3
+#include <QThread>
 
 KBounceBoard::KBounceBoard( KBounceRenderer* renderer, KGameCanvasAbstract* canvas, QWidget* parent )
     : QObject( parent ), KGameCanvasGroup( canvas ), m_renderer( renderer )
@@ -55,16 +59,15 @@ KBounceBoard::KBounceBoard( KBounceRenderer* renderer, KGameCanvasAbstract* canv
     m_walls.append( new KBounceWall( KBounceWall::Left, m_renderer, this ) );
     foreach( KBounceWall* wall, m_walls )
     {
-	wall->hide();
-	connect( wall, SIGNAL( died() ), this, SIGNAL( wallDied() ) );
-	connect( wall, SIGNAL( finished( int, int, int, int ) ), this, SLOT( wallFinished( int, int, int, int ) ) );
+        wall->hide();
+        connect( wall, SIGNAL( died() ), this, SIGNAL( wallDied() ) );
+        connect( wall, SIGNAL( finished( int, int, int, int ) ), this, SLOT( wallFinished( int, int, int, int ) ) );
     }
 
     clear();
 
-    m_audioPlayer = 0;
+    m_audioPlayer = 0L;
     m_playSounds = false;
-    m_soundPath = QString();
 
     // Initialize this members with the old default values.
     m_ballVelocity = 0.125;
@@ -144,7 +147,7 @@ void KBounceBoard::redraw()
 
     foreach( KBounceBall* ball, m_balls )
     {
-        ball->resetPixmaps();
+	    ball->resetPixmaps();
     }
     foreach( KBounceWall* wall, m_walls )
     {
@@ -366,11 +369,12 @@ QPointF KBounceBoard::unmapPosition( const QPoint& pos ) const
 
 void KBounceBoard::playSound( const QString& name )
 {
-    if ( m_playSounds == true && m_soundPath != QString() )
-    {
-        QString fileName = m_soundPath + name;
-        m_audioPlayer->setCurrentSource( fileName );
-        m_audioPlayer->play();
+    if ( m_playSounds == true )
+	{
+        m_audioPlayer->setCurrentSource( "sounds:" + name );
+		m_audioPlayer->enqueue(Phonon::MediaSource());
+		kDebug() << m_audioPlayer->remainingTime();
+		m_audioPlayer->play();
     }
 }
 
@@ -383,22 +387,31 @@ void KBounceBoard::setSounds( bool val )
 
 void KBounceBoard::setSoundPath( const QString& path )
 {
-    m_soundPath = path;
+    QDir::addSearchPath( "sounds", path );
 }
 
 void KBounceBoard::tick()
 {
-    checkCollisions();
+	checkCollisions();
 
-    foreach( KBounceBall* ball, m_balls )
-	ball->advance(); 
-    foreach( KBounceWall* wall, m_walls )
-	wall->advance();
+	foreach( KBounceBall* ball, m_balls )
+	{
+	    ball->advance();
+	}
+	foreach( KBounceWall* wall, m_walls )
+	{
+	    wall->advance();
+	}
 
-    foreach( KBounceBall* ball, m_balls )
-	ball->update();
-    foreach( KBounceWall* wall, m_walls )
-	wall->update();
+	foreach( KBounceBall* ball, m_balls )
+	{
+	    ball->update();
+	}
+
+	foreach( KBounceWall* wall, m_walls )
+	{
+	    wall->update();
+	}
 }
 
 void KBounceBoard::wallFinished( int x1, int y1, int x2, int y2 )
@@ -437,26 +450,26 @@ void KBounceBoard::wallFinished( int x1, int y1, int x2, int y2 )
 
 void KBounceBoard::clear()
 {
-    for ( int i = 0; i < TILE_NUM_W; i++ )
-	m_tiles[i][0] = m_tiles[i][TILE_NUM_H-1] = Border;
-    for ( int j = 0; j < TILE_NUM_H; j++ )
-	m_tiles[0][j] = m_tiles[TILE_NUM_W-1][j] = Border;
-    for ( int i = 1; i < TILE_NUM_W - 1; i++ )
+	for ( int i = 0; i < TILE_NUM_W; i++ )
+		m_tiles[i][0] = m_tiles[i][TILE_NUM_H-1] = Border;
+	for ( int j = 0; j < TILE_NUM_H; j++ )
+		m_tiles[0][j] = m_tiles[TILE_NUM_W-1][j] = Border;
+	for ( int i = 1; i < TILE_NUM_W - 1; i++ )
 	for ( int j = 1; j < TILE_NUM_H -1; j++ )
 	    m_tiles[i][j] = Free;
-    m_filled = 0;
+	m_filled = 0;
 }
 
 void KBounceBoard::fill( int x, int y )
 {
-    if ( m_tiles[x][y] != Free )
-	return;
-    m_tiles[x][y] = Temp;
+	if ( m_tiles[x][y] != Free )
+		return;
+	m_tiles[x][y] = Temp;
 
-    if ( y > 0 ) fill( x, y - 1 );
-    if ( x < TILE_NUM_W - 1 ) fill ( x + 1, y );
-    if ( y < TILE_NUM_H - 1 ) fill ( x, y + 1 );
-    if ( x > 0 ) fill ( x - 1, y );
+	if ( y > 0 ) fill( x, y - 1 );
+	if ( x < TILE_NUM_W - 1 ) fill ( x + 1, y );
+	if ( y < TILE_NUM_H - 1 ) fill ( x, y + 1 );
+	if ( x > 0 ) fill ( x - 1, y );
 }
 
 #include "board.moc"

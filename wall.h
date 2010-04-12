@@ -67,7 +67,7 @@ class KBounceWall : public QObject, public KGameCanvasPixmap
 	 * Updates object's pixmap and position on screen
 	 * Called once per frame after update()
 	 */
-    	void update();
+	void update();
 
 	/**
 	 * Starts building wall beginning from tile specified by x and y
