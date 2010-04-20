@@ -26,14 +26,11 @@
 
 #include "gameobject.h"
 #include "renderer.h"
+#include "sound.h"
 
 #define TILE_NUM_H 20
 #define TILE_NUM_W 32
 
-namespace Phonon
-{
-    class MediaObject;
-}
 
 class KBounceBall;
 class KBounceWall;
@@ -96,8 +93,7 @@ class KBounceBoard: public QObject, public KGameCanvasGroup
 
 	QTimer* m_clock;
 
-	Phonon::MediaObject* m_audioPlayer;
-	bool m_playSounds;
+	KBounceSound* m_sound;
     
 	qreal m_ballVelocity;
 	qreal m_wallVelocity;

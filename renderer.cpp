@@ -31,7 +31,7 @@
 #include <krandom.h>
 
 KBounceRenderer::KBounceRenderer()
-	: m_svgRenderer(), m_backgroundSize( QSize( 0, 0 ) ) ,m_useRandomBackgrounds(false)
+	: m_svgRenderer(), m_backgroundSize( QSize( 0, 0 ) ) ,m_tileCache("KBounceTileCache"),m_useRandomBackgrounds(false)
 {
 }
 
@@ -42,7 +42,10 @@ KBounceRenderer::~KBounceRenderer()
 bool KBounceRenderer::load( const QString& fileName )
 {
     kDebug() << "File name:" << fileName;
-    m_tileCache.clear();
+	if ( m_tileCache.isEnabled() )
+	{
+		m_tileCache.discard();
+	}
     m_cachedBackground = QPixmap();
     return m_svgRenderer.load( fileName );
 }
@@ -75,12 +78,12 @@ int KBounceRenderer::frames( const QString& id )
 
 void KBounceRenderer::setBackgroundSize( const QSize& size )
 {
-    if (size != m_backgroundSize)
+	if (size != m_backgroundSize )
     {
         m_backgroundSize = size;
-        if (m_useRandomBackgrounds)
+		if ( m_useRandomBackgrounds && !m_cachedBackground.isNull() )
         {
-            m_cachedBackground= m_randomBackground.scaled(m_backgroundSize,Qt::IgnoreAspectRatio);
+            m_cachedBackground = m_randomBackground.scaled(m_backgroundSize,Qt::IgnoreAspectRatio);
         }
         else
         {
@@ -95,7 +98,7 @@ bool KBounceRenderer::loadNewBackgroundPixmap()
     if ( !m_customBackgroundPath.isEmpty() )
     {
         m_randomBackground = getRandomBackgroundPixmap(m_customBackgroundPath);
-        if (!m_randomBackground.isNull())
+        if ( !m_randomBackground.isNull() )
         {
             m_cachedBackground = m_randomBackground.scaled(m_backgroundSize,Qt::IgnoreAspectRatio);
             backgroundFound = true;
@@ -112,7 +115,7 @@ QPixmap KBounceRenderer::renderBackground()
 		//This is a dirty fix to the qt's m_svgRenderer.render() method that
 		//leaves an garbage-filled border of a pixmap
 		kDebug() << "Rendering the background. Size:" << m_backgroundSize;
-		if (m_useRandomBackgrounds && loadNewBackgroundPixmap())
+		if ( m_useRandomBackgrounds && loadNewBackgroundPixmap() )
 		{
 		    return m_cachedBackground;
 		}
@@ -152,15 +155,16 @@ QPixmap KBounceRenderer::getRandomBackgroundPixmap(const QString& path)
 
 QPixmap KBounceRenderer::renderElement( const QString& id, const QSize& size )
 {
-    QHash<QString, QPixmap>::Iterator elementIt = m_tileCache.find(id); 
-    QHash<QString, QPixmap>::Iterator itEnd = m_tileCache.end();
-    if ( elementIt == itEnd && size.isEmpty() )
+	
+	QPixmap renderedTile;
+	bool elementFound = m_tileCache.find( id, renderedTile );
+	if ( !elementFound && size.isEmpty() )
     {
         kDebug() << "Rendering element of no size id:" << id;
         return QPixmap();
     }
 
-    if ( elementIt == itEnd || ( !size.isNull() && size != elementIt.value().size() ) )
+    if ( !elementFound || ( !size.isNull() && size != renderedTile.size() ) )
     {
         kDebug() << "Rendering" << id << "size:" << size;
         QImage baseImage( size, QImage::Format_ARGB32_Premultiplied );
@@ -168,10 +172,10 @@ QPixmap KBounceRenderer::renderElement( const QString& id, const QSize& size )
         QPainter p( &baseImage );
         m_svgRenderer.render( &p, id );
         p.end();
-        QPixmap renderedTile = QPixmap::fromImage( baseImage );
-        elementIt = m_tileCache.insert(id, renderedTile);
+        renderedTile = QPixmap::fromImage( baseImage );
+        m_tileCache.insert( id, renderedTile );
     }
-    return elementIt.value();
+    return renderedTile;
 }
 
 QPixmap KBounceRenderer::renderElement( const QString& id, int frame, const QSize& size )

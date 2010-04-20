@@ -23,11 +23,12 @@
 #define RENDERER_H
 
 #include <KSvgRenderer>
-
+#include <KPixmapCache>
 
 #include <QSize>
 #include <QHash>
 #include <QPixmap>
+
 
 /**
  * Class for rendering elements of game SVG to QPixmap
@@ -93,7 +94,8 @@ class KBounceRenderer
 	QSize m_backgroundSize;
 	QPixmap m_cachedBackground;
     QPixmap m_randomBackground;
-	QHash<QString, QPixmap> m_tileCache;
+
+	KPixmapCache m_tileCache;
 	QString m_customBackgroundPath;
 	bool m_useRandomBackgrounds;
 };

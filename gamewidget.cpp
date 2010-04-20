@@ -344,8 +344,8 @@ void KBounceGameWidget::newLevel()
 
 void KBounceGameWidget::redraw()
 {
-    if ( size().isEmpty() )
-	return;
+	if ( size().isEmpty() )
+		return;
 
     switch ( m_state )
     {
@@ -370,6 +370,9 @@ void KBounceGameWidget::redraw()
 
 void KBounceGameWidget::generateOverlay()
 {
+	if ( size().isEmpty() )
+		return;
+	
     int itemWidth = qRound( 0.8 * size().width() );
     int itemHeight = qRound( 0.6 * size().height() );
 
