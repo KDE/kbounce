@@ -20,15 +20,9 @@
 
 #include <kdebug.h>
 #include <KGlobal>
-#include <KLocale>
 #include <KRandom>
-#include <KStandardDirs>
-#include <KUrl>
-#include <Phonon/MediaObject>
-
 
 #include <QTimer>
-#include <QDir>
 
 #include "ball.h"
 #include "gameobject.h"
@@ -40,7 +34,7 @@
 #define DIR_RIGHT 1
 #define DIR_DOWN 2
 #define DIR_LEFT 3
-#include <QThread>
+
 
 KBounceBoard::KBounceBoard( KBounceRenderer* renderer, KGameCanvasAbstract* canvas, QWidget* parent )
     : QObject( parent ), KGameCanvasGroup( canvas ), m_renderer( renderer )
@@ -66,8 +60,7 @@ KBounceBoard::KBounceBoard( KBounceRenderer* renderer, KGameCanvasAbstract* canv
 
     clear();
 
-    m_audioPlayer = 0L;
-    m_playSounds = false;
+    m_sound = 0L;
 
     // Initialize this members with the old default values.
     m_ballVelocity = 0.125;
@@ -79,7 +72,7 @@ KBounceBoard::~KBounceBoard()
     qDeleteAll( m_balls );
     qDeleteAll( m_walls );
     delete m_tilesPix;
-    delete m_audioPlayer;
+    delete m_sound;
 }
 
 void KBounceBoard::resize( QSize& size )
@@ -369,25 +362,20 @@ QPointF KBounceBoard::unmapPosition( const QPoint& pos ) const
 
 void KBounceBoard::playSound( const QString& name )
 {
-    if ( m_playSounds == true )
-	{
-        m_audioPlayer->setCurrentSource( "sounds:" + name );
-		m_audioPlayer->enqueue(Phonon::MediaSource());
-		kDebug() << m_audioPlayer->remainingTime();
-		m_audioPlayer->play();
-    }
+	m_sound->playSound(name);
 }
 
 void KBounceBoard::setSounds( bool val )
 {
-    m_playSounds = val;
-    if ( val == true && m_audioPlayer == 0 )
-	m_audioPlayer = Phonon::createPlayer( Phonon::GameCategory );
+	m_sound->setSoundsEnabled(val);
 }
 
 void KBounceBoard::setSoundPath( const QString& path )
 {
-    QDir::addSearchPath( "sounds", path );
+	if ( m_sound == 0 )
+	{
+		m_sound = new KBounceSound(path);
+	}
 }
 
 void KBounceBoard::tick()

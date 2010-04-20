@@ -20,6 +20,7 @@ set(kbounce_SRCS
     main.cpp 
     mainwindow.cpp 
     renderer.cpp
+	sound.cpp
     wall.cpp 
     backgroundselector.cpp)
 

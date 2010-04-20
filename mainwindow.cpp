@@ -190,7 +190,7 @@ void KBounceMainWindow::readSettings()
 {
     KGameDifficulty::setLevel((KGameDifficulty::standardLevel)KBounceSettings::level());
     m_soundAction->setChecked( KBounceSettings::playSounds() );
-    settingsChanged();
+	m_gameWidget->settingsChanged();
 }
 
 void KBounceMainWindow::settingsChanged()
