@@ -139,13 +139,13 @@ QPixmap KBounceRenderer::getRandomBackgroundPixmap(const QString& path)
         return QPixmap();
     }
 
-    if (dir.count() > 1)
+    if ( dir.count() > 1 )
     {
         // return random pixmap
         int num = KRandom::random() % dir.count();
         return QPixmap( dir.absoluteFilePath( dir[num] ) );
     }
-    else if (dir.count()==1)
+    else if ( dir.count() == 1 )
     {
         return QPixmap( dir.absoluteFilePath(dir[0]) );
     }

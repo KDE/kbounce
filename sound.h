@@ -24,24 +24,27 @@
 #define KBOUNCESOUND_H
 
 #include <QString>
+#include <QHash>
 
 namespace Phonon
 {
 	class MediaObject;
 }
 
-class KBounceSound
+class KBounceSound 
 {
 public:
-	explicit KBounceSound( const QString& soundPath );
+	explicit KBounceSound(QObject *parent, const QString& soundPath );
 	virtual ~KBounceSound();
 	void setSoundsEnabled(bool enabled);
+	Phonon::MediaObject* cacheSound(const QString& sound);
 	void playSound(const QString& sound);
 private:
-	Phonon::MediaObject* m_audioPlayer1;
-	Phonon::MediaObject* m_audioPlayer2;
+	void playSoundInternal(const QString& sound);
+	QHash<QString,Phonon::MediaObject*> m_hMedia;
 
-	bool m_playSounds;	
+	bool m_playSounds;
+	QObject *m_parent;
 };
 
 #endif // KBOUNCESOUND_H

@@ -23,67 +23,69 @@
 
 #include <QDir>
 #include <Phonon/MediaObject>
-
 #include <kdebug.h>
 
-KBounceSound::KBounceSound(const QString& soundPath) : m_playSounds(false)
+KBounceSound::KBounceSound(QObject *parent, const QString& soundPath) : m_parent(parent), m_playSounds(false)
 {
-	m_audioPlayer1 = 0L;
-	m_audioPlayer2 = 0L;
 	QDir::addSearchPath( "sounds", soundPath );
 }
 
 KBounceSound::~KBounceSound()
 {
-	delete m_audioPlayer1;
-	m_audioPlayer1 = 0L;
-	delete m_audioPlayer2;
-	m_audioPlayer2 = 0L;
+	foreach (Phonon::MediaObject* media , m_hMedia)
+	{
+		delete media;
+	}
 }
 
 
 void KBounceSound::setSoundsEnabled(bool enabled)
 {
 	m_playSounds = enabled;
-	if ( enabled )
-	{
-		if (!m_audioPlayer1)
-		{
-			m_audioPlayer1 = Phonon::createPlayer(Phonon::GameCategory);
-		}
-		if (!m_audioPlayer2)
-		{
-			m_audioPlayer2 = Phonon::createPlayer(Phonon::GameCategory);
-		}
-	}
-	else
-	{
-		delete m_audioPlayer1;
-		delete m_audioPlayer2;
-		m_audioPlayer1 = 0;
-		m_audioPlayer2 = 0;
-	}
 }
 
 void KBounceSound::playSound(const QString& sound)
 {
-	Phonon::MediaObject* m_usedMedia = 0L;
-	
-	kDebug() << "Playing sound:"+ sound;
+	 playSoundInternal( sound );
+}
+
+Phonon::MediaObject* KBounceSound::cacheSound(const QString& sound)
+{
+	Phonon::MediaObject* usedMedia = 0L;
+	if ( !m_hMedia.contains(sound) )
+	{
+		usedMedia = Phonon::createPlayer(Phonon::GameCategory);
+		usedMedia->setParent( m_parent );
+		usedMedia->setCurrentSource( "sounds:" + sound );
+		m_hMedia.insert( sound, usedMedia );
+	}
+	else
+	{
+		QHash<QString,Phonon::MediaObject*>::iterator element = m_hMedia.find(sound);
+		usedMedia = element.value();
+	}
+	return usedMedia;
+}
+
+void KBounceSound::playSoundInternal(const QString& sound)
+{
 	if (m_playSounds)
 	{
-		// Choose the media object with the smallest remaining time
-		if ( m_audioPlayer1->remainingTime() <= m_audioPlayer2->remainingTime() )
+		Phonon::MediaObject* usedMedia = 0L;
+		kDebug() << "Playing sound:"+ sound;
+		if ( m_hMedia.contains(sound) )
 		{
-			m_usedMedia = m_audioPlayer1;
+			QHash<QString,Phonon::MediaObject*>::iterator element = m_hMedia.find(sound);
+			usedMedia = element.value();
 		}
 		else
 		{
-			m_usedMedia = m_audioPlayer2;
+			usedMedia = cacheSound( sound );
 		}
-		m_usedMedia->setCurrentSource( "sounds:" + sound );
-		m_usedMedia->play();
+		usedMedia->play();
 	}
 }
+
+
 
 

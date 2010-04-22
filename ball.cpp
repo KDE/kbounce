@@ -51,6 +51,7 @@ void KBounceBall::advance()
        m_velocity.x = -m_velocity.x;
        m_reflectX = false;
    }
+   
    if ( m_reflectY )
    {
        kDebug() << "Reflecting ball Y";
@@ -80,11 +81,6 @@ void KBounceBall::collide( const KBounceCollision& collision )
 			m_reflectY = true;
 		}
     }
-    
-    if (m_reflectX || m_reflectY)
-	{
-		m_board->playSound("reflect.wav");
-	}
 }
 
 void KBounceBall::update()

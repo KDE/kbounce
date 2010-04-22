@@ -317,7 +317,7 @@ void KBounceWall::finish( bool shorten, Direction dir )
 
     emit finished( left, top, right, bottom );
     hide();
-    m_board->playSound( "wallend.wav" );
+	m_board->playSound( "reflect.wav" );
 }
 
 void KBounceWall::setWallVelocity(qreal velocity)

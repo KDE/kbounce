@@ -362,7 +362,7 @@ QPointF KBounceBoard::unmapPosition( const QPoint& pos ) const
 
 void KBounceBoard::playSound( const QString& name )
 {
-	m_sound->playSound(name);
+	m_sound->playSound( name );
 }
 
 void KBounceBoard::setSounds( bool val )
@@ -374,7 +374,10 @@ void KBounceBoard::setSoundPath( const QString& path )
 {
 	if ( m_sound == 0 )
 	{
-		m_sound = new KBounceSound(path);
+		m_sound = new KBounceSound( this , path );
+		m_sound->cacheSound("wallstart.wav");
+		m_sound->cacheSound("reflect.wav");
+		m_sound->cacheSound("timeout.wav");
 	}
 }
 
