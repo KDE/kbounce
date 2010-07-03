@@ -52,14 +52,7 @@ bool KBounceRenderer::load( const QString& fileName )
 
 void KBounceRenderer::setCustomBackgroundPath(const QString& path)
 {
-    if (path.isEmpty())
-    {
-        m_useRandomBackgrounds = false;
-    }
-    else
-    {
-        m_useRandomBackgrounds = true;
-    }
+    m_useRandomBackgrounds = !path.isEmpty();
     m_customBackgroundPath=path;
 }
 
