@@ -22,7 +22,7 @@
 #ifndef RENDERER_H
 #define RENDERER_H
 
-#include <KSvgRenderer>
+#include <QSvgRenderer>
 #include <KPixmapCache>
 
 #include <QSize>
@@ -90,7 +90,7 @@ class KBounceRenderer
     bool loadNewBackgroundPixmap();
 
     private:
-	KSvgRenderer m_svgRenderer;
+	QSvgRenderer m_svgRenderer;
 	QSize m_backgroundSize;
 	QPixmap m_cachedBackground;
     QPixmap m_randomBackground;
