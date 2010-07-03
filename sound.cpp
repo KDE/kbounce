@@ -32,10 +32,7 @@ KBounceSound::KBounceSound(QObject *parent, const QString& soundPath) : m_parent
 
 KBounceSound::~KBounceSound()
 {
-	foreach (Phonon::MediaObject* media , m_hMedia)
-	{
-		delete media;
-	}
+	qDeleteAll(m_hMedia);
 }
 
 
