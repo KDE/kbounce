@@ -78,7 +78,17 @@ KBounceBoard::~KBounceBoard()
 void KBounceBoard::resize( QSize& size )
 {
     //Pause the clock to prevent ticks during resize ...
-    setPaused(true);
+    bool alreadyPaused = false;
+    if (!m_clock->isActive())
+    {
+    // ... but only when we are not already paused
+        alreadyPaused = true;
+    }
+    else
+    {
+        setPaused(true);
+    }
+                
     int minTileSize;
     if ( TILE_NUM_H * size.width() - TILE_NUM_W * size.height() > 0 )
 	minTileSize = size.height() / TILE_NUM_H;
@@ -95,7 +105,10 @@ void KBounceBoard::resize( QSize& size )
 
     size.setWidth( minTileSize * TILE_NUM_W );
     size.setHeight( minTileSize * TILE_NUM_H );
-    setPaused(false);
+    if (!alreadyPaused)
+    {
+        setPaused(false);
+    }
 }
 
 void KBounceBoard::redraw()
@@ -413,9 +426,16 @@ void KBounceBoard::wallFinished( int x1, int y1, int x2, int y2 )
 
     foreach ( KBounceBall* ball, m_balls )
     {
-        int x = static_cast<int>( ball->relativePos().x() );
-        int y = static_cast<int>( ball->relativePos().y() );
-        fill( x, y );
+        int x1 = static_cast<int>( ball->boundingRect().x() );
+        int y1 = static_cast<int>( ball->boundingRect().y() );
+        int x2 = static_cast<int>( ball->boundingRect().right() );
+        int y2 = static_cast<int>( ball->boundingRect().bottom() );
+        // try to fill from all edges
+        // this way we can avoid most precision-related issues
+        fill(x1, y1);
+        fill(x1, y2);
+        fill(x2, y1);
+        fill(x2, y2);
     }
 
     for ( int x = 0; x < TILE_NUM_W; x++ )
