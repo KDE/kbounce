@@ -93,7 +93,7 @@ void KBounceMainWindow::initXMLUI()
     // Settings
     KStandardAction::preferences( this, SLOT( configureSettings() ), actionCollection() );
     m_soundAction = new KToggleAction( i18n("&Play Sounds"), this );
-    actionCollection()->addAction( "toggle_sound", m_soundAction );
+    actionCollection()->addAction( QLatin1String(  "toggle_sound" ), m_soundAction );
     connect( m_soundAction, SIGNAL( triggered( bool ) ), this, SLOT( setSounds( bool ) ) );
 }
 
