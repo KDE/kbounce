@@ -1,6 +1,7 @@
 [KGameTheme]
 VersionFormat=1
 Name=Egyptian Bounce
+Name[ast]=Rebote exipciu
 Name[ca]=Bounce egipci 
 Name[ca@valencia]=Bounce egipci 
 Name[da]=Egyptisk bounce
@@ -35,6 +36,7 @@ Name[x-test]=xxEgyptian Bouncexx
 Name[zh_CN]=埃及弹球
 Name[zh_TW]=埃及彈跳
 Description=KBounce, Egyptian style.
+Description[ast]=KBounce, estilu exipciu.
 Description[ca]=KBounce, estil egipci.
 Description[ca@valencia]=KBounce, estil egipci.
 Description[da]=KBounce, egyptisk stil.

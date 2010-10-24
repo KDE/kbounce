@@ -1,6 +1,7 @@
 [Desktop Entry]
 Name=KBounce
 Name[af]=K-hop
+Name[ast]=KBounce
 Name[be]=Несуцішныя шарыкі
 Name[bn]=কে-বাউন্স
 Name[br]=KBounce
@@ -69,6 +70,7 @@ X-DocPath=kbounce/index.html
 Icon=kbounce
 
 GenericName=Ball Bouncing Game
+GenericName[ast]=Xuegu nel que reboten les boles
 GenericName[ca]=Un joc de pilotes rebotant
 GenericName[ca@valencia]=Un joc de pilotes rebotant
 GenericName[cs]=Hra s poskakujícími míčky

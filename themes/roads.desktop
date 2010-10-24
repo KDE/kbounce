@@ -1,6 +1,7 @@
 [KGameTheme]
 VersionFormat=1
 Name=Roads
+Name[ast]=Carreteres
 Name[ca]=Carreteres
 Name[ca@valencia]=Carreteres
 Name[da]=Veje
@@ -42,6 +43,7 @@ Name[x-test]=xxRoadsxx
 Name[zh_CN]=道路
 Name[zh_TW]=Roads
 Description=Roads, cones and wheels.
+Description[ast]=Carreteres, conos y ruedes.
 Description[ca]=Carreteres, cons i rodes.
 Description[ca@valencia]=Carreteres, cons i rodes.
 Description[da]=Veje, kegler og hjul
