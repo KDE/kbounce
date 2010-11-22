@@ -134,9 +134,19 @@ QPixmap KBounceRenderer::getRandomBackgroundPixmap(const QString& path)
 
     if ( dir.count() > 1 )
     {
+		QString filename;
         // return random pixmap
-        int num = KRandom::random() % dir.count();
-        return QPixmap( dir.absoluteFilePath( dir[num] ) );
+        uint pos = KRandom::random() % dir.count();
+		if ( pos < dir.count() )
+		{
+			filename = dir.absoluteFilePath( dir[pos] ); 
+		}
+
+		if (!filename.isEmpty() && QFile(filename).exists())
+		{
+			return QPixmap(filename);	
+		}
+		else return QPixmap();
     }
     else if ( dir.count() == 1 )
     {
