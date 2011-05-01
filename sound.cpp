@@ -25,7 +25,7 @@
 #include <Phonon/MediaObject>
 #include <kdebug.h>
 
-KBounceSound::KBounceSound(QObject *parent, const QString& soundPath) : m_parent(parent), m_playSounds(false)
+KBounceSound::KBounceSound(QObject *parent, const QString& soundPath) : m_playSounds(false), m_parent(parent)
 {
 	QDir::addSearchPath( "sounds", soundPath );
 }
