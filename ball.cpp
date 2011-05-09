@@ -31,12 +31,12 @@ const int KBounceBall::BALL_ANIM_DELAY = 50;
 const qreal KBounceBall::BALL_RELATIVE_SIZE = 0.8;
 
 KBounceBall::KBounceBall( KBounceRenderer* renderer, KBounceBoard* board )
-    : KGameCanvasPixmap( board ), m_renderer( renderer ), m_board( board ),
-    m_soundDelay( 0 ), m_size( QSize( 16, 16 ) ), m_frame( 0 ),
-    m_xPos( 0 ), m_yPos( 0 )
+: KGameCanvasRenderedPixmap(renderer,"", board ), m_renderer( renderer ), m_board( board ),
+    m_soundDelay( 0 ), m_size( QSize( 16, 16 ) ), m_framesNum( 0 ), m_xPos( 0 ), m_yPos( 0 ) 
 {
-    resetPixmaps();
-    m_nextBoundingRect.setSize( QSizeF( BALL_RELATIVE_SIZE, BALL_RELATIVE_SIZE ) );
+	setSpriteKey("ball");
+	resetPixmaps();
+	m_nextBoundingRect.setSize( QSizeF( BALL_RELATIVE_SIZE, BALL_RELATIVE_SIZE ) );
 }
 
 
@@ -85,12 +85,8 @@ void KBounceBall::collide( const KBounceCollision& collision )
 
 void KBounceBall::update()
 {
-    m_frame++;
-    if ( m_frame >= m_framesNum )
-	m_frame = 0;
-
-    setFrame( m_frame );
-    moveTo( m_board->mapPosition( QPointF( m_xPos, m_yPos ) ) );
+	setFrame( frame()+1 );
+	moveTo( m_board->mapPosition( QPointF( m_xPos, m_yPos ) ) );
 }
 
 void KBounceBall::resize( const QSize& tileSize )
@@ -99,27 +95,23 @@ void KBounceBall::resize( const QSize& tileSize )
 
     m_size.setWidth( static_cast<int>( BALL_RELATIVE_SIZE * tileSize.width() ) );
     m_size.setHeight( static_cast<int> ( BALL_RELATIVE_SIZE * tileSize.height() ) );
+	setRenderSize(m_size);
     moveTo( m_board->mapPosition( QPointF( m_xPos, m_yPos ) ) );
-    setFrame( m_frame );
 }
 
 void KBounceBall::resetPixmaps()
 {
-    m_frame = 0;
-    m_framesNum = m_renderer->frames( QString( "ball" ) );
-    setFrame( m_frame );
-}
-
-void KBounceBall::setFrame(int frame)
-{
-    setPixmap( m_renderer->renderElement(  QString( "ball" ), frame , m_size ) );
+	m_framesNum = frameCount();
+	setFrame( 1 );
 }
 
 void KBounceBall::setRandomFrame()
 {
-    int frame = 0;
-    if ( m_framesNum > 0 )
-	frame = KRandom::random() % m_framesNum;
+    int frame = 1;
+    if ( m_framesNum > 1 )
+	{
+		frame = KRandom::random() % m_framesNum;
+	}
     setFrame( frame );
 }
 

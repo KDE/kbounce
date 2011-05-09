@@ -133,11 +133,11 @@ void KBounceBoard::redraw()
             switch ( m_tiles[i][j] )
             {
                 case Free:
-                p.drawPixmap( i * m_tileSize.width(), j* m_tileSize.height(), m_renderer->renderElement( "gridTile", m_tileSize ) );
+                p.drawPixmap( i * m_tileSize.width(), j* m_tileSize.height(), m_renderer->spritePixmap( "gridTile", m_tileSize ) );
                 break;
                 case Border:
                 case Wall:
-                p.drawPixmap( i * m_tileSize.width(), j * m_tileSize.height(), m_renderer->renderElement( "wallTile", m_tileSize ) );
+                p.drawPixmap( i * m_tileSize.width(), j * m_tileSize.height(), m_renderer->spritePixmap( "wallTile", m_tileSize ) );
                 break;
                 default:
                 break;
@@ -151,10 +151,10 @@ void KBounceBoard::redraw()
 	m_tilesPix->show();
     }
 
-    foreach( KBounceBall* ball, m_balls )
+  /*  foreach( KBounceBall* ball, m_balls )
     {
 	    ball->resetPixmaps();
-    }
+    }*/
     foreach( KBounceWall* wall, m_walls )
     {
         wall->update();

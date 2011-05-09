@@ -36,8 +36,6 @@ KBounceGameWidget::KBounceGameWidget( QWidget* parent )
     m_bonus( 0 ), m_level( 0 ), m_lives( 0 ), m_time( 0 ), m_vertical( false )
 {
     m_theme = new KGameTheme( "KGameTheme" );
-    m_theme->loadDefault();
-
     m_board = new KBounceBoard( &m_renderer, this, this );
     connect( m_board, SIGNAL( fillChanged( int ) ), this, SLOT( onFillChanged( int ) ) );
     connect( m_board, SIGNAL( wallDied() ), this, SLOT( onWallDied() ) );
@@ -149,9 +147,7 @@ void KBounceGameWidget::settingsChanged()
     kDebug() << "Settings changed";
     
     m_board->setSounds( KBounceSettings::playSounds() );
-
-    if ( !m_theme->load( KBounceSettings::theme() ) )
-        m_theme->loadDefault();
+	m_renderer.setTheme( KBounceSettings::theme() );
 
     if (KBounceSettings::useRandomBackgroundPictures())
     {
@@ -161,7 +157,7 @@ void KBounceGameWidget::settingsChanged()
     {
         m_renderer.setCustomBackgroundPath(QString());
     }
-    m_renderer.load( m_theme->graphics() );
+   
     renderBackground();
     redraw();
 }
@@ -386,9 +382,9 @@ void KBounceGameWidget::generateOverlay()
 	p.setPen( Qt::transparent );
 	p.setRenderHint(QPainter::Antialiasing );
 	
-	if ( m_renderer.elementExists("overlayBackground") )
+	if ( m_renderer.spriteExists("overlayBackground") )
 	{
-		QPixmap themeBackgound = m_renderer.renderElement("overlayBackground",backgroundSize);
+		QPixmap themeBackgound = m_renderer.spritePixmap("overlayBackground",backgroundSize);
 		p.setCompositionMode( QPainter::CompositionMode_Source );
 		p.drawPixmap( p.viewport(), themeBackgound );
 		p.setCompositionMode( QPainter::CompositionMode_DestinationIn );

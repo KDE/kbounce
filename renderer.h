@@ -24,6 +24,7 @@
 
 #include <QSvgRenderer>
 #include <KPixmapCache>
+#include <KGameRenderer>
 
 #include <QSize>
 #include <QHash>
@@ -33,7 +34,8 @@
 /**
  * Class for rendering elements of game SVG to QPixmap
  */
-class KBounceRenderer 
+
+class KBounceRenderer : public KGameRenderer
 {
     public:
 	/**
@@ -46,33 +48,9 @@ class KBounceRenderer
 	 */
 	~KBounceRenderer();
 	/**
-	 * Loads SVG file and invalidates pixmap cache
-	 */
-	bool load( const QString& fileName );
-	/**
-	 * Checks if specified element is included in loaded SVG.
-	 */
-	bool elementExists( const QString& id );
-	/**
-	 * Returns number of frames for element in SVG with specified ID
-	 */
-	int frames( const QString& id );
-	/**
 	 * Sets Background size and invalidates background cache
 	 */
 	void setBackgroundSize( const QSize& size);
-	/**
-	 * Renders elements to pixmap.
-	 * @param size if == QSize( 0, 0 ) will return rendered element
-	 * of former size.
-	 */
-	QPixmap renderElement( const QString& id, const QSize& size = QSize( 0, 0 ) );
-	/**
-	 * Renders frame of an element to pixmap
-	 * @param size if == QSize( 0, 0 ) will return rendered element
-	 * of former size
-	 */
-	QPixmap renderElement( const QString& id, int frame, const QSize& size = QSize( 0, 0 ) );
 	/**
 	 * Renders background to QPixmap of size set by setBachgroundSize
 	 * Background pixmap is cached (setBackgroundSize() invalidates the cache)
@@ -95,7 +73,6 @@ class KBounceRenderer
 	QPixmap m_cachedBackground;
     QPixmap m_randomBackground;
 
-	KPixmapCache m_tileCache;
 	QString m_customBackgroundPath;
 	bool m_useRandomBackgrounds;
 };

@@ -25,6 +25,7 @@
 
 #include "kgamecanvas.h"
 
+#include <KGameCanvas>
 
 #include "gameobject.h"
 
@@ -34,7 +35,7 @@ class KBounceBoard;
 /**
  * KGameCanvasPixmap representing a ball
  */
-class KBounceBall : public KGameCanvasPixmap
+class KBounceBall : public KGameCanvasRenderedPixmap
 {
     public:
 	static const int BALL_ANIM_DELAY;
@@ -105,16 +106,11 @@ class KBounceBall : public KGameCanvasPixmap
 	 */
 	void resetPixmaps();
 	/**
-	 * Sets ball's current frame
-	 */
-	void setFrame(int frame);
-	/**
 	 * Sets a random ball's frame
 	 */
 	void setRandomFrame();
 
-
-     protected:
+	protected:
 	KBounceRenderer* m_renderer;
 	KBounceBoard* m_board;
 	/**
@@ -126,10 +122,6 @@ class KBounceBall : public KGameCanvasPixmap
 	 * Size of a ball in GameWidget depentant coordinate system
 	 */
 	QSize m_size;
-	/**
-	 * Current frame of ball's animation.
-	 */
-	int m_frame;
 	/**
 	 * Number of frames of ball's animation.
 	 */

@@ -28,7 +28,7 @@
 
 
 KBounceWall::KBounceWall( Direction dir, KBounceRenderer* renderer, KBounceBoard* board )
-    : KGameCanvasPixmap( board ), m_renderer( renderer ), m_board( board ), 
+    : KGameCanvasRenderedPixmap( renderer,"",board ), m_renderer( renderer ), m_board( board ), 
     m_dir( dir ), m_tileSize( QSize( 16, 16 ) )
 {
     // The wall velocity would initialised on every new level.
@@ -50,10 +50,10 @@ void KBounceWall::collide( KBounceCollision collision )
 	    {
 			case ALL:
 				break;
-	        case TILE:
+			case TILE:
 				finish();
 				break;
-	        case BALL:
+			case BALL:
 				if ( safeEdgeHit( hit.boundingRect ) )
 				{
 				    KBounceVector normal = hit.normal;
@@ -74,7 +74,7 @@ void KBounceWall::collide( KBounceCollision collision )
 				    hide();
 				}
 				break;
-	        case WALL:
+			case WALL:
 				if ( safeEdgeHit( hit.boundingRect ) )
 				{
 				    finish();
@@ -138,11 +138,11 @@ void KBounceWall::update()
 	case Up:
 	    p.drawPixmap( 
 		    QRect( 0, 0, tileWidth, qMin( tileHeight, boundingRectHeight ) ),
-		    m_renderer->renderElement( "wallEndUp", m_tileSize ),
+		    m_renderer->spritePixmap( "wallEndUp", m_tileSize ),
 		    QRect( 0, 0, tileWidth, qMin( tileHeight, boundingRectHeight ) ) );
 	    p.drawPixmap( 
 		    QRect( 0, tileHeight, tileWidth, boundingRectHeight - tileHeight ),
-		    m_renderer->renderElement( "wallV",
+		    m_renderer->spritePixmap( "wallV",
 			QSize( tileWidth,  18 * tileHeight ) ),
 		    QRect( 0, 18 * tileHeight - boundingRectHeight + tileHeight,
 		       	tileWidth, boundingRectHeight - tileHeight ) );
@@ -151,11 +151,11 @@ void KBounceWall::update()
 	    p.drawPixmap(
 		    QRect( boundingRectWidth - tileWidth, 0, qMin( tileWidth, boundingRectWidth ), 
 			    tileHeight ), 
-		    m_renderer->renderElement( "wallEndRight", m_tileSize ),
+		    m_renderer->spritePixmap( "wallEndRight", m_tileSize ),
 		    QRect( 0, 0, qMin( tileWidth, boundingRectWidth ), tileHeight ) );
 	    p.drawPixmap(
 		    QRect( 0, 0, boundingRectWidth - tileWidth, tileHeight ),
-		    m_renderer->renderElement( "wallH", 
+		    m_renderer->spritePixmap( "wallH", 
 			QSize( 32 * tileWidth, tileHeight ) ),
 		    QRect( 0, 0, boundingRectWidth - tileWidth, tileHeight ) );
 	    break;
@@ -163,24 +163,24 @@ void KBounceWall::update()
 	    p.drawPixmap(
 		    QRect( 0, boundingRectHeight - tileHeight, tileWidth,
 			qMin( tileHeight, boundingRectHeight ) ),
-		    m_renderer->renderElement( "wallEndDown", m_tileSize ),
+		    m_renderer->spritePixmap( "wallEndDown", m_tileSize ),
 		    QRect( 0, qMax( 0, tileHeight - boundingRectHeight ), tileWidth,
 			qMin( tileHeight, boundingRectHeight ) ) );
 	    p.drawPixmap(
 		    QRect( 0, 0, tileWidth, boundingRectHeight - tileHeight ),
-		    m_renderer->renderElement( "wallV",
+		    m_renderer->spritePixmap( "wallV",
 			QSize( tileWidth, 18 * tileHeight ) ),
 		    QRect( 0, 0, tileWidth, boundingRectHeight - tileHeight ) );
 	    break;
 	case Left:
 	    p.drawPixmap( 
 		    QRect( 0, 0, qMin( boundingRectWidth, tileWidth ), tileHeight ),
-		    m_renderer->renderElement( "wallEndLeft", m_tileSize ),
+		    m_renderer->spritePixmap( "wallEndLeft", m_tileSize ),
 		    QRect( qMax( 0, tileWidth - boundingRectWidth ), 0,
 			tileWidth, tileHeight ) );
 	    p.drawPixmap( 
 		    QRect( tileWidth, 0, boundingRectWidth - tileWidth, tileHeight ),
-		    m_renderer->renderElement( "wallH", 
+		    m_renderer->spritePixmap( "wallH", 
 			QSize( 32 * tileWidth, tileHeight ) ),
 		    QRect( 32 * tileWidth - boundingRectWidth + tileWidth, 0, 
 			boundingRectWidth - tileWidth, tileHeight ) );

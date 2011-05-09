@@ -21,6 +21,7 @@
  */
 
 #include "renderer.h"
+#include "settings.h"
 
 #include <kdebug.h>
 
@@ -30,8 +31,8 @@
 #include <QDir>
 #include <krandom.h>
 
-KBounceRenderer::KBounceRenderer()
-	: m_svgRenderer(), m_backgroundSize( QSize( 0, 0 ) ) ,m_tileCache("KBounceTileCache"),m_useRandomBackgrounds(false)
+
+KBounceRenderer::KBounceRenderer() : KGameRenderer(KBounceSettings::theme()), m_backgroundSize( QSize( 0, 0 ) ) ,m_useRandomBackgrounds(false)
 {
 }
 
@@ -39,34 +40,11 @@ KBounceRenderer::~KBounceRenderer()
 {
 }
 
-bool KBounceRenderer::load( const QString& fileName )
-{
-    kDebug() << "File name:" << fileName;
-	if ( m_tileCache.isEnabled() )
-	{
-		m_tileCache.discard();
-	}
-    m_cachedBackground = QPixmap();
-    return m_svgRenderer.load( fileName );
-}
-
 void KBounceRenderer::setCustomBackgroundPath(const QString& path)
 {
     m_useRandomBackgrounds = !path.isEmpty();
-    m_customBackgroundPath=path;
-}
-
-bool KBounceRenderer::elementExists( const QString& id )
-{
-    return m_svgRenderer.elementExists( id );
-}
-
-int KBounceRenderer::frames( const QString& id )
-{
-    int frame = 0;
-    while ( elementExists( id + '_' + QString::number( frame ) ) )
-	frame++;
-    return frame;
+    m_customBackgroundPath = path;
+	m_cachedBackground = QPixmap();
 }
 
 void KBounceRenderer::setBackgroundSize( const QSize& size )
@@ -112,13 +90,8 @@ QPixmap KBounceRenderer::renderBackground()
 		{
 		    return m_cachedBackground;
 		}
-
 		// If no valid backgound pixmap found use the original from theme ...
-		m_cachedBackground = QPixmap( m_backgroundSize );
-		m_cachedBackground.fill( QApplication::palette().window().color() );
-		QPainter p( &m_cachedBackground );
-
-		m_svgRenderer.render( &p, "background" );
+		m_cachedBackground = spritePixmap( "background", m_backgroundSize );
     }
     return m_cachedBackground;
 }
@@ -153,37 +126,5 @@ QPixmap KBounceRenderer::getRandomBackgroundPixmap(const QString& path)
         return QPixmap( dir.absoluteFilePath(dir[0]) );
     }
     else return QPixmap();
-}
-
-
-QPixmap KBounceRenderer::renderElement( const QString& id, const QSize& size )
-{
-	
-	QPixmap renderedTile;
-	bool elementFound = m_tileCache.find( id, renderedTile );
-	if ( !elementFound && size.isEmpty() )
-    {
-        kDebug() << "Rendering element of no size id:" << id;
-        return QPixmap();
-    }
-
-    if ( !elementFound || ( !size.isNull() && size != renderedTile.size() ) )
-    {
-        kDebug() << "Rendering" << id << "size:" << size;
-        QImage baseImage( size, QImage::Format_ARGB32_Premultiplied );
-        baseImage.fill( 0 );
-        QPainter p( &baseImage );
-        m_svgRenderer.render( &p, id );
-        p.end();
-        renderedTile = QPixmap::fromImage( baseImage );
-        m_tileCache.insert( id, renderedTile );
-    }
-    return renderedTile;
-}
-
-QPixmap KBounceRenderer::renderElement( const QString& id, int frame, const QSize& size )
-{
-    QString name = id + '_' + QString::number( frame );
-    return renderElement( name, size );
 }
 

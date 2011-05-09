@@ -19,7 +19,7 @@
 #ifndef BOARD_H
 #define BOARD_H
 
-#include "kgamecanvas.h"
+#include <KGameCanvas>
 
 #include <QList>
 #include <QSize>
@@ -42,7 +42,7 @@ class KBounceBoard: public QObject, public KGameCanvasGroup
     public:
 	enum TileType{ Empty, Free, Border, Wall, Temp };
 
-	explicit KBounceBoard( KBounceRenderer* renderer, KGameCanvasAbstract* canvas = NULL, QWidget* parent = 0 );
+	explicit KBounceBoard(KBounceRenderer *renderer, KGameCanvasAbstract *canvas = NULL, QWidget *parent = 0);
 	~KBounceBoard();
 
 	void resize( QSize& size );

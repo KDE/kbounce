@@ -35,7 +35,7 @@ class KBounceBoard;
  * There are four walls in a board, each of which extends in
  * other direction: up, right, down or left
  */ 
-class KBounceWall : public QObject, public KGameCanvasPixmap
+class KBounceWall : public QObject, public KGameCanvasRenderedPixmap
 {
     Q_OBJECT
 
