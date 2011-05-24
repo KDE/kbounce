@@ -53,7 +53,7 @@ Phonon::MediaObject* KBounceSound::cacheSound(const QString& sound)
 	{
 		usedMedia = Phonon::createPlayer(Phonon::GameCategory);
 		usedMedia->setParent( m_parent );
-		usedMedia->setCurrentSource( "sounds:" + sound );
+		usedMedia->setCurrentSource( QString(QLatin1String("sounds:") + sound) );
 		m_hMedia.insert( sound, usedMedia );
 	}
 	else
