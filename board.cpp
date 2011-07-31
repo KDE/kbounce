@@ -45,7 +45,7 @@ KBounceBoard::KBounceBoard( KBounceRenderer* renderer, KGameCanvasAbstract* canv
 
     m_clock = new QTimer( this );
     m_clock->setInterval( GAME_DELAY );
-    connect( m_clock, SIGNAL( timeout() ), this, SLOT( tick() ) );
+    connect( m_clock, SIGNAL(timeout()), this, SLOT(tick()) );
 
     m_walls.append( new KBounceWall( KBounceWall::Up, m_renderer, this ) );
     m_walls.append( new KBounceWall( KBounceWall::Right, m_renderer, this ) );
@@ -54,8 +54,8 @@ KBounceBoard::KBounceBoard( KBounceRenderer* renderer, KGameCanvasAbstract* canv
     foreach( KBounceWall* wall, m_walls )
     {
         wall->hide();
-        connect( wall, SIGNAL( died() ), this, SIGNAL( wallDied() ) );
-        connect( wall, SIGNAL( finished( int, int, int, int ) ), this, SLOT( wallFinished( int, int, int, int ) ) );
+        connect( wall, SIGNAL(died()), this, SIGNAL(wallDied()) );
+        connect( wall, SIGNAL(finished(int,int,int,int)), this, SLOT(wallFinished(int,int,int,int)) );
     }
 
     clear();

@@ -50,13 +50,13 @@ KBounceMainWindow::KBounceMainWindow()
 
     m_gameWidget = new KBounceGameWidget( this );
     m_gameWidget->setSoundPath( KStandardDirs::locate( "appdata", "sounds/" ) );
-    connect( m_gameWidget, SIGNAL( levelChanged( int ) ), this, SLOT( displayLevel( int ) ) );
-    connect( m_gameWidget, SIGNAL( scoreChanged( int ) ), this, SLOT( displayScore( int ) ) );
-    connect( m_gameWidget, SIGNAL( livesChanged( int ) ), this, SLOT( displayLives( int ) ) );
-    connect( m_gameWidget, SIGNAL( filledChanged( int ) ), this, SLOT( displayFilled( int ) ) );
-    connect( m_gameWidget, SIGNAL( timeChanged( int ) ), this, SLOT( displayTime( int ) ) );
-    connect( m_gameWidget, SIGNAL( stateChanged( KBounceGameWidget::State ) ), this, SLOT( gameStateChanged( KBounceGameWidget::State ) ) );
-    //connect( m_gameWidget, SIGNAL( gameOver() ), this, SLOT( gameOverNow() ) );
+    connect( m_gameWidget, SIGNAL(levelChanged(int)), this, SLOT(displayLevel(int)) );
+    connect( m_gameWidget, SIGNAL(scoreChanged(int)), this, SLOT(displayScore(int)) );
+    connect( m_gameWidget, SIGNAL(livesChanged(int)), this, SLOT(displayLives(int)) );
+    connect( m_gameWidget, SIGNAL(filledChanged(int)), this, SLOT(displayFilled(int)) );
+    connect( m_gameWidget, SIGNAL(timeChanged(int)), this, SLOT(displayTime(int)) );
+    connect( m_gameWidget, SIGNAL(stateChanged(KBounceGameWidget::State)), this, SLOT(gameStateChanged(KBounceGameWidget::State)) );
+    //connect( m_gameWidget, SIGNAL(gameOver()), this, SLOT(gameOverNow()) );
     setCentralWidget( m_gameWidget );
 
     initXMLUI();
@@ -91,10 +91,10 @@ void KBounceMainWindow::initXMLUI()
     KGameDifficulty::addStandardLevel(KGameDifficulty::Hard);
 
     // Settings
-    KStandardAction::preferences( this, SLOT( configureSettings() ), actionCollection() );
+    KStandardAction::preferences( this, SLOT(configureSettings()), actionCollection() );
     m_soundAction = new KToggleAction( i18n("&Play Sounds"), this );
     actionCollection()->addAction( QLatin1String(  "toggle_sound" ), m_soundAction );
-    connect( m_soundAction, SIGNAL( triggered( bool ) ), this, SLOT( setSounds( bool ) ) );
+    connect( m_soundAction, SIGNAL(triggered(bool)), this, SLOT(setSounds(bool)) );
 }
 
 		   
@@ -183,7 +183,7 @@ void KBounceMainWindow::configureSettings()
     dialog->addPage( new BackgroundSelector(dialog,KBounceSettings::self() ),i18n("Background"),"games-config-background");
     dialog->setHelp(QString(),"kbounce");
     dialog->show();
-    connect( dialog, SIGNAL( settingsChanged( const QString& ) ), this, SLOT( settingsChanged() ) );
+    connect( dialog, SIGNAL(settingsChanged(QString)), this, SLOT(settingsChanged()) );
 }
 
 void KBounceMainWindow::readSettings()

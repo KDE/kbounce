@@ -60,7 +60,7 @@ void BackgroundSelector::setupData()
     {
         //The lineEdit widget holds our bg path, but the user does not manipulate it directly
         ui->kcfg_BackgroundPicturePath->hide();
-        connect(ui->kurlrequester, SIGNAL(textChanged (const QString& )), this, SLOT(imagePathChanged( const QString&)));
+        connect(ui->kurlrequester, SIGNAL(textChanged(QString)), this, SLOT(imagePathChanged(QString)));
         connect(ui->kcfg_UseRandomBackgroundPictures, SIGNAL(toggled(bool)),this,SLOT(useRandomBackgroundPicturesChanged(bool)));
 
         //Get our currently configured Tileset entry
