@@ -389,6 +389,7 @@ void KBounceGameWidget::generateOverlay()
 		p.drawPixmap( p.viewport(), themeBackgound );
 		p.setCompositionMode( QPainter::CompositionMode_DestinationIn );
 		p.fillRect(px.rect(), QColor( 0, 0, 0, 160 ));
+		p.setCompositionMode( QPainter::CompositionMode_SourceOver );
 	}
 	else
 	{
