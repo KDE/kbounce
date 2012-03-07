@@ -23,6 +23,7 @@
 #include <QTimer>
 
 #include <KLocale>
+#include <KgDifficulty>
 #include <KGameTheme>
 #include <KColorScheme>
 
@@ -162,27 +163,22 @@ void KBounceGameWidget::settingsChanged()
     redraw();
 }
 
-void KBounceGameWidget::levelChanged(KGameDifficulty::standardLevel level)
+void KBounceGameWidget::levelChanged()
 {
-    switch(level) {
-        case KGameDifficulty::Easy:
+    switch ((int) Kg::difficultyLevel()) {
+        case KgDifficultyLevel::Easy:
             m_board->setBallVelocity(0.100);
             m_board->setWallVelocity(0.250);
             break;
-        case KGameDifficulty::Medium:
+        case KgDifficultyLevel::Medium:
             m_board->setWallVelocity(0.125);
             m_board->setBallVelocity(0.125);
             break;
-        case KGameDifficulty::Hard:
+        case KgDifficultyLevel::Hard:
             m_board->setWallVelocity(0.100);
             m_board->setBallVelocity(0.250);
             break;
-        default:
-            break;
     }
-    m_difficultyLevel = level;
-    KBounceSettings::setLevel(level);
-    KBounceSettings::self()->writeConfig();
 }
 
 void KBounceGameWidget::setSounds( bool val )

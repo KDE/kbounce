@@ -33,6 +33,7 @@
 #include <kstandardgameaction.h>
 #include <KScoreDialog>
 #include <KGameThemeSelector>
+#include <KgDifficulty>
 
 
 #include "gamewidget.h"
@@ -85,10 +86,11 @@ void KBounceMainWindow::initXMLUI()
     KStandardGameAction::quit(this, SLOT(close()), actionCollection());
   
     // Difficulty
-    KGameDifficulty::init(this, m_gameWidget, SLOT(levelChanged(KGameDifficulty::standardLevel)));
-    KGameDifficulty::addStandardLevel(KGameDifficulty::Easy);
-    KGameDifficulty::addStandardLevel(KGameDifficulty::Medium);
-    KGameDifficulty::addStandardLevel(KGameDifficulty::Hard);
+    Kg::difficulty()->addStandardLevelRange(
+        KgDifficultyLevel::Easy, KgDifficultyLevel::Hard
+    );
+    KgDifficultyGUI::init(this);
+    connect(Kg::difficulty(), SIGNAL(currentLevelChanged(const KgDifficultyLevel*)), m_gameWidget, SLOT(levelChanged()));
 
     // Settings
     KStandardAction::preferences( this, SLOT(configureSettings()), actionCollection() );
@@ -154,9 +156,7 @@ void KBounceMainWindow::gameOverNow()
 void KBounceMainWindow::showHighscore()
 {
 	KScoreDialog ksdialog( KScoreDialog::Name | KScoreDialog::Score, this );
-	ksdialog.addLocalizedConfigGroupNames(KGameDifficulty::localizedLevelStrings());
-	ksdialog.setConfigGroupWeights(KGameDifficulty::levelWeights());
-	ksdialog.setConfigGroup(KGameDifficulty::localizedLevelString());
+    ksdialog.initFromDifficulty(Kg::difficulty());
 	ksdialog.exec();
 }
 
@@ -164,9 +164,7 @@ void KBounceMainWindow::highscore()
 {
     kDebug() ;
     KScoreDialog ksdialog( KScoreDialog::Name | KScoreDialog::Score | KScoreDialog::Level, this );
-    ksdialog.addLocalizedConfigGroupNames(KGameDifficulty::localizedLevelStrings());
-    ksdialog.setConfigGroupWeights(KGameDifficulty::levelWeights());
-    ksdialog.setConfigGroup(KGameDifficulty::localizedLevelString());
+    ksdialog.initFromDifficulty(Kg::difficulty());
     KScoreDialog::FieldInfo info;
     info[KScoreDialog::Score].setNum( m_gameWidget->score() );
     info[KScoreDialog::Level].setNum( m_gameWidget->level() );
@@ -188,7 +186,6 @@ void KBounceMainWindow::configureSettings()
 
 void KBounceMainWindow::readSettings()
 {
-    KGameDifficulty::setLevel((KGameDifficulty::standardLevel)KBounceSettings::level());
     m_soundAction->setChecked( KBounceSettings::playSounds() );
 	m_gameWidget->settingsChanged();
 }
@@ -245,14 +242,14 @@ void KBounceMainWindow::gameStateChanged( KBounceGameWidget::State state )
 		    m_statusBar->clearMessage();
 		    break;
 		case KBounceGameWidget::Running :
-		    KGameDifficulty::setEnabled( false );
+		    Kg::difficulty()->setEditable( false );
 		    m_pauseAction->setChecked( false );
 		    m_statusBar->clearMessage();
 		    break;
 		case KBounceGameWidget::GameOver :
 		    statusBar()->showMessage(  i18n("Game over. Click to start a game") );
 		    highscore();
-		    KGameDifficulty::setEnabled(true);
+		    Kg::difficulty()->setEditable(true);
 		    break;
 	    }
 }

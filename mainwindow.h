@@ -20,7 +20,6 @@
 #define KBOUNCE_MAINWINDOW_H
 
 #include <KXmlGuiWindow>
-#include <KGameDifficulty>
 
 #include "gamewidget.h"
 

@@ -24,7 +24,6 @@
 
 #include <kgamecanvas.h>
 #include <QMouseEvent>
-#include <KGameDifficulty>
 
 #include "board.h"
 #include "renderer.h"
@@ -55,7 +54,7 @@ class KBounceGameWidget : public KGameCanvasWidget
 	void setSounds( bool );
 	void setSoundPath( const QString& path );
 	void setSuspended( bool );
-	void levelChanged(KGameDifficulty::standardLevel level);
+	void levelChanged();
 
     signals:
 	void gameOver();
@@ -92,7 +91,6 @@ class KBounceGameWidget : public KGameCanvasWidget
 	int m_score;
 	int m_lives;
 	int m_time;
-	KGameDifficulty::standardLevel m_difficultyLevel;
 
 	KGameCanvasPixmap* m_overlay;
 	void generateOverlay();

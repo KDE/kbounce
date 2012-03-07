@@ -14,10 +14,6 @@
 	    <label>The graphical theme to be used.</label>
 	    <default>themes/default.desktop</default>
 	</entry>
-	 <entry name="level" type="Int">
-	  <label>Difficulty level</label>
-	  <default>30</default>
-	</entry>
     </group>
     <group name="Sound">
     	<entry name="PlaySounds" type="Bool" key="PlaySounds">
