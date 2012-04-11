@@ -32,7 +32,7 @@
 
 #include <kstandardgameaction.h>
 #include <KScoreDialog>
-#include <KGameThemeSelector>
+#include <KgThemeSelector>
 #include <KgDifficulty>
 
 
@@ -177,7 +177,7 @@ void KBounceMainWindow::configureSettings()
     if ( KConfigDialog::showDialog( "settings" ) ) return;
 
     KConfigDialog* dialog = new KConfigDialog( this, "settings", KBounceSettings::self());
-    dialog->addPage( new KGameThemeSelector( dialog, KBounceSettings::self(), KGameThemeSelector::NewStuffDisableDownload ), i18n( "Theme" ), "games-config-theme" );
+    dialog->addPage( new KgThemeSelector(m_gameWidget->renderer()->themeProvider(), 0, dialog), i18n( "Theme" ), "games-config-theme" );
     dialog->addPage( new BackgroundSelector(dialog,KBounceSettings::self() ),i18n("Background"),"games-config-background");
     dialog->setHelp(QString(),"kbounce");
     dialog->show();

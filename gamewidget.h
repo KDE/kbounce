@@ -28,8 +28,6 @@
 #include "board.h"
 #include "renderer.h"
 
-class KGameTheme;
-
 class KBounceGameWidget : public KGameCanvasWidget
 {
 	Q_OBJECT
@@ -43,6 +41,7 @@ class KBounceGameWidget : public KGameCanvasWidget
 	int level();
 	int score();
 	KBounceGameWidget::State state() const { return m_state; }
+	KBounceRenderer* renderer() { return &m_renderer; }
 
 	QSize minimumSizeHint() const;
 
@@ -81,7 +80,6 @@ class KBounceGameWidget : public KGameCanvasWidget
 	void redraw();
 
 	KBounceRenderer m_renderer;
-	KGameTheme *m_theme;
 
 	QTimer* m_clock;
 	KBounceBoard* m_board;

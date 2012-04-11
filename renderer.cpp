@@ -30,9 +30,19 @@
 #include <QtGui/QPalette>
 #include <QDir>
 #include <krandom.h>
+#include <KgThemeProvider>
 
+static KgThemeProvider* provider()
+{
+	KgThemeProvider* prov = new KgThemeProvider;
+	prov->discoverThemes(
+		"appdata", QLatin1String("themes"), //theme file location
+		QLatin1String("default")            //default theme file name
+	);
+	return prov;
+}
 
-KBounceRenderer::KBounceRenderer() : KGameRenderer(KBounceSettings::theme()), m_backgroundSize( QSize( 0, 0 ) ) ,m_useRandomBackgrounds(false)
+KBounceRenderer::KBounceRenderer() : KGameRenderer(provider()), m_backgroundSize( QSize( 0, 0 ) ) ,m_useRandomBackgrounds(false)
 {
 }
 

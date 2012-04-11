@@ -24,7 +24,7 @@
 
 #include <KLocale>
 #include <KgDifficulty>
-#include <KGameTheme>
+#include <KgThemeProvider>
 #include <KColorScheme>
 
 static const int GAME_TIME_DELAY = 1000;
@@ -36,7 +36,6 @@ KBounceGameWidget::KBounceGameWidget( QWidget* parent )
     : KGameCanvasWidget( parent ), m_state( BeforeFirstGame ),
     m_bonus( 0 ), m_level( 0 ), m_lives( 0 ), m_time( 0 ), m_vertical( false )
 {
-    m_theme = new KGameTheme( "KGameTheme" );
     m_board = new KBounceBoard( &m_renderer, this, this );
     connect( m_board, SIGNAL(fillChanged(int)), this, SLOT(onFillChanged(int)) );
     connect( m_board, SIGNAL(wallDied()), this, SLOT(onWallDied()) );
@@ -51,13 +50,15 @@ KBounceGameWidget::KBounceGameWidget( QWidget* parent )
 	connect( this, SIGNAL(livesChanged(int)),this,SLOT(onLivesChanged(int)) );
 
     setMouseTracking( true );
+
+    connect(m_renderer.themeProvider(), SIGNAL(currentThemeChanged(const KgTheme*)),
+        SLOT(settingsChanged()));
 }
 
 KBounceGameWidget::~KBounceGameWidget()
 {
     delete m_board;
     delete m_overlay;
-    delete m_theme;
 }
 
 int KBounceGameWidget::level()
@@ -148,7 +149,6 @@ void KBounceGameWidget::settingsChanged()
     kDebug() << "Settings changed";
     
     m_board->setSounds( KBounceSettings::playSounds() );
-	m_renderer.setTheme( KBounceSettings::theme() );
 
     if (KBounceSettings::useRandomBackgroundPictures())
     {
