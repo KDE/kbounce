@@ -26,6 +26,7 @@
 #include "renderer.h"
 #include <QPainter>
 #include <KColorScheme>
+#include <KLocalizedString>
 
 BackgroundSelector::BackgroundSelector(QWidget* parent, KConfigSkeleton* config) :
     QWidget(parent),
