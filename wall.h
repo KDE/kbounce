@@ -22,7 +22,9 @@
 #ifndef WALL_H
 #define WALL_H
 
-#include "kgamecanvas.h"
+#define USE_UNSTABLE_LIBKDEGAMESPRIVATE_API
+#include <libkdegamesprivate/kgamecanvas.h>
+
 #include <QObject>
 #include "gameobject.h"
 

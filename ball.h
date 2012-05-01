@@ -23,9 +23,8 @@
 #ifndef BALL_H
 #define BALL_H
 
-#include "kgamecanvas.h"
-
-#include <KGameCanvas>
+#define USE_UNSTABLE_LIBKDEGAMESPRIVATE_API
+#include <libkdegamesprivate/kgamecanvas.h>
 
 #include "gameobject.h"
 
