@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.2-Based Variant V1.1//EN" "dtd/kdex.dtd" [
   <!ENTITY kappname "&kbounce;">
-  <!ENTITY kappversion "0.9"><!--Applicaion version. Use this variable everywhere it's needed.-->
+  <!ENTITY kappversion "0.11"><!--Applicaion version. Use this variable everywhere it's needed.-->
   <!ENTITY package "kdegames">
   <!ENTITY % English "INCLUDE" > 
   <!ENTITY % addindex "IGNORE">
@@ -37,8 +37,8 @@
 <legalnotice>&FDLNotice;</legalnotice>
 
 
-<date>2007-10-13</date><!-- Date of (re)writing, or update.-->
-<releaseinfo>&kappversion;</releaseinfo><!-- Application version number. Use the variable definitions within header to change this value.-->
+<date>2012-08-06</date><!-- Date of (re)writing, or update.-->
+<releaseinfo>&kappversion; (&kde; 4.9)</releaseinfo><!-- Application version number. Use the variable definitions within header to change this value.-->
 
 <abstract>
 	<para>This documentation describes the game of &kbounce; version &kappversion;</para>
@@ -499,10 +499,16 @@ select themes.</action></para>
 
 <chapter id="configuration"><title>Game Configuration</title> <!-- do not change this! -->
   <para>The &kbounce; configuration dialog allows you to select visual themes for &kbounce;.</para>
-  <para>To select a new theme simply choose the theme's name from the selection list.</para>
-  <note><title>Note:</title><para>For your convenience a quick preview screenshot will be displayed on the right hand sided of the selection list as soon as you select the theme you are interested in.</para></note>
-  <para>Once you are satisfied with the theme you have selected you can either click the <guibutton>Apply</guibutton>, or simply click the <guibutton>Ok</guibutton> button, located at the bottom part of this dialog.</para>
-  <para>If, however you are dissatisfied with your selection – simply click <guimenu>Cancel</guimenu> to discard the changes.</para>
+		<para>
+			To select a new theme simply choose the theme from
+			the selection list. Each item in the list shows a small
+			preview left to the theme name. A selection is immediately applied.
+		</para>
+		<para>
+			Once you are satisfied with the theme you have selected you
+			can click the <guibutton>Close</guibutton>
+			button, located at the bottom part of this dialog.
+		</para>
 </chapter>
 
 <chapter id="credits-and-licenses">
