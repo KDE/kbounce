@@ -34,7 +34,7 @@ static const int POINTS_FOR_LIFE = 15;
 static const int TICKS_PER_SECOND = 1000 / GAME_TIME_DELAY;
 
 KBounceGameWidget::KBounceGameWidget( QWidget* parent )
-: KGameCanvasWidget( parent )
+: QGraphicsView( parent )
 , m_state( BeforeFirstGame )
 , m_bonus( 0 )
 , m_level( 0 )
@@ -43,12 +43,11 @@ KBounceGameWidget::KBounceGameWidget( QWidget* parent )
 , m_vertical( false )
 , m_soundTimeout( KStandardDirs::locate( "appdata", "sounds/timeout.wav" ) )
 {
-    m_board = new KBounceBoard( &m_renderer, this, this );
+    m_board = new KBounceBoard( &m_renderer );
     connect( m_board, SIGNAL(fillChanged(int)), this, SLOT(onFillChanged(int)) );
     connect( m_board, SIGNAL(wallDied()), this, SLOT(onWallDied()) );
 
-    m_overlay = new KGameCanvasPixmap( this );
-    m_overlay->raise();
+    m_overlay = new QGraphicsPixmapItem();
     m_overlay->hide();
 
     m_clock = new QTimer( this );
@@ -60,6 +59,10 @@ KBounceGameWidget::KBounceGameWidget( QWidget* parent )
 
     connect(m_renderer.themeProvider(), SIGNAL(currentThemeChanged(const KgTheme*)),
         SLOT(settingsChanged()));
+
+    m_scene.addItem( m_board );
+    m_scene.addItem( m_overlay );
+    setScene( &m_scene );
 }
 
 KBounceGameWidget::~KBounceGameWidget()
@@ -247,9 +250,12 @@ void KBounceGameWidget::resizeEvent( QResizeEvent* ev )
     kDebug() << "Size" << ev->size();
     m_renderer.setBackgroundSize( ev->size() );
     renderBackground();
-    QSize boardSize( ev->size().width() - 30, ev->size().height() - 30 );
+    QSize boardSize( ev->size().width() , ev->size().height() );
     m_board->resize( boardSize );
-    m_board->moveTo( ( ev->size().width() - boardSize.width() ) / 2, ( ev->size().height() - boardSize.height() ) / 2 );
+    QRectF rect( 0, 0, m_board->boardBoundingRect().width() + 20, m_board->boardBoundingRect().height() + 20);
+    m_scene.setSceneRect( rect );
+    m_board->setPos( 10, 10 );
+    fitInView( sceneRect(), Qt::KeepAspectRatio );
 
     redraw();
 }
@@ -275,8 +281,7 @@ void KBounceGameWidget::mouseReleaseEvent( QMouseEvent* event )
     {
         if ( m_state == Running )
         {
-            QPoint pos( event->pos().x() - m_board->pos().x(), event->pos().y() - m_board->pos().y() );
-            m_board->buildWall( pos, m_vertical );
+            m_board->buildWall( mapToScene( event->pos() ), m_vertical );
         }
         else if ( m_state == BetweenLevels )
         {
@@ -429,7 +434,10 @@ void KBounceGameWidget::generateOverlay()
     p.end();
 
     m_overlay->setPixmap( px );
-    m_overlay->moveTo( ( size().width() - itemWidth ) / 2, ( size().height() - itemHeight ) / 2 );
+
+    QPointF pos( ( sceneRect().width() - itemWidth) / 2,
+                 ( sceneRect().height() - itemHeight) / 2 );
+    m_overlay->setPos( pos );
 }
 
 

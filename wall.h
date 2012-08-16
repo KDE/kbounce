@@ -22,8 +22,7 @@
 #ifndef WALL_H
 #define WALL_H
 
-#define USE_UNSTABLE_LIBKDEGAMESPRIVATE_API
-#include <libkdegamesprivate/kgamecanvas.h>
+#include <KGameRenderedItem>
 
 #include <QObject>
 #include <KgSound>
@@ -33,12 +32,12 @@ class KBounceRenderer;
 class KBounceBoard;
 
 /**
- * KGameCanvasPixmap representing a wall "under-construction"
+ * KGameRenderedItem representing a wall "under-construction"
  *
  * There are four walls in a board, each of which extends in
  * other direction: up, right, down or left
  */ 
-class KBounceWall : public QObject, public KGameCanvasRenderedPixmap
+class KBounceWall : public QObject, public KGameRenderedItem
 {
     Q_OBJECT
 
@@ -65,7 +64,7 @@ class KBounceWall : public QObject, public KGameCanvasRenderedPixmap
 	 * m_nextBoundingRect. This method is called once per frame
 	 * after collide() and before update()
 	 */
-	void advance();
+	void goForward();
 	/**
 	 * Updates object's pixmap and position on screen
 	 * Called once per frame after update()
@@ -77,10 +76,6 @@ class KBounceWall : public QObject, public KGameCanvasRenderedPixmap
 	 * The direction has been specified in constructor
 	 */
 	void build( int x, int y );
-	/**
-	 * Returns current object's bounding rect.
-	 */
-	QRectF boundingRect() const;
 	/**
 	 * Returns the bounding rect that is expected for wall to
 	 * have in next frame. Collision in KBounceBoard are based on

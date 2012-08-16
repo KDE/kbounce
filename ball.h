@@ -23,8 +23,7 @@
 #ifndef BALL_H
 #define BALL_H
 
-#define USE_UNSTABLE_LIBKDEGAMESPRIVATE_API
-#include <libkdegamesprivate/kgamecanvas.h>
+#include <KGameRenderedItem>
 
 #include "gameobject.h"
 
@@ -32,9 +31,9 @@ class KBounceRenderer;
 class KBounceBoard;
 
 /**
- * KGameCanvasPixmap representing a ball
+ * KGameRenderedItem representing a ball
  */
-class KBounceBall : public KGameCanvasRenderedPixmap
+class KBounceBall : public KGameRenderedItem
 {
     public:
 	static const int BALL_ANIM_DELAY;
@@ -58,7 +57,7 @@ class KBounceBall : public KGameCanvasRenderedPixmap
 	 * Performs move calculations
 	 * This method is called once per frame
 	 */
-	void advance();
+	void goForward();
 	/**
 	 * Updates ball position and pixmap.
 	 * This method is called once per frame.
@@ -69,7 +68,7 @@ class KBounceBall : public KGameCanvasRenderedPixmap
 	 * Returns ball's bounding rect in board coordinate system
 	 * @see relativePos()
 	 */
-	QRectF boundingRect() const;
+	QRectF ballBoundingRect() const;
 	/*
 	 * Returns ball's bounding rect expected in next frame
 	 * used by colision test

@@ -19,8 +19,8 @@
 #ifndef BOARD_H
 #define BOARD_H
 
-#define USE_UNSTABLE_LIBKDEGAMESPRIVATE_API
-#include <libkdegamesprivate/kgamecanvas.h>
+#include <QObject>
+#include <QGraphicsItemGroup>
 
 #include <QList>
 #include <QSize>
@@ -35,14 +35,14 @@
 class KBounceBall;
 class KBounceWall;
 
-class KBounceBoard: public QObject, public KGameCanvasGroup
+class KBounceBoard: public QObject, public QGraphicsItemGroup
 {
     Q_OBJECT
 
     public:
 	enum TileType{ Empty, Free, Border, Wall, Temp };
 
-	explicit KBounceBoard(KBounceRenderer *renderer, KGameCanvasAbstract *canvas = NULL, QWidget *parent = 0);
+	explicit KBounceBoard( KBounceRenderer *renderer );
 	~KBounceBoard();
 
 	void resize( QSize& size );
@@ -51,7 +51,7 @@ class KBounceBoard: public QObject, public KGameCanvasGroup
 	void newLevel( int level );
 	void setPaused( bool );
 
-	void buildWall( const QPoint& pos, bool vertical );
+	void buildWall( const QPointF& pos, bool vertical );
 
 	int balls();
 	int filled();
@@ -61,7 +61,7 @@ class KBounceBoard: public QObject, public KGameCanvasGroup
 	void checkCollisions();
 
 	QPoint mapPosition( const QPointF& pos ) const;
-	QPointF unmapPosition( const QPoint& pos ) const;
+        QRectF boardBoundingRect() const;
 
 	void setBallVelocity(qreal velocity);
 	void setWallVelocity(qreal velocity);
@@ -81,7 +81,7 @@ class KBounceBoard: public QObject, public KGameCanvasGroup
 	KBounceRenderer* m_renderer;
 
 	TileType m_tiles[TILE_NUM_W][TILE_NUM_H];
-	KGameCanvasPixmap* m_tilesPix;
+	QGraphicsPixmapItem* m_tilesPix;
 	QSize m_tileSize;
 	int m_filled;
 

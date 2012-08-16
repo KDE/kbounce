@@ -23,6 +23,7 @@
 #include <KRandom>
 
 #include <QTimer>
+#include <QPainter>
 
 #include "ball.h"
 #include "gameobject.h"
@@ -36,11 +37,11 @@
 #define DIR_LEFT 3
 
 
-KBounceBoard::KBounceBoard( KBounceRenderer* renderer, KGameCanvasAbstract* canvas, QWidget* parent )
-    : QObject( parent ), KGameCanvasGroup( canvas ), m_renderer( renderer )
+KBounceBoard::KBounceBoard( KBounceRenderer* renderer )
+    : QObject(), QGraphicsItemGroup(), m_renderer( renderer )
 {
-    m_tilesPix = new KGameCanvasPixmap( this );
-    m_tilesPix->moveTo( 0, 0 );
+    m_tilesPix = new QGraphicsPixmapItem( this );
+    m_tilesPix->setPos( QPointF( 0, 0 ) );
     m_tilesPix->hide();
 
     m_clock = new QTimer( this );
@@ -181,7 +182,6 @@ void KBounceBoard::newLevel( int level )
             4 + KRandom::random() % ( TILE_NUM_H - 8 ) );
         ball->setVelocity( ((KRandom::random() & 1)*2-1)*m_ballVelocity,
             ((KRandom::random() & 1)*2-1)*m_ballVelocity );
-        ball->raise();
         ball->setRandomFrame();
         ball->show();
     }
@@ -212,12 +212,11 @@ void KBounceBoard::setWallVelocity(qreal vel)
     m_wallVelocity = vel;
 }
 
-
-void KBounceBoard::buildWall( const QPoint& pos, bool vertical )
+void KBounceBoard::buildWall( const QPointF& pos, bool vertical )
 {
-    QPointF unmapped = unmapPosition( pos );
-    int x = static_cast<int>( unmapped.x() );
-    int y = static_cast<int>( unmapped.y() );
+    QPointF unmapped( pos.x() - 10, pos.y() - 10);
+    int x = static_cast<int>( unmapped.x() / m_tileSize.width() );
+    int y = static_cast<int>( unmapped.y() / m_tileSize.height() );
 
     if ( x < 0 || x >= TILE_NUM_W )
     {
@@ -272,7 +271,7 @@ KBounceCollision KBounceBoard::checkCollision( void* object, const QRectF& rect,
         {
             if ( object != wall )
             {
-                if ( wall->visible() && rect.intersects( wall->nextBoundingRect() ) )
+                if ( wall->isVisible() && rect.intersects( wall->nextBoundingRect() ) )
                 {
                     KBounceHit hit;
                     hit.type = WALL;
@@ -365,9 +364,11 @@ QPoint KBounceBoard::mapPosition( const QPointF& pos ) const
 	   static_cast<int>(  m_tileSize.height() * pos.y() ) );
 }
 
-QPointF KBounceBoard::unmapPosition( const QPoint& pos ) const
+QRectF KBounceBoard::boardBoundingRect() const
 {
-    return QPointF( 1.0 * pos.x() / m_tileSize.width(), 1.0 * pos.y() / m_tileSize.height() );
+    return QRectF( 10, 10,
+                   TILE_NUM_W * m_tileSize.width(),
+                   TILE_NUM_H * m_tileSize.height() );
 }
 
 void KBounceBoard::tick()
@@ -376,11 +377,11 @@ void KBounceBoard::tick()
 
 	foreach( KBounceBall* ball, m_balls )
 	{
-	    ball->advance();
+	    ball->goForward();
 	}
 	foreach( KBounceWall* wall, m_walls )
 	{
-	    wall->advance();
+	    wall->goForward();
 	}
 
 	foreach( KBounceBall* ball, m_balls )
@@ -402,10 +403,10 @@ void KBounceBoard::wallFinished( int x1, int y1, int x2, int y2 )
 
     foreach ( KBounceBall* ball, m_balls )
     {
-        int x1 = static_cast<int>( ball->boundingRect().x() );
-        int y1 = static_cast<int>( ball->boundingRect().y() );
-        int x2 = static_cast<int>( ball->boundingRect().right() );
-        int y2 = static_cast<int>( ball->boundingRect().bottom() );
+        int x1 = static_cast<int>( ball->ballBoundingRect().x() );
+        int y1 = static_cast<int>( ball->ballBoundingRect().y() );
+        int x2 = static_cast<int>( ball->ballBoundingRect().right() );
+        int y2 = static_cast<int>( ball->ballBoundingRect().bottom() );
         // try to fill from all edges
         // this way we can avoid most precision-related issues
         fill(x1, y1);

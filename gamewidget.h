@@ -22,8 +22,9 @@
 #ifndef GAME_WIDGET_H
 #define GAME_WIDGET_H
 
-#define USE_UNSTABLE_LIBKDEGAMESPRIVATE_API
-#include <libkdegamesprivate/kgamecanvas.h>
+#include <QGraphicsView>
+#include <QGraphicsScene>
+#include <QGraphicsPixmapItem>
 
 #include <KgSound>
 #include <QMouseEvent>
@@ -31,7 +32,7 @@
 #include "board.h"
 #include "renderer.h"
 
-class KBounceGameWidget : public KGameCanvasWidget
+class KBounceGameWidget : public QGraphicsView
 {
 	Q_OBJECT
 
@@ -92,10 +93,11 @@ class KBounceGameWidget : public KGameCanvasWidget
 	int m_lives;
 	int m_time;
 
-	KGameCanvasPixmap* m_overlay;
+	QGraphicsPixmapItem* m_overlay;
 	void generateOverlay();
 
     bool m_vertical;
+    QGraphicsScene m_scene;
     KgSound m_soundTimeout;
 };
 

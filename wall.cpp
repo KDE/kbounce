@@ -23,13 +23,14 @@
 #include <kdebug.h>
 #include <KRandom>
 #include <KStandardDirs>
+#include <QPainter>
 
 #include "board.h"
 #include "renderer.h"
 #include "settings.h"
 
 KBounceWall::KBounceWall( Direction dir, KBounceRenderer* renderer, KBounceBoard* board )
-: KGameCanvasRenderedPixmap( renderer,"",board )
+: KGameRenderedItem( renderer,"",board )
 , m_renderer( renderer )
 , m_board( board )
 , m_dir( dir )
@@ -47,7 +48,7 @@ KBounceWall::~KBounceWall()
 
 void KBounceWall::collide( KBounceCollision collision )
 {
-	if ( !visible() )
+	if ( !isVisible() )
 	return;
 
 	foreach( const KBounceHit &hit, collision )
@@ -91,9 +92,9 @@ void KBounceWall::collide( KBounceCollision collision )
 }
 
 
-void KBounceWall::advance()
+void KBounceWall::goForward()
 {
-	if ( !visible() )
+	if ( !isVisible() )
 	{
 		return;
 	}
@@ -121,7 +122,7 @@ void KBounceWall::advance()
 
 void KBounceWall::update()
 {
-	if ( !visible() )
+	if ( !isVisible() )
 	return;
 
 	int boundingRectWidth = static_cast<int>
@@ -191,7 +192,7 @@ void KBounceWall::update()
 		    QRect( 32 * tileWidth - boundingRectWidth + tileWidth, 0, 
 			boundingRectWidth - tileWidth, tileHeight ) );
 	}
-	moveTo( m_board->mapPosition( m_boundingRect.topLeft() ) );
+	setPos( m_board->mapPosition( m_boundingRect.topLeft() ) );
 	p.end();
 	setPixmap( px );
 }
@@ -207,7 +208,7 @@ void KBounceWall::resize( const QSize& tileSize )
 
 void KBounceWall::build( int x, int y )
 {
-    if ( visible() )
+    if ( isVisible() )
 	return;
 
    if ( m_dir == Up || m_dir == Down )
@@ -247,16 +248,11 @@ void KBounceWall::build( int x, int y )
 
     setPixmap( QPixmap( 0, 0 ) );
 
-    moveTo( m_board->mapPosition( QPointF( x, y ) ) );
+    setPos( m_board->mapPosition( QPointF( x, y ) ) );
     show();
 
     if ( KBounceSettings::playSounds() )
         m_soundWallstart.start();
-}
-
-QRectF KBounceWall::boundingRect() const
-{
-	return m_boundingRect;
 }
 
 QRectF KBounceWall::nextBoundingRect() const

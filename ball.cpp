@@ -31,7 +31,7 @@ const int KBounceBall::BALL_ANIM_DELAY = 50;
 const qreal KBounceBall::BALL_RELATIVE_SIZE = 0.8;
 
 KBounceBall::KBounceBall( KBounceRenderer* renderer, KBounceBoard* board )
-: KGameCanvasRenderedPixmap(renderer,"", board ), m_renderer( renderer ), m_board( board ),
+: KGameRenderedItem(renderer,"", board ), m_renderer( renderer ), m_board( board ),
     m_soundDelay( 0 ), m_size( QSize( 16, 16 ) ), m_framesNum( 0 ), m_xPos( 0 ), m_yPos( 0 ) 
 {
 	setSpriteKey("ball");
@@ -44,7 +44,7 @@ KBounceBall::~KBounceBall()
 {
 }
 
-void KBounceBall::advance()
+void KBounceBall::goForward()
 {
    if ( m_reflectX )
    {
@@ -86,7 +86,7 @@ void KBounceBall::collide( const KBounceCollision& collision )
 void KBounceBall::update()
 {
 	setFrame( frame()+1 );
-	moveTo( m_board->mapPosition( QPointF( m_xPos, m_yPos ) ) );
+	setPos( m_board->mapPosition( QPointF( m_xPos, m_yPos ) ) );
 }
 
 void KBounceBall::resize( const QSize& tileSize )
@@ -96,7 +96,7 @@ void KBounceBall::resize( const QSize& tileSize )
     m_size.setWidth( static_cast<int>( BALL_RELATIVE_SIZE * tileSize.width() ) );
     m_size.setHeight( static_cast<int> ( BALL_RELATIVE_SIZE * tileSize.height() ) );
 	setRenderSize(m_size);
-    moveTo( m_board->mapPosition( QPointF( m_xPos, m_yPos ) ) );
+    setPos( m_board->mapPosition( QPointF( m_xPos, m_yPos ) ) );
 }
 
 void KBounceBall::resetPixmaps()
@@ -115,7 +115,7 @@ void KBounceBall::setRandomFrame()
     setFrame( frame );
 }
 
-QRectF KBounceBall::boundingRect() const
+QRectF KBounceBall::ballBoundingRect() const
 {
     return QRectF( m_xPos, m_yPos, BALL_RELATIVE_SIZE, BALL_RELATIVE_SIZE );
 }
@@ -134,7 +134,7 @@ void KBounceBall::setRelativePos( qreal x, qreal y )
 {
     m_xPos = x;
     m_yPos = y;
-    moveTo( m_board->mapPosition( QPointF( m_xPos, m_yPos ) ) );
+    setPos( m_board->mapPosition( QPointF( m_xPos, m_yPos ) ) );
 }
 
 void KBounceBall::setVelocity( qreal vX, qreal vY )
