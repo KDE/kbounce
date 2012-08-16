@@ -22,6 +22,7 @@
 #include <QPalette>
 #include <QTimer>
 
+#include <KStandardDirs>
 #include <KLocale>
 #include <KgDifficulty>
 #include <KgThemeProvider>
@@ -33,8 +34,14 @@ static const int POINTS_FOR_LIFE = 15;
 static const int TICKS_PER_SECOND = 1000 / GAME_TIME_DELAY;
 
 KBounceGameWidget::KBounceGameWidget( QWidget* parent )
-    : KGameCanvasWidget( parent ), m_state( BeforeFirstGame ),
-    m_bonus( 0 ), m_level( 0 ), m_lives( 0 ), m_time( 0 ), m_vertical( false )
+: KGameCanvasWidget( parent )
+, m_state( BeforeFirstGame )
+, m_bonus( 0 )
+, m_level( 0 )
+, m_lives( 0 )
+, m_time( 0 )
+, m_vertical( false )
+, m_soundTimeout( KStandardDirs::locate( "appdata", "sounds/timeout.wav" ) )
 {
     m_board = new KBounceBoard( &m_renderer, this, this );
     connect( m_board, SIGNAL(fillChanged(int)), this, SLOT(onFillChanged(int)) );
@@ -147,8 +154,6 @@ void KBounceGameWidget::setSuspended( bool val )
 void KBounceGameWidget::settingsChanged()
 {
     kDebug() << "Settings changed";
-    
-    m_board->setSounds( KBounceSettings::playSounds() );
 
     if (KBounceSettings::useRandomBackgroundPictures())
     {
@@ -179,17 +184,6 @@ void KBounceGameWidget::levelChanged()
             m_board->setBallVelocity(0.250);
             break;
     }
-}
-
-void KBounceGameWidget::setSounds( bool val )
-{
-    m_board->setSounds( val );
-}
-
-void KBounceGameWidget::setSoundPath( const QString& path )
-{
-    kDebug() << "sound path:" << path;
-    m_board->setSoundPath( path );
 }
 
 void KBounceGameWidget::onFillChanged( int fill )
@@ -223,10 +217,11 @@ void KBounceGameWidget::onWallDied()
 
 void KBounceGameWidget::onLivesChanged(int lives)
 {
-	if ( lives < ( m_level + 1 ) )
-	{
-		m_board->playSound("timeout.wav");
-	}
+    if ( lives < ( m_level + 1 )
+        && KBounceSettings::playSounds() )
+    {
+        m_soundTimeout.start();
+    }
 }
 
 

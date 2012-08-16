@@ -27,7 +27,6 @@
 
 #include "gameobject.h"
 #include "renderer.h"
-#include "sound.h"
 
 #define TILE_NUM_H 20
 #define TILE_NUM_W 32
@@ -64,9 +63,6 @@ class KBounceBoard: public QObject, public KGameCanvasGroup
 	QPoint mapPosition( const QPointF& pos ) const;
 	QPointF unmapPosition( const QPoint& pos ) const;
 
-	void playSound( const QString& name );
-	void setSoundPath( const QString& path );
-	void setSounds( bool val );
 	void setBallVelocity(qreal velocity);
 	void setWallVelocity(qreal velocity);
     signals:
@@ -94,7 +90,6 @@ class KBounceBoard: public QObject, public KGameCanvasGroup
 
 	QTimer* m_clock;
 
-	KBounceSound* m_sound;
     
 	qreal m_ballVelocity;
 	qreal m_wallVelocity;

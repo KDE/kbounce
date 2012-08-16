@@ -50,7 +50,6 @@ KBounceMainWindow::KBounceMainWindow()
     m_statusBar->insertItem( i18n( "Time: %1", QString::fromLatin1( "XXX" ) ), 5, 1 );
 
     m_gameWidget = new KBounceGameWidget( this );
-    m_gameWidget->setSoundPath( KStandardDirs::locate( "appdata", "sounds/" ) );
     connect( m_gameWidget, SIGNAL(levelChanged(int)), this, SLOT(displayLevel(int)) );
     connect( m_gameWidget, SIGNAL(scoreChanged(int)), this, SLOT(displayScore(int)) );
     connect( m_gameWidget, SIGNAL(livesChanged(int)), this, SLOT(displayLives(int)) );

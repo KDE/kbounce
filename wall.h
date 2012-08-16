@@ -26,6 +26,7 @@
 #include <libkdegamesprivate/kgamecanvas.h>
 
 #include <QObject>
+#include <KgSound>
 #include "gameobject.h"
 
 class KBounceRenderer;
@@ -118,10 +119,13 @@ class KBounceWall : public QObject, public KGameCanvasRenderedPixmap
 	 */
 	void finish( bool shorten = false, Direction dir = Up);
 
+
 	KBounceRenderer *m_renderer;
 	KBounceBoard *m_board;
 	Direction m_dir;
 	QSize m_tileSize;
+	KgSound m_soundWallstart;
+	KgSound m_soundReflect;
 	QRectF m_boundingRect;
 	QRectF m_nextBoundingRect;
 	qreal m_wallVelocity;

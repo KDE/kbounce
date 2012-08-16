@@ -25,6 +25,7 @@
 #define USE_UNSTABLE_LIBKDEGAMESPRIVATE_API
 #include <libkdegamesprivate/kgamecanvas.h>
 
+#include <KgSound>
 #include <QMouseEvent>
 
 #include "board.h"
@@ -52,8 +53,6 @@ class KBounceGameWidget : public KGameCanvasWidget
 	void newGame();
 	void setPaused( bool );
 	void settingsChanged();
-	void setSounds( bool );
-	void setSoundPath( const QString& path );
 	void setSuspended( bool );
 	void levelChanged();
 
@@ -81,6 +80,7 @@ class KBounceGameWidget : public KGameCanvasWidget
 
 	void redraw();
 
+
 	KBounceRenderer m_renderer;
 
 	QTimer* m_clock;
@@ -95,7 +95,8 @@ class KBounceGameWidget : public KGameCanvasWidget
 	KGameCanvasPixmap* m_overlay;
 	void generateOverlay();
 
-	bool m_vertical;
+    bool m_vertical;
+    KgSound m_soundTimeout;
 };
 
 #endif

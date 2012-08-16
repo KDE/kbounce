@@ -60,8 +60,6 @@ KBounceBoard::KBounceBoard( KBounceRenderer* renderer, KGameCanvasAbstract* canv
 
     clear();
 
-    m_sound = 0L;
-
     // Initialize this members with the old default values.
     m_ballVelocity = 0.125;
     m_wallVelocity = 0.125;
@@ -72,7 +70,6 @@ KBounceBoard::~KBounceBoard()
     qDeleteAll( m_balls );
     qDeleteAll( m_walls );
     delete m_tilesPix;
-    delete m_sound;
 }
 
 void KBounceBoard::resize( QSize& size )
@@ -371,27 +368,6 @@ QPoint KBounceBoard::mapPosition( const QPointF& pos ) const
 QPointF KBounceBoard::unmapPosition( const QPoint& pos ) const
 {
     return QPointF( 1.0 * pos.x() / m_tileSize.width(), 1.0 * pos.y() / m_tileSize.height() );
-}
-
-void KBounceBoard::playSound( const QString& name )
-{
-	m_sound->playSound( name );
-}
-
-void KBounceBoard::setSounds( bool val )
-{
-	m_sound->setSoundsEnabled(val);
-}
-
-void KBounceBoard::setSoundPath( const QString& path )
-{
-	if ( m_sound == 0 )
-	{
-		m_sound = new KBounceSound( this , path );
-		m_sound->cacheSound("wallstart.wav");
-		m_sound->cacheSound("reflect.wav");
-		m_sound->cacheSound("timeout.wav");
-	}
 }
 
 void KBounceBoard::tick()

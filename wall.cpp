@@ -22,14 +22,20 @@
 
 #include <kdebug.h>
 #include <KRandom>
+#include <KStandardDirs>
 
 #include "board.h"
 #include "renderer.h"
-
+#include "settings.h"
 
 KBounceWall::KBounceWall( Direction dir, KBounceRenderer* renderer, KBounceBoard* board )
-    : KGameCanvasRenderedPixmap( renderer,"",board ), m_renderer( renderer ), m_board( board ), 
-    m_dir( dir ), m_tileSize( QSize( 16, 16 ) )
+: KGameCanvasRenderedPixmap( renderer,"",board )
+, m_renderer( renderer )
+, m_board( board )
+, m_dir( dir )
+, m_tileSize( QSize( 16, 16 ) )
+, m_soundWallstart( KStandardDirs::locate( "appdata", "sounds/wallstart.wav" ) )
+, m_soundReflect( KStandardDirs::locate( "appdata", "sounds/reflect.wav" ) )
 {
     // The wall velocity would initialised on every new level.
     m_wallVelocity = 0.0;
@@ -244,7 +250,8 @@ void KBounceWall::build( int x, int y )
     moveTo( m_board->mapPosition( QPointF( x, y ) ) );
     show();
 
-    m_board->playSound( "wallstart.wav" );
+    if ( KBounceSettings::playSounds() )
+        m_soundWallstart.start();
 }
 
 QRectF KBounceWall::boundingRect() const
@@ -317,7 +324,9 @@ void KBounceWall::finish( bool shorten, Direction dir )
 
     emit finished( left, top, right, bottom );
     hide();
-	m_board->playSound( "reflect.wav" );
+
+    if ( KBounceSettings::playSounds() )
+        m_soundReflect.start();
 }
 
 void KBounceWall::setWallVelocity(qreal velocity)
