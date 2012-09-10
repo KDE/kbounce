@@ -1,6 +1,8 @@
 [KGameTheme]
 VersionFormat=1
 Name=Oxygen
+Name[uk]=Oxygen
+Name[x-test]=xxOxygenxx
 FileName=oxygen.svgz
 Author=Johann Ollivier Lapeyre
 AuthorEmail=johann.ollivierlapeyre@gmail.com

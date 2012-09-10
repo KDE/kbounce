@@ -1,7 +1,11 @@
 [KGameTheme]
 VersionFormat=1
 Name=Egyptian Bounce
+Name[uk]=Єгипетський стрибок
+Name[x-test]=xxEgyptian Bouncexx
 Description=KBounce, Egyptian style.
+Description[uk]=KBounce, єгипетський стиль.
+Description[x-test]=xxKBounce, Egyptian style.xx
 FileName=egyptian_bounce.svgz
 Author=Sean Wilson
 AuthorEmail=suseux@gmail.com

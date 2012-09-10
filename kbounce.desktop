@@ -1,5 +1,7 @@
 [Desktop Entry]
 Name=KBounce
+Name[uk]=KBounce
+Name[x-test]=xxKBouncexx
 
 Type=Application
 Exec=kbounce -caption "%c"
@@ -7,5 +9,7 @@ X-DocPath=kbounce/index.html
 Icon=kbounce
 
 GenericName=Ball Bouncing Game
+GenericName[uk]=Гра з відбиття м’ячика
+GenericName[x-test]=xxBall Bouncing Gamexx
 X-DBUS-StartupType=Multi
 Categories=Qt;KDE;Game;ArcadeGame;

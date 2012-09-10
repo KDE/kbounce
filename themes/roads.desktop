@@ -1,7 +1,11 @@
 [KGameTheme]
 VersionFormat=1
 Name=Roads
+Name[uk]=Дороги
+Name[x-test]=xxRoadsxx
 Description=Roads, cones and wheels.
+Description[uk]=Дороги, повороти і колеса.
+Description[x-test]=xxRoads, cones and wheels.xx
 FileName=roads.svgz
 Author=Sean Wilson
 AuthorEmail=suseux@gmail.com

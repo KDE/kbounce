@@ -1,6 +1,8 @@
 [KGameTheme]
 VersionFormat=1
 Name=The Beach
+Name[uk]=Пляж
+Name[x-test]=xxThe Beachxx
 FileName=the_beach.svgz
 Author=Sean Wilson
 AuthorEmail=suseux@gmail.com
