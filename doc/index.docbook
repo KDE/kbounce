@@ -7,7 +7,7 @@
   <!ENTITY % addindex "IGNORE">
 ]>
 
-<book lang="&language;">
+<book id="kbounce" lang="&language;">
 <bookinfo>
 <title>The &kbounce; Handbook</title>
 
