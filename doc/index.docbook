@@ -373,7 +373,7 @@ Opens a dialog that displays different high score tables.
 </menuchoice></term>
 <listitem>
 <para><action>Quit</action> and close &kbounce;.
-If a game is currently played, it's status is lost</para>
+If a game is currently played, it's status is lost.</para>
 </listitem>
 </varlistentry>
 </variablelist>
