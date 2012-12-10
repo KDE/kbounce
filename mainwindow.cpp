@@ -241,14 +241,12 @@ void KBounceMainWindow::gameStateChanged( KBounceGameWidget::State state )
 		    m_statusBar->clearMessage();
 		    break;
 		case KBounceGameWidget::Running :
-		    Kg::difficulty()->setEditable( false );
 		    m_pauseAction->setChecked( false );
 		    m_statusBar->clearMessage();
 		    break;
 		case KBounceGameWidget::GameOver :
 		    statusBar()->showMessage(  i18n("Game over. Click to start a game") );
 		    highscore();
-		    Kg::difficulty()->setEditable(true);
 		    break;
 	    }
 }

@@ -97,6 +97,7 @@ void KBounceGameWidget::closeGame()
         emit stateChanged( m_state );
         emit gameOver();
 
+        Kg::difficulty()->setGameRunning( false );
         redraw();
     }
 }
@@ -110,7 +111,8 @@ void KBounceGameWidget::newGame()
 
     emit levelChanged( m_level );
     emit scoreChanged( m_score );
-    
+
+    Kg::difficulty()->setGameRunning( true );
     newLevel();
 }
 
@@ -171,9 +173,9 @@ void KBounceGameWidget::settingsChanged()
     redraw();
 }
 
-void KBounceGameWidget::levelChanged()
+void KBounceGameWidget::setGameDifficulty( const KgDifficultyLevel * difficulty )
 {
-    switch ((int) Kg::difficultyLevel()) {
+    switch ( difficulty->hardness() ) {
         case KgDifficultyLevel::Easy:
             m_board->setBallVelocity(0.100);
             m_board->setWallVelocity(0.250);
@@ -187,6 +189,14 @@ void KBounceGameWidget::levelChanged()
             m_board->setBallVelocity(0.250);
             break;
     }
+}
+
+void KBounceGameWidget::levelChanged()
+{
+    setGameDifficulty( Kg::difficulty()->currentLevel() );
+
+    if (m_state == Running)
+        newGame();
 }
 
 void KBounceGameWidget::onFillChanged( int fill )

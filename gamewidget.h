@@ -27,6 +27,7 @@
 #include <QGraphicsPixmapItem>
 
 #include <KgSound>
+#include <KgDifficulty>
 #include <QMouseEvent>
 
 #include "board.h"
@@ -80,7 +81,7 @@ class KBounceGameWidget : public QGraphicsView
 	void newLevel();
 
 	void redraw();
-
+        void setGameDifficulty(const KgDifficultyLevel *);
 
 	KBounceRenderer m_renderer;
 
