@@ -5,7 +5,6 @@ Name[ast]=KBounce
 Name[be]=Несуцішныя шарыкі
 Name[bn]=কে-বাউন্স
 Name[br]=KBounce
-Name[bs]=KBounce
 Name[ca]=KBounce
 Name[ca@valencia]=KBounce
 Name[cs]=KBounce
@@ -75,7 +74,6 @@ Icon=kbounce
 
 GenericName=Ball Bouncing Game
 GenericName[ast]=Xuegu nel que reboten les boles
-GenericName[bs]=Igra lopta koja odskače
 GenericName[ca]=Un joc de pilotes rebotant
 GenericName[ca@valencia]=Un joc de pilotes rebotant
 GenericName[cs]=Hra s poskakujícími míčky
