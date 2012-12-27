@@ -169,7 +169,6 @@ void KBounceGameWidget::settingsChanged()
         m_renderer.setCustomBackgroundPath(QString());
     }
    
-    renderBackground();
     redraw();
 }
 
@@ -258,26 +257,21 @@ void KBounceGameWidget::tick()
 void KBounceGameWidget::resizeEvent( QResizeEvent* ev )
 {
     kDebug() << "Size" << ev->size();
+
     m_renderer.setBackgroundSize( ev->size() );
-    renderBackground();
-    QSize boardSize( ev->size().width() , ev->size().height() );
-    m_board->resize( boardSize );
-    QRectF rect( 0, 0, m_board->boundingRect().width() + 20, m_board->boundingRect().height() + 20);
+
+    QRectF rect( 0, 0, ev->size().width(), ev->size().height() );
     m_scene.setSceneRect( rect );
-    m_board->setPos( 10, 10 );
-    fitInView( sceneRect(), Qt::KeepAspectRatio );
+
+    QSize boardSize( sceneRect().width() - 20, sceneRect().height()  - 20 );
+    m_board->resize( boardSize );
+
+    qreal x = ( sceneRect().width()  - m_board->boundingRect().width() )  / 2;
+    qreal y = ( sceneRect().height() - m_board->boundingRect().height() ) / 2;
+    m_board->setPos( x, y );
 
     redraw();
 }
-
-void KBounceGameWidget::renderBackground()
-{
-    QPalette palette;
-    palette.setBrush( backgroundRole(), m_renderer.renderBackground() );
-    setPalette( palette );
-    setAutoFillBackground( true );
-}
-
 
 void KBounceGameWidget::mouseReleaseEvent( QMouseEvent* event )
 {
@@ -336,10 +330,8 @@ void KBounceGameWidget::newLevel()
     emit timeChanged( m_time );
 
     if (KBounceSettings::useRandomBackgroundPictures())
-    {
         m_renderer.loadNewBackgroundPixmap();
-        renderBackground();
-    }
+
     redraw();
 }  
 
@@ -367,6 +359,7 @@ void KBounceGameWidget::redraw()
 	    break;
     }
 
+    m_scene.setBackgroundBrush( m_renderer.renderBackground() );
     update();
 }
 

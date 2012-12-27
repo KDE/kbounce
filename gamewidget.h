@@ -76,7 +76,6 @@ class KBounceGameWidget : public QGraphicsView
     protected:
 	virtual void resizeEvent( QResizeEvent* event );
 	virtual void mouseReleaseEvent( QMouseEvent* event );
-	void renderBackground();
 	void closeLevel();
 	void newLevel();
 
