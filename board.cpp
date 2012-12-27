@@ -209,7 +209,7 @@ void KBounceBoard::setWallVelocity(qreal vel)
 
 void KBounceBoard::buildWall( const QPointF& pos, bool vertical )
 {
-    QPointF unmapped( pos.x() - 10, pos.y() - 10);
+    QPointF unmapped( pos.x() - x(), pos.y() - y());
     int x = static_cast<int>( unmapped.x() / m_tileSize.width() );
     int y = static_cast<int>( unmapped.y() / m_tileSize.height() );
 
@@ -361,7 +361,7 @@ QPoint KBounceBoard::mapPosition( const QPointF& pos ) const
 
 QRectF KBounceBoard::boundingRect() const
 {
-    return QRectF( 10, 10,
+    return QRectF( x(), y(),
                    TILE_NUM_W * m_tileSize.width(),
                    TILE_NUM_H * m_tileSize.height() );
 }

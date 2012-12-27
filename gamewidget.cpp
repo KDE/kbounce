@@ -28,6 +28,7 @@
 #include <KgThemeProvider>
 #include <KColorScheme>
 
+static const int MIN_MARGIN = 50;
 static const int GAME_TIME_DELAY = 1000;
 static const int MIN_FILL_PERCENT = 75;
 static const int POINTS_FOR_LIFE = 15;
@@ -263,7 +264,8 @@ void KBounceGameWidget::resizeEvent( QResizeEvent* ev )
     QRectF rect( 0, 0, ev->size().width(), ev->size().height() );
     m_scene.setSceneRect( rect );
 
-    QSize boardSize( sceneRect().width() - 20, sceneRect().height()  - 20 );
+    QSize boardSize( sceneRect().width()  - MIN_MARGIN,
+                     sceneRect().height() - MIN_MARGIN );
     m_board->resize( boardSize );
 
     qreal x = ( sceneRect().width()  - m_board->boundingRect().width() )  / 2;
