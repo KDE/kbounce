@@ -38,7 +38,8 @@
 
 
 KBounceBoard::KBounceBoard( KBounceRenderer* renderer )
-    : QObject(), QGraphicsItemGroup(), m_renderer( renderer )
+: QGraphicsObject()
+, m_renderer( renderer )
 {
     m_tilesPix = new QGraphicsPixmapItem( this );
     m_tilesPix->setPos( QPointF( 0, 0 ) );
@@ -99,8 +100,6 @@ void KBounceBoard::resize( QSize& size )
     foreach( KBounceWall* wall, m_walls )
 	wall->resize( m_tileSize );
 
-    redraw();
-
     size.setWidth( minTileSize * TILE_NUM_W );
     size.setHeight( minTileSize * TILE_NUM_H );
     if (!alreadyPaused)
@@ -109,54 +108,50 @@ void KBounceBoard::resize( QSize& size )
     }
 }
 
-void KBounceBoard::redraw()
+void KBounceBoard::paint(QPainter * p, const QStyleOptionGraphicsItem *, QWidget *)
 {
-    if ( m_tileSize.isEmpty() )
-    {
+    if ( m_tileSize.isEmpty() ) {
         m_tilesPix->setPixmap( QPixmap() );
         m_tilesPix->hide();
     }
-    else
-    {
-	
-   	QPixmap px( m_tileSize.width() * TILE_NUM_W, m_tileSize.height() * TILE_NUM_H );
+    else {
+        QPixmap px( m_tileSize.width()  * TILE_NUM_W,
+                    m_tileSize.height() * TILE_NUM_H );
 	px.fill( QColor( 0, 0, 0, 0 ) );
+	p->drawPixmap( 0, 0, px );
 
-	QPainter p( &px );
-
-	for ( int i = 0; i < TILE_NUM_W; i++ )
-	{
-	    for ( int j = 0; j < TILE_NUM_H; j++ )
-	    {
-            switch ( m_tiles[i][j] )
-            {
+	for ( int i = 0; i < TILE_NUM_W; i++ ) {
+	    for ( int j = 0; j < TILE_NUM_H; j++ ) {
+                switch ( m_tiles[i][j] ) {
                 case Free:
-                p.drawPixmap( i * m_tileSize.width(), j* m_tileSize.height(), m_renderer->spritePixmap( "gridTile", m_tileSize ) );
+                    p->drawPixmap(
+                            i * m_tileSize.width(),
+                            j * m_tileSize.height(),
+                            m_renderer->spritePixmap( "gridTile", m_tileSize )
+                    );
                 break;
+
                 case Border:
                 case Wall:
-                p.drawPixmap( i * m_tileSize.width(), j * m_tileSize.height(), m_renderer->spritePixmap( "wallTile", m_tileSize ) );
+                    p->drawPixmap(
+                            i * m_tileSize.width(),
+                            j * m_tileSize.height(),
+                            m_renderer->spritePixmap( "wallTile", m_tileSize )
+                    );
                 break;
+
                 default:
                 break;
-            }
+                }
 	    }
 	}
-
-	p.end();
 
 	m_tilesPix->setPixmap( px );
 	m_tilesPix->show();
     }
 
-  /*  foreach( KBounceBall* ball, m_balls )
-    {
-	    ball->resetPixmaps();
-    }*/
     foreach( KBounceWall* wall, m_walls )
-    {
         wall->update();
-    }
 }
 
 void KBounceBoard::newLevel( int level )
@@ -364,7 +359,7 @@ QPoint KBounceBoard::mapPosition( const QPointF& pos ) const
 	   static_cast<int>(  m_tileSize.height() * pos.y() ) );
 }
 
-QRectF KBounceBoard::boardBoundingRect() const
+QRectF KBounceBoard::boundingRect() const
 {
     return QRectF( 10, 10,
                    TILE_NUM_W * m_tileSize.width(),
@@ -423,8 +418,6 @@ void KBounceBoard::wallFinished( int x1, int y1, int x2, int y2 )
 	for ( int y = 0; y < TILE_NUM_H; y++ )
 	    if ( m_tiles[x][y] == Temp )
 		m_tiles[x][y] = Free;
-
-    redraw();
 
     int filled = 0;
     for ( int i = 1; i < TILE_NUM_W - 1; i++ )

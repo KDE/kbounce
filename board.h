@@ -35,7 +35,7 @@
 class KBounceBall;
 class KBounceWall;
 
-class KBounceBoard: public QObject, public QGraphicsItemGroup
+class KBounceBoard: public QGraphicsObject
 {
     Q_OBJECT
 
@@ -46,7 +46,7 @@ class KBounceBoard: public QObject, public QGraphicsItemGroup
 	~KBounceBoard();
 
 	void resize( QSize& size );
-	void redraw();
+        void paint(QPainter *, const QStyleOptionGraphicsItem *, QWidget *);
 
 	void newLevel( int level );
 	void setPaused( bool );
@@ -61,7 +61,7 @@ class KBounceBoard: public QObject, public QGraphicsItemGroup
 	void checkCollisions();
 
 	QPoint mapPosition( const QPointF& pos ) const;
-        QRectF boardBoundingRect() const;
+        QRectF boundingRect() const;
 
 	void setBallVelocity(qreal velocity);
 	void setWallVelocity(qreal velocity);

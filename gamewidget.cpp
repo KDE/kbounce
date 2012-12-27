@@ -262,7 +262,7 @@ void KBounceGameWidget::resizeEvent( QResizeEvent* ev )
     renderBackground();
     QSize boardSize( ev->size().width() , ev->size().height() );
     m_board->resize( boardSize );
-    QRectF rect( 0, 0, m_board->boardBoundingRect().width() + 20, m_board->boardBoundingRect().height() + 20);
+    QRectF rect( 0, 0, m_board->boundingRect().width() + 20, m_board->boundingRect().height() + 20);
     m_scene.setSceneRect( rect );
     m_board->setPos( 10, 10 );
     fitInView( sceneRect(), Qt::KeepAspectRatio );
@@ -366,7 +366,7 @@ void KBounceGameWidget::redraw()
 	    m_overlay->show();
 	    break;
     }
-    m_board->redraw();
+
     update();
 }
 
