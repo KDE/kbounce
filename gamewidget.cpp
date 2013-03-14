@@ -445,6 +445,14 @@ void KBounceGameWidget::generateOverlay()
     m_overlay->setPos( pos );
 }
 
+void KBounceGameWidget::focusOutEvent(QFocusEvent *event)
+{
+    if (event->reason() == Qt::ActiveWindowFocusReason)
+    {
+        setPaused(true);
+    }
+}
+
 
 #include "gamewidget.moc"
 

@@ -253,21 +253,12 @@ void KBounceMainWindow::gameStateChanged( KBounceGameWidget::State state )
 
 void KBounceMainWindow::focusOutEvent( QFocusEvent *ev )
 {
-    // FIXME this event is triggered when right-clicking on QGraphicsView. Why?
-    // Need to find why :).
-    // Because it prevents a walls from being built.
-    // Commented for now
-    /*
-    if ( m_state==Running )
+    if ( m_gameWidget->state() == KBounceGameWidget::Running &&
+         focusWidget() != m_gameWidget)
     {
-        stopLevel();
-        m_state = Suspend;
-        m_pauseButton->setChecked(true);
-        statusBar()->showMessage( i18n("Game suspended") );
-        // m_gameWidget->display( i18n("Game suspended") );
+        m_gameWidget->setPaused(true);
     }
 
-     */
     KXmlGuiWindow::focusOutEvent( ev );
 }
 
