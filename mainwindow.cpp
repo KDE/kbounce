@@ -132,7 +132,7 @@ void KBounceMainWindow::closeGame()
 	KBounceGameWidget::State old_state = m_gameWidget->state();
 	if ( old_state == KBounceGameWidget::Running )
 		m_gameWidget->setPaused( true );
-	int ret = KMessageBox::questionYesNo( this, i18n( "Do you really want to close the running game?" ), QString(),  KStandardGuiItem::close(), KStandardGuiItem::cancel() );
+	int ret = KMessageBox::questionYesNo( this, i18n( "Do you really want to close the running game?" ), QString(),  KStandardGuiItem::yes(), KStandardGuiItem::cancel() );
 	if ( ret == KMessageBox::Yes )
 	{
 		m_gameWidget->closeGame();
