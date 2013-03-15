@@ -91,7 +91,8 @@ void KBounceGameWidget::closeGame()
 {
     if ( m_state != BeforeFirstGame && m_state != GameOver )
     {
-        closeLevel();
+        m_clock->stop();
+        m_board->setPaused( true );
         unsetCursor();
         m_state = GameOver;
         emit stateChanged( m_state );
