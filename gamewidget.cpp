@@ -292,7 +292,7 @@ void KBounceGameWidget::mouseReleaseEvent( QMouseEvent* event )
         }
         else if ( m_state == Paused )
         {
-            setPaused(false);
+            setPaused( false );
         }
         else if ( m_state == BetweenLevels )
         {
@@ -454,7 +454,7 @@ void KBounceGameWidget::focusOutEvent(QFocusEvent *event)
 {
     if (event->reason() == Qt::ActiveWindowFocusReason)
     {
-        setPaused(true);
+        setPaused( true );
     }
 }
 

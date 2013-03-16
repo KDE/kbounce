@@ -254,9 +254,9 @@ void KBounceMainWindow::gameStateChanged( KBounceGameWidget::State state )
 void KBounceMainWindow::focusOutEvent( QFocusEvent *ev )
 {
     if ( m_gameWidget->state() == KBounceGameWidget::Running &&
-         focusWidget() != m_gameWidget)
+         focusWidget() != m_gameWidget )
     {
-        m_gameWidget->setPaused(true);
+        m_gameWidget->setPaused( true );
     }
 
     KXmlGuiWindow::focusOutEvent( ev );
