@@ -410,7 +410,7 @@ void KBounceGameWidget::generateOverlay()
 	    text = i18n( "Welcome to KBounce.\n Click to start a game" );
 	    break;
 	case Paused:
-        text = i18n( "Paused\n Click to resume" );
+	    text = i18n( "Paused\n Click to resume" );
 	    break;
 	case BetweenLevels:
 	    text = i18n( "You have successfully cleared more than %1% of the board\n", MIN_FILL_PERCENT ) +
