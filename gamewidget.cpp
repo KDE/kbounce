@@ -290,6 +290,10 @@ void KBounceGameWidget::mouseReleaseEvent( QMouseEvent* event )
         {
             m_board->buildWall( mapToScene( event->pos() ), m_vertical );
         }
+        else if ( m_state == Paused )
+        {
+            setPaused(false);
+        }
         else if ( m_state == BetweenLevels )
         {
             newLevel();
@@ -406,7 +410,7 @@ void KBounceGameWidget::generateOverlay()
 	    text = i18n( "Welcome to KBounce.\n Click to start a game" );
 	    break;
 	case Paused:
-	    text = i18n( "Paused" );
+        text = i18n( "Paused\n Click to resume" );
 	    break;
 	case BetweenLevels:
 	    text = i18n( "You have successfully cleared more than %1% of the board\n", MIN_FILL_PERCENT ) +
