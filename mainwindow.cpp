@@ -218,7 +218,7 @@ void KBounceMainWindow::displayFilled( int filled )
 
 void KBounceMainWindow::displayLives( int lives )
 {
-    m_statusBar->changeItem( i18n( "Lives: %1", lives ), 4 );
+    m_statusBar->changeItem( i18n( "Lives: %1", lives - 1 ), 4 );
 }
 
 void KBounceMainWindow::displayTime( int time )
