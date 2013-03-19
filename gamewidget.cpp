@@ -196,7 +196,7 @@ void KBounceGameWidget::levelChanged()
 {
     setGameDifficulty( Kg::difficulty()->currentLevel() );
 
-    if (m_state == Running)
+    if ( m_state == Running || m_state == Paused )
         newGame();
 }
 
