@@ -94,7 +94,6 @@ void KBounceGameWidget::closeGame()
     {
         m_clock->stop();
         m_board->setPaused( true );
-        unsetCursor();
         m_state = GameOver;
         emit stateChanged( m_state );
         emit gameOver();
@@ -107,7 +106,6 @@ void KBounceGameWidget::closeGame()
 void KBounceGameWidget::newGame()
 {
     closeGame();
-    setCursor( m_vertical ? Qt::SizeVerCursor : Qt::SizeHorCursor );
     m_level = 1;
     m_score = 0;
 
@@ -281,7 +279,7 @@ void KBounceGameWidget::mouseReleaseEvent( QMouseEvent* event )
     if ( event->button() & Qt::RightButton )
     {
         m_vertical = !m_vertical;
-        setCursor( m_vertical ? Qt::SizeVerCursor : Qt::SizeHorCursor );
+        updateCursor();
     }
 
     if ( event->button() & Qt::LeftButton )
@@ -366,6 +364,7 @@ void KBounceGameWidget::redraw()
 	    break;
     }
 
+    updateCursor();
     m_scene.setBackgroundBrush( m_renderer.renderBackground() );
     update();
 }
@@ -458,6 +457,13 @@ void KBounceGameWidget::focusOutEvent(QFocusEvent *event)
     }
 }
 
+void KBounceGameWidget::updateCursor()
+{
+    if ( m_state == Running )
+        setCursor( m_vertical ? Qt::SizeVerCursor : Qt::SizeHorCursor );
+    else
+        unsetCursor();
+}
 
 #include "gamewidget.moc"
 

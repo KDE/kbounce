@@ -79,7 +79,7 @@ class KBounceGameWidget : public QGraphicsView
 	void focusOutEvent(QFocusEvent *event);
 	void closeLevel();
 	void newLevel();
-
+	void updateCursor();
 	void redraw();
         void setGameDifficulty(const KgDifficultyLevel *);
 
