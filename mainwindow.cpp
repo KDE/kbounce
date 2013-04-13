@@ -161,6 +161,10 @@ void KBounceMainWindow::showHighscore()
 
 void KBounceMainWindow::highscore()
 {
+    if ( m_gameWidget->score() == 0 ) {
+        return;
+    }
+
     kDebug() ;
     KScoreDialog ksdialog( KScoreDialog::Name | KScoreDialog::Score | KScoreDialog::Level, this );
     ksdialog.initFromDifficulty(Kg::difficulty());
