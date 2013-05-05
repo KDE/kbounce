@@ -37,8 +37,8 @@
 <legalnotice>&FDLNotice;</legalnotice>
 
 
-<date>2012-08-06</date><!-- Date of (re)writing, or update.-->
-<releaseinfo>&kappversion; (&kde; 4.9)</releaseinfo><!-- Application version number. Use the variable definitions within header to change this value.-->
+<date>2013-05-05</date><!-- Date of (re)writing, or update.-->
+<releaseinfo>&kappversion; (&kde; 4.11)</releaseinfo><!-- Application version number. Use the variable definitions within header to change this value.-->
 
 <abstract>
 	<para>This documentation describes the game of &kbounce; version &kappversion;</para>
@@ -392,26 +392,6 @@ If a game is currently played, it's status is lost.</para>
 
 <variablelist>
 
-<varlistentry id="settings-toolbar">
-<term><menuchoice>
-<guimenu>Settings</guimenu>
-<guimenuitem>Show Toolbar</guimenuitem>
-</menuchoice></term>
-<listitem>
-<para><action>Shows/hides the &kbounce; toolbar.</action></para>
-</listitem>
-</varlistentry>
-
-<varlistentry id="settings-statusbar">
-<term><menuchoice>
-<guimenu>Settings</guimenu>
-<guimenuitem>Show Statusbar</guimenuitem>
-</menuchoice></term>
-<listitem>
-<para><action>Shows/hides the &kbounce; statusbar.</action></para>
-</listitem>
-</varlistentry>
-
 <varlistentry id="settings-sounds">
 <term><menuchoice>
 <guimenu>Settings</guimenu>
@@ -421,56 +401,29 @@ If a game is currently played, it's status is lost.</para>
 <para><action>If checked, &kbounce; game sounds are played.</action></para>
 </listitem>
 </varlistentry>
-
-<varlistentry>
+<!--FIXME what is Easy Medium Hard
+<varlistentry id="settings-difficulty">
 <term><menuchoice>
 <guimenu>Settings</guimenu>
-<guimenuitem>Configure Shortcuts...</guimenuitem>
+<guisubmenu>Difficulty</guisubmenu>
 </menuchoice></term>
 <listitem>
-<para><action>Opens a standard &kde; shortcut configuration dialog, in which
-you can change the keyboard shortcuts used by &kbounce;.</action></para>
+<para><action>Easy Medium Hard. velocity of balls is increased, velocity of walls is decreased?
+You should calculate things better to fence the area if the wall moves slow and the balls are fast.</action></para>
 </listitem>
 </varlistentry>
-
-<varlistentry>
-<term><menuchoice>
-<guimenu>Settings</guimenu>
-<guimenuitem>Configure Toolbars...</guimenuitem>
-</menuchoice></term>
-<listitem>
-<para><action>Opens the standard &kde; toolbar configuration dialog to customize the &kbounce; toolbar.</action></para>
-</listitem>
-</varlistentry>
-
-<varlistentry>
-<term><menuchoice>
-<guimenu>Settings</guimenu>
-<guimenuitem>Configure &kbounce;...</guimenuitem>
-</menuchoice></term>
-<listitem>
-<para><action>Opens a dialog to customize the game. It allows to
-select themes.</action></para>
-</listitem>
-</varlistentry>
-
+-->
 </variablelist>
-</sect2>
 
-
-<sect2 id="help-menu">
-<title>The <guimenu>Help</guimenu> Menu</title>
-<mediaobject>
-<imageobject>
-<imagedata format="PNG" fileref="menu-help.png"/>
-</imageobject>
-<textobject>
-<phrase>Help Menu</phrase></textobject>
-</mediaobject>
-
-&help.menu.documentation;
+<para>
+Additionally &kbreakout; has the common &kde; <guimenu>Settings</guimenu> and <guimenu>Help</guimenu>
+menu items, for more information read the sections about the <ulink url="help:/fundamentals/ui.html#menus-settings"
+>Settings Menu</ulink> and <ulink url="help:/fundamentals/ui.html#menus-help">Help Menu</ulink>
+of the &kde; Fundamentals.
+</para>
 
 </sect2>
+
 </sect1>
 </chapter>
 
