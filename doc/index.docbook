@@ -401,22 +401,22 @@ If a game is currently played, it's status is lost.</para>
 <para><action>If checked, &kbounce; game sounds are played.</action></para>
 </listitem>
 </varlistentry>
-<!--FIXME what is Easy Medium Hard
+
 <varlistentry id="settings-difficulty">
 <term><menuchoice>
 <guimenu>Settings</guimenu>
 <guisubmenu>Difficulty</guisubmenu>
 </menuchoice></term>
 <listitem>
-<para><action>Easy Medium Hard. velocity of balls is increased, velocity of walls is decreased?
-You should calculate things better to fence the area if the wall moves slow and the balls are fast.</action></para>
+<para><action>Select a game difficulty. On higher difficulty levels the walls are build slower while balls move faster.
+That makes it harder to fence an area in the board.</action></para>
 </listitem>
 </varlistentry>
--->
+
 </variablelist>
 
 <para>
-Additionally &kbreakout; has the common &kde; <guimenu>Settings</guimenu> and <guimenu>Help</guimenu>
+Additionally &kbounce; has the common &kde; <guimenu>Settings</guimenu> and <guimenu>Help</guimenu>
 menu items, for more information read the sections about the <ulink url="help:/fundamentals/ui.html#menus-settings"
 >Settings Menu</ulink> and <ulink url="help:/fundamentals/ui.html#menus-help">Help Menu</ulink>
 of the &kde; Fundamentals.
