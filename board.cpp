@@ -251,6 +251,11 @@ int KBounceBoard::filled()
     return m_filled;
 }
 
+QSize KBounceBoard::getTileSize()
+{
+    return m_tileSize;	
+}
+
 KBounceCollision KBounceBoard::checkCollision( void* object, const QRectF& rect, int type )
 {
     KBounceCollision result;

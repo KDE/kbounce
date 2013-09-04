@@ -62,6 +62,7 @@ class KBounceBoard: public QGraphicsObject
 
 	QPoint mapPosition( const QPointF& pos ) const;
         QRectF boundingRect() const;
+	QSize getTileSize();
 
 	void setBallVelocity(qreal velocity);
 	void setWallVelocity(qreal velocity);

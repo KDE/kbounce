@@ -29,6 +29,7 @@
 #include <KgSound>
 #include <KgDifficulty>
 #include <QMouseEvent>
+#include <QKeyEvent>
 
 #include "board.h"
 #include "renderer.h"
@@ -76,6 +77,7 @@ class KBounceGameWidget : public QGraphicsView
     protected:
 	virtual void resizeEvent( QResizeEvent* event );
 	virtual void mouseReleaseEvent( QMouseEvent* event );
+	virtual void keyReleaseEvent( QKeyEvent* event );
 	void focusOutEvent(QFocusEvent *event);
 	void closeLevel();
 	void newLevel();

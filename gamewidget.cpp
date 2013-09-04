@@ -303,6 +303,56 @@ void KBounceGameWidget::mouseReleaseEvent( QMouseEvent* event )
     }
 }
 
+void KBounceGameWidget::keyReleaseEvent( QKeyEvent* event )
+{	
+    QSize tileSize = m_board->getTileSize();
+    
+    if ( event->key() == Qt::Key_W )
+    {
+	QCursor::setPos( QCursor::pos().x(), QCursor::pos().y()-tileSize.height() );
+    }
+    
+    else if ( event->key() == Qt::Key_A )
+    {
+	QCursor::setPos( QCursor::pos().x()-tileSize.width(), QCursor::pos().y() );
+    }
+
+    else if ( event->key() == Qt::Key_S )
+    {
+	QCursor::setPos( QCursor::pos().x(), QCursor::pos().y()+tileSize.height() );
+    }
+
+    else if ( event->key() == Qt::Key_D )
+    {
+	QCursor::setPos( QCursor::pos().x()+tileSize.width(), QCursor::pos().y() );
+    }
+
+    if ( event->key() == Qt::Key_Space )
+    {
+	if ( m_state == Running )
+        {
+            m_board->buildWall( mapToScene( QWidget::mapFromGlobal(QCursor::pos() ) ), m_vertical );
+        }
+        else if ( m_state == Paused )
+        {
+            setPaused( false );
+        }
+        else if ( m_state == BetweenLevels )
+        {
+            newLevel();
+        }
+        else if ( m_state == BeforeFirstGame || m_state == GameOver )
+        {
+            newGame();
+        }
+    }
+
+    if ( event->key() == Qt::Key_L )
+    {
+        m_vertical = !m_vertical;
+        updateCursor();
+    }					
+}
 
 void KBounceGameWidget::closeLevel()
 {   
