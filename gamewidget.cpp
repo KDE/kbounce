@@ -57,6 +57,7 @@ KBounceGameWidget::KBounceGameWidget( QWidget* parent )
 	connect( this, SIGNAL(livesChanged(int)),this,SLOT(onLivesChanged(int)) );
 
     setMouseTracking( true );
+    mainWindow = parentWidget();
 
     connect(m_renderer.themeProvider(), SIGNAL(currentThemeChanged(const KgTheme*)),
         SLOT(settingsChanged()));
@@ -303,35 +304,50 @@ void KBounceGameWidget::mouseReleaseEvent( QMouseEvent* event )
     }
 }
 
+  
 void KBounceGameWidget::keyReleaseEvent( QKeyEvent* event )
 {	
+    QRect geometry = mainWindow->geometry();
     QSize tileSize = m_board->getTileSize();
+    QPoint pos = QCursor::pos();
     
     if ( event->key() == Qt::Key_W )
     {
-	QCursor::setPos( QCursor::pos().x(), QCursor::pos().y()-tileSize.height() );
+	if ( ( pos.y()-tileSize.height() > geometry.top() ) && ( pos.y() < geometry.bottom() ) )
+	{
+	  QCursor::setPos( pos.x(), pos.y()-tileSize.height() );
+	}
     }
     
     else if ( event->key() == Qt::Key_A )
     {
-	QCursor::setPos( QCursor::pos().x()-tileSize.width(), QCursor::pos().y() );
+	if ( ( pos.x()-tileSize.width() > geometry.left() ) && ( pos.x() < geometry.right() ) ) 
+	{
+	  QCursor::setPos( pos.x()-tileSize.width(), pos.y() );
+	}
     }
 
     else if ( event->key() == Qt::Key_S )
     {
-	QCursor::setPos( QCursor::pos().x(), QCursor::pos().y()+tileSize.height() );
+	if ( ( pos.y() > geometry.top() ) && ( pos.y()+tileSize.height() < geometry.bottom() ) )
+	{
+	  QCursor::setPos( pos.x(), pos.y()+tileSize.height() );
+	}
     }
 
     else if ( event->key() == Qt::Key_D )
     {
-	QCursor::setPos( QCursor::pos().x()+tileSize.width(), QCursor::pos().y() );
+	if ( ( pos.x() > geometry.left() ) && ( pos.x()+tileSize.width() < geometry.right() ) )
+	{
+	  QCursor::setPos( pos.x()+tileSize.width(), pos.y() );
+	}
     }
 
     if ( event->key() == Qt::Key_Space )
     {
 	if ( m_state == Running )
         {
-            m_board->buildWall( mapToScene( QWidget::mapFromGlobal(QCursor::pos() ) ), m_vertical );
+            m_board->buildWall( mapToScene( QWidget::mapFromGlobal( pos ) ), m_vertical );
         }
         else if ( m_state == Paused )
         {

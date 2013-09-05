@@ -30,6 +30,8 @@
 #include <KgDifficulty>
 #include <QMouseEvent>
 #include <QKeyEvent>
+#include <QPoint>
+#include <QCursor>
 
 #include "board.h"
 #include "renderer.h"
@@ -95,6 +97,7 @@ class KBounceGameWidget : public QGraphicsView
 	int m_score;
 	int m_lives;
 	int m_time;
+	QWidget * mainWindow;
 
 	QGraphicsPixmapItem* m_overlay;
 	void generateOverlay();
