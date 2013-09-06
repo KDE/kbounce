@@ -21,6 +21,7 @@
 
 #include <QPalette>
 #include <QTimer>
+#include <QRect>
 
 #include <KStandardDirs>
 #include <KLocale>
@@ -57,7 +58,6 @@ KBounceGameWidget::KBounceGameWidget( QWidget* parent )
 	connect( this, SIGNAL(livesChanged(int)),this,SLOT(onLivesChanged(int)) );
 
     setMouseTracking( true );
-    mainWindow = parentWidget();
 
     connect(m_renderer.themeProvider(), SIGNAL(currentThemeChanged(const KgTheme*)),
         SLOT(settingsChanged()));
@@ -304,70 +304,74 @@ void KBounceGameWidget::mouseReleaseEvent( QMouseEvent* event )
     }
 }
 
-  
+
 void KBounceGameWidget::keyReleaseEvent( QKeyEvent* event )
-{	
-    QRect geometry = mainWindow->geometry();
-    QSize tileSize = m_board->getTileSize();
+{
     QPoint pos = QCursor::pos();
-    
-    if ( event->key() == Qt::Key_W )
-    {
-	if ( ( pos.y()-tileSize.height() > geometry.top() ) && ( pos.y() < geometry.bottom() ) )
-	{
-	  QCursor::setPos( pos.x(), pos.y()-tileSize.height() );
-	}
-    }
-    
-    else if ( event->key() == Qt::Key_A )
-    {
-	if ( ( pos.x()-tileSize.width() > geometry.left() ) && ( pos.x() < geometry.right() ) ) 
-	{
-	  QCursor::setPos( pos.x()-tileSize.width(), pos.y() );
-	}
+    QPoint localPos = mapFromGlobal( pos );
+
+    if ( !rect().contains( localPos ) ) {
+        return;
     }
 
-    else if ( event->key() == Qt::Key_S )
+    QMouseEvent * mouseEvent;
+    QSize tileSize = m_board->getTileSize();
+
+    int nextX;
+    int nextY;
+
+    switch ( event->key() )
     {
-	if ( ( pos.y() > geometry.top() ) && ( pos.y()+tileSize.height() < geometry.bottom() ) )
-	{
-	  QCursor::setPos( pos.x(), pos.y()+tileSize.height() );
-	}
+    case Qt::Key_W:
+        nextX = pos.x();
+        nextY = pos.y() - tileSize.height();
+        break;
+    case Qt::Key_A:
+        nextX = pos.x() - tileSize.width();
+        nextY = pos.y();
+        break;
+    case Qt::Key_S:
+        nextX = pos.x();
+        nextY = pos.y() + tileSize.height();
+        break;
+    case Qt::Key_D:
+        nextX = pos.x() + tileSize.width();
+        nextY = pos.y();
+        break;
+    case Qt::Key_L:
+        mouseEvent = new QMouseEvent ( QEvent::MouseButtonRelease,
+                                       localPos,
+                                       Qt::RightButton,
+                                       Qt::LeftButton | Qt::RightButton,
+                                       Qt::NoModifier );
+        mouseReleaseEvent( mouseEvent );
+        delete mouseEvent;
+        return;
+    case Qt::Key_Space:
+        mouseEvent = new QMouseEvent ( QEvent::MouseButtonRelease,
+                                       localPos,
+                                       Qt::LeftButton,
+                                       Qt::LeftButton | Qt::RightButton,
+                                       Qt::NoModifier );
+
+        mouseReleaseEvent( mouseEvent );
+        delete mouseEvent;
+        return;
     }
 
-    else if ( event->key() == Qt::Key_D )
-    {
-	if ( ( pos.x() > geometry.left() ) && ( pos.x()+tileSize.width() < geometry.right() ) )
-	{
-	  QCursor::setPos( pos.x()+tileSize.width(), pos.y() );
-	}
+    QPoint nextPos( nextX, nextY );
+    setCursorPosition( nextPos );
+}
+
+void KBounceGameWidget::setCursorPosition (const QPoint & pos )
+{
+    QPoint localPos = mapFromGlobal( pos );
+
+    if ( !rect().contains(localPos) ) {
+        return;
     }
 
-    if ( event->key() == Qt::Key_Space )
-    {
-	if ( m_state == Running )
-        {
-            m_board->buildWall( mapToScene( QWidget::mapFromGlobal( pos ) ), m_vertical );
-        }
-        else if ( m_state == Paused )
-        {
-            setPaused( false );
-        }
-        else if ( m_state == BetweenLevels )
-        {
-            newLevel();
-        }
-        else if ( m_state == BeforeFirstGame || m_state == GameOver )
-        {
-            newGame();
-        }
-    }
-
-    if ( event->key() == Qt::Key_L )
-    {
-        m_vertical = !m_vertical;
-        updateCursor();
-    }					
+    QCursor::setPos( pos );
 }
 
 void KBounceGameWidget::closeLevel()

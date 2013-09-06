@@ -86,6 +86,7 @@ class KBounceGameWidget : public QGraphicsView
 	void updateCursor();
 	void redraw();
         void setGameDifficulty(const KgDifficultyLevel *);
+        void setCursorPosition(const QPoint & pos);
 
 	KBounceRenderer m_renderer;
 
@@ -97,7 +98,6 @@ class KBounceGameWidget : public QGraphicsView
 	int m_score;
 	int m_lives;
 	int m_time;
-	QWidget * mainWindow;
 
 	QGraphicsPixmapItem* m_overlay;
 	void generateOverlay();
