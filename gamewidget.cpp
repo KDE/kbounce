@@ -22,7 +22,9 @@
 #include <QPalette>
 #include <QTimer>
 #include <QRect>
+#include <QSignalMapper>
 
+#include <KAction>
 #include <KStandardDirs>
 #include <KLocale>
 #include <KgDifficulty>
@@ -34,6 +36,8 @@ static const int GAME_TIME_DELAY = 1000;
 static const int MIN_FILL_PERCENT = 75;
 static const int POINTS_FOR_LIFE = 15;
 static const int TICKS_PER_SECOND = 1000 / GAME_TIME_DELAY;
+
+enum MouseButton { LEFT_BUTTON, RIGHT_BUTTON };
 
 KBounceGameWidget::KBounceGameWidget( QWidget* parent )
 : QGraphicsView( parent )
@@ -305,69 +309,116 @@ void KBounceGameWidget::mouseReleaseEvent( QMouseEvent* event )
 }
 
 
-void KBounceGameWidget::keyReleaseEvent( QKeyEvent* event )
+void KBounceGameWidget::bindKeys( KActionCollection * keyShortcuts )
 {
-    QPoint pos = QCursor::pos();
-    QPoint localPos = mapFromGlobal( pos );
+    KAction * shortcut;
 
-    if ( !rect().contains( localPos ) ) {
-        return;
-    }
+    shortcut = keyShortcuts->addAction( QLatin1String( "move_left" ));
+    shortcut->setText(i18n("Move Cursor Left"));
+    shortcut->setIcon(KIcon( QLatin1String( "arrow-left" )));
+    shortcut->setShortcuts( KShortcut( Qt::Key_A ) );
+    connect(shortcut, SIGNAL(triggered(bool)), this, SLOT(moveCursorLeft()));
 
-    QMouseEvent * mouseEvent;
-    QSize tileSize = m_board->getTileSize();
+    shortcut = keyShortcuts->addAction( QLatin1String( "move_right" ));
+    shortcut->setText(i18n("Move Cursor Right"));
+    shortcut->setIcon(KIcon( QLatin1String( "arrow-right" )));
+    shortcut->setShortcuts( KShortcut( Qt::Key_D) );
+    connect(shortcut, SIGNAL(triggered(bool)), this, SLOT(moveCursorRight()));
 
-    int nextX;
-    int nextY;
+    shortcut = keyShortcuts->addAction( QLatin1String( "move_down" ));
+    shortcut->setText(i18n("Move Cursor Down"));
+    shortcut->setIcon(KIcon( QLatin1String( "arrow-down" )));
+    shortcut->setShortcuts( KShortcut( Qt::Key_S ) );
+    connect(shortcut, SIGNAL(triggered(bool)), this, SLOT(moveCursorDown()));
 
-    switch ( event->key() )
-    {
-    case Qt::Key_W:
-        nextX = pos.x();
-        nextY = pos.y() - tileSize.height();
-        break;
-    case Qt::Key_A:
-        nextX = pos.x() - tileSize.width();
-        nextY = pos.y();
-        break;
-    case Qt::Key_S:
-        nextX = pos.x();
-        nextY = pos.y() + tileSize.height();
-        break;
-    case Qt::Key_D:
-        nextX = pos.x() + tileSize.width();
-        nextY = pos.y();
-        break;
-    case Qt::Key_L:
-        mouseEvent = new QMouseEvent ( QEvent::MouseButtonRelease,
-                                       localPos,
-                                       Qt::RightButton,
-                                       Qt::LeftButton | Qt::RightButton,
-                                       Qt::NoModifier );
-        mouseReleaseEvent( mouseEvent );
-        delete mouseEvent;
-        return;
-    case Qt::Key_Space:
-        mouseEvent = new QMouseEvent ( QEvent::MouseButtonRelease,
-                                       localPos,
-                                       Qt::LeftButton,
-                                       Qt::LeftButton | Qt::RightButton,
-                                       Qt::NoModifier );
+    shortcut = keyShortcuts->addAction( QLatin1String( "move_up" ));
+    shortcut->setText(i18n("Move Cursor Up"));
+    shortcut->setIcon(KIcon( QLatin1String( "arrow-up" )));
+    shortcut->setShortcuts( KShortcut( Qt::Key_W) );
+    connect(shortcut, SIGNAL(triggered(bool)), this, SLOT(moveCursorUp()));
 
-        mouseReleaseEvent( mouseEvent );
-        delete mouseEvent;
-        return;
-    }
+    QSignalMapper * mapper = new QSignalMapper( this );
 
-    QPoint nextPos( nextX, nextY );
-    setCursorPosition( nextPos );
+    shortcut = keyShortcuts->addAction( QLatin1String( "create_wall" ));
+    shortcut->setText(i18n("Create Wall"));
+    shortcut->setIcon(KIcon( QLatin1String( "insert-horizontal-rule" )));
+    shortcut->setShortcuts( KShortcut( Qt::Key_Space) );
+
+    mapper->setMapping( shortcut, LEFT_BUTTON );
+    connect(shortcut, SIGNAL(triggered(bool)), mapper, SLOT(map()));
+
+    shortcut = keyShortcuts->addAction( QLatin1String( "toggle_axis" ));
+    shortcut->setText(i18n("Toggle Axis"));
+    shortcut->setIcon(KIcon( QLatin1String( "object-rotate-right" )));
+    shortcut->setShortcuts( KShortcut( Qt::Key_L) );
+
+    mapper->setMapping( shortcut, RIGHT_BUTTON );
+    connect(shortcut, SIGNAL(triggered(bool)), mapper, SLOT(map()));
+
+    connect(mapper, SIGNAL(mapped(int)), this, SLOT(performMouseClick(int)));
 }
 
-void KBounceGameWidget::setCursorPosition (const QPoint & pos )
+void KBounceGameWidget::moveCursorLeft()
 {
-    QPoint localPos = mapFromGlobal( pos );
+    QSize tileSize  = m_board->getTileSize();
+    int x           = QCursor::pos().x() - tileSize.width();
+    int y           = QCursor::pos().y();
 
-    if ( !rect().contains(localPos) ) {
+    setCursorPosition( x, y );
+}
+
+void KBounceGameWidget::moveCursorRight()
+{
+    QSize tileSize  = m_board->getTileSize();
+    int x           = QCursor::pos().x() + tileSize.width();
+    int y           = QCursor::pos().y();
+
+    setCursorPosition( x, y );
+}
+
+void KBounceGameWidget::moveCursorDown()
+{
+    QSize tileSize  = m_board->getTileSize();
+    int x           = QCursor::pos().x();
+    int y           = QCursor::pos().y() + tileSize.height();
+
+    setCursorPosition( x, y );
+}
+
+void KBounceGameWidget::moveCursorUp()
+{
+    QSize tileSize  = m_board->getTileSize();
+    int x           = QCursor::pos().x();
+    int y           = QCursor::pos().y() - tileSize.height();
+
+    setCursorPosition( x, y );
+}
+
+void KBounceGameWidget::performMouseClick( int mouseButton )
+{
+    QPoint pos               = QCursor::pos();
+    QPoint localPos          = mapFromGlobal( pos );
+    Qt::MouseButton button   = mouseButton == LEFT_BUTTON ? Qt::LeftButton :
+                                                            Qt::RightButton;
+
+    QMouseEvent * mouseEvent = new QMouseEvent(QEvent::MouseButtonRelease,
+                                               localPos,
+                                               button,
+                                               Qt::LeftButton | Qt::RightButton,
+                                               Qt::NoModifier );
+    mouseReleaseEvent( mouseEvent );
+    delete mouseEvent;
+}
+
+void KBounceGameWidget::setCursorPosition( int x, int y )
+{
+    QPoint pos              = QPoint( x, y );
+    QPoint nextPosition     = mapFromGlobal( pos );
+    QPoint currentPosition  = mapFromGlobal( QCursor::pos() );
+
+    if ( !m_state == Running ||
+         !rect().contains( nextPosition ) ||
+         !rect().contains( currentPosition ) ) {
         return;
     }
 

@@ -96,6 +96,9 @@ void KBounceMainWindow::initXMLUI()
     m_soundAction = new KToggleAction( i18n("&Play Sounds"), this );
     actionCollection()->addAction( QLatin1String(  "toggle_sound" ), m_soundAction );
     connect( m_soundAction, SIGNAL(triggered(bool)), this, SLOT(setSounds(bool)) );
+    
+    //keys
+    m_gameWidget->bindKeys(actionCollection());
 }
 
 		   

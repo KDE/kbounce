@@ -28,6 +28,8 @@
 
 #include <KgSound>
 #include <KgDifficulty>
+#include <KActionCollection>
+
 #include <QMouseEvent>
 #include <QKeyEvent>
 #include <QPoint>
@@ -52,6 +54,7 @@ class KBounceGameWidget : public QGraphicsView
 	KBounceRenderer* renderer() { return &m_renderer; }
 
 	QSize minimumSizeHint() const;
+	void bindKeys( KActionCollection * keyShortcuts );
 
     public slots:
 	void closeGame();
@@ -69,6 +72,13 @@ class KBounceGameWidget : public QGraphicsView
 	void livesChanged( int lives );
 	void timeChanged( int time );
 	void stateChanged( KBounceGameWidget::State state );
+	
+    private slots:
+	void moveCursorLeft();
+	void moveCursorRight();
+	void moveCursorDown();
+	void moveCursorUp();
+	void performMouseClick( int mouseButton );
 
     protected slots:
 	void onFillChanged( int filled );
@@ -79,14 +89,13 @@ class KBounceGameWidget : public QGraphicsView
     protected:
 	virtual void resizeEvent( QResizeEvent* event );
 	virtual void mouseReleaseEvent( QMouseEvent* event );
-	virtual void keyReleaseEvent( QKeyEvent* event );
 	void focusOutEvent(QFocusEvent *event);
 	void closeLevel();
 	void newLevel();
 	void updateCursor();
 	void redraw();
         void setGameDifficulty(const KgDifficultyLevel *);
-        void setCursorPosition(const QPoint & pos);
+        void setCursorPosition(int x, int y);
 
 	KBounceRenderer m_renderer;
 
