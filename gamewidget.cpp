@@ -108,11 +108,11 @@ void KBounceGameWidget::closeGame()
     }
 }
 
-void KBounceGameWidget::newGame()
+void KBounceGameWidget::newGame( int start_level, int start_score )
 {
     closeGame();
-    m_level = 1;
-    m_score = 0;
+    m_level = start_level;
+    m_score = start_score;
 
     emit levelChanged( m_level );
     emit scoreChanged( m_score );
@@ -200,7 +200,7 @@ void KBounceGameWidget::levelChanged()
     setGameDifficulty( Kg::difficulty()->currentLevel() );
 
     if ( m_state == Running || m_state == Paused )
-        newGame();
+        newGame( 1, 0 );
 }
 
 void KBounceGameWidget::onFillChanged( int fill )
@@ -303,7 +303,7 @@ void KBounceGameWidget::mouseReleaseEvent( QMouseEvent* event )
         }
         else if ( m_state == BeforeFirstGame || m_state == GameOver )
         {
-            newGame();
+            newGame( 1, 0 );
         }
     }
 }

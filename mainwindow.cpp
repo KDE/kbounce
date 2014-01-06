@@ -48,8 +48,11 @@ KBounceMainWindow::KBounceMainWindow()
     m_statusBar->insertItem( i18n( "Filled: %1%", QString::fromLatin1( "XX" ) ), 3, 1 );
     m_statusBar->insertItem( i18n( "Lives: %1", QString::fromLatin1( "XX" ) ), 4, 1 );
     m_statusBar->insertItem( i18n( "Time: %1", QString::fromLatin1( "XXX" ) ), 5, 1 );
-
+        
+    dirs = new KStandardDirs();
+    userDataDir = dirs->saveLocation ("data", "kbounce", true);
     m_gameWidget = new KBounceGameWidget( this );
+    
     connect( m_gameWidget, SIGNAL(levelChanged(int)), this, SLOT(displayLevel(int)) );
     connect( m_gameWidget, SIGNAL(scoreChanged(int)), this, SLOT(displayScore(int)) );
     connect( m_gameWidget, SIGNAL(livesChanged(int)), this, SLOT(displayLives(int)) );
@@ -79,6 +82,10 @@ void KBounceMainWindow::initXMLUI()
 {
     // Game
     m_newAction = KStandardGameAction::gameNew(this, SLOT(newGame()), actionCollection());
+    m_saveGame = KStandardGameAction::save(this, SLOT(saveGame()), actionCollection());
+    m_saveGame->setText (i18n ("&Save and Exit"));
+    m_loadGame = KStandardGameAction::load(this, SLOT(loadGame()), actionCollection());
+    m_loadGame->setText (i18n ("&Load last game"));
     KStandardGameAction::end(this, SLOT(closeGame()), actionCollection());
     m_pauseAction = KStandardGameAction::pause(this, SLOT(pauseGame()), actionCollection());
     KStandardGameAction::highscores(this, SLOT(showHighscore()), actionCollection());
@@ -101,6 +108,31 @@ void KBounceMainWindow::initXMLUI()
     m_gameWidget->bindKeys(actionCollection());
 }
 
+bool KBounceMainWindow::safeRename (QWidget * theView, const QString & oldName,
+                            const QString & newName)
+{
+    QFile newFile (newName);
+    if (newFile.exists()) {
+        // On some file systems we cannot rename if a file with the new name
+        // already exists.  We must delete the existing file, otherwise the
+        // upcoming QFile::rename will fail, according to Qt4 docs.  This
+        // seems to be true with reiserfs at least.
+        if (! newFile.remove()) {
+            KMessageBox::information (theView, 
+                i18n ("Cannot delete previous version of file '%1'.", 
+		      i18n ("Rename File"), newName));
+            return false;
+        }
+    }
+    QFile oldFile (oldName);
+    if (! oldFile.rename (newName)) {
+        KMessageBox::information (theView, 
+            i18n ("Cannot rename file '%1' to '%2'.", oldName, 
+		  i18n ("Rename File"), newName));
+        return false;
+    }
+    return true;
+}
 		   
 		   
 void KBounceMainWindow::newGame()
@@ -109,8 +141,87 @@ void KBounceMainWindow::newGame()
     closeGame();
 	if ( m_gameWidget->state() == KBounceGameWidget::BeforeFirstGame || m_gameWidget->state() == KBounceGameWidget::GameOver )
 	{
-		m_gameWidget->newGame();
+		m_gameWidget->newGame( 1, 0 );
 	}
+}
+
+void KBounceMainWindow::saveGame()
+{
+    m_gameWidget->setPaused( true );
+    
+    QString saved;
+    saved = saved.sprintf
+                ("%1d %4d \n",
+                 m_gameWidget->level(), m_gameWidget->score());
+
+    QFile file1 (userDataDir + "savegame.dat");
+    
+    bool success = file1.open(QIODevice::WriteOnly);
+    if (success) {
+	
+	QTextStream text1 (&file1);
+	text1 << saved;
+	KMessageBox::information (m_gameWidget, 
+            i18n ("Please note: For reasons of simplicity, your saved game "
+            "position and score will be as they were at the start of this "
+            "level, not as they are now. \nImportant: You are allowed "
+	    "to load this saved game only once!"), 
+	    i18n ("Save Game"));
+	
+    }
+    
+    else {
+	
+	KMessageBox::information (m_gameWidget, 
+                                i18n ("Error: Failed to save your game."), 
+				 i18n ("Save Game"));
+	
+    }
+    
+    file1.close();
+    m_gameWidget->closeGame();
+
+  
+}
+
+
+void KBounceMainWindow::loadGame()
+{
+    
+    QFile savedGames (userDataDir + "savegame.dat");
+    if ( savedGames.exists() ){
+    
+	int ret = KMessageBox::questionYesNo( this, i18n( "Warning: All unsaved changes will be lost. Do you really want to close the running game?" ), QString(),  KStandardGuiItem::yes(), KStandardGuiItem::cancel() );
+
+	if ( ret == KMessageBox::Yes ){
+	    
+	    savedGames.open(QIODevice::ReadOnly);
+	    QTextStream text1 ( &savedGames );
+	    QString info = text1.readLine();
+    
+	    int lev = info.mid(0, 1).toInt();			
+	    int scr = info.mid(3, 4).toInt();
+    
+	    savedGames.close();
+	    bool success = savedGames.remove( userDataDir + "savegame.dat");
+	    
+	    if (success) {
+	        m_gameWidget->newGame( lev, scr );
+	    }
+	}
+
+	else {
+	    m_gameWidget->setPaused( false );
+	}
+    }
+    
+    else {
+        KMessageBox::information (m_gameWidget, 
+                         i18n ("Sorry, there are no saved games."), 
+			 i18n ("Load Game"));
+        
+    }
+           
 }
 
 void KBounceMainWindow::pauseGame()
@@ -138,7 +249,13 @@ void KBounceMainWindow::closeGame()
 	int ret = KMessageBox::questionYesNo( this, i18n( "Do you really want to close the running game?" ), QString(),  KStandardGuiItem::yes(), KStandardGuiItem::cancel() );
 	if ( ret == KMessageBox::Yes )
 	{
-		m_gameWidget->closeGame();
+	      int ret2 = KMessageBox::questionYesNo( this, i18n( "Do you want to save the game before closing?" ), QString(),  KStandardGuiItem::yes(), KStandardGuiItem::no() );
+	      if ( ret2 == KMessageBox::Yes )
+	      	  saveGame();
+			      
+	      else
+		  m_gameWidget->closeGame();
+	      
 	}
 	else if ( old_state == KBounceGameWidget::Running )
 	{

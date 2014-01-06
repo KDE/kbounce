@@ -58,7 +58,7 @@ class KBounceGameWidget : public QGraphicsView
 
     public slots:
 	void closeGame();
-	void newGame();
+	void newGame( int start_level, int start_score );
 	void setPaused( bool );
 	void settingsChanged();
 	void setSuspended( bool );

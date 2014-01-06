@@ -27,16 +27,20 @@ class KAction;
 class KStatusBar;
 class KToggleAction;
 
-
 class KBounceMainWindow : public KXmlGuiWindow
 {
    Q_OBJECT
 public:
    KBounceMainWindow();
    ~KBounceMainWindow();
+   
+   static bool safeRename (QWidget * theView, const QString & oldName,
+                            const QString & newName);
 
 protected slots:
    void newGame();
+   void saveGame();
+   void loadGame();
    void pauseGame();
    void closeGame();
    void gameOverNow();
@@ -59,11 +63,15 @@ protected:
    void focusInEvent ( QFocusEvent * );
 
    KBounceGameWidget* m_gameWidget;
+   KStandardDirs* dirs;
 
    KStatusBar* m_statusBar;
 
    KToggleAction *m_pauseAction, *m_backgroundShowAction, *m_soundAction;
-   KAction *m_newAction;
+   KAction *m_newAction, *m_saveGame, *m_loadGame;
+private:
+  QString userDataDir;
+  QString myDir;
 };
 
 #endif // KBOUNCE_MAINWINDOW_H
