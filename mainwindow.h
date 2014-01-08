@@ -33,7 +33,7 @@ class KBounceMainWindow : public KXmlGuiWindow
 public:
    KBounceMainWindow();
    ~KBounceMainWindow();
-   
+
    static bool safeRename (QWidget * theView, const QString & oldName,
                             const QString & newName);
 

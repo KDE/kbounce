@@ -148,63 +148,52 @@ void KBounceMainWindow::newGame()
 void KBounceMainWindow::saveGame()
 {
     m_gameWidget->setPaused( true );
-    
+
     QString saved;
     saved = saved.sprintf
                 ("%1d %4d \n",
                  m_gameWidget->level(), m_gameWidget->score());
 
     QFile file1 (userDataDir + "savegame.dat");
-    
+
     bool success = file1.open(QIODevice::WriteOnly);
     if (success) {
-	
 	QTextStream text1 (&file1);
 	text1 << saved;
-	KMessageBox::information (m_gameWidget, 
+	KMessageBox::information (m_gameWidget,
             i18n ("Please note: For reasons of simplicity, your saved game "
             "position and score will be as they were at the start of this "
             "level, not as they are now. \nImportant: You are allowed "
-	    "to load this saved game only once!"), 
+	    "to load this saved game only once!"),
 	    i18n ("Save Game"));
-	
     }
-    
     else {
-	
-	KMessageBox::information (m_gameWidget, 
-                                i18n ("Error: Failed to save your game."), 
+	KMessageBox::information (m_gameWidget,
+                                i18n ("Error: Failed to save your game."),
 				 i18n ("Save Game"));
-	
     }
-    
     file1.close();
     m_gameWidget->closeGame();
-
-  
 }
 
 
 void KBounceMainWindow::loadGame()
 {
-    
     QFile savedGames (userDataDir + "savegame.dat");
     if ( savedGames.exists() ){
-    
 	int ret = KMessageBox::questionYesNo( this, i18n( "Warning: All unsaved changes will be lost. Do you really want to close the running game?" ), QString(),  KStandardGuiItem::yes(), KStandardGuiItem::cancel() );
 
 	if ( ret == KMessageBox::Yes ){
-	    
 	    savedGames.open(QIODevice::ReadOnly);
 	    QTextStream text1 ( &savedGames );
 	    QString info = text1.readLine();
-    
-	    int lev = info.mid(0, 1).toInt();			
+
+	    int lev = info.mid(0, 1).toInt();
 	    int scr = info.mid(3, 4).toInt();
-    
+
 	    savedGames.close();
 	    bool success = savedGames.remove( userDataDir + "savegame.dat");
-	    
+
 	    if (success) {
 	        m_gameWidget->newGame( lev, scr );
 	    }
@@ -214,14 +203,11 @@ void KBounceMainWindow::loadGame()
 	    m_gameWidget->setPaused( false );
 	}
     }
-    
     else {
-        KMessageBox::information (m_gameWidget, 
-                         i18n ("Sorry, there are no saved games."), 
+        KMessageBox::information (m_gameWidget,
+                         i18n ("Sorry, there are no saved games."),
 			 i18n ("Load Game"));
-        
     }
-           
 }
 
 void KBounceMainWindow::pauseGame()
@@ -250,12 +236,13 @@ void KBounceMainWindow::closeGame()
 	if ( ret == KMessageBox::Yes )
 	{
 	      int ret2 = KMessageBox::questionYesNo( this, i18n( "Do you want to save the game before closing?" ), QString(),  KStandardGuiItem::yes(), KStandardGuiItem::no() );
-	      if ( ret2 == KMessageBox::Yes )
+
+	      if ( ret2 == KMessageBox::Yes ) {
 	      	  saveGame();
-			      
-	      else
+              }
+	      else {
 		  m_gameWidget->closeGame();
-	      
+              }
 	}
 	else if ( old_state == KBounceGameWidget::Running )
 	{
