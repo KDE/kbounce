@@ -108,33 +108,6 @@ void KBounceMainWindow::initXMLUI()
     m_gameWidget->bindKeys(actionCollection());
 }
 
-bool KBounceMainWindow::safeRename (QWidget * theView, const QString & oldName,
-                            const QString & newName)
-{
-    QFile newFile (newName);
-    if (newFile.exists()) {
-        // On some file systems we cannot rename if a file with the new name
-        // already exists.  We must delete the existing file, otherwise the
-        // upcoming QFile::rename will fail, according to Qt4 docs.  This
-        // seems to be true with reiserfs at least.
-        if (! newFile.remove()) {
-            KMessageBox::information (theView, 
-                i18n ("Cannot delete previous version of file '%1'.", 
-		      i18n ("Rename File"), newName));
-            return false;
-        }
-    }
-    QFile oldFile (oldName);
-    if (! oldFile.rename (newName)) {
-        KMessageBox::information (theView, 
-            i18n ("Cannot rename file '%1' to '%2'.", oldName, 
-		  i18n ("Rename File"), newName));
-        return false;
-    }
-    return true;
-}
-		   
-		   
 void KBounceMainWindow::newGame()
 {
 	// Check for running game
