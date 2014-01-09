@@ -351,9 +351,11 @@ void KBounceMainWindow::gameStateChanged( KBounceGameWidget::State state )
         case KBounceGameWidget::Running :
             m_pauseAction->setChecked( false );
             m_statusBar->clearMessage();
+            m_saveGameAction->setEnabled( true );
             break;
         case KBounceGameWidget::GameOver :
             statusBar()->showMessage(  i18n("Game over. Click to start a game") );
+            m_saveGameAction->setEnabled( false );
             highscore();
             break;
     }
