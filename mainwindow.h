@@ -67,8 +67,14 @@ protected:
 
    KStatusBar* m_statusBar;
 
-   KToggleAction *m_pauseAction, *m_backgroundShowAction, *m_soundAction;
-   KAction *m_newAction, *m_saveGame, *m_loadGame;
+   KToggleAction * m_pauseAction;
+   KToggleAction * m_backgroundShowAction;
+   KToggleAction * m_soundAction;
+
+   KAction * m_newAction;
+   KAction * m_saveGameAction;
+   KAction * m_loadGameAction;
+
 private:
   QString userDataDir;
   QString myDir;
