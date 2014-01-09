@@ -151,28 +151,41 @@ void KBounceMainWindow::saveGame()
 
     QString saved;
     saved = saved.sprintf
-                ("%1d %4d \n",
-                 m_gameWidget->level(), m_gameWidget->score());
+                ("%1d %4d \n", m_gameWidget->level(), m_gameWidget->score());
 
-    QFile file1 (userDataDir + "savegame.dat");
+    QFile saveFile(userDataDir + "savegame.dat");
 
-    bool success = file1.open(QIODevice::WriteOnly);
-    if (success) {
-	QTextStream text1 (&file1);
-	text1 << saved;
-	KMessageBox::information (m_gameWidget,
-            i18n ("Please note: For reasons of simplicity, your saved game "
+    if (saveFile.exists()) {
+        int wantToSave = KMessageBox::questionYesNo(this,
+                                    i18n("Saving this game will overwrite your "
+                                         "last saved game. Save anyway?"));
+
+        if (wantToSave == KMessageBox::No) {
+            return;
+        }
+    }
+
+    if (saveFile.open(QIODevice::WriteOnly)) {
+	QTextStream text(&saveFile);
+	text << saved;
+
+	KMessageBox::information(this,
+            i18n("Please note: For reasons of simplicity, your saved game "
             "position and score will be as they were at the start of this "
-            "level, not as they are now. \nImportant: You are allowed "
-	    "to load this saved game only once!"),
-	    i18n ("Save Game"));
+            "level, not as they are now."
+            "\n"
+            "\n"
+            "Important: You are allowed to load this saved game only once!"),
+	    i18n("Save Game"),
+            i18n("save-game"));
     }
     else {
-	KMessageBox::information (m_gameWidget,
-                                i18n ("Error: Failed to save your game."),
-				 i18n ("Save Game"));
+	KMessageBox::sorry(this,
+                           i18n("Error: Failed to save your game."),
+			   i18n("Save Game"));
     }
-    file1.close();
+
+    saveFile.close();
     m_gameWidget->closeGame();
 }
 
