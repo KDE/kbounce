@@ -83,7 +83,7 @@ void KBounceMainWindow::initXMLUI()
     // Game
     m_newAction = KStandardGameAction::gameNew(this, SLOT(newGame()), actionCollection());
     m_saveGameAction = KStandardGameAction::save(this, SLOT(saveGame()), actionCollection());
-    m_saveGameAction->setText (i18n ("&Save and Exit"));
+    m_saveGameAction->setText (i18n ("&Save"));
     m_loadGameAction = KStandardGameAction::load(this, SLOT(loadGame()), actionCollection());
     m_loadGameAction->setText (i18n ("&Load last game"));
     KStandardGameAction::end(this, SLOT(closeGame()), actionCollection());
@@ -143,12 +143,11 @@ void KBounceMainWindow::saveGame()
 	text << saved;
 
 	KMessageBox::information(this,
-            i18n("Please note: For reasons of simplicity, your saved game "
-            "position and score will be as they were at the start of this "
-            "level, not as they are now."
-            "\n"
-            "\n"
-            "Important: You are allowed to load this saved game only once!"),
+            i18n("Please note: What is being saved is the current level and "
+                 "score. Walls and balls positions will not be preserved."
+                 "\n\n"
+                 "Important: You are allowed to load this saved game only "
+                 "once!"),
 	    i18n("Save Game"),
             i18n("save-game"));
     }
@@ -159,7 +158,7 @@ void KBounceMainWindow::saveGame()
     }
 
     saveFile.close();
-    m_gameWidget->closeSavedGame();
+    m_gameWidget->onSavedGame();
 }
 
 
@@ -329,6 +328,7 @@ void KBounceMainWindow::gameStateChanged( KBounceGameWidget::State state )
         case KBounceGameWidget::BeforeFirstGame :
         case KBounceGameWidget::BetweenLevels :
         case KBounceGameWidget::Suspended :
+        case KBounceGameWidget::GameSaved :
             break;
         case KBounceGameWidget::Paused :
             m_pauseAction->setChecked( true );
@@ -343,10 +343,6 @@ void KBounceMainWindow::gameStateChanged( KBounceGameWidget::State state )
             statusBar()->showMessage(  i18n("Game over. Click to start a game") );
             m_saveGameAction->setEnabled( false );
             highscore();
-            break;
-        case KBounceGameWidget::GameSaved :
-            statusBar()->showMessage( i18n("Game saved. "
-                                           "Click to start a new game."));
             break;
     }
 }

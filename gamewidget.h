@@ -61,10 +61,10 @@ class KBounceGameWidget : public QGraphicsView
 
 	QSize minimumSizeHint() const;
 	void bindKeys( KActionCollection * keyShortcuts );
+        void onSavedGame();
 
     public slots:
 	void closeGame();
-        void closeSavedGame();
 	void newGame( int start_level, int start_score );
 	void setPaused( bool );
 	void settingsChanged();

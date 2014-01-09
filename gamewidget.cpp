@@ -108,23 +108,25 @@ void KBounceGameWidget::closeGame()
     }
 }
 
-void KBounceGameWidget::closeSavedGame()
+void KBounceGameWidget::onSavedGame()
 {
-    m_clock->stop();
-    m_board->setPaused( true );
+    State previousState = m_state;
     m_state = GameSaved;
 
-    emit stateChanged( m_state );
+    m_clock->stop();
+    m_board->setPaused( true );
 
-    Kg::difficulty()->setGameRunning( false );
+    emit stateChanged( m_state );
     redraw();
+
+    if ( previousState == BetweenLevels ) {
+        m_state = previousState;
+    }
 }
 
 void KBounceGameWidget::newGame( int start_level, int start_score )
 {
-    if ( m_state != GameSaved ) {
-        closeGame();
-    }
+    closeGame();
 
     m_level = start_level;
     m_score = start_score;
@@ -138,7 +140,7 @@ void KBounceGameWidget::newGame( int start_level, int start_score )
 
 void KBounceGameWidget::setPaused( bool val )
 {
-    if ( m_state == Paused && val == false )
+    if ( ( m_state == Paused || m_state == GameSaved ) && val == false )
     {
         m_clock->start();
         m_board->setPaused( false );
@@ -308,7 +310,7 @@ void KBounceGameWidget::mouseReleaseEvent( QMouseEvent* event )
         {
             m_board->buildWall( mapToScene( event->pos() ), m_vertical );
         }
-        else if ( m_state == Paused )
+        else if ( m_state == Paused || m_state == GameSaved )
         {
             setPaused( false );
         }
@@ -316,9 +318,7 @@ void KBounceGameWidget::mouseReleaseEvent( QMouseEvent* event )
         {
             newLevel();
         }
-        else if ( m_state == BeforeFirstGame ||
-                  m_state == GameOver ||
-                  m_state == GameSaved )
+        else if ( m_state == BeforeFirstGame || m_state == GameOver )
         {
             newGame( 1, 0 );
         }
@@ -560,8 +560,8 @@ void KBounceGameWidget::generateOverlay()
 	    text = i18n( "Game over.\n Click to start a game" );
 	    break;
         case GameSaved:
-            text = i18n("Game saved.\n"
-                        "Click to start a new game.");
+            text = i18n("Game saved\n"
+                        "Click to resume");
             break;
 	default:
 	    text = QString();
