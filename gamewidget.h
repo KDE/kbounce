@@ -43,7 +43,13 @@ class KBounceGameWidget : public QGraphicsView
 	Q_OBJECT
 
 	public:
-	enum State { BeforeFirstGame, Running, BetweenLevels, Paused, Suspended, GameOver };
+	enum State { BeforeFirstGame,
+                     Running,
+                     BetweenLevels,
+                     Paused,
+                     Suspended,
+                     GameOver,
+                     GameSaved };
 
 	explicit KBounceGameWidget( QWidget* parent = 0 );
 	~KBounceGameWidget();
@@ -58,6 +64,7 @@ class KBounceGameWidget : public QGraphicsView
 
     public slots:
 	void closeGame();
+        void closeSavedGame();
 	void newGame( int start_level, int start_score );
 	void setPaused( bool );
 	void settingsChanged();

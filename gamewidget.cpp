@@ -108,9 +108,24 @@ void KBounceGameWidget::closeGame()
     }
 }
 
+void KBounceGameWidget::closeSavedGame()
+{
+    m_clock->stop();
+    m_board->setPaused( true );
+    m_state = GameSaved;
+
+    emit stateChanged( m_state );
+
+    Kg::difficulty()->setGameRunning( false );
+    redraw();
+}
+
 void KBounceGameWidget::newGame( int start_level, int start_score )
 {
-    closeGame();
+    if ( m_state != GameSaved ) {
+        closeGame();
+    }
+
     m_level = start_level;
     m_score = start_score;
 
@@ -301,7 +316,9 @@ void KBounceGameWidget::mouseReleaseEvent( QMouseEvent* event )
         {
             newLevel();
         }
-        else if ( m_state == BeforeFirstGame || m_state == GameOver )
+        else if ( m_state == BeforeFirstGame ||
+                  m_state == GameOver ||
+                  m_state == GameSaved )
         {
             newGame( 1, 0 );
         }
@@ -542,6 +559,10 @@ void KBounceGameWidget::generateOverlay()
 	case GameOver:
 	    text = i18n( "Game over.\n Click to start a game" );
 	    break;
+        case GameSaved:
+            text = i18n("Game saved.\n"
+                        "Click to start a new game.");
+            break;
 	default:
 	    text = QString();
     }

@@ -159,7 +159,7 @@ void KBounceMainWindow::saveGame()
     }
 
     saveFile.close();
-    m_gameWidget->closeGame();
+    m_gameWidget->closeSavedGame();
 }
 
 
@@ -343,6 +343,10 @@ void KBounceMainWindow::gameStateChanged( KBounceGameWidget::State state )
             statusBar()->showMessage(  i18n("Game over. Click to start a game") );
             m_saveGameAction->setEnabled( false );
             highscore();
+            break;
+        case KBounceGameWidget::GameSaved :
+            statusBar()->showMessage( i18n("Game saved. "
+                                           "Click to start a new game."));
             break;
     }
 }
