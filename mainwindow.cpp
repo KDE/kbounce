@@ -85,7 +85,7 @@ void KBounceMainWindow::initXMLUI()
     m_saveGameAction = KStandardGameAction::save(this, SLOT(saveGame()), actionCollection());
     m_saveGameAction->setText (i18n ("&Save"));
     m_loadGameAction = KStandardGameAction::load(this, SLOT(loadGame()), actionCollection());
-    m_loadGameAction->setText (i18n ("&Load last game"));
+    m_loadGameAction->setText (i18n ("&Load Saved Game"));
     KStandardGameAction::end(this, SLOT(closeGame()), actionCollection());
     m_pauseAction = KStandardGameAction::pause(this, SLOT(pauseGame()), actionCollection());
     KStandardGameAction::highscores(this, SLOT(showHighscore()), actionCollection());
