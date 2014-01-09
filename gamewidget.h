@@ -49,7 +49,8 @@ class KBounceGameWidget : public QGraphicsView
                      Paused,
                      Suspended,
                      GameOver,
-                     GameSaved };
+                     GameSaved,
+                     GameLoaded };
 
 	explicit KBounceGameWidget( QWidget* parent = 0 );
 	~KBounceGameWidget();
@@ -62,10 +63,11 @@ class KBounceGameWidget : public QGraphicsView
 	QSize minimumSizeHint() const;
 	void bindKeys( KActionCollection * keyShortcuts );
         void onSavedGame();
+        void onLoadedGame( int level, int score );
 
     public slots:
 	void closeGame();
-	void newGame( int start_level, int start_score );
+	void newGame( int startingLevel, int startingScore );
 	void setPaused( bool );
 	void settingsChanged();
 	void setSuspended( bool );

@@ -97,9 +97,13 @@ void KBounceGameWidget::closeGame()
 {
     if ( m_state != BeforeFirstGame && m_state != GameOver )
     {
+        if ( m_state != GameLoaded ) {
+            m_state = GameOver;
+        }
+
         m_clock->stop();
         m_board->setPaused( true );
-        m_state = GameOver;
+
         emit stateChanged( m_state );
         emit gameOver();
 
@@ -124,12 +128,18 @@ void KBounceGameWidget::onSavedGame()
     }
 }
 
-void KBounceGameWidget::newGame( int start_level, int start_score )
+void KBounceGameWidget::onLoadedGame( int level, int score )
+{
+    m_state = GameLoaded;
+    newGame( level, score );
+}
+
+void KBounceGameWidget::newGame( int startingLevel, int startingScore )
 {
     closeGame();
 
-    m_level = start_level;
-    m_score = start_score;
+    m_level = startingLevel;
+    m_score = startingScore;
 
     emit levelChanged( m_level );
     emit scoreChanged( m_score );

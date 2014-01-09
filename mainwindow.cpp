@@ -164,32 +164,34 @@ void KBounceMainWindow::saveGame()
 
 void KBounceMainWindow::loadGame()
 {
-    QFile savedGames (userDataDir + "savegame.dat");
-    if ( savedGames.exists() ){
-	int ret = KMessageBox::questionYesNo( this, i18n( "Warning: All unsaved changes will be lost. Do you really want to close the running game?" ), QString(),  KStandardGuiItem::yes(), KStandardGuiItem::cancel() );
+    QFile savedGames( userDataDir + "savegame.dat" );
 
-	if ( ret == KMessageBox::Yes ){
-	    savedGames.open(QIODevice::ReadOnly);
-	    QTextStream text1 ( &savedGames );
-	    QString info = text1.readLine();
+    if ( savedGames.exists() ) {
+	int wantToLoad = KMessageBox::questionYesNo(this,
+                                    i18n( "All unsaved changes will be lost. "
+                                          "Do you really want to close the "
+                                          "current game?"));
 
-	    int lev = info.mid(0, 1).toInt();
-	    int scr = info.mid(3, 4).toInt();
+	if ( wantToLoad == KMessageBox::Yes ) {
+	    savedGames.open( QIODevice::ReadOnly );
+	    QTextStream text( &savedGames );
+	    QString line = text.readLine();
+
+	    int lev = line.mid(0, 1).toInt();
+	    int scr = line.mid(3, 4).toInt();
 
 	    savedGames.close();
-	    bool success = savedGames.remove( userDataDir + "savegame.dat");
 
-	    if (success) {
-	        m_gameWidget->newGame( lev, scr );
+	    if ( savedGames.remove( userDataDir + "savegame.dat" ) ) {
+	        m_gameWidget->onLoadedGame( lev, scr );
 	    }
 	}
-
 	else {
 	    m_gameWidget->setPaused( false );
 	}
     }
     else {
-        KMessageBox::information (m_gameWidget,
+        KMessageBox::information (this,
                          i18n ("Sorry, there are no saved games."),
 			 i18n ("Load Game"));
     }
@@ -329,6 +331,7 @@ void KBounceMainWindow::gameStateChanged( KBounceGameWidget::State state )
         case KBounceGameWidget::BetweenLevels :
         case KBounceGameWidget::Suspended :
         case KBounceGameWidget::GameSaved :
+        case KBounceGameWidget::GameLoaded :
             break;
         case KBounceGameWidget::Paused :
             m_pauseAction->setChecked( true );
