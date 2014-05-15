@@ -18,6 +18,7 @@
 
 #include "gamewidget.h"
 #include "settings.h"
+#include "wall.h"
 
 #include <QPalette>
 #include <QTimer>
@@ -168,7 +169,6 @@ void KBounceGameWidget::settingsChanged()
     {
         m_renderer.setCustomBackgroundPath(QString());
     }
-   
     redraw();
 }
 
@@ -365,7 +365,8 @@ void KBounceGameWidget::redraw()
     }
 
     updateCursor();
-    m_scene.setBackgroundBrush( m_renderer.renderBackground() );
+    KBounceWall::loadSprites();
+    m_scene.setBackgroundBrush( m_board->applyWallsOn(m_renderer.renderBackground()) );
     update();
 }
 

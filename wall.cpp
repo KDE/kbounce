@@ -29,17 +29,28 @@
 #include "renderer.h"
 #include "settings.h"
 
+QSize KBounceWall::s_tileSize;
+KBounceRenderer * KBounceWall::m_renderer = NULL;
+KBounceWall::Sprites * KBounceWall::s_sprites = NULL;
+
+
 KBounceWall::KBounceWall( Direction dir, KBounceRenderer* renderer, KBounceBoard* board )
 : KGameRenderedItem( renderer,"",board )
-, m_renderer( renderer )
 , m_board( board )
 , m_dir( dir )
-, m_tileSize( QSize( 16, 16 ) )
 , m_soundWallstart( KStandardDirs::locate( "appdata", "sounds/wallstart.wav" ) )
 , m_soundReflect( KStandardDirs::locate( "appdata", "sounds/reflect.wav" ) )
 {
     // The wall velocity would initialised on every new level.
     m_wallVelocity = 0.0;
+
+    if (!s_sprites) {
+        s_sprites = new Sprites;
+    }
+
+    if (!m_renderer) {
+        m_renderer = renderer;
+    }
 }
 
 KBounceWall::~KBounceWall()
@@ -48,197 +59,174 @@ KBounceWall::~KBounceWall()
 
 void KBounceWall::collide( KBounceCollision collision )
 {
-	if ( !isVisible() )
-	return;
+    if ( !isVisible() )
+        return;
 
-	foreach( const KBounceHit &hit, collision )
-	{
-	    switch (hit.type)
-	    {
-			case ALL:
-				break;
-			case TILE:
-				finish();
-				break;
-			case BALL:
-				if ( safeEdgeHit( hit.boundingRect ) )
-				{
-				    KBounceVector normal = hit.normal;
-				    bool vertical = qAbs(normal.x) < qAbs(normal.y);
-
-				    if ( vertical && ( (m_dir == Up) || (m_dir == Down) ) )
-				    {
-				        finish( true, m_dir );
-				    }
-				    if ( !vertical && ( (m_dir == Left) || (m_dir == Right ) ) )
-				    {
-				        finish( true, m_dir );
-				    }
-				}
-				else
-				{
-				    emit died();
-				    hide();
-				}
-				break;
-			case WALL:
-				if ( safeEdgeHit( hit.boundingRect ) )
-				{
-				    finish();
-				}
-				break;
-	    }
-	}
+    foreach( const KBounceHit &hit, collision ) {
+        switch (hit.type) {
+        case ALL:
+            break;
+        case TILE:
+            finish();
+            break;
+        case BALL:
+            if (safeEdgeHit(hit.boundingRect)) {
+                KBounceVector normal = hit.normal;
+                if (qAbs(normal.x) < qAbs(normal.y)) { // vertical
+                    if (m_dir == Up || m_dir == Down) {
+                        finish( true, m_dir );
+                    }
+                }
+                else if (m_dir == Left || m_dir == Right) {
+                    finish( true, m_dir );
+                }
+            } else {
+                emit died();
+                hide();
+            }
+            break;
+        case WALL:
+            if (safeEdgeHit(hit.boundingRect)) {
+                finish();
+            }
+            break;
+        }
+    }
 }
 
 
 void KBounceWall::goForward()
 {
-	if ( !isVisible() )
-	{
-		return;
-	}
+    if (!isVisible()) {
+        return;
+    }
 
-	switch( m_dir )
-	{
-	case Up:
-	    m_boundingRect.setTop( m_boundingRect.top() - m_wallVelocity );
-	    m_nextBoundingRect.setTop( m_boundingRect.top() - m_wallVelocity );
-	    break;
-	case Left:
-	    m_boundingRect.setLeft( m_boundingRect.left() - m_wallVelocity );
-	    m_nextBoundingRect.setLeft( m_boundingRect.left() - m_wallVelocity );
-	    break;
-	case Down:
-	    m_boundingRect.setBottom( m_boundingRect.bottom() + m_wallVelocity );
-	    m_nextBoundingRect.setBottom( m_boundingRect.bottom() + m_wallVelocity );
-	    break;
-	case Right:
-	    m_boundingRect.setRight( m_boundingRect.right() + m_wallVelocity );
-	    m_nextBoundingRect.setRight( m_boundingRect.right() + m_wallVelocity );
-	    break;
+    switch( m_dir ) {
+    case Up:
+        m_boundingRect.setTop( m_boundingRect.top() - m_wallVelocity );
+        m_nextBoundingRect.setTop( m_boundingRect.top() - m_wallVelocity );
+        break;
+    case Left:
+        m_boundingRect.setLeft( m_boundingRect.left() - m_wallVelocity );
+        m_nextBoundingRect.setLeft( m_boundingRect.left() - m_wallVelocity );
+        break;
+    case Down:
+        m_boundingRect.setBottom( m_boundingRect.bottom() + m_wallVelocity );
+        m_nextBoundingRect.setBottom( m_boundingRect.bottom() + m_wallVelocity );
+        break;
+    case Right:
+        m_boundingRect.setRight( m_boundingRect.right() + m_wallVelocity );
+        m_nextBoundingRect.setRight( m_boundingRect.right() + m_wallVelocity );
+        break;
     }
 }
 
 void KBounceWall::update()
 {
-	if ( !isVisible() )
-	return;
+    if (!isVisible())
+        return;
 
-	int boundingRectWidth = static_cast<int>
-	( std::ceil( m_boundingRect.width() * m_tileSize.width() ) );
-	int boundingRectHeight = static_cast<int>
-	( std::ceil( m_boundingRect.height() * m_tileSize.height()  ) );
+    int boundingRectWidth = static_cast<int>(std::ceil(m_boundingRect.width() * s_tileSize.width()));
+    int boundingRectHeight = static_cast<int>(std::ceil(m_boundingRect.height() * s_tileSize.height()));
 
-	if ( boundingRectWidth == 0 || boundingRectHeight == 0 )
-	return;
+    if (!(boundingRectWidth && boundingRectHeight))
+        return;
 
-	int tileWidth = m_tileSize.width();
-	int tileHeight = m_tileSize.height();
+    int tileWidth = s_tileSize.width();
+    int tileHeight = s_tileSize.height();
 
-	QPixmap px( boundingRectWidth, boundingRectHeight );
-	px.fill( Qt::transparent );
-	QPainter p( &px );
+    QSize pixSize;
+    if (m_dir == Left || m_dir == Right) {
+        pixSize = QSize(boundingRectWidth + 64 - (boundingRectWidth%64), boundingRectHeight);
+    } else {
+        pixSize = QSize(boundingRectWidth, boundingRectHeight + 64 - (boundingRectHeight%64));
+    }
 
-	switch ( m_dir )
-	{
-	case Up:
-	    p.drawPixmap( 
-		    QRect( 0, 0, tileWidth, qMin( tileHeight, boundingRectHeight ) ),
-		    m_renderer->spritePixmap( "wallEndUp", m_tileSize ),
-		    QRect( 0, 0, tileWidth, qMin( tileHeight, boundingRectHeight ) ) );
-	    p.drawPixmap( 
-		    QRect( 0, tileHeight, tileWidth, boundingRectHeight - tileHeight ),
-		    m_renderer->spritePixmap( "wallV",
-			QSize( tileWidth,  18 * tileHeight ) ),
-		    QRect( 0, 18 * tileHeight - boundingRectHeight + tileHeight,
-		       	tileWidth, boundingRectHeight - tileHeight ) );
-	    break;
-	case Right:
-	    p.drawPixmap(
-		    QRect( boundingRectWidth - tileWidth, 0, qMin( tileWidth, boundingRectWidth ), 
-			    tileHeight ), 
-		    m_renderer->spritePixmap( "wallEndRight", m_tileSize ),
-		    QRect( 0, 0, qMin( tileWidth, boundingRectWidth ), tileHeight ) );
-	    p.drawPixmap(
-		    QRect( 0, 0, boundingRectWidth - tileWidth, tileHeight ),
-		    m_renderer->spritePixmap( "wallH", 
-			QSize( 32 * tileWidth, tileHeight ) ),
-		    QRect( 0, 0, boundingRectWidth - tileWidth, tileHeight ) );
-	    break;
-	case Down:
-	    p.drawPixmap(
-		    QRect( 0, boundingRectHeight - tileHeight, tileWidth,
-			qMin( tileHeight, boundingRectHeight ) ),
-		    m_renderer->spritePixmap( "wallEndDown", m_tileSize ),
-		    QRect( 0, qMax( 0, tileHeight - boundingRectHeight ), tileWidth,
-			qMin( tileHeight, boundingRectHeight ) ) );
-	    p.drawPixmap(
-		    QRect( 0, 0, tileWidth, boundingRectHeight - tileHeight ),
-		    m_renderer->spritePixmap( "wallV",
-			QSize( tileWidth, 18 * tileHeight ) ),
-		    QRect( 0, 0, tileWidth, boundingRectHeight - tileHeight ) );
-	    break;
-	case Left:
-	    p.drawPixmap( 
-		    QRect( 0, 0, qMin( boundingRectWidth, tileWidth ), tileHeight ),
-		    m_renderer->spritePixmap( "wallEndLeft", m_tileSize ),
-		    QRect( qMax( 0, tileWidth - boundingRectWidth ), 0,
-			tileWidth, tileHeight ) );
-	    p.drawPixmap( 
-		    QRect( tileWidth, 0, boundingRectWidth - tileWidth, tileHeight ),
-		    m_renderer->spritePixmap( "wallH", 
-			QSize( 32 * tileWidth, tileHeight ) ),
-		    QRect( 32 * tileWidth - boundingRectWidth + tileWidth, 0, 
-			boundingRectWidth - tileWidth, tileHeight ) );
-	}
-	setPos( m_board->mapPosition( m_boundingRect.topLeft() ) );
-	p.end();
-	setPixmap( px );
+    QPixmap px;
+    if (pixmap().width() < pixSize.width() || pixmap().height() < pixSize.height()) {
+        px = QPixmap(pixSize);
+    } else {
+        px = pixmap(); // already ARGB
+    }
+    px.fill(Qt::transparent);
+
+    QPainter p(&px);
+
+    QPointF offset = m_board->mapPosition(m_boundingRect.topLeft());
+
+    switch ( m_dir ) {
+    case Up: {
+        const int split = qMin(tileHeight, boundingRectHeight);
+        p.drawPixmap(0, 0, s_sprites->wallEndUp, 0, 0, tileWidth, split);
+        p.drawTiledPixmap(0, split, tileWidth, boundingRectHeight - split, s_sprites->wallV, 0, offset.y());
+        break;
+    }
+    case Right: {
+        const int split = qMin(tileWidth, boundingRectWidth);
+        p.drawPixmap(boundingRectWidth - tileWidth, 0, split, tileHeight, s_sprites->wallEndRight);
+        p.drawTiledPixmap(0, 0, boundingRectWidth - split, tileHeight, s_sprites->wallH);
+        break;
+    }
+    case Down: {
+        const int split = qMin(tileHeight, boundingRectHeight);
+        p.drawPixmap(0, boundingRectHeight - tileHeight, tileWidth, split, s_sprites->wallEndDown);
+        p.drawTiledPixmap(0, 0, tileWidth, boundingRectHeight - split, s_sprites->wallV);
+        break;
+    }
+    case Left:
+        const int split = qMin(boundingRectWidth, tileWidth);
+        p.drawPixmap(0, 0, split, tileHeight, s_sprites->wallEndLeft);
+        p.drawTiledPixmap(split, 0, boundingRectWidth - split, tileHeight, s_sprites->wallH, offset.x());
+    }
+    setPos(offset);
+    p.end();
+    setPixmap(px);
+}
+
+void KBounceWall::loadSprites() {
+    s_sprites->wallEndLeft = m_renderer->spritePixmap("wallEndLeft", s_tileSize);
+    s_sprites->wallEndUp = m_renderer->spritePixmap("wallEndUp", s_tileSize);
+    s_sprites->wallEndRight = m_renderer->spritePixmap("wallEndRight", s_tileSize);
+    s_sprites->wallEndDown = m_renderer->spritePixmap("wallEndDown", s_tileSize);
+
+    s_sprites->wallH = m_renderer->spritePixmap("wallH", QSize(32 * s_tileSize.width(), s_tileSize.height()));
+    s_sprites->wallV = m_renderer->spritePixmap("wallV", QSize(s_tileSize.width(), 18*s_tileSize.height()));
 }
 
 void KBounceWall::resize( const QSize& tileSize )
 {
-	if ( tileSize != m_tileSize )
-	{
-		m_tileSize = tileSize;
-		update();
-	}
+    if ( tileSize != s_tileSize ) {
+        s_tileSize = tileSize;
+        loadSprites();
+        update();
+    }
 }
 
 void KBounceWall::build( int x, int y )
 {
-    if ( isVisible() )
-	return;
+    if (isVisible())
+        return;
 
-   if ( m_dir == Up || m_dir == Down )
-    {
+   if ( m_dir == Up || m_dir == Down ) {
         m_boundingRect.setTop( y );
 
-        if (m_dir == Down)
-        {
+        if (m_dir == Down) {
             m_boundingRect.setBottom(y + 1);
-        }
-        else
-        {
+        } else {
             m_boundingRect.setBottom( y );
         }
 
         m_boundingRect.setLeft( x );
         m_boundingRect.setRight( x + 1 );
     }
-    else if ( m_dir == Left || m_dir == Right )
-    {
+    else if ( m_dir == Left || m_dir == Right ) {
         m_boundingRect.setTop( y );
         m_boundingRect.setBottom( y + 1 );
         m_boundingRect.setLeft( x );
 
-        if (m_dir == Right)
-        {
+        if (m_dir == Right) {
             m_boundingRect.setRight(x + 1);
-        }
-        else
-        {
+        } else {
             m_boundingRect.setRight( x );
         }
     }
@@ -246,9 +234,9 @@ void KBounceWall::build( int x, int y )
 
     m_nextBoundingRect = m_boundingRect;
 
-    setPixmap( QPixmap( 0, 0 ) );
+    setPixmap(QPixmap());
 
-    setPos( m_board->mapPosition( QPointF( x, y ) ) );
+    setPos(m_board->mapPosition(QPointF( x, y )));
     show();
 
     if ( KBounceSettings::playSounds() )
@@ -257,12 +245,12 @@ void KBounceWall::build( int x, int y )
 
 QRectF KBounceWall::nextBoundingRect() const
 {
-	return m_nextBoundingRect;
+    return m_nextBoundingRect;
 }
 
 bool KBounceWall::safeEdgeHit( const QRectF& rect2 ) const
 {
-	bool safeEdgeHit = false;
+    bool safeEdgeHit = false;
 
 	QPointF p1, p2, p3;
 	switch ( m_dir ) 
@@ -307,27 +295,26 @@ void KBounceWall::finish( bool shorten, Direction dir )
     int right = static_cast<int>( m_boundingRect.right() );
     int bottom = static_cast<int>( m_boundingRect.bottom() );
 
-    if ( shorten ) 
-    {
-		switch ( dir )
-		{
-		    case Left: left++; break;
-		    case Up: top++; break;
-		    case Right: right--; break;
-		    case Down: bottom--; break;
-		}
+    if ( shorten ) {
+        switch ( dir )
+        {
+            case Left: left++; break;
+            case Up: top++; break;
+            case Right: right--; break;
+            case Down: bottom--; break;
+        }
     }
 
     emit finished( left, top, right, bottom );
     hide();
 
-    if ( KBounceSettings::playSounds() )
+    if (KBounceSettings::playSounds())
         m_soundReflect.start();
 }
 
 void KBounceWall::setWallVelocity(qreal velocity)
 {
-	m_wallVelocity = velocity;
+    m_wallVelocity = velocity;
 }
 
 

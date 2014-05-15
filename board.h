@@ -45,8 +45,9 @@ class KBounceBoard: public QGraphicsObject
 	explicit KBounceBoard( KBounceRenderer *renderer );
 	~KBounceBoard();
 
+    QPixmap applyWallsOn(QPixmap background) const;
 	void resize( QSize& size );
-        void paint(QPainter *, const QStyleOptionGraphicsItem *, QWidget *);
+    void paint(QPainter *, const QStyleOptionGraphicsItem *, QWidget *) {}
 
 	void newLevel( int level );
 	void setPaused( bool );
@@ -81,7 +82,6 @@ class KBounceBoard: public QGraphicsObject
 	KBounceRenderer* m_renderer;
 
 	TileType m_tiles[TILE_NUM_W][TILE_NUM_H];
-	QGraphicsPixmapItem* m_tilesPix;
 	QSize m_tileSize;
 	int m_filled;
 

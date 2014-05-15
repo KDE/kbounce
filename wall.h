@@ -95,6 +95,13 @@ class KBounceWall : public QObject, public KGameRenderedItem
 	*/
 	void setWallVelocity(qreal velocity);
 
+    /**
+     * Load all sprites for top, down, left and right walls as well as for
+     * the vertical and horizontal semi transparent bars drawn before a wall is
+     * built.
+     */
+    void static loadSprites();
+
     signals:
 	void finished( int left, int top, int right, int bottom );
 	void died();
@@ -114,16 +121,29 @@ class KBounceWall : public QObject, public KGameRenderedItem
 	 */
 	void finish( bool shorten = false, Direction dir = Up);
 
-
-	KBounceRenderer *m_renderer;
 	KBounceBoard *m_board;
 	Direction m_dir;
-	QSize m_tileSize;
-	KgSound m_soundWallstart;
+
+    KgSound m_soundWallstart;
 	KgSound m_soundReflect;
+
 	QRectF m_boundingRect;
 	QRectF m_nextBoundingRect;
 	qreal m_wallVelocity;
+
+    typedef struct {
+        QPixmap wallEndLeft;
+        QPixmap wallEndUp;
+        QPixmap wallEndRight;
+        QPixmap wallEndDown;
+        QPixmap wallH;
+        QPixmap wallV;
+
+    } Sprites;
+    static Sprites *s_sprites;
+
+    static QSize s_tileSize;
+    static KBounceRenderer *m_renderer;
 };
 
 #endif
