@@ -21,7 +21,6 @@
 #include <KAction>
 #include <KActionCollection>
 #include <KConfigDialog>
-#include <kdebug.h>
 #include <KGlobal>
 #include <KLocale>
 #include <KMessageBox>
@@ -35,6 +34,7 @@
 #include <KgThemeSelector>
 #include <KgDifficulty>
 
+#include <QDebug>
 
 #include "gamewidget.h"
 #include "settings.h"
@@ -165,7 +165,7 @@ void KBounceMainWindow::highscore()
         return;
     }
 
-    kDebug() ;
+    qDebug() ;
     KScoreDialog ksdialog( KScoreDialog::Name | KScoreDialog::Score | KScoreDialog::Level, this );
     ksdialog.initFromDifficulty(Kg::difficulty());
     KScoreDialog::FieldInfo info;
