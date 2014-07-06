@@ -21,10 +21,13 @@
 
 #include <KXmlGuiWindow>
 
+#include <QLabel>
+#include <QPointer>
+
 #include "gamewidget.h"
 
-class KAction;
-class KStatusBar;
+class QAction;
+class QStatusBar;
 class KToggleAction;
 
 
@@ -60,10 +63,16 @@ protected:
 
    KBounceGameWidget* m_gameWidget;
 
-   KStatusBar* m_statusBar;
+   QStatusBar* m_statusBar;
 
    KToggleAction *m_pauseAction, *m_backgroundShowAction, *m_soundAction;
-   KAction *m_newAction;
+   QAction *m_newAction;
+   
+   QPointer<QLabel> levelLabel = new QLabel;
+   QPointer<QLabel> scoreLabel = new QLabel;
+   QPointer<QLabel> filledLabel = new QLabel;
+   QPointer<QLabel> livesLabel = new QLabel;
+   QPointer<QLabel> timeLabel = new QLabel;
 };
 
 #endif // KBOUNCE_MAINWINDOW_H

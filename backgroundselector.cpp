@@ -21,19 +21,22 @@
 
 #include "backgroundselector.h"
 #include "ui_backgroundselector.h"
-#include <kfiledialog.h>
+
 #include <KConfigDialog>
-#include "renderer.h"
-#include <QPainter>
 #include <KColorScheme>
 #include <KLocalizedString>
+
+#include "renderer.h"
+
+#include <QPainter>
+#include <QFileDialog>
 
 BackgroundSelector::BackgroundSelector(QWidget* parent, KConfigSkeleton* config) :
     QWidget(parent),
     ui(new Ui::KBounceBackgroundSelector),m_config(config)
 {
     ui->setupUi(this);
-    ui->kurlrequester->fileDialog()->setMode(KFile::Directory);
+    ui->kurlrequester->fileDialog()->setFileMode(QFileDialog::Directory);
     setupData();
 }
 

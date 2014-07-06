@@ -18,14 +18,13 @@
 
 #include "mainwindow.h"
 
-#include <KAction>
 #include <KActionCollection>
 #include <KConfigDialog>
 #include <KGlobal>
 #include <KLocale>
 #include <KMessageBox>
 #include <krandom.h>
-#include <KStatusBar>
+
 #include <KStandardDirs>
 #include <KToggleAction>
 
@@ -35,6 +34,8 @@
 #include <KgDifficulty>
 
 #include <QDebug>
+#include <QStatusBar>
+#include <QAction>
 
 #include "gamewidget.h"
 #include "settings.h"
@@ -43,12 +44,19 @@
 KBounceMainWindow::KBounceMainWindow()
 {
     m_statusBar = statusBar();
-    m_statusBar->insertItem( i18n( "Level: %1", QString::fromLatin1( "XX" ) ), 1, 1 );
-    m_statusBar->insertItem( i18n( "Score: %1", QString::fromLatin1( "XXXXXX" ) ), 2, 1 );
-    m_statusBar->insertItem( i18n( "Filled: %1%", QString::fromLatin1( "XX" ) ), 3, 1 );
-    m_statusBar->insertItem( i18n( "Lives: %1", QString::fromLatin1( "XX" ) ), 4, 1 );
-    m_statusBar->insertItem( i18n( "Time: %1", QString::fromLatin1( "XXX" ) ), 5, 1 );
-
+    
+    levelLabel->setText(i18n("Level: %1", QString::fromLatin1( "XX" )));
+    scoreLabel->setText(i18n("Score: %1", QString::fromLatin1( "XXXXXX" )));
+    filledLabel->setText(i18n( "Filled: %1%", QString::fromLatin1( "XX" )));
+    livesLabel->setText(i18n( "Lives: %1", QString::fromLatin1( "XX" )));
+    timeLabel->setText(i18n( "Time: %1", QString::fromLatin1( "XXX" )));
+    
+    m_statusBar->insertPermanentWidget(1, levelLabel, 1);
+    m_statusBar->insertPermanentWidget(2, scoreLabel, 1);
+    m_statusBar->insertPermanentWidget(3, filledLabel, 1);
+    m_statusBar->insertPermanentWidget(4, livesLabel, 1);
+    m_statusBar->insertPermanentWidget(5, timeLabel, 1);
+        
     m_gameWidget = new KBounceGameWidget( this );
     connect( m_gameWidget, SIGNAL(levelChanged(int)), this, SLOT(displayLevel(int)) );
     connect( m_gameWidget, SIGNAL(scoreChanged(int)), this, SLOT(displayScore(int)) );
@@ -182,7 +190,7 @@ void KBounceMainWindow::configureSettings()
     KConfigDialog* dialog = new KConfigDialog( this, "settings", KBounceSettings::self());
     dialog->addPage( new KgThemeSelector(m_gameWidget->renderer()->themeProvider(), 0, dialog), i18n( "Theme" ), "games-config-theme" );
     dialog->addPage( new BackgroundSelector(dialog,KBounceSettings::self() ),i18n("Background"),"games-config-background");
-    dialog->setHelp(QString(),"kbounce");
+    // dialog->setHelp(QString(),"kbounce");	TODO Port!
     dialog->show();
     connect( dialog, SIGNAL(settingsChanged(QString)), this, SLOT(settingsChanged()) );
 }
@@ -196,7 +204,7 @@ void KBounceMainWindow::readSettings()
 void KBounceMainWindow::settingsChanged()
 {
     m_gameWidget->settingsChanged();
-    KBounceSettings::self()->writeConfig(); // Bug 184606
+    KBounceSettings::self()->save(); // Bug 184606
 }
 
 void KBounceMainWindow::setSounds( bool val )
@@ -207,27 +215,27 @@ void KBounceMainWindow::setSounds( bool val )
 
 void KBounceMainWindow::displayLevel( int level )
 {
-    m_statusBar->changeItem( i18n( "Level: %1", level ), 1 );
+    levelLabel->setText(i18n("Level: %1", level));
 }
 
 void KBounceMainWindow::displayScore( int score )
 {
-    m_statusBar->changeItem( i18n( "Score: %1", score ), 2 );
+    scoreLabel->setText(i18n("Score: %1", score));
 }
 
 void KBounceMainWindow::displayFilled( int filled )
 {
-    m_statusBar->changeItem( i18n( "Filled: %1%", filled ), 3 );
+    filledLabel->setText(i18n("Filled: %1%", filled));
 }
 
 void KBounceMainWindow::displayLives( int lives )
 {
-    m_statusBar->changeItem( i18n( "Lives: %1", lives - 1 ), 4 );
+    livesLabel->setText(i18n("Lives: %1", lives - 1));
 }
 
 void KBounceMainWindow::displayTime( int time )
 {
-    m_statusBar->changeItem( i18n( "Time: %1", time ), 5 );
+    timeLabel->setText(i18n("Time: %1", time));
 }
 
 void KBounceMainWindow::gameStateChanged( KBounceGameWidget::State state )

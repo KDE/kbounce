@@ -23,11 +23,11 @@
 #include "renderer.h"
 #include "settings.h"
 
-#include <QtGui/QApplication>
 #include <QtGui/QPainter>
 #include <QtGui/QPalette>
 #include <QDir>
 #include <QDebug>
+#include <QApplication>
 
 #include <krandom.h>
 #include <KgThemeProvider>

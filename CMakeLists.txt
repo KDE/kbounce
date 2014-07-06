@@ -55,7 +55,7 @@ qt5_wrap_ui(kbounce_SRCS  backgroundselector.ui )
 # kde4_add_app_icon(kbounce_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/pics/hi*-app-kbounce.png") TODO Port!
 add_executable(kbounce ${kbounce_SRCS})
 
-target_link_libraries(kbounce KF5:KDELibs4Support kdegames Phonon:phonon4qt5 KF5:KIOWidgets )
+target_link_libraries(kbounce Qt5::Svg Qt5::Qml KF5::KDELibs4Support kdegames Phonon::phonon4qt5 KF5::KIOWidgets )
 
 if(KDE4_ENABLE_FPIE)
     target_link_libraries(kbounce ${KDE4_PIE_LDFLAGS})
