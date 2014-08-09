@@ -29,14 +29,12 @@
 #include "renderer.h"
 
 #include <QPainter>
-#include <QFileDialog>
 
 BackgroundSelector::BackgroundSelector(QWidget* parent, KConfigSkeleton* config) :
     QWidget(parent),
     ui(new Ui::KBounceBackgroundSelector),m_config(config)
 {
     ui->setupUi(this);
-    ui->kurlrequester->fileDialog()->setFileMode(QFileDialog::Directory);
     setupData();
 }
 

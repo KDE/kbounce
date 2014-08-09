@@ -16,33 +16,31 @@
  * Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#include "mainwindow.h"
 
+#include <krandom.h>
+#include <kstandardgameaction.h>
+
+#include <KToggleAction>
 #include <KActionCollection>
 #include <KConfigDialog>
-#include <KGlobal>
-#include <KLocale>
 #include <KMessageBox>
-#include <krandom.h>
-
-#include <KStandardDirs>
-#include <KToggleAction>
-
-#include <kstandardgameaction.h>
 #include <KScoreDialog>
 #include <KgThemeSelector>
 #include <KgDifficulty>
+#include <KLocalizedString>
 
 #include <QDebug>
 #include <QStatusBar>
 #include <QAction>
 
+#include "mainwindow.h"
 #include "gamewidget.h"
 #include "settings.h"
 #include "backgroundselector.h"
 
 KBounceMainWindow::KBounceMainWindow()
 {
+    //setComponentName(QStringLiteral("kbounce"), i18n("KBounce"));
     m_statusBar = statusBar();
     
     levelLabel->setText(i18n("Level: %1", QString::fromLatin1( "XX" )));
@@ -51,11 +49,11 @@ KBounceMainWindow::KBounceMainWindow()
     livesLabel->setText(i18n( "Lives: %1", QString::fromLatin1( "XX" )));
     timeLabel->setText(i18n( "Time: %1", QString::fromLatin1( "XXX" )));
     
-    m_statusBar->insertPermanentWidget(1, levelLabel, 1);
-    m_statusBar->insertPermanentWidget(2, scoreLabel, 1);
-    m_statusBar->insertPermanentWidget(3, filledLabel, 1);
-    m_statusBar->insertPermanentWidget(4, livesLabel, 1);
-    m_statusBar->insertPermanentWidget(5, timeLabel, 1);
+    m_statusBar->insertPermanentWidget(0, levelLabel, 1);
+    m_statusBar->insertPermanentWidget(1, scoreLabel, 1);
+    m_statusBar->insertPermanentWidget(2, filledLabel, 1);
+    m_statusBar->insertPermanentWidget(3, livesLabel, 1);
+    m_statusBar->insertPermanentWidget(4, timeLabel, 1);
         
     m_gameWidget = new KBounceGameWidget( this );
     connect( m_gameWidget, SIGNAL(levelChanged(int)), this, SLOT(displayLevel(int)) );
@@ -190,7 +188,6 @@ void KBounceMainWindow::configureSettings()
     KConfigDialog* dialog = new KConfigDialog( this, "settings", KBounceSettings::self());
     dialog->addPage( new KgThemeSelector(m_gameWidget->renderer()->themeProvider(), 0, dialog), i18n( "Theme" ), "games-config-theme" );
     dialog->addPage( new BackgroundSelector(dialog,KBounceSettings::self() ),i18n("Background"),"games-config-background");
-    // dialog->setHelp(QString(),"kbounce");	TODO Port!
     dialog->show();
     connect( dialog, SIGNAL(settingsChanged(QString)), this, SLOT(settingsChanged()) );
 }

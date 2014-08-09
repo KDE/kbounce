@@ -5,13 +5,37 @@ set (QT_MIN_VERSION "5.2.0")
 
 find_package(ECM 0.0.9 REQUIRED CONFIG)
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
-set(DATA_INSTALL_DIR "/usr/local/share")
 
-find_package(Qt5 ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Widgets Qml Quick Svg Test)
-find_package(KF5 REQUIRED COMPONENTS CoreAddons Config ItemModels WidgetsAddons WindowSystem Codecs Archive
-    Config DBusAddons DNSSD Declarative
-    I18n GuiAddons Service ConfigWidgets ItemViews IconThemes Completion JobWidgets TextWidgets GlobalAccel XmlGui Crash
-    Bookmarks KIO NotifyConfig NewStuff KDELibs4Support)
+find_package(Qt5 ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Widgets Qml Quick QuickWidgets Svg Test)
+find_package(KF5 REQUIRED COMPONENTS 
+    CoreAddons 
+    Config 
+    ItemModels 
+    WidgetsAddons 
+    WindowSystem 
+    Codecs 
+    Archive
+    Config 
+    DBusAddons 
+    DNSSD 
+    Declarative
+    I18n 
+    GuiAddons 
+    Service 
+    ConfigWidgets 
+    ItemViews 
+    IconThemes 
+    Completion 
+    JobWidgets
+    TextWidgets
+    GlobalAccel
+    XmlGui
+    Crash
+    Bookmarks
+    KIO
+    NotifyConfig
+    NewStuff
+    KDELibs4Support)
     
 find_package(KDEGames 4.9.0 REQUIRED)
 find_package(Phonon4Qt5 REQUIRED)
@@ -33,10 +57,6 @@ add_subdirectory( doc )
 
 include_directories(${CMAKE_SOURCE_DIR}/libkdegames/highscore)
  
-if(KDE4_ENABLE_FPIE)
-    set ( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${KDE4_CXX_FPIE_FLAGS}")
-endif(KDE4_ENABLE_FPIE)
-
 ########### next target ###############
 
 set(kbounce_SRCS
@@ -51,16 +71,17 @@ set(kbounce_SRCS
     backgroundselector.cpp)
 
 kconfig_add_kcfg_files(kbounce_SRCS settings.kcfgc)
-qt5_wrap_ui(kbounce_SRCS  backgroundselector.ui )
-# kde4_add_app_icon(kbounce_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/pics/hi*-app-kbounce.png") TODO Port!
+ki18n_wrap_ui(kbounce_SRCS  backgroundselector.ui )
+kde4_add_app_icon(kbounce_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/pics/hi*-app-kbounce.png") 
 add_executable(kbounce ${kbounce_SRCS})
 
-target_link_libraries(kbounce Qt5::Svg Qt5::Qml KF5::KDELibs4Support kdegames Phonon::phonon4qt5 KF5::KIOWidgets )
-
-if(KDE4_ENABLE_FPIE)
-    target_link_libraries(kbounce ${KDE4_PIE_LDFLAGS})
-endif(KDE4_ENABLE_FPIE)
-
+target_link_libraries(kbounce 
+  Qt5::Svg 
+  Qt5::Qml 
+  KF5::KDELibs4Support 
+  Phonon::phonon4qt5 
+  KF5::KIOWidgets
+  kdegames )
 
 install(TARGETS kbounce  ${INSTALL_TARGETS_DEFAULT_ARGS} )
 
@@ -68,7 +89,7 @@ install(TARGETS kbounce  ${INSTALL_TARGETS_DEFAULT_ARGS} )
 ########### install files ###############
 
 install( PROGRAMS kbounce.desktop  DESTINATION  ${XDG_APPS_INSTALL_DIR} )
-install( FILES kbounceui.rc  DESTINATION  ${DATA_INSTALL_DIR}/kbounce )
+install( FILES kbounceui.rc  DESTINATION  ${KXMLGUI_INSTALL_DIR}/kbounce )
 
 feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
 
