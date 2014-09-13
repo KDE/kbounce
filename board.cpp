@@ -18,13 +18,13 @@
 
 #include "board.h"
 
-#include <kdebug.h>
 #include <KGlobal>
 #include <KRandom>
 
 #include <QGraphicsScene>
 #include <QTimer>
 #include <QPainter>
+#include <QDebug>
 
 #include "ball.h"
 #include "gameobject.h"
@@ -170,17 +170,17 @@ void KBounceBoard::buildWall( const QPointF& pos, bool vertical )
 
     if ( x < 0 || x >= TILE_NUM_W )
     {
-        kDebug() << "Wall x position out of board.";
+        qDebug() << "Wall x position out of board.";
         return;
     }
     if ( y < 0 || y >= TILE_NUM_H )
     {
-        kDebug() << "Wall y position out of board.";
+        qDebug() << "Wall y position out of board.";
         return;
     }
     if ( m_tiles[x][y] != Free )
     {
-        kDebug() << "Wall could not be build in a field which is not free.";
+        qDebug() << "Wall could not be build in a field which is not free.";
         return;
     }
 

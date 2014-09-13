@@ -20,10 +20,11 @@
 
 #include <cmath>
 
-#include <kdebug.h>
 #include <KRandom>
 #include <KStandardDirs>
+
 #include <QPainter>
+//#include <QDebug>
 
 #include "board.h"
 #include "renderer.h"

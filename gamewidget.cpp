@@ -22,6 +22,7 @@
 
 #include <QPalette>
 #include <QTimer>
+#include <QDebug>
 
 #include <KStandardDirs>
 #include <KLocale>
@@ -80,7 +81,7 @@ int KBounceGameWidget::level()
 
 int KBounceGameWidget::score()
 {
-    kDebug() << "Score:" << m_score;
+    qDebug() << "Score:" << m_score;
     return m_score;
 }
 
@@ -159,7 +160,7 @@ void KBounceGameWidget::setSuspended( bool val )
 
 void KBounceGameWidget::settingsChanged()
 {
-    kDebug() << "Settings changed";
+    qDebug() << "Settings changed";
 
     if (KBounceSettings::useRandomBackgroundPictures())
     {
@@ -256,7 +257,7 @@ void KBounceGameWidget::tick()
 
 void KBounceGameWidget::resizeEvent( QResizeEvent* ev )
 {
-    kDebug() << "Size" << ev->size();
+    qDebug() << "Size" << ev->size();
 
     m_renderer.setBackgroundSize( ev->size() );
 
