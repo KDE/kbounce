@@ -17,9 +17,9 @@
  */
 
 #include "mainwindow.h"
-#include <klocalizedstring.h>
 
 #include <KAboutData>
+#include <KLocalizedString>
 
 #include <QApplication>
 

@@ -25,10 +25,10 @@
 #include <QGraphicsView>
 #include <QGraphicsScene>
 #include <QGraphicsPixmapItem>
+#include <QMouseEvent>
 
 #include <KgSound>
 #include <KgDifficulty>
-#include <QMouseEvent>
 
 #include "board.h"
 #include "renderer.h"

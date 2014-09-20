@@ -23,12 +23,12 @@
 #include <QPalette>
 #include <QTimer>
 #include <QDebug>
+#include <QStandardPaths>
 
-#include <KStandardDirs>
-#include <KLocale>
 #include <KgDifficulty>
 #include <KgThemeProvider>
 #include <KColorScheme>
+#include <KLocalizedString>
 
 static const int MIN_MARGIN = 50;
 static const int GAME_TIME_DELAY = 1000;
@@ -44,7 +44,7 @@ KBounceGameWidget::KBounceGameWidget( QWidget* parent )
 , m_lives( 0 )
 , m_time( 0 )
 , m_vertical( false )
-, m_soundTimeout( KStandardDirs::locate( "appdata", "sounds/timeout.wav" ) )
+, m_soundTimeout( QStandardPaths::locate( QStandardPaths::DataLocation, "sounds/timeout.wav" ) )
 {
     m_board = new KBounceBoard( &m_renderer );
     connect( m_board, SIGNAL(fillChanged(int)), this, SLOT(onFillChanged(int)) );

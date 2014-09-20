@@ -18,7 +18,6 @@
 
 #include "board.h"
 
-#include <KGlobal>
 #include <KRandom>
 
 #include <QGraphicsScene>

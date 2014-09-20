@@ -21,10 +21,9 @@
 #include <cmath>
 
 #include <KRandom>
-#include <KStandardDirs>
 
 #include <QPainter>
-//#include <QDebug>
+#include <QStandardPaths>
 
 #include "board.h"
 #include "renderer.h"
@@ -39,8 +38,8 @@ KBounceWall::KBounceWall( Direction dir, KBounceRenderer* renderer, KBounceBoard
 : KGameRenderedItem( renderer,"",board )
 , m_board( board )
 , m_dir( dir )
-, m_soundWallstart( KStandardDirs::locate( "appdata", "sounds/wallstart.wav" ) )
-, m_soundReflect( KStandardDirs::locate( "appdata", "sounds/reflect.wav" ) )
+, m_soundWallstart( QStandardPaths::locate( QStandardPaths::DataLocation, "sounds/wallstart.wav" ) )
+, m_soundReflect( QStandardPaths::locate( QStandardPaths::DataLocation, "sounds/reflect.wav" ) )
 {
     // The wall velocity would initialised on every new level.
     m_wallVelocity = 0.0;
