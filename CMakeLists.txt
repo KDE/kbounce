@@ -37,7 +37,7 @@ find_package(KF5 REQUIRED COMPONENTS
     NewStuff
     KDELibs4Support)
     
-find_package(KDEGames 4.9.0 REQUIRED)
+find_package(KF5KDEGames 4.9.0 REQUIRED)
 find_package(Phonon4Qt5 REQUIRED)
 
 include(FeatureSummary)
@@ -55,7 +55,7 @@ add_subdirectory( sounds )
 add_subdirectory( pics ) 
 add_subdirectory( doc )
 
-include_directories(${CMAKE_SOURCE_DIR}/libkdegames/highscore)
+include_directories(${CMAKE_SOURCE_DIR}/KF5KDEGames/highscore)
  
 ########### next target ###############
 
@@ -81,7 +81,7 @@ target_link_libraries(kbounce
   KF5::KDELibs4Support 
   Phonon::phonon4qt5 
   KF5::KIOWidgets
-  kdegames )
+  KF5KDEGames )
 
 install(TARGETS kbounce  ${INSTALL_TARGETS_DEFAULT_ARGS} )
 
