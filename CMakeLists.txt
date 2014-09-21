@@ -48,6 +48,8 @@ include(KDECMakeSettings)
 
 add_definitions(${QT_DEFINITIONS})
 add_definitions(-DQT_USE_FAST_CONCATENATION -DQT_USE_FAST_OPERATOR_PLUS)
+add_definitions(-DTRANSLATION_DOMAIN="kbounce")
+
 include_directories(${KDEGAMES_INCLUDE_DIRS} ${KDE4_INCLUDES} ${QDBUS_INCLUDE_DIRS})
 
 add_subdirectory( themes ) 
