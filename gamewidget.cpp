@@ -18,18 +18,21 @@
 
 #include "gamewidget.h"
 #include "settings.h"
+#include "wall.h"
 
 #include <QPalette>
 #include <QTimer>
 #include <QRect>
 #include <QSignalMapper>
+#include <QDebug>
+#include <QShortcut>
+#include <QStandardPaths>
 
 #include <KAction>
-#include <KStandardDirs>
-#include <KLocale>
 #include <KgDifficulty>
 #include <KgThemeProvider>
 #include <KColorScheme>
+#include <KLocalizedString>
 
 static const int MIN_MARGIN = 50;
 static const int GAME_TIME_DELAY = 1000;
@@ -47,7 +50,7 @@ KBounceGameWidget::KBounceGameWidget( QWidget* parent )
 , m_lives( 0 )
 , m_time( 0 )
 , m_vertical( false )
-, m_soundTimeout( KStandardDirs::locate( "appdata", "sounds/timeout.wav" ) )
+, m_soundTimeout( QStandardPaths::locate( QStandardPaths::DataLocation, "sounds/timeout.wav" ) )
 {
     m_board = new KBounceBoard( &m_renderer );
     connect( m_board, SIGNAL(fillChanged(int)), this, SLOT(onFillChanged(int)) );
@@ -84,7 +87,7 @@ int KBounceGameWidget::level()
 
 int KBounceGameWidget::score()
 {
-    kDebug() << "Score:" << m_score;
+    qDebug() << "Score:" << m_score;
     return m_score;
 }
 
@@ -190,7 +193,7 @@ void KBounceGameWidget::setSuspended( bool val )
 
 void KBounceGameWidget::settingsChanged()
 {
-    kDebug() << "Settings changed";
+    qDebug() << "Settings changed";
 
     if (KBounceSettings::useRandomBackgroundPictures())
     {
@@ -200,7 +203,6 @@ void KBounceGameWidget::settingsChanged()
     {
         m_renderer.setCustomBackgroundPath(QString());
     }
-   
     redraw();
 }
 
@@ -288,7 +290,7 @@ void KBounceGameWidget::tick()
 
 void KBounceGameWidget::resizeEvent( QResizeEvent* ev )
 {
-    kDebug() << "Size" << ev->size();
+    qDebug() << "Size" << ev->size();
 
     m_renderer.setBackgroundSize( ev->size() );
 
@@ -336,52 +338,51 @@ void KBounceGameWidget::mouseReleaseEvent( QMouseEvent* event )
 }
 
 
-void KBounceGameWidget::bindKeys( KActionCollection * keyShortcuts )
+void KBounceGameWidget::bindKeys( KActionCollection * actionCollection )
 {
-    KAction * shortcut;
+    QAction * action;
 
-    shortcut = keyShortcuts->addAction( QLatin1String( "move_left" ));
-    shortcut->setText(i18n("Move Cursor Left"));
-    shortcut->setIcon(KIcon( QLatin1String( "arrow-left" )));
-    shortcut->setShortcuts( KShortcut( Qt::Key_A ) );
-    connect(shortcut, SIGNAL(triggered(bool)), this, SLOT(moveCursorLeft()));
+    action = actionCollection->addAction( QLatin1String( "move_left" ));
+    action->setText(i18n("Move Cursor Left"));
+    action->setIcon(QIcon::fromTheme( QLatin1String( "arrow-left" )));
+    actionCollection->setDefaultShortcut(action, QKeySequence( Qt::Key_A ) );
+    connect(action, SIGNAL(triggered(bool)), this, SLOT(moveCursorLeft()));
 
-    shortcut = keyShortcuts->addAction( QLatin1String( "move_right" ));
-    shortcut->setText(i18n("Move Cursor Right"));
-    shortcut->setIcon(KIcon( QLatin1String( "arrow-right" )));
-    shortcut->setShortcuts( KShortcut( Qt::Key_D) );
-    connect(shortcut, SIGNAL(triggered(bool)), this, SLOT(moveCursorRight()));
+    action = actionCollection->addAction( QLatin1String( "move_right" ));
+    action->setText(i18n("Move Cursor Right"));
+    action->setIcon(QIcon::fromTheme( QLatin1String( "arrow-right" )));
+    actionCollection->setDefaultShortcut(action, QKeySequence( Qt::Key_D) );
+    connect(action, SIGNAL(triggered(bool)), this, SLOT(moveCursorRight()));
 
-    shortcut = keyShortcuts->addAction( QLatin1String( "move_down" ));
-    shortcut->setText(i18n("Move Cursor Down"));
-    shortcut->setIcon(KIcon( QLatin1String( "arrow-down" )));
-    shortcut->setShortcuts( KShortcut( Qt::Key_S ) );
-    connect(shortcut, SIGNAL(triggered(bool)), this, SLOT(moveCursorDown()));
+    action = actionCollection->addAction( QLatin1String( "move_down" ));
+    action->setText(i18n("Move Cursor Down"));
+    action->setIcon(QIcon::fromTheme( QLatin1String( "arrow-down" )));
+    actionCollection->setDefaultShortcut(action, QKeySequence( Qt::Key_S ) );
+    connect(action, SIGNAL(triggered(bool)), this, SLOT(moveCursorDown()));
 
-    shortcut = keyShortcuts->addAction( QLatin1String( "move_up" ));
-    shortcut->setText(i18n("Move Cursor Up"));
-    shortcut->setIcon(KIcon( QLatin1String( "arrow-up" )));
-    shortcut->setShortcuts( KShortcut( Qt::Key_W) );
-    connect(shortcut, SIGNAL(triggered(bool)), this, SLOT(moveCursorUp()));
+    action = actionCollection->addAction( QLatin1String( "move_up" ));
+    action->setText(i18n("Move Cursor Up"));
+    action->setIcon(QIcon::fromTheme( QLatin1String( "arrow-up" )));
+    actionCollection->setDefaultShortcut(action, QKeySequence( Qt::Key_W) );
+    connect(action, SIGNAL(triggered(bool)), this, SLOT(moveCursorUp()));
 
     QSignalMapper * mapper = new QSignalMapper( this );
 
-    shortcut = keyShortcuts->addAction( QLatin1String( "create_wall" ));
-    shortcut->setText(i18n("Create Wall"));
-    shortcut->setIcon(KIcon( QLatin1String( "insert-horizontal-rule" )));
-    shortcut->setShortcuts( KShortcut( Qt::Key_Space) );
+    action = actionCollection->addAction( QLatin1String( "create_wall" ));
+    action->setText(i18n("Create Wall"));
+    action->setIcon(QIcon::fromTheme( QLatin1String( "insert-horizontal-rule" )));
+    actionCollection->setDefaultShortcut(action, QKeySequence( Qt::Key_Space) );
 
-    mapper->setMapping( shortcut, LEFT_BUTTON );
-    connect(shortcut, SIGNAL(triggered(bool)), mapper, SLOT(map()));
+    mapper->setMapping( action, LEFT_BUTTON );
+    connect(action, SIGNAL(triggered(bool)), mapper, SLOT(map()));
 
-    shortcut = keyShortcuts->addAction( QLatin1String( "toggle_axis" ));
-    shortcut->setText(i18n("Toggle Axis"));
-    shortcut->setIcon(KIcon( QLatin1String( "object-rotate-right" )));
-    shortcut->setShortcuts( KShortcut( Qt::Key_L) );
+    action = actionCollection->addAction( QLatin1String( "toggle_axis" ));
+    action->setText(i18n("Toggle Axis"));
+    action->setIcon(QIcon::fromTheme( QLatin1String( "object-rotate-right" )));
+    actionCollection->setDefaultShortcut(action, QKeySequence( Qt::Key_L) );
 
-    mapper->setMapping( shortcut, RIGHT_BUTTON );
-    connect(shortcut, SIGNAL(triggered(bool)), mapper, SLOT(map()));
-
+    mapper->setMapping( action, RIGHT_BUTTON );
+    connect(action, SIGNAL(triggered(bool)), mapper, SLOT(map()));
     connect(mapper, SIGNAL(mapped(int)), this, SLOT(performMouseClick(int)));
 }
 
@@ -443,7 +444,7 @@ void KBounceGameWidget::setCursorPosition( int x, int y )
     QPoint nextPosition     = mapFromGlobal( pos );
     QPoint currentPosition  = mapFromGlobal( QCursor::pos() );
 
-    if ( !m_state == Running ||
+    if ( m_state != Running ||
          !rect().contains( nextPosition ) ||
          !rect().contains( currentPosition ) ) {
         return;
@@ -513,7 +514,8 @@ void KBounceGameWidget::redraw()
     }
 
     updateCursor();
-    m_scene.setBackgroundBrush( m_renderer.renderBackground() );
+    KBounceWall::loadSprites();
+    m_scene.setBackgroundBrush( m_board->applyWallsOn(m_renderer.renderBackground()) );
     update();
 }
 

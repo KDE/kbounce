@@ -16,45 +16,69 @@
  * Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#include <KAboutData>
-#include <KApplication>
-#include <KCmdLineArgs>
-
 #include "mainwindow.h"
 
-#include <klocale.h>
-#include <kglobal.h>
+#include <KAboutData>
+#include <KLocalizedString>
+
+#include <QApplication>
 
 using namespace std;
 
 static const char description[] = I18N_NOOP("KDE Bounce Ball Game");
-static const char version[] = "0.11";
 static const char copyleft[] = I18N_NOOP("(c) 2000-2005, Stefan Schimanski\n(c) 2007, Tomasz Boczkowski");
 
 int main(int argc, char **argv)
 {
-  KAboutData aboutData( "kbounce", 0, ki18n("KBounce"),
-    version, ki18n(description), KAboutData::License_LGPL,
-    ki18n(copyleft), KLocalizedString(), "http://games.kde.org/kbounce" );
+  QApplication app(argc, argv);
 
-  aboutData.addAuthor(ki18n("Stefan Schimanski"), ki18n("Original author"), "schimmi@kde.org");
-  aboutData.addAuthor(ki18n("Sandro Sigala"), ki18n("Highscore"), "ssigala@globalnet.it");
-  aboutData.addAuthor(ki18n("Benjamin Meyer"), ki18n("Contributions"), "ben+kbounce@meyerhome.net");
-  aboutData.addAuthor(ki18n("Tomasz Boczkowski"), ki18n("Port to KDE4. Current maintainer"), "tboczkowski@onet.pl" );
-  aboutData.addCredit(ki18n("Dmitry Suzdalev"), ki18n("Port to QGraphicsView framework"), "dimsuz@gmail.com");
-  aboutData.addCredit(ki18n("Andreas Scherf"), ki18n("Image Background and Fixes"), "ascherfy@gmail.com");
+  KAboutData aboutData(QStringLiteral("kbounce"), i18n("KBounce"),
+                       QStringLiteral("0.11"), i18n(description),
+                       KAboutLicense::GPL, i18n(copyleft), QString(),
+                       QStringLiteral("http://games.kde.org/kbounce"));
 
-  KCmdLineArgs::init( argc, argv, &aboutData );
+  aboutData.addAuthor(i18n("Stefan Schimanski"),
+                      i18n("Original author"),
+                      QStringLiteral("schimmi@kde.org"));
 
-  KApplication application;
-  KGlobal::locale()->insertCatalog( QLatin1String( "libkdegames" ));
+  aboutData.addAuthor(i18n("Sandro Sigala"),
+                      i18n("Highscore"),
+                      QStringLiteral("ssigala@globalnet.it"));
 
-  if (application.isSessionRestored())
+  aboutData.addAuthor(i18n("Benjamin Meyer"),
+                      i18n("Contributions"),
+                      QStringLiteral("ben+kbounce@meyerhome.net"));
+
+  aboutData.addAuthor(i18n("Tomasz Boczkowski"),
+                      i18n("Port to KDE4. Current maintainer"),
+                      QStringLiteral("tboczkowski@onet.pl"));
+
+  aboutData.addCredit(i18n("Dmitry Suzdalev"),
+                      i18n("Port to QGraphicsView framework"),
+                      QStringLiteral("dimsuz@gmail.com"));
+
+  aboutData.addCredit(i18n("Andreas Scherf"),
+                      i18n("Image Background and Fixes"),
+                      QStringLiteral("ascherfy@gmail.com"));
+
+  aboutData.setOrganizationDomain(QByteArray("kde.org"));
+  aboutData.setProductName(QByteArray("kbounce"));
+
+  KAboutData::setApplicationData(aboutData);
+
+  app.setApplicationDisplayName(aboutData.displayName());
+  app.setOrganizationDomain(aboutData.organizationDomain());
+  app.setApplicationVersion(aboutData.version());
+  app.setWindowIcon(QIcon::fromTheme("kbounce"));
+
+  KLocalizedString::setApplicationDomain("kbounce");
+
+  if (app.isSessionRestored())
       RESTORE(KBounceMainWindow)
   else {
       KBounceMainWindow *w = new KBounceMainWindow;
       w->show();
   }
-  return application.exec();
+  return app.exec();
 }
 

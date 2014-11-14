@@ -22,7 +22,7 @@
 #ifndef RENDERER_H
 #define RENDERER_H
 
-#include <QSvgRenderer>
+#include <QtSvg/QSvgRenderer>
 #include <KPixmapCache>
 #include <KGameRenderer>
 

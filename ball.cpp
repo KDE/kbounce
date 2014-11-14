@@ -21,7 +21,8 @@
 
 #include <cmath>
 
-#include <kdebug.h>
+#include <QDebug>
+
 #include <KRandom>
 
 #include "board.h"
@@ -54,7 +55,7 @@ void KBounceBall::goForward()
    
    if ( m_reflectY )
    {
-       kDebug() << "Reflecting ball Y";
+       qDebug() << "Reflecting ball Y";
        m_velocity.y = -m_velocity.y;
        m_reflectY = false;
    }
@@ -91,7 +92,7 @@ void KBounceBall::update()
 
 void KBounceBall::resize( const QSize& tileSize )
 {
-    kDebug() << "New size:" << tileSize;
+    qDebug() << "New size:" << tileSize;
 
     m_size.setWidth( static_cast<int>( BALL_RELATIVE_SIZE * tileSize.width() ) );
     m_size.setHeight( static_cast<int> ( BALL_RELATIVE_SIZE * tileSize.height() ) );

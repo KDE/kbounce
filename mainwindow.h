@@ -21,10 +21,13 @@
 
 #include <KXmlGuiWindow>
 
+#include <QLabel>
+#include <QPointer>
+
 #include "gamewidget.h"
 
-class KAction;
-class KStatusBar;
+class QAction;
+class QStatusBar;
 class KToggleAction;
 
 class KBounceMainWindow : public KXmlGuiWindow
@@ -63,21 +66,21 @@ protected:
    void focusInEvent ( QFocusEvent * );
 
    KBounceGameWidget* m_gameWidget;
-   KStandardDirs* dirs;
-
-   KStatusBar* m_statusBar;
+   QStatusBar* m_statusBar;
 
    KToggleAction * m_pauseAction;
-   KToggleAction * m_backgroundShowAction;
+   KToggleAction * m_backgroundSwitchAction;
    KToggleAction * m_soundAction;
 
-   KAction * m_newAction;
-   KAction * m_saveGameAction;
-   KAction * m_loadGameAction;
+   QAction * m_newAction;
+   QAction * m_saveGameAction;
+   QAction * m_loadGameAction;
 
-private:
-  QString userDataDir;
-  QString myDir;
+   QPointer<QLabel> levelLabel = new QLabel;
+   QPointer<QLabel> scoreLabel = new QLabel;
+   QPointer<QLabel> filledLabel = new QLabel;
+   QPointer<QLabel> livesLabel = new QLabel;
+   QPointer<QLabel> timeLabel = new QLabel;
 };
 
 #endif // KBOUNCE_MAINWINDOW_H

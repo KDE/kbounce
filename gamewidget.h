@@ -25,12 +25,12 @@
 #include <QGraphicsView>
 #include <QGraphicsScene>
 #include <QGraphicsPixmapItem>
+#include <QMouseEvent>
 
 #include <KgSound>
 #include <KgDifficulty>
 #include <KActionCollection>
 
-#include <QMouseEvent>
 #include <QKeyEvent>
 #include <QPoint>
 #include <QCursor>
@@ -61,7 +61,7 @@ class KBounceGameWidget : public QGraphicsView
 	KBounceRenderer* renderer() { return &m_renderer; }
 
 	QSize minimumSizeHint() const;
-	void bindKeys( KActionCollection * keyShortcuts );
+	void bindKeys( KActionCollection * actionCollection );
         void onSavedGame();
         void onLoadedGame( int level, int score );
 
