@@ -318,5 +318,5 @@ void KBounceWall::setWallVelocity(qreal velocity)
 }
 
 
-#include "wall.moc"
+
 

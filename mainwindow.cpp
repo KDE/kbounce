@@ -320,4 +320,4 @@ i18n("On to level %1. Remember you get %2 lives this time!", m_game.level+1, m_g
 // }
 
 
-#include "mainwindow.moc"
+
