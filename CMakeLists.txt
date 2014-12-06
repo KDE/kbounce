@@ -49,8 +49,6 @@ include(KDECMakeSettings)
 add_definitions(-DQT_USE_FAST_CONCATENATION -DQT_USE_FAST_OPERATOR_PLUS)
 add_definitions(-DTRANSLATION_DOMAIN="kbounce")
 
-include_directories(${KDEGAMES_INCLUDE_DIRS} ${KDE4_INCLUDES} ${QDBUS_INCLUDE_DIRS})
-
 add_subdirectory( themes ) 
 add_subdirectory( sounds ) 
 add_subdirectory( pics ) 
@@ -78,8 +76,9 @@ add_executable(kbounce ${kbounce_SRCS})
 
 target_link_libraries(kbounce 
   Qt5::Svg 
-  Qt5::Qml 
-  KF5::KDELibs4Support 
+  Qt5::Qml
+  KF5::XmlGui
+  KF5::I18n 
   Phonon::phonon4qt5 
   KF5::KIOWidgets
   KF5KDEGames )
