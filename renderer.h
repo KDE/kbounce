@@ -23,7 +23,6 @@
 #define RENDERER_H
 
 #include <QtSvg/QSvgRenderer>
-#include <KPixmapCache>
 #include <KGameRenderer>
 
 #include <QSize>
