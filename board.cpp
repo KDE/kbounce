@@ -43,7 +43,7 @@ KBounceBoard::KBounceBoard( KBounceRenderer* renderer )
 {
     m_clock = new QTimer( this );
     m_clock->setInterval( GAME_DELAY );
-    connect( m_clock, SIGNAL(timeout()), this, SLOT(tick()) );
+    connect(m_clock, &QTimer::timeout, this, &KBounceBoard::tick);
 
     m_walls.append( new KBounceWall( KBounceWall::Up, m_renderer, this ) );
     m_walls.append( new KBounceWall( KBounceWall::Right, m_renderer, this ) );

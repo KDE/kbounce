@@ -47,16 +47,16 @@ KBounceGameWidget::KBounceGameWidget( QWidget* parent )
 , m_soundTimeout( QStandardPaths::locate( QStandardPaths::DataLocation, "sounds/timeout.wav" ) )
 {
     m_board = new KBounceBoard( &m_renderer );
-    connect( m_board, SIGNAL(fillChanged(int)), this, SLOT(onFillChanged(int)) );
-    connect( m_board, SIGNAL(wallDied()), this, SLOT(onWallDied()) );
+    connect(m_board, &KBounceBoard::fillChanged, this, &KBounceGameWidget::onFillChanged);
+    connect(m_board, &KBounceBoard::wallDied, this, &KBounceGameWidget::onWallDied);
 
     m_overlay = new QGraphicsPixmapItem();
     m_overlay->hide();
 
     m_clock = new QTimer( this );
     m_clock->setInterval( GAME_TIME_DELAY );
-    connect( m_clock, SIGNAL(timeout()), this, SLOT(tick()) );
-	connect( this, SIGNAL(livesChanged(int)),this,SLOT(onLivesChanged(int)) );
+    connect(m_clock, &QTimer::timeout, this, &KBounceGameWidget::tick);
+	connect(this, &KBounceGameWidget::livesChanged, this, &KBounceGameWidget::onLivesChanged);
 
     setMouseTracking( true );
 
