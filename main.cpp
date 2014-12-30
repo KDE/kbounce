@@ -77,8 +77,6 @@ int main(int argc, char **argv)
   app.setApplicationVersion(aboutData.version());
   app.setWindowIcon(QIcon::fromTheme("kbounce"));
 
-  KLocalizedString::setApplicationDomain("kbounce");
-
   if (app.isSessionRestored())
       RESTORE(KBounceMainWindow)
   else {
