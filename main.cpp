@@ -23,8 +23,7 @@
 #include <kdelibs4configmigrator.h>
 
 #include <QApplication>
-
-using namespace std;
+#include <QCommandLineParser>
 
 static const char description[] = I18N_NOOP("KDE Bounce Ball Game");
 static const char copyleft[] = I18N_NOOP("(c) 2000-2005, Stefan Schimanski\n(c) 2007, Tomasz Boczkowski");
@@ -67,15 +66,14 @@ int main(int argc, char **argv)
                       i18n("Image Background and Fixes"),
                       QStringLiteral("ascherfy@gmail.com"));
 
-  aboutData.setOrganizationDomain(QByteArray("kde.org"));
-  aboutData.setProductName(QByteArray("kbounce"));
-
   KAboutData::setApplicationData(aboutData);
+  QCommandLineParser parser;
+  parser.addVersionOption();
+  parser.addHelpOption();
+  aboutData.setupCommandLine(&parser);
+  parser.process(app);
+  aboutData.processCommandLine(&parser);
 
-  app.setApplicationDisplayName(aboutData.displayName());
-  app.setOrganizationDomain(aboutData.organizationDomain());
-  app.setApplicationVersion(aboutData.version());
-  app.setWindowIcon(QIcon::fromTheme("kbounce"));
 
   if (app.isSessionRestored())
       RESTORE(KBounceMainWindow)
