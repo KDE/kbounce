@@ -70,6 +70,7 @@ target_link_libraries(kbounce
   KF5::I18n 
   Phonon::phonon4qt5 
   KF5::KIOWidgets
+  KF5::DBusAddons
   KF5KDEGames )
 
 install(TARGETS kbounce  ${INSTALL_TARGETS_DEFAULT_ARGS} )

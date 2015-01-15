@@ -21,6 +21,7 @@
 #include <KAboutData>
 #include <KLocalizedString>
 #include <kdelibs4configmigrator.h>
+#include <KDBusService>
 
 #include <QApplication>
 #include <QCommandLineParser>
@@ -74,6 +75,7 @@ int main(int argc, char **argv)
   parser.process(app);
   aboutData.processCommandLine(&parser);
 
+  KDBusService service;
 
   if (app.isSessionRestored())
       RESTORE(KBounceMainWindow)
