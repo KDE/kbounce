@@ -62,7 +62,6 @@ add_executable(kbounce ${kbounce_SRCS})
 
 target_link_libraries(kbounce 
   Qt5::Svg 
-  Qt5::Qml
   KF5::XmlGui
   KF5::I18n 
   Phonon::phonon4qt5 
