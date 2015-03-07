@@ -70,7 +70,7 @@ Name[zh_CN]=KBounce
 Name[zh_TW]=KBounce 彈力球
 
 Type=Application
-Exec=kbounce -caption %c
+Exec=kbounce -qwindowtitle %c
 X-DocPath=kbounce/index.html
 Icon=kbounce
 
