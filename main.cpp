@@ -31,12 +31,12 @@ static const char copyleft[] = I18N_NOOP("(c) 2000-2005, Stefan Schimanski\n(c) 
 
 int main(int argc, char **argv)
 {
-  QApplication app(argc, argv);
-
   Kdelibs4ConfigMigrator migrate(QLatin1String("kbounce"));
   migrate.setConfigFiles(QStringList() << QLatin1String("kbouncerc"));
   migrate.setUiFiles(QStringList() << QLatin1String("kbounceui.rc"));
   migrate.migrate();
+
+  QApplication app(argc, argv);
 
   KAboutData aboutData(QStringLiteral("kbounce"), i18n("KBounce"),
                        QStringLiteral("0.11"), i18n(description),
