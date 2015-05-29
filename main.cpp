@@ -37,7 +37,7 @@ int main(int argc, char **argv)
   migrate.setConfigFiles(QStringList() << QLatin1String("kbouncerc"));
   migrate.setUiFiles(QStringList() << QLatin1String("kbounceui.rc"));
   migrate.migrate();
-
+  KLocalizedString::setApplicationDomain("kbounce");
   KAboutData aboutData(QStringLiteral("kbounce"), i18n("KBounce"),
                        QStringLiteral("0.11"), i18n(description),
                        KAboutLicense::GPL, i18n(copyleft), QString(),
