@@ -59,7 +59,7 @@ set(kbounce_SRCS
 kconfig_add_kcfg_files(kbounce_SRCS settings.kcfgc)
 ki18n_wrap_ui(kbounce_SRCS  backgroundselector.ui )
 file(GLOB ICONS_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/pics/*-apps-kbounce.png")
-ecm_add_app_icon(kblocks_SRCS ICONS ${ICONS_SRCS})
+ecm_add_app_icon(kbounce_SRCS ICONS ${ICONS_SRCS})
 
 add_executable(kbounce ${kbounce_SRCS})
 
