@@ -43,11 +43,11 @@ KBounceMainWindow::KBounceMainWindow()
     //setComponentName(QStringLiteral("kbounce"), i18n("KBounce"));
     m_statusBar = statusBar();
     
-    levelLabel->setText(i18n("Level: %1", QString::fromLatin1( "XX" )));
-    scoreLabel->setText(i18n("Score: %1", QString::fromLatin1( "XXXXXX" )));
-    filledLabel->setText(i18n( "Filled: %1%", QString::fromLatin1( "XX" )));
-    livesLabel->setText(i18n( "Lives: %1", QString::fromLatin1( "XX" )));
-    timeLabel->setText(i18n( "Time: %1", QString::fromLatin1( "XXX" )));
+    levelLabel->setText(i18n("Level: %1", QStringLiteral( "XX" )));
+    scoreLabel->setText(i18n("Score: %1", QStringLiteral( "XXXXXX" )));
+    filledLabel->setText(i18n( "Filled: %1%", QStringLiteral( "XX" )));
+    livesLabel->setText(i18n( "Lives: %1", QStringLiteral( "XX" )));
+    timeLabel->setText(i18n( "Time: %1", QStringLiteral( "XXX" )));
     
     m_statusBar->insertPermanentWidget(0, levelLabel, 1);
     m_statusBar->insertPermanentWidget(1, scoreLabel, 1);
@@ -57,11 +57,11 @@ KBounceMainWindow::KBounceMainWindow()
         
     m_gameWidget = new KBounceGameWidget( this );
     connect( m_gameWidget, SIGNAL(levelChanged(int)), this, SLOT(displayLevel(int)) );
-    connect( m_gameWidget, SIGNAL(scoreChanged(int)), this, SLOT(displayScore(int)) );
-    connect( m_gameWidget, SIGNAL(livesChanged(int)), this, SLOT(displayLives(int)) );
-    connect( m_gameWidget, SIGNAL(filledChanged(int)), this, SLOT(displayFilled(int)) );
-    connect( m_gameWidget, SIGNAL(timeChanged(int)), this, SLOT(displayTime(int)) );
-    connect( m_gameWidget, SIGNAL(stateChanged(KBounceGameWidget::State)), this, SLOT(gameStateChanged(KBounceGameWidget::State)) );
+    connect( m_gameWidget, &KBounceGameWidget::scoreChanged, this, &KBounceMainWindow::displayScore );
+    connect( m_gameWidget, &KBounceGameWidget::livesChanged, this, &KBounceMainWindow::displayLives );
+    connect( m_gameWidget, &KBounceGameWidget::filledChanged, this, &KBounceMainWindow::displayFilled );
+    connect( m_gameWidget, &KBounceGameWidget::timeChanged, this, &KBounceMainWindow::displayTime );
+    connect( m_gameWidget, &KBounceGameWidget::stateChanged, this, &KBounceMainWindow::gameStateChanged );
     //connect( m_gameWidget, SIGNAL(gameOver()), this, SLOT(gameOverNow()) );
     setCentralWidget( m_gameWidget );
 
@@ -100,8 +100,8 @@ void KBounceMainWindow::initXMLUI()
     // Settings
     KStandardAction::preferences( this, SLOT(configureSettings()), actionCollection() );
     m_soundAction = new KToggleAction( i18n("&Play Sounds"), this );
-    actionCollection()->addAction( QLatin1String(  "toggle_sound" ), m_soundAction );
-    connect( m_soundAction, SIGNAL(triggered(bool)), this, SLOT(setSounds(bool)) );
+    actionCollection()->addAction( QStringLiteral(  "toggle_sound" ), m_soundAction );
+    connect( m_soundAction, &QAction::triggered, this, &KBounceMainWindow::setSounds );
 }
 
 		   
@@ -183,13 +183,13 @@ void KBounceMainWindow::highscore()
 
 void KBounceMainWindow::configureSettings()
 {
-    if ( KConfigDialog::showDialog( "settings" ) ) return;
+    if ( KConfigDialog::showDialog( QStringLiteral("settings") ) ) return;
 
-    KConfigDialog* dialog = new KConfigDialog( this, "settings", KBounceSettings::self());
-    dialog->addPage( new KgThemeSelector(m_gameWidget->renderer()->themeProvider(), 0, dialog), i18n( "Theme" ), "games-config-theme" );
-    dialog->addPage( new BackgroundSelector(dialog,KBounceSettings::self() ),i18n("Background"),"games-config-background");
+    KConfigDialog* dialog = new KConfigDialog( this, QStringLiteral("settings"), KBounceSettings::self());
+    dialog->addPage( new KgThemeSelector(m_gameWidget->renderer()->themeProvider(), 0, dialog), i18n( "Theme" ), QStringLiteral("games-config-theme") );
+    dialog->addPage( new BackgroundSelector(dialog,KBounceSettings::self() ),i18n("Background"),QStringLiteral("games-config-background"));
     dialog->show();
-    connect( dialog, SIGNAL(settingsChanged(QString)), this, SLOT(settingsChanged()) );
+    connect( dialog, &KConfigDialog::settingsChanged, this, &KBounceMainWindow::settingsChanged );
 }
 
 void KBounceMainWindow::readSettings()

@@ -44,7 +44,7 @@ KBounceGameWidget::KBounceGameWidget( QWidget* parent )
 , m_lives( 0 )
 , m_time( 0 )
 , m_vertical( false )
-, m_soundTimeout( QStandardPaths::locate( QStandardPaths::DataLocation, "sounds/timeout.wav" ) )
+, m_soundTimeout( QStandardPaths::locate( QStandardPaths::DataLocation, QStringLiteral("sounds/timeout.wav") ) )
 {
     m_board = new KBounceBoard( &m_renderer );
     connect(m_board, &KBounceBoard::fillChanged, this, &KBounceGameWidget::onFillChanged);
@@ -60,8 +60,8 @@ KBounceGameWidget::KBounceGameWidget( QWidget* parent )
 
     setMouseTracking( true );
 
-    connect(m_renderer.themeProvider(), SIGNAL(currentThemeChanged(const KgTheme*)),
-        SLOT(settingsChanged()));
+    connect(m_renderer.themeProvider(), &KgThemeProvider::currentThemeChanged,
+        this, &KBounceGameWidget::settingsChanged);
 
     m_scene.addItem( m_board );
     m_scene.addItem( m_overlay );
@@ -389,9 +389,9 @@ void KBounceGameWidget::generateOverlay()
 	p.setPen( Qt::transparent );
 	p.setRenderHint(QPainter::Antialiasing );
 	
-	if ( m_renderer.spriteExists("overlayBackground") )
+	if ( m_renderer.spriteExists(QStringLiteral("overlayBackground")) )
 	{
-		QPixmap themeBackgound = m_renderer.spritePixmap("overlayBackground",backgroundSize);
+		QPixmap themeBackgound = m_renderer.spritePixmap(QStringLiteral("overlayBackground"),backgroundSize);
 		p.setCompositionMode( QPainter::CompositionMode_Source );
 		p.drawPixmap( p.viewport(), themeBackgound );
 		p.setCompositionMode( QPainter::CompositionMode_DestinationIn );

@@ -36,8 +36,8 @@ static KgThemeProvider* provider()
 {
 	KgThemeProvider* prov = new KgThemeProvider;
 	prov->discoverThemes(
-		"appdata", QLatin1String("themes"), //theme file location
-		QLatin1String("default")            //default theme file name
+		"appdata", QStringLiteral("themes"), //theme file location
+		QStringLiteral("default")            //default theme file name
 	);
 	return prov;
 }
@@ -101,7 +101,7 @@ QPixmap KBounceRenderer::renderBackground()
 		    return m_cachedBackground;
 		}
 		// If no valid backgound pixmap found use the original from theme ...
-		m_cachedBackground = spritePixmap( "background", m_backgroundSize );
+		m_cachedBackground = spritePixmap( QStringLiteral("background"), m_backgroundSize );
     }
     return m_cachedBackground;
 }
@@ -109,7 +109,7 @@ QPixmap KBounceRenderer::renderBackground()
 QPixmap KBounceRenderer::getRandomBackgroundPixmap(const QString& path)
 {
     // list directory
-    QDir dir( path, "*.png *.jpg", QDir::Name|QDir::IgnoreCase, QDir::Files );
+    QDir dir( path, QStringLiteral("*.png *.jpg"), QDir::Name|QDir::IgnoreCase, QDir::Files );
     if ( !dir.exists() ) {
         qDebug() << "CustomBackground Directory not found" << endl;
         return QPixmap();

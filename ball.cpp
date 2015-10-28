@@ -32,10 +32,10 @@ const int KBounceBall::BALL_ANIM_DELAY = 50;
 const qreal KBounceBall::BALL_RELATIVE_SIZE = 0.8;
 
 KBounceBall::KBounceBall( KBounceRenderer* renderer, KBounceBoard* board )
-: KGameRenderedItem(renderer,"", board ), m_renderer( renderer ), m_board( board ),
+: KGameRenderedItem(renderer,QLatin1String(""), board ), m_renderer( renderer ), m_board( board ),
     m_soundDelay( 0 ), m_size( QSize( 16, 16 ) ), m_framesNum( 0 ), m_xPos( 0 ), m_yPos( 0 ) 
 {
-	setSpriteKey("ball");
+	setSpriteKey(QStringLiteral("ball"));
 	resetPixmaps();
 	m_nextBoundingRect.setSize( QSizeF( BALL_RELATIVE_SIZE, BALL_RELATIVE_SIZE ) );
 }

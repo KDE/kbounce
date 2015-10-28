@@ -35,11 +35,11 @@ KBounceWall::Sprites * KBounceWall::s_sprites = NULL;
 
 
 KBounceWall::KBounceWall( Direction dir, KBounceRenderer* renderer, KBounceBoard* board )
-: KGameRenderedItem( renderer,"",board )
+: KGameRenderedItem( renderer,QLatin1String(""),board )
 , m_board( board )
 , m_dir( dir )
-, m_soundWallstart( QStandardPaths::locate( QStandardPaths::DataLocation, "sounds/wallstart.wav" ) )
-, m_soundReflect( QStandardPaths::locate( QStandardPaths::DataLocation, "sounds/reflect.wav" ) )
+, m_soundWallstart( QStandardPaths::locate( QStandardPaths::DataLocation, QStringLiteral("sounds/wallstart.wav") ) )
+, m_soundReflect( QStandardPaths::locate( QStandardPaths::DataLocation, QStringLiteral("sounds/reflect.wav") ) )
 {
     // The wall velocity would initialised on every new level.
     m_wallVelocity = 0.0;
@@ -184,13 +184,13 @@ void KBounceWall::update()
 }
 
 void KBounceWall::loadSprites() {
-    s_sprites->wallEndLeft = m_renderer->spritePixmap("wallEndLeft", s_tileSize);
-    s_sprites->wallEndUp = m_renderer->spritePixmap("wallEndUp", s_tileSize);
-    s_sprites->wallEndRight = m_renderer->spritePixmap("wallEndRight", s_tileSize);
-    s_sprites->wallEndDown = m_renderer->spritePixmap("wallEndDown", s_tileSize);
+    s_sprites->wallEndLeft = m_renderer->spritePixmap(QStringLiteral("wallEndLeft"), s_tileSize);
+    s_sprites->wallEndUp = m_renderer->spritePixmap(QStringLiteral("wallEndUp"), s_tileSize);
+    s_sprites->wallEndRight = m_renderer->spritePixmap(QStringLiteral("wallEndRight"), s_tileSize);
+    s_sprites->wallEndDown = m_renderer->spritePixmap(QStringLiteral("wallEndDown"), s_tileSize);
 
-    s_sprites->wallH = m_renderer->spritePixmap("wallH", QSize(32 * s_tileSize.width(), s_tileSize.height()));
-    s_sprites->wallV = m_renderer->spritePixmap("wallV", QSize(s_tileSize.width(), 18*s_tileSize.height()));
+    s_sprites->wallH = m_renderer->spritePixmap(QStringLiteral("wallH"), QSize(32 * s_tileSize.width(), s_tileSize.height()));
+    s_sprites->wallV = m_renderer->spritePixmap(QStringLiteral("wallV"), QSize(s_tileSize.width(), 18*s_tileSize.height()));
 }
 
 void KBounceWall::resize( const QSize& tileSize )

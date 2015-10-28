@@ -52,8 +52,8 @@ KBounceBoard::KBounceBoard( KBounceRenderer* renderer )
     foreach( KBounceWall* wall, m_walls )
     {
         wall->hide();
-        connect( wall, SIGNAL(died()), this, SIGNAL(wallDied()) );
-        connect( wall, SIGNAL(finished(int,int,int,int)), this, SLOT(wallFinished(int,int,int,int)) );
+        connect( wall, &KBounceWall::died, this, &KBounceBoard::wallDied );
+        connect( wall, &KBounceWall::finished, this, &KBounceBoard::wallFinished );
     }
 
     clear();
@@ -350,8 +350,8 @@ QPixmap KBounceBoard::applyWallsOn(QPixmap background) const
         return background;
 
     QPixmap walledBackground = background;
-    const QPixmap gridTile = m_renderer->spritePixmap("gridTile", m_tileSize);
-    const QPixmap wallTile = m_renderer->spritePixmap("wallTile", m_tileSize);
+    const QPixmap gridTile = m_renderer->spritePixmap(QStringLiteral("gridTile"), m_tileSize);
+    const QPixmap wallTile = m_renderer->spritePixmap(QStringLiteral("wallTile"), m_tileSize);
     QPainter p(&walledBackground);
     for (int i = 0; i < TILE_NUM_W; ++i) {
         for (int j = 0; j < TILE_NUM_H; ++j) {
