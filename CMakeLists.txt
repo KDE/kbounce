@@ -6,26 +6,21 @@ set (QT_MIN_VERSION "5.2.0")
 find_package(ECM 1.7.0 REQUIRED CONFIG)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
 
-find_package(Qt5 ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Widgets Svg Test)
+find_package(Qt5 ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Widgets Svg)
 find_package(KF5 REQUIRED COMPONENTS 
     CoreAddons 
     Config 
     WidgetsAddons 
     DBusAddons 
     I18n 
-    GuiAddons 
     ConfigWidgets 
-    IconThemes 
     Completion 
-    TextWidgets
     XmlGui
     KIO
-    NotifyConfig
     DocTools
     )
     
 find_package(KF5KDEGames 4.9.0 REQUIRED)
-find_package(Phonon4Qt5 REQUIRED)
 
 include(FeatureSummary)
 include(ECMInstallIcons)
@@ -67,7 +62,6 @@ target_link_libraries(kbounce
   Qt5::Svg 
   KF5::XmlGui
   KF5::I18n 
-  Phonon::phonon4qt5 
   KF5::KIOWidgets
   KF5::DBusAddons
   KF5KDEGames )
