@@ -23,8 +23,8 @@
 #include "renderer.h"
 #include "settings.h"
 
-#include <QtGui/QPainter>
-#include <QtGui/QPalette>
+#include <QPainter>
+#include <QPalette>
 #include <QDir>
 #include <QDebug>
 #include <QApplication>

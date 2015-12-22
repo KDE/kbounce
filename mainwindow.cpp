@@ -17,9 +17,13 @@
  */
 
 
-#include <krandom.h>
-#include <kstandardgameaction.h>
+#include "mainwindow.h"
+#include "gamewidget.h"
+#include "settings.h"
+#include "backgroundselector.h"
 
+#include <KRandom>
+#include <KStandardGameAction>
 #include <KToggleAction>
 #include <KActionCollection>
 #include <KConfigDialog>
@@ -32,11 +36,6 @@
 #include <QDebug>
 #include <QStatusBar>
 #include <QAction>
-
-#include "mainwindow.h"
-#include "gamewidget.h"
-#include "settings.h"
-#include "backgroundselector.h"
 
 KBounceMainWindow::KBounceMainWindow()
 {
