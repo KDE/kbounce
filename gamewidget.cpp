@@ -99,6 +99,7 @@ void KBounceGameWidget::closeGame()
         m_state = GameOver;
         emit stateChanged( m_state );
         emit gameOver();
+        emit timeChanged(0);
 
         Kg::difficulty()->setGameRunning( false );
         redraw();
