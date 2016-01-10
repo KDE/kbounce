@@ -40,60 +40,59 @@ class KBounceBoard: public QGraphicsObject
     Q_OBJECT
 
     public:
-	enum TileType{ Empty, Free, Border, Wall, Temp };
+        enum TileType{ Empty, Free, Border, Wall, Temp };
 
-	explicit KBounceBoard( KBounceRenderer *renderer );
-	~KBounceBoard();
+        explicit KBounceBoard( KBounceRenderer *renderer );
+        ~KBounceBoard();
 
-    QPixmap applyWallsOn(QPixmap background) const;
-	void resize( QSize& size );
-    void paint(QPainter *, const QStyleOptionGraphicsItem *, QWidget *) {}
+        QPixmap applyWallsOn(QPixmap background) const;
+        void resize( QSize& size );
+        void paint(QPainter *, const QStyleOptionGraphicsItem *, QWidget *) {}
 
-	void newLevel( int level );
-	void setPaused( bool );
+        void newLevel( int level );
+        void setPaused( bool );
 
-	void buildWall( const QPointF& pos, bool vertical );
+        void buildWall( const QPointF& pos, bool vertical );
 
-	int balls();
-	int filled();
+        int balls();
+        int filled();
 
-	KBounceCollision checkCollision( void* object, const QRectF& rect, int type );
-	KBounceCollision checkCollisionTiles( const QRectF& rect );
-	void checkCollisions();
+        KBounceCollision checkCollision( void* object, const QRectF& rect, int type );
+        KBounceCollision checkCollisionTiles( const QRectF& rect );
+        void checkCollisions();
 
-	QPoint mapPosition( const QPointF& pos ) const;
+        QPoint mapPosition( const QPointF& pos ) const;
         QRectF boundingRect() const;
 
-	void setBallVelocity(qreal velocity);
-	void setWallVelocity(qreal velocity);
+        void setBallVelocity(qreal velocity);
+        void setWallVelocity(qreal velocity);
     signals:
-	void ballsChanged( int balls );
-	void fillChanged( int fill );
-	void wallDied();
+        void ballsChanged( int balls );
+        void fillChanged( int fill );
+        void wallDied();
 
     protected slots:
-	void tick();
-	void wallFinished( int x1, int y1, int x2, int y2 );
+        void tick();
+        void wallFinished( int x1, int y1, int x2, int y2 );
 
     private:
-	void clear();
-	void fill( int x, int y );
+        void clear();
+        void fill( int x, int y );
 
-	KBounceRenderer* m_renderer;
+        KBounceRenderer* m_renderer;
 
-	TileType m_tiles[TILE_NUM_W][TILE_NUM_H];
-	QSize m_tileSize;
-	int m_filled;
+        TileType m_tiles[TILE_NUM_W][TILE_NUM_H];
+        QSize m_tileSize;
+        int m_filled;
 
-	QList<KBounceBall*> m_balls;
-	QList<KBounceWall*> m_walls;
+        QList<KBounceBall*> m_balls;
+        QList<KBounceWall*> m_walls;
 
-	QTimer* m_clock;
+        QTimer* m_clock;
 
-    
-	qreal m_ballVelocity;
-	qreal m_wallVelocity;
+
+        qreal m_ballVelocity;
+        qreal m_wallVelocity;
 };
 
 #endif // BOARD_H
-

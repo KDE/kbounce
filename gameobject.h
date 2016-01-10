@@ -42,11 +42,11 @@ struct KBounceVector
     qreal x, y;
 
     KBounceVector( qreal newx = 0, qreal newy = 0 ) : x( newx ), y( newy ) {};
-    
+
     KBounceVector& operator+=( const KBounceVector& rv )
     {
-	x += rv.x; y += rv.y; 
-	return *this;
+        x += rv.x; y += rv.y; 
+        return *this;
     }
 
     /*

@@ -35,72 +35,71 @@
 
 class KBounceGameWidget : public QGraphicsView
 {
-	Q_OBJECT
+    Q_OBJECT
 
-	public:
-	enum State { BeforeFirstGame, Running, BetweenLevels, Paused, Suspended, GameOver };
+    public:
+        enum State { BeforeFirstGame, Running, BetweenLevels, Paused, Suspended, GameOver };
 
-	explicit KBounceGameWidget( QWidget* parent = 0 );
-	~KBounceGameWidget();
+        explicit KBounceGameWidget( QWidget* parent = 0 );
+        ~KBounceGameWidget();
 
-	int level();
-	int score();
-	KBounceGameWidget::State state() const { return m_state; }
-	KBounceRenderer* renderer() { return &m_renderer; }
+        int level();
+        int score();
+        KBounceGameWidget::State state() const { return m_state; }
+        KBounceRenderer* renderer() { return &m_renderer; }
 
-	QSize minimumSizeHint() const;
+        QSize minimumSizeHint() const;
 
     public slots:
-	void closeGame();
-	void newGame();
-	void setPaused( bool );
-	void settingsChanged();
-	void setSuspended( bool );
-	void levelChanged();
+        void closeGame();
+        void newGame();
+        void setPaused( bool );
+        void settingsChanged();
+        void setSuspended( bool );
+        void levelChanged();
 
     signals:
-	void gameOver();
-	void levelChanged( int level );
-	void scoreChanged( int score );
-	void filledChanged( int filled );
-	void livesChanged( int lives );
-	void timeChanged( int time );
-	void stateChanged( KBounceGameWidget::State state );
+        void gameOver();
+        void levelChanged( int level );
+        void scoreChanged( int score );
+        void filledChanged( int filled );
+        void livesChanged( int lives );
+        void timeChanged( int time );
+        void stateChanged( KBounceGameWidget::State state );
 
     protected slots:
-	void onFillChanged( int filled );
-	void onLivesChanged( int lives );
-	void onWallDied();
-	void tick();
-	
+        void onFillChanged( int filled );
+        void onLivesChanged( int lives );
+        void onWallDied();
+        void tick();
+
     protected:
-	virtual void resizeEvent( QResizeEvent* event );
-	virtual void mouseReleaseEvent( QMouseEvent* event );
-	void focusOutEvent(QFocusEvent *event);
-	void closeLevel();
-	void newLevel();
-	void updateCursor();
-	void redraw();
+        virtual void resizeEvent( QResizeEvent* event );
+        virtual void mouseReleaseEvent( QMouseEvent* event );
+        void focusOutEvent(QFocusEvent *event);
+        void closeLevel();
+        void newLevel();
+        void updateCursor();
+        void redraw();
         void setGameDifficulty(const KgDifficultyLevel *);
 
-	KBounceRenderer m_renderer;
+        KBounceRenderer m_renderer;
 
-	QTimer* m_clock;
-	KBounceBoard* m_board;
-	State m_state;
-	int m_bonus;
-	int m_level;
-	int m_score;
-	int m_lives;
-	int m_time;
+        QTimer* m_clock;
+        KBounceBoard* m_board;
+        State m_state;
+        int m_bonus;
+        int m_level;
+        int m_score;
+        int m_lives;
+        int m_time;
 
-	QGraphicsPixmapItem* m_overlay;
-	void generateOverlay();
+        QGraphicsPixmapItem* m_overlay;
+        void generateOverlay();
 
-    bool m_vertical;
-    QGraphicsScene m_scene;
-    KgSound m_soundTimeout;
+        bool m_vertical;
+        QGraphicsScene m_scene;
+        KgSound m_soundTimeout;
 };
 
 #endif
-

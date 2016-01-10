@@ -38,8 +38,8 @@
 
 
 KBounceBoard::KBounceBoard( KBounceRenderer* renderer )
-: QGraphicsObject()
-, m_renderer( renderer )
+    : QGraphicsObject()
+    , m_renderer( renderer )
 {
     m_clock = new QTimer( this );
     m_clock->setInterval( GAME_DELAY );
@@ -75,14 +75,14 @@ void KBounceBoard::resize( QSize& size )
     bool alreadyPaused = false;
     if (!m_clock->isActive())
     {
-    // ... but only when we are not already paused
+        // ... but only when we are not already paused
         alreadyPaused = true;
     }
     else
     {
         setPaused(true);
     }
-                
+
     int minTileSize;
     if ( TILE_NUM_H * size.width() - TILE_NUM_W * size.height() > 0 ) {
         minTileSize = size.height() / TILE_NUM_H;
@@ -128,9 +128,9 @@ void KBounceBoard::newLevel( int level )
     foreach( KBounceBall* ball, m_balls )
     {
         ball->setRelativePos( 4 + KRandom::random() % ( TILE_NUM_W - 8 ),
-            4 + KRandom::random() % ( TILE_NUM_H - 8 ) );
+                4 + KRandom::random() % ( TILE_NUM_H - 8 ) );
         ball->setVelocity( ((KRandom::random() & 1)*2-1)*m_ballVelocity,
-            ((KRandom::random() & 1)*2-1)*m_ballVelocity );
+                ((KRandom::random() & 1)*2-1)*m_ballVelocity );
         ball->setRandomFrame();
         ball->show();
     }
@@ -208,7 +208,7 @@ int KBounceBoard::filled()
 KBounceCollision KBounceBoard::checkCollision( void* object, const QRectF& rect, int type )
 {
     KBounceCollision result;
-    
+
     if ( (type & TILE) != 0 )
     {
         result += checkCollisionTiles( rect );
@@ -310,38 +310,38 @@ void KBounceBoard::checkCollisions()
 QPoint KBounceBoard::mapPosition( const QPointF& pos ) const
 {
     return QPoint( static_cast<int>( m_tileSize.width() * pos.x() ),
-	   static_cast<int>(  m_tileSize.height() * pos.y() ) );
+            static_cast<int>(  m_tileSize.height() * pos.y() ) );
 }
 
 QRectF KBounceBoard::boundingRect() const
 {
     return QRectF( x(), y(),
-                   TILE_NUM_W * m_tileSize.width(),
-                   TILE_NUM_H * m_tileSize.height() );
+            TILE_NUM_W * m_tileSize.width(),
+            TILE_NUM_H * m_tileSize.height() );
 }
 
 void KBounceBoard::tick()
 {
-	checkCollisions();
+    checkCollisions();
 
-	foreach( KBounceBall* ball, m_balls )
-	{
-	    ball->goForward();
-	}
-	foreach( KBounceWall* wall, m_walls )
-	{
-	    wall->goForward();
-	}
+    foreach( KBounceBall* ball, m_balls )
+    {
+        ball->goForward();
+    }
+    foreach( KBounceWall* wall, m_walls )
+    {
+        wall->goForward();
+    }
 
-	foreach( KBounceBall* ball, m_balls )
-	{
-	    ball->update();
-	}
+    foreach( KBounceBall* ball, m_balls )
+    {
+        ball->update();
+    }
 
-	foreach( KBounceWall* wall, m_walls )
-	{
-	    wall->update();
-	}
+    foreach( KBounceWall* wall, m_walls )
+    {
+        wall->update();
+    }
 }
 
 QPixmap KBounceBoard::applyWallsOn(QPixmap background) const
@@ -356,17 +356,17 @@ QPixmap KBounceBoard::applyWallsOn(QPixmap background) const
     for (int i = 0; i < TILE_NUM_W; ++i) {
         for (int j = 0; j < TILE_NUM_H; ++j) {
             switch (m_tiles[i][j]) {
-            case Free:
-                p.drawPixmap(x() + i * m_tileSize.width(), y() + j * m_tileSize.height(), gridTile);
-                break;
+                case Free:
+                    p.drawPixmap(x() + i * m_tileSize.width(), y() + j * m_tileSize.height(), gridTile);
+                    break;
 
-            case Border:
-            case Wall:
-                p.drawPixmap(x() + i * m_tileSize.width(), y() + j * m_tileSize.height(), wallTile);
-                break;
+                case Border:
+                case Wall:
+                    p.drawPixmap(x() + i * m_tileSize.width(), y() + j * m_tileSize.height(), wallTile);
+                    break;
 
-            default:
-                break;
+                default:
+                    break;
             }
         }
     }
@@ -376,8 +376,8 @@ QPixmap KBounceBoard::applyWallsOn(QPixmap background) const
 void KBounceBoard::wallFinished( int x1, int y1, int x2, int y2 )
 {
     for ( int x = x1; x < x2; x++ )
-	for ( int y = y1; y < y2; y++ )
-	    m_tiles[x][y] = Wall;
+        for ( int y = y1; y < y2; y++ )
+            m_tiles[x][y] = Wall;
 
     foreach ( KBounceBall* ball, m_balls )
     {
@@ -394,19 +394,19 @@ void KBounceBoard::wallFinished( int x1, int y1, int x2, int y2 )
     }
 
     for ( int x = 0; x < TILE_NUM_W; x++ )
-	for ( int y = 0; y < TILE_NUM_H; y++ )
-	    if ( m_tiles[x][y] == Free )
-		m_tiles[x][y] = Wall;
+        for ( int y = 0; y < TILE_NUM_H; y++ )
+            if ( m_tiles[x][y] == Free )
+                m_tiles[x][y] = Wall;
     for ( int x = 0; x < TILE_NUM_W; x++ )
-	for ( int y = 0; y < TILE_NUM_H; y++ )
-	    if ( m_tiles[x][y] == Temp )
-		m_tiles[x][y] = Free;
+        for ( int y = 0; y < TILE_NUM_H; y++ )
+            if ( m_tiles[x][y] == Temp )
+                m_tiles[x][y] = Free;
 
     int filled = 0;
     for ( int i = 1; i < TILE_NUM_W - 1; i++ )
-	for ( int j = 1; j < TILE_NUM_H - 1; j++ )
-	    if ( m_tiles[i][j] == Wall )
-		filled++;
+        for ( int j = 1; j < TILE_NUM_H - 1; j++ )
+            if ( m_tiles[i][j] == Wall )
+                filled++;
     m_filled = filled * 100 / ( ( TILE_NUM_W - 2 ) * ( TILE_NUM_H - 2 ) );
 
     scene()->setBackgroundBrush(applyWallsOn(m_renderer->renderBackground()));
@@ -416,26 +416,26 @@ void KBounceBoard::wallFinished( int x1, int y1, int x2, int y2 )
 
 void KBounceBoard::clear()
 {
-	for ( int i = 0; i < TILE_NUM_W; i++ )
-		m_tiles[i][0] = m_tiles[i][TILE_NUM_H-1] = Border;
-	for ( int j = 0; j < TILE_NUM_H; j++ )
-		m_tiles[0][j] = m_tiles[TILE_NUM_W-1][j] = Border;
-	for ( int i = 1; i < TILE_NUM_W - 1; i++ )
-	for ( int j = 1; j < TILE_NUM_H -1; j++ )
-	    m_tiles[i][j] = Free;
-	m_filled = 0;
+    for ( int i = 0; i < TILE_NUM_W; i++ )
+        m_tiles[i][0] = m_tiles[i][TILE_NUM_H-1] = Border;
+    for ( int j = 0; j < TILE_NUM_H; j++ )
+        m_tiles[0][j] = m_tiles[TILE_NUM_W-1][j] = Border;
+    for ( int i = 1; i < TILE_NUM_W - 1; i++ )
+        for ( int j = 1; j < TILE_NUM_H -1; j++ )
+            m_tiles[i][j] = Free;
+    m_filled = 0;
 }
 
 void KBounceBoard::fill( int x, int y )
 {
-	if ( m_tiles[x][y] != Free )
-		return;
-	m_tiles[x][y] = Temp;
+    if ( m_tiles[x][y] != Free )
+        return;
+    m_tiles[x][y] = Temp;
 
-	if ( y > 0 ) fill( x, y - 1 );
-	if ( x < TILE_NUM_W - 1 ) fill ( x + 1, y );
-	if ( y < TILE_NUM_H - 1 ) fill ( x, y + 1 );
-	if ( x > 0 ) fill ( x - 1, y );
+    if ( y > 0 ) fill( x, y - 1 );
+    if ( x < TILE_NUM_W - 1 ) fill ( x + 1, y );
+    if ( y < TILE_NUM_H - 1 ) fill ( x, y + 1 );
+    if ( x > 0 ) fill ( x - 1, y );
 }
 
 

@@ -33,15 +33,15 @@
 
 static KgThemeProvider* provider()
 {
-	KgThemeProvider* prov = new KgThemeProvider;
-	prov->discoverThemes(
-		"appdata", QStringLiteral("themes"), //theme file location
-		QStringLiteral("default")            //default theme file name
-	);
-	return prov;
+    KgThemeProvider* prov = new KgThemeProvider;
+    prov->discoverThemes(
+            "appdata", QStringLiteral("themes"), //theme file location
+            QStringLiteral("default")            //default theme file name
+            );
+    return prov;
 }
 
-KBounceRenderer::KBounceRenderer() : KGameRenderer(provider()), m_backgroundSize( QSize( 0, 0 ) ) ,m_useRandomBackgrounds(false)
+KBounceRenderer::KBounceRenderer() : KGameRenderer(provider()), m_backgroundSize( QSize( 0, 0 ) ), m_useRandomBackgrounds(false)
 {
 }
 
@@ -53,15 +53,15 @@ void KBounceRenderer::setCustomBackgroundPath(const QString& path)
 {
     m_useRandomBackgrounds = !path.isEmpty();
     m_customBackgroundPath = path;
-	m_cachedBackground = QPixmap();
+    m_cachedBackground = QPixmap();
 }
 
 void KBounceRenderer::setBackgroundSize( const QSize& size )
 {
-	if (size != m_backgroundSize )
+    if (size != m_backgroundSize )
     {
         m_backgroundSize = size;
-		if ( m_useRandomBackgrounds && !m_cachedBackground.isNull() )
+        if ( m_useRandomBackgrounds && !m_cachedBackground.isNull() )
         {
             m_cachedBackground = m_randomBackground.scaled(m_backgroundSize,Qt::IgnoreAspectRatio);
         }
@@ -92,15 +92,15 @@ QPixmap KBounceRenderer::renderBackground()
 {
     if (m_cachedBackground.isNull() && !m_backgroundSize.isNull())
     {
-		//This is a dirty fix to the qt's m_svgRenderer.render() method that
-		//leaves an garbage-filled border of a pixmap
-		qCDebug(KBOUNCE_LOG) << "Rendering the background. Size:" << m_backgroundSize;
-		if ( m_useRandomBackgrounds && loadNewBackgroundPixmap() )
-		{
-		    return m_cachedBackground;
-		}
-		// If no valid backgound pixmap found use the original from theme ...
-		m_cachedBackground = spritePixmap( QStringLiteral("background"), m_backgroundSize );
+        //This is a dirty fix to the qt's m_svgRenderer.render() method that
+        //leaves an garbage-filled border of a pixmap
+        qCDebug(KBOUNCE_LOG) << "Rendering the background. Size:" << m_backgroundSize;
+        if ( m_useRandomBackgrounds && loadNewBackgroundPixmap() )
+        {
+            return m_cachedBackground;
+        }
+        // If no valid backgound pixmap found use the original from theme ...
+        m_cachedBackground = spritePixmap( QStringLiteral("background"), m_backgroundSize );
     }
     return m_cachedBackground;
 }
@@ -116,19 +116,19 @@ QPixmap KBounceRenderer::getRandomBackgroundPixmap(const QString& path)
 
     if ( dir.count() > 1 )
     {
-		QString filename;
+        QString filename;
         // return random pixmap
         uint pos = KRandom::random() % dir.count();
-		if ( pos < dir.count() )
-		{
-			filename = dir.absoluteFilePath( dir[pos] ); 
-		}
+        if ( pos < dir.count() )
+        {
+            filename = dir.absoluteFilePath( dir[pos] ); 
+        }
 
-		if (!filename.isEmpty() && QFile(filename).exists())
-		{
-			return QPixmap(filename);	
-		}
-		else return QPixmap();
+        if (!filename.isEmpty() && QFile(filename).exists())
+        {
+            return QPixmap(filename);	
+        }
+        else return QPixmap();
     }
     else if ( dir.count() == 1 )
     {
@@ -136,4 +136,3 @@ QPixmap KBounceRenderer::getRandomBackgroundPixmap(const QString& path)
     }
     else return QPixmap();
 }
-

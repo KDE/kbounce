@@ -37,14 +37,14 @@ static const int POINTS_FOR_LIFE = 15;
 static const int TICKS_PER_SECOND = 1000 / GAME_TIME_DELAY;
 
 KBounceGameWidget::KBounceGameWidget( QWidget* parent )
-: QGraphicsView( parent )
-, m_state( BeforeFirstGame )
-, m_bonus( 0 )
-, m_level( 0 )
-, m_lives( 0 )
-, m_time( 0 )
-, m_vertical( false )
-, m_soundTimeout( QStandardPaths::locate( QStandardPaths::DataLocation, QStringLiteral("sounds/timeout.wav") ) )
+    : QGraphicsView( parent )
+    , m_state( BeforeFirstGame )
+    , m_bonus( 0 )
+    , m_level( 0 )
+    , m_lives( 0 )
+    , m_time( 0 )
+    , m_vertical( false )
+    , m_soundTimeout( QStandardPaths::locate( QStandardPaths::DataLocation, QStringLiteral("sounds/timeout.wav") ) )
 {
     m_board = new KBounceBoard( &m_renderer );
     connect(m_board, &KBounceBoard::fillChanged, this, &KBounceGameWidget::onFillChanged);
@@ -56,12 +56,12 @@ KBounceGameWidget::KBounceGameWidget( QWidget* parent )
     m_clock = new QTimer( this );
     m_clock->setInterval( GAME_TIME_DELAY );
     connect(m_clock, &QTimer::timeout, this, &KBounceGameWidget::tick);
-	connect(this, &KBounceGameWidget::livesChanged, this, &KBounceGameWidget::onLivesChanged);
+    connect(this, &KBounceGameWidget::livesChanged, this, &KBounceGameWidget::onLivesChanged);
 
     setMouseTracking( true );
 
     connect(m_renderer.themeProvider(), &KgThemeProvider::currentThemeChanged,
-        this, &KBounceGameWidget::settingsChanged);
+            this, &KBounceGameWidget::settingsChanged);
 
     m_scene.addItem( m_board );
     m_scene.addItem( m_overlay );
@@ -231,7 +231,7 @@ void KBounceGameWidget::onWallDied()
 void KBounceGameWidget::onLivesChanged(int lives)
 {
     if ( lives < ( m_level + 1 )
-        && KBounceSettings::playSounds() )
+            && KBounceSettings::playSounds() )
     {
         m_soundTimeout.start();
     }
@@ -263,7 +263,7 @@ void KBounceGameWidget::resizeEvent( QResizeEvent* ev )
     m_scene.setSceneRect( rect );
 
     QSize boardSize( sceneRect().width()  - MIN_MARGIN,
-                     sceneRect().height() - MIN_MARGIN );
+            sceneRect().height() - MIN_MARGIN );
     m_board->resize( boardSize );
 
     qreal x = ( sceneRect().width()  - m_board->boundingRect().width() )  / 2;
@@ -315,7 +315,7 @@ void KBounceGameWidget::closeLevel()
     emit scoreChanged( m_score );
 
     m_clock->stop();
-	m_board->setPaused( true );
+    m_board->setPaused( true );
 }
 
 void KBounceGameWidget::newLevel()
@@ -342,25 +342,25 @@ void KBounceGameWidget::newLevel()
 
 void KBounceGameWidget::redraw()
 {
-	if ( size().isEmpty() )
-		return;
+    if ( size().isEmpty() )
+        return;
 
     switch ( m_state )
     {
-	case BeforeFirstGame:
-	    m_board->hide();
-	    generateOverlay();
-	    m_overlay->show();
-	    break;
-	case Running:
-	    m_board->show();
-	    m_overlay->hide();
-	    break;
-	default:
-	    m_board->show();
-	    generateOverlay();
-	    m_overlay->show();
-	    break;
+        case BeforeFirstGame:
+            m_board->hide();
+            generateOverlay();
+            m_overlay->show();
+            break;
+        case Running:
+            m_board->show();
+            m_overlay->hide();
+            break;
+        default:
+            m_board->show();
+            generateOverlay();
+            m_overlay->show();
+            break;
     }
 
     updateCursor();
@@ -371,58 +371,58 @@ void KBounceGameWidget::redraw()
 
 void KBounceGameWidget::generateOverlay()
 {
-	if ( size().isEmpty() )
-		return;
-	
+    if ( size().isEmpty() )
+        return;
+
     int itemWidth = qRound( 0.8 * size().width() );
     int itemHeight = qRound( 0.6 * size().height() );
 
-	QSize backgroundSize( itemWidth,itemHeight );
+    QSize backgroundSize( itemWidth,itemHeight );
 
-	QPixmap px( backgroundSize );
-	px.fill( Qt::transparent );
+    QPixmap px( backgroundSize );
+    px.fill( Qt::transparent );
 
-	QPainter p( &px );
-	
-	p.setPen( Qt::transparent );
-	p.setRenderHint(QPainter::Antialiasing );
-	
-	if ( m_renderer.spriteExists(QStringLiteral("overlayBackground")) )
-	{
-		QPixmap themeBackgound = m_renderer.spritePixmap(QStringLiteral("overlayBackground"),backgroundSize);
-		p.setCompositionMode( QPainter::CompositionMode_Source );
-		p.drawPixmap( p.viewport(), themeBackgound );
-		p.setCompositionMode( QPainter::CompositionMode_DestinationIn );
-		p.fillRect(px.rect(), QColor( 0, 0, 0, 160 ));
-		p.setCompositionMode( QPainter::CompositionMode_SourceOver );
-	}
-	else
-	{
-		p.setBrush( QBrush( QColor( 188, 202, 222, 155 ) ) );
-		p.drawRoundRect( 0, 0, itemWidth, itemHeight, 25 );
-	}
-	
-	QString text;
-	switch( m_state )
-	{
-	case BeforeFirstGame:
-	    text = i18n( "Welcome to KBounce.\n Click to start a game" );
-	    break;
-	case Paused:
-	    text = i18n( "Paused\n Click to resume" );
-	    break;
-	case BetweenLevels:
-	    text = i18n( "You have successfully cleared more than %1% of the board\n", MIN_FILL_PERCENT ) +
-		i18n( "%1 points: %2 points per remaining life\n", m_lives * POINTS_FOR_LIFE, POINTS_FOR_LIFE ) +
-		i18n( "%1 points: Bonus\n", m_bonus ) +
-		i18n( "%1 points: Total score for this level\n", m_bonus + m_lives * POINTS_FOR_LIFE ) +
-		i18n( "On to level %1. Remember you get %2 lives this time!", m_level, m_level + 1 );
-	    break;
-	case GameOver:
-	    text = i18n( "Game over.\n Click to start a game" );
-	    break;
-	default:
-	    text = QString();
+    QPainter p( &px );
+
+    p.setPen( Qt::transparent );
+    p.setRenderHint(QPainter::Antialiasing );
+
+    if ( m_renderer.spriteExists(QStringLiteral("overlayBackground")) )
+    {
+        QPixmap themeBackgound = m_renderer.spritePixmap(QStringLiteral("overlayBackground"),backgroundSize);
+        p.setCompositionMode( QPainter::CompositionMode_Source );
+        p.drawPixmap( p.viewport(), themeBackgound );
+        p.setCompositionMode( QPainter::CompositionMode_DestinationIn );
+        p.fillRect(px.rect(), QColor( 0, 0, 0, 160 ));
+        p.setCompositionMode( QPainter::CompositionMode_SourceOver );
+    }
+    else
+    {
+        p.setBrush( QBrush( QColor( 188, 202, 222, 155 ) ) );
+        p.drawRoundRect( 0, 0, itemWidth, itemHeight, 25 );
+    }
+
+    QString text;
+    switch( m_state )
+    {
+        case BeforeFirstGame:
+            text = i18n( "Welcome to KBounce.\n Click to start a game" );
+            break;
+        case Paused:
+            text = i18n( "Paused\n Click to resume" );
+            break;
+        case BetweenLevels:
+            text = i18n( "You have successfully cleared more than %1% of the board\n", MIN_FILL_PERCENT ) +
+                i18n( "%1 points: %2 points per remaining life\n", m_lives * POINTS_FOR_LIFE, POINTS_FOR_LIFE ) +
+                i18n( "%1 points: Bonus\n", m_bonus ) +
+                i18n( "%1 points: Total score for this level\n", m_bonus + m_lives * POINTS_FOR_LIFE ) +
+                i18n( "On to level %1. Remember you get %2 lives this time!", m_level, m_level + 1 );
+            break;
+        case GameOver:
+            text = i18n( "Game over.\n Click to start a game" );
+            break;
+        default:
+            text = QString();
     }
 
     QFont font;
@@ -445,7 +445,7 @@ void KBounceGameWidget::generateOverlay()
     m_overlay->setPixmap( px );
 
     QPointF pos( ( sceneRect().width() - itemWidth) / 2,
-                 ( sceneRect().height() - itemHeight) / 2 );
+            ( sceneRect().height() - itemHeight) / 2 );
     m_overlay->setPos( pos );
 }
 

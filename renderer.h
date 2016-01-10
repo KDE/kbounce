@@ -37,43 +37,43 @@
 class KBounceRenderer : public KGameRenderer
 {
     public:
-	/**
-	 * Constructor.
-	 * @param fileName path to SVG containing game graphics
-	 */
-	explicit KBounceRenderer();
-	/**
-	 * Destructor.
-	 */
-	~KBounceRenderer();
-	/**
-	 * Sets Background size and invalidates background cache
-	 */
-	void setBackgroundSize( const QSize& size);
-	/**
-	 * Renders background to QPixmap of size set by setBachgroundSize
-	 * Background pixmap is cached (setBackgroundSize() invalidates the cache)
-	 */
-	QPixmap renderBackground();
-	/**
-	* Set s the path were custom background pictures are located.
-	*/
-	void setCustomBackgroundPath(const QString &path);
-	/**
-	* Returns a random pixmap from the custom background path.
-	* If no picture is located in this path the pixmap is null.
-	*/
-	QPixmap getRandomBackgroundPixmap(const QString& path);
-    bool loadNewBackgroundPixmap();
+        /**
+         * Constructor.
+         * @param fileName path to SVG containing game graphics
+         */
+        explicit KBounceRenderer();
+        /**
+         * Destructor.
+         */
+        ~KBounceRenderer();
+        /**
+         * Sets Background size and invalidates background cache
+         */
+        void setBackgroundSize( const QSize& size);
+        /**
+         * Renders background to QPixmap of size set by setBachgroundSize
+         * Background pixmap is cached (setBackgroundSize() invalidates the cache)
+         */
+        QPixmap renderBackground();
+        /**
+         * Set s the path were custom background pictures are located.
+         */
+        void setCustomBackgroundPath(const QString &path);
+        /**
+         * Returns a random pixmap from the custom background path.
+         * If no picture is located in this path the pixmap is null.
+         */
+        QPixmap getRandomBackgroundPixmap(const QString& path);
+        bool loadNewBackgroundPixmap();
 
     private:
-	QSvgRenderer m_svgRenderer;
-	QSize m_backgroundSize;
-	QPixmap m_cachedBackground;
-    QPixmap m_randomBackground;
+        QSvgRenderer m_svgRenderer;
+        QSize m_backgroundSize;
+        QPixmap m_cachedBackground;
+        QPixmap m_randomBackground;
 
-	QString m_customBackgroundPath;
-	bool m_useRandomBackgrounds;
+        QString m_customBackgroundPath;
+        bool m_useRandomBackgrounds;
 };
 
 #endif //RENDERER_H
