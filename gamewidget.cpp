@@ -99,7 +99,6 @@ void KBounceGameWidget::closeGame()
         m_state = GameOver;
         emit stateChanged( m_state );
         emit gameOver();
-        emit timeChanged(0);
 
         Kg::difficulty()->setGameRunning( false );
         redraw();
@@ -246,7 +245,10 @@ void KBounceGameWidget::tick()
     if ( ticks <= 0 )
     {
         if ( m_time == 1 )
+        {
+            emit timeChanged( 0 );
             closeGame();
+        }
         else
         {
             m_time--;
