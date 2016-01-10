@@ -21,12 +21,11 @@
 
 #include <cmath>
 
-#include <QDebug>
-
 #include <KRandom>
 
 #include "board.h"
 #include "renderer.h"
+#include "debug.h"
 
 const int KBounceBall::BALL_ANIM_DELAY = 50;
 const qreal KBounceBall::BALL_RELATIVE_SIZE = 0.8;
@@ -55,7 +54,7 @@ void KBounceBall::goForward()
    
    if ( m_reflectY )
    {
-       qDebug() << "Reflecting ball Y";
+       qCDebug(KBOUNCE_LOG) << "Reflecting ball Y";
        m_velocity.y = -m_velocity.y;
        m_reflectY = false;
    }
@@ -92,7 +91,7 @@ void KBounceBall::update()
 
 void KBounceBall::resize( const QSize& tileSize )
 {
-    qDebug() << "New size:" << tileSize;
+    qCDebug(KBOUNCE_LOG) << "New size:" << tileSize;
 
     m_size.setWidth( static_cast<int>( BALL_RELATIVE_SIZE * tileSize.width() ) );
     m_size.setHeight( static_cast<int> ( BALL_RELATIVE_SIZE * tileSize.height() ) );

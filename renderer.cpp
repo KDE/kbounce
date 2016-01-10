@@ -22,12 +22,11 @@
 
 #include "renderer.h"
 #include "settings.h"
+#include "debug.h"
 
 #include <QPainter>
 #include <QPalette>
 #include <QDir>
-#include <QDebug>
-#include <QApplication>
 
 #include <krandom.h>
 #include <KgThemeProvider>
@@ -95,7 +94,7 @@ QPixmap KBounceRenderer::renderBackground()
     {
 		//This is a dirty fix to the qt's m_svgRenderer.render() method that
 		//leaves an garbage-filled border of a pixmap
-		qDebug() << "Rendering the background. Size:" << m_backgroundSize;
+		qCDebug(KBOUNCE_LOG) << "Rendering the background. Size:" << m_backgroundSize;
 		if ( m_useRandomBackgrounds && loadNewBackgroundPixmap() )
 		{
 		    return m_cachedBackground;
@@ -111,7 +110,7 @@ QPixmap KBounceRenderer::getRandomBackgroundPixmap(const QString& path)
     // list directory
     QDir dir( path, QStringLiteral("*.png *.jpg"), QDir::Name|QDir::IgnoreCase, QDir::Files );
     if ( !dir.exists() ) {
-        qDebug() << "CustomBackground Directory not found" << endl;
+        qCDebug(KBOUNCE_LOG) << "CustomBackground Directory not found" << endl;
         return QPixmap();
     }
 

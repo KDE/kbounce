@@ -21,6 +21,7 @@
 #include "gamewidget.h"
 #include "settings.h"
 #include "backgroundselector.h"
+#include "debug.h"
 
 #include <KRandom>
 #include <KStandardGameAction>
@@ -33,7 +34,6 @@
 #include <KgDifficulty>
 #include <KLocalizedString>
 
-#include <QDebug>
 #include <QStatusBar>
 #include <QAction>
 
@@ -170,7 +170,7 @@ void KBounceMainWindow::highscore()
         return;
     }
 
-    qDebug() ;
+    qCDebug(KBOUNCE_LOG);
     KScoreDialog ksdialog( KScoreDialog::Name | KScoreDialog::Score | KScoreDialog::Level, this );
     ksdialog.initFromDifficulty(Kg::difficulty());
     KScoreDialog::FieldInfo info;

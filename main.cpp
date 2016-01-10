@@ -26,6 +26,10 @@
 #include <QApplication>
 #include <QCommandLineParser>
 
+#include "debug.h"
+
+Q_LOGGING_CATEGORY(KBOUNCE_LOG, "log_kbounce")
+
 static const char description[] = I18N_NOOP("KDE Bounce Ball Game");
 static const char copyleft[] = I18N_NOOP("(c) 2000-2005, Stefan Schimanski\n(c) 2007, Tomasz Boczkowski");
 

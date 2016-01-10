@@ -19,10 +19,10 @@
 #include "gamewidget.h"
 #include "settings.h"
 #include "wall.h"
+#include "debug.h"
 
 #include <QPalette>
 #include <QTimer>
-#include <QDebug>
 #include <QStandardPaths>
 
 #include <KgDifficulty>
@@ -81,7 +81,7 @@ int KBounceGameWidget::level()
 
 int KBounceGameWidget::score()
 {
-    qDebug() << "Score:" << m_score;
+    qCDebug(KBOUNCE_LOG) << "Score:" << m_score;
     return m_score;
 }
 
@@ -160,7 +160,7 @@ void KBounceGameWidget::setSuspended( bool val )
 
 void KBounceGameWidget::settingsChanged()
 {
-    qDebug() << "Settings changed";
+    qCDebug(KBOUNCE_LOG) << "Settings changed";
 
     if (KBounceSettings::useRandomBackgroundPictures())
     {
@@ -255,7 +255,7 @@ void KBounceGameWidget::tick()
 
 void KBounceGameWidget::resizeEvent( QResizeEvent* ev )
 {
-    qDebug() << "Size" << ev->size();
+    qCDebug(KBOUNCE_LOG) << "Size" << ev->size();
 
     m_renderer.setBackgroundSize( ev->size() );
 
