@@ -244,15 +244,10 @@ void KBounceGameWidget::tick()
     ticks--;
     if ( ticks <= 0 )
     {
-        if ( m_time == 1 )
+        emit timeChanged( --m_time );
+        if ( m_time == 0 )
         {
-            emit timeChanged( 0 );
             closeGame();
-        }
-        else
-        {
-            m_time--;
-            emit timeChanged( m_time );
         }
         ticks = TICKS_PER_SECOND;
     }
