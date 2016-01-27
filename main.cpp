@@ -19,6 +19,7 @@
 #include "mainwindow.h"
 
 #include <KAboutData>
+#include <KCrash>
 #include <KLocalizedString>
 #include <kdelibs4configmigrator.h>
 #include <KDBusService>
@@ -71,6 +72,7 @@ int main(int argc, char **argv)
             QStringLiteral("ascherfy@gmail.com"));
 
     KAboutData::setApplicationData(aboutData);
+    KCrash::initialize();
     QCommandLineParser parser;
     parser.addVersionOption();
     parser.addHelpOption();

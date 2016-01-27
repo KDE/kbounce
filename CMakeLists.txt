@@ -2,14 +2,16 @@ project(kbounce)
 
 cmake_minimum_required (VERSION 2.8.12 FATAL_ERROR)
 set (QT_MIN_VERSION "5.2.0")
+set (KF5_MIN_VERSION "5.15.0")
 
 find_package(ECM 1.7.0 REQUIRED CONFIG)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
 
 find_package(Qt5 ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Widgets Svg)
-find_package(KF5 REQUIRED COMPONENTS 
+find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
     CoreAddons 
     Config 
+    Crash
     WidgetsAddons 
     DBusAddons 
     I18n 
@@ -18,8 +20,8 @@ find_package(KF5 REQUIRED COMPONENTS
     XmlGui
     KIO
     DocTools
-    )
-    
+)
+
 find_package(KF5KDEGames 4.9.0 REQUIRED)
 
 include(FeatureSummary)
@@ -31,10 +33,10 @@ include(ECMAddAppIcon)
 
 add_definitions(-DQT_USE_FAST_CONCATENATION -DQT_USE_FAST_OPERATOR_PLUS)
 
-add_subdirectory( themes ) 
-add_subdirectory( sounds ) 
-add_subdirectory( pics ) 
-add_subdirectory( doc )
+add_subdirectory(themes)
+add_subdirectory(sounds)
+add_subdirectory(pics)
+add_subdirectory(doc)
 
 include_directories(${CMAKE_SOURCE_DIR}/KF5KDEGames/highscore)
  
@@ -49,7 +51,8 @@ set(kbounce_SRCS
     mainwindow.cpp 
     renderer.cpp
     wall.cpp 
-    backgroundselector.cpp)
+    backgroundselector.cpp
+)
 
 kconfig_add_kcfg_files(kbounce_SRCS settings.kcfgc)
 ki18n_wrap_ui(kbounce_SRCS  backgroundselector.ui )
@@ -64,15 +67,17 @@ target_link_libraries(kbounce
   KF5::I18n 
   KF5::KIOWidgets
   KF5::DBusAddons
-  KF5KDEGames )
+  KF5::Crash
+  KF5KDEGames
+)
 
-install(TARGETS kbounce  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} )
+install(TARGETS kbounce  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
 
 ########### install files ###############
 
-install( PROGRAMS org.kde.kbounce.desktop  DESTINATION  ${KDE_INSTALL_APPDIR} )
-install( FILES kbounceui.rc  DESTINATION  ${KDE_INSTALL_KXMLGUI5DIR}/kbounce )
+install(PROGRAMS org.kde.kbounce.desktop  DESTINATION  ${KDE_INSTALL_APPDIR})
+install(FILES kbounceui.rc  DESTINATION  ${KDE_INSTALL_KXMLGUI5DIR}/kbounce)
 
 feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
 
