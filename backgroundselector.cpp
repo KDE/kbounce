@@ -69,8 +69,8 @@ void BackgroundSelector::setupData()
         KConfig * config = m_config->config();
         KConfigGroup group = config->group("General");
         QString picturePath = group.readPathEntry("BackgroundPicturePath",QDir::homePath() );
-        ui->kurlrequester->setUrl(picturePath);
-        ui->kurlrequester->setStartDir(picturePath);
+        ui->kurlrequester->setUrl(QUrl(picturePath));
+        ui->kurlrequester->setStartDir(QUrl(picturePath));
     }
 }
 
