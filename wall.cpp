@@ -38,8 +38,8 @@ KBounceWall::KBounceWall( Direction dir, KBounceRenderer* renderer, KBounceBoard
     : KGameRenderedItem( renderer,QLatin1String(""),board )
     , m_board( board )
       , m_dir( dir )
-      , m_soundWallstart( QStandardPaths::locate( QStandardPaths::DataLocation, QStringLiteral("sounds/wallstart.wav") ) )
-      , m_soundReflect( QStandardPaths::locate( QStandardPaths::DataLocation, QStringLiteral("sounds/reflect.wav") ) )
+      , m_soundWallstart( QStandardPaths::locate( QStandardPaths::AppDataLocation, QStringLiteral("sounds/wallstart.wav") ) )
+      , m_soundReflect( QStandardPaths::locate( QStandardPaths::AppDataLocation, QStringLiteral("sounds/reflect.wav") ) )
 {
     // The wall velocity would initialised on every new level.
     m_wallVelocity = 0.0;
@@ -253,7 +253,7 @@ bool KBounceWall::safeEdgeHit( const QRectF& rect2 ) const
     bool safeEdgeHit = false;
 
     QPointF p1, p2, p3;
-    switch ( m_dir ) 
+    switch ( m_dir )
     {
         case Up:
             p1 = m_nextBoundingRect.topLeft();

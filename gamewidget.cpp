@@ -44,7 +44,7 @@ KBounceGameWidget::KBounceGameWidget( QWidget* parent )
     , m_lives( 0 )
     , m_time( 0 )
     , m_vertical( false )
-    , m_soundTimeout( QStandardPaths::locate( QStandardPaths::DataLocation, QStringLiteral("sounds/timeout.wav") ) )
+    , m_soundTimeout( QStandardPaths::locate( QStandardPaths::AppDataLocation, QStringLiteral("sounds/timeout.wav") ) )
 {
     m_board = new KBounceBoard( &m_renderer );
     connect(m_board, &KBounceBoard::fillChanged, this, &KBounceGameWidget::onFillChanged);
@@ -304,7 +304,7 @@ void KBounceGameWidget::mouseReleaseEvent( QMouseEvent* event )
 
 
 void KBounceGameWidget::closeLevel()
-{   
+{
     m_bonus = 0;
     if ( m_board->filled() >= MIN_FILL_PERCENT )
     {
@@ -337,7 +337,7 @@ void KBounceGameWidget::newLevel()
         m_renderer.loadNewBackgroundPixmap();
 
     redraw();
-}  
+}
 
 
 void KBounceGameWidget::redraw()
@@ -438,7 +438,7 @@ void KBounceGameWidget::generateOverlay()
         textWidth = p.boundingRect( p.viewport(), Qt::AlignCenter | Qt::AlignVCenter, text ).width();
     }
     KColorScheme kcs = KColorScheme( QPalette::Normal, KColorScheme::Window );
-    p.setPen( kcs.foreground(KColorScheme::NormalText).color()); 
+    p.setPen( kcs.foreground(KColorScheme::NormalText).color());
     p.drawText( p.viewport(), Qt::AlignCenter | Qt::AlignVCenter, text );
     p.end();
 
