@@ -1,8 +1,5 @@
 <?xml version="1.0" ?>
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
-  <!ENTITY kappname "&kbounce;">
-  <!ENTITY kappversion "0.11"><!--Applicaion version. Use this variable everywhere it's needed.-->
-  <!ENTITY package "kdegames">
   <!ENTITY % English "INCLUDE" > 
   <!ENTITY % addindex "IGNORE">
 ]>
@@ -37,11 +34,11 @@
 <legalnotice>&FDLNotice;</legalnotice>
 
 
-<date>2013-05-05</date><!-- Date of (re)writing, or update.-->
-<releaseinfo>&kappversion; (&kde; 4.11)</releaseinfo><!-- Application version number. Use the variable definitions within header to change this value.-->
+<date>2013-05-05</date>
+<releaseinfo>0.11 (Applications 16.04)</releaseinfo>
 
 <abstract>
-	<para>This documentation describes the game of &kbounce; version &kappversion;</para>
+	<para>This documentation describes the game of &kbounce; version 0.11</para>
 </abstract>
 
 
@@ -211,13 +208,6 @@ of the screen.  Rushing will just get you in trouble!
 <sect1 id="the-tool-bar">
 <title>The Tool Bar</title>
 
-<mediaobject>
-<imageobject>
-<imagedata format="PNG" fileref="toolbar.png"/>
-</imageobject>
-<textobject><phrase>Toolbar</phrase></textobject>
-</mediaobject>
-
 <para>
 The toolbar provides buttons for the commonly used functions.
 </para>
@@ -240,7 +230,7 @@ The toolbar provides buttons for the commonly used functions.
 <entry>
 <inlinemediaobject>
 <imageobject>
-<imagedata format="PNG" fileref="button-new.png"/>
+<imagedata format="PNG" fileref="document-new.png"/>
 </imageobject>
 <textobject><phrase>New Game Button</phrase></textobject>
 </inlinemediaobject>
@@ -268,7 +258,7 @@ and sets the level to 1.
 <entry>
 <inlinemediaobject>
 <imageobject>
-<imagedata format="PNG" fileref="button-pause.png"/>
+<imagedata format="PNG" fileref="media-playback-pause.png"/>
 </imageobject>
 <textobject>
 <phrase>Pause Button</phrase></textobject>
@@ -299,20 +289,12 @@ Pauses or resumes the current game.
 <title>The Menu Items</title>
 
 <sect2>
-<title>The <guimenu>Game</guimenu> Menu</title>
-
-<mediaobject>
-<imageobject>
-<imagedata format="PNG" fileref="menu-game.png"/>
-</imageobject>
-<textobject>
-<phrase><guimenu>Game</guimenu> Menu</phrase></textobject>
-</mediaobject>
+<title>The Game Menu</title>
 
 <variablelist>
 <varlistentry id="game-new">
-<term>
-<menuchoice><shortcut>
+<term><menuchoice>
+<shortcut>
 <keycombo action="simul">&Ctrl;<keycap>N</keycap></keycombo>
 </shortcut>
 <guimenu>Game</guimenu>
@@ -324,10 +306,9 @@ Pauses or resumes the current game.
 </varlistentry>
 
 <varlistentry id="game-end">
-<term>
-<menuchoice><shortcut>
-<keycombo action="simul">&Ctrl;<keycap>End</keycap>
-</keycombo>
+<term><menuchoice>
+<shortcut>
+<keycombo action="simul">&Ctrl;<keycap>End</keycap></keycombo>
 </shortcut>
 <guimenu>Game</guimenu>
 <guimenuitem>End Game</guimenuitem>
@@ -338,9 +319,10 @@ Pauses or resumes the current game.
 </varlistentry>
 
 <varlistentry id="game-pause">
-<term>
-<menuchoice><shortcut>
-<keycap>P</keycap></shortcut>
+<term><menuchoice>
+<shortcut>
+<keycap>P</keycap>
+</shortcut>
 <guimenu>Game</guimenu>
 <guimenuitem>Pause</guimenuitem>
 </menuchoice></term>
@@ -350,8 +332,8 @@ Pauses or resumes the current game.
 </varlistentry>
 
 <varlistentry id="game-highscores">
-<term>
-<menuchoice><shortcut>
+<term><menuchoice>
+<shortcut>
 <keycombo action="simul">&Ctrl;<keycap>H</keycap></keycombo>
 </shortcut>
 <guimenu>Game</guimenu>
@@ -365,7 +347,8 @@ Opens a dialog that displays different high score tables.
 </varlistentry>
 
 <varlistentry id="game-quit">
-<term><menuchoice><shortcut>
+<term><menuchoice>
+<shortcut>
 <keycombo action="simul">&Ctrl;<keycap>Q</keycap></keycombo>
 </shortcut>
 <guimenu>Game</guimenu>
@@ -380,15 +363,7 @@ If a game is currently played, it's status is lost.</para>
 </sect2>
 
 <sect2 id="settings-menu">
-<title>The <guimenu>Settings</guimenu> Menu</title>
-
-<mediaobject>
-<imageobject>
-<imagedata format="PNG" fileref="menu-settings.png"/>
-</imageobject>
-<textobject>
-<phrase>Settings Menu</phrase></textobject>
-</mediaobject>
+<title>The Settings Menu</title>
 
 <variablelist>
 
@@ -451,17 +426,20 @@ of the &kde; Fundamentals.
 </chapter>
 
 <chapter id="configuration"><title>Game Configuration</title> <!-- do not change this! -->
-  <para>The &kbounce; configuration dialog allows you to select visual themes for &kbounce;.</para>
-		<para>
-			To select a new theme simply choose the theme from
-			the selection list. Each item in the list shows a small
-			preview left to the theme name. A selection is immediately applied.
-		</para>
-		<para>
-			Once you are satisfied with the theme you have selected you
-			can click the <guibutton>OK</guibutton>
-			button, located at the bottom part of this dialog.
-		</para>
+<para>The &kbounce; configuration dialog allows you to select visual themes for &kbounce;.</para>
+<para>
+To select a new theme simply choose the theme from
+the selection list. Each item in the list shows a small
+preview left to the theme name. A selection is immediately applied.
+</para>
+<para>
+You can select random background pictures from a user defined folder with images.
+</para>
+<para>
+Once you are satisfied with the theme you have selected you
+can click the <guibutton>OK</guibutton>
+button, located at the bottom part of this dialog.
+</para>
 </chapter>
 
 <chapter id="credits-and-license">
@@ -506,15 +484,6 @@ Port to KDE4 and KGameCavas</para>
 &underGPL;
 
 </chapter>
-
-<appendix id="installation">
-<title>Installation</title>
-
-&install.intro.documentation;
-
-&install.compile.documentation;
-
-</appendix>
 
 &documentation.index; 
 </book>
