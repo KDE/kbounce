@@ -124,6 +124,9 @@ GenericName[uk]=Гра з відбиття м’ячика
 GenericName[x-test]=xxBall Bouncing Gamexx
 GenericName[zh_CN]=弹球游戏
 GenericName[zh_TW]=彈力球遊戲
+
+Comment=Ball Bouncing Game
+
 X-DBUS-StartupType=Multi
 Categories=Qt;KDE;Game;ArcadeGame;
 X-DBUS-ServiceName=org.kde.kbounce
