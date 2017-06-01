@@ -48,7 +48,7 @@ class KBounceGameWidget : public QGraphicsView
         KBounceGameWidget::State state() const { return m_state; }
         KBounceRenderer* renderer() { return &m_renderer; }
 
-        QSize minimumSizeHint() const;
+        QSize minimumSizeHint() const Q_DECL_OVERRIDE;
 
     public slots:
         void closeGame();
@@ -74,9 +74,9 @@ class KBounceGameWidget : public QGraphicsView
         void tick();
 
     protected:
-        virtual void resizeEvent( QResizeEvent* event );
-        virtual void mouseReleaseEvent( QMouseEvent* event );
-        void focusOutEvent(QFocusEvent *event);
+        void resizeEvent( QResizeEvent* event ) Q_DECL_OVERRIDE;
+        void mouseReleaseEvent( QMouseEvent* event ) Q_DECL_OVERRIDE;
+        void focusOutEvent(QFocusEvent *event) Q_DECL_OVERRIDE;
         void closeLevel();
         void newLevel();
         void updateCursor();

@@ -40,7 +40,7 @@ class BackgroundSelector : public QWidget {
         void useRandomBackgroundPicturesChanged(bool state);
         void previewBackgroundPicture();
     protected:
-        void changeEvent(QEvent *e);
+        void changeEvent(QEvent *e) Q_DECL_OVERRIDE;
         void enableSettings(bool enable=true);
     private:
         Ui::KBounceBackgroundSelector *ui;

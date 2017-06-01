@@ -58,8 +58,8 @@ class KBounceMainWindow : public KXmlGuiWindow
         void initXMLUI();
         void highscore();
 
-        void focusOutEvent( QFocusEvent * );
-        void focusInEvent ( QFocusEvent * );
+        void focusOutEvent( QFocusEvent * ) Q_DECL_OVERRIDE;
+        void focusInEvent ( QFocusEvent * ) Q_DECL_OVERRIDE;
 
         KBounceGameWidget* m_gameWidget;
 
