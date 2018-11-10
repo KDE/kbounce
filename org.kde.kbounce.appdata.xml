@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component type="desktop">
+  <id>org.kde.kbounce.desktop</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-2.0+</project_license>
+  <name>KBounce</name>
+  <summary>KBounce is a single player arcade game with the elements of puzzle</summary>
+  <description>
+    <p>
+      KBounce is a single player arcade game with the elements of puzzle. It is played on a field, surrounded by wall, with two or more balls that move about in the field bouncing off of walls. The player can build new walls, decreasing the size of active field. The goal of the game is to fill at least 75% of the field and advance to the next level.
+    </p>
+  </description>
+  <url type="homepage">http://games.kde.org/game.php?game=kbounce</url>
+  <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=kbounce</url>
+  <url type="help">https://docs.kde.org/?application=kbounce</url>
+  <url type="donation">https://www.kde.org/community/donations/?app=kbounce&amp;source=appdata</url>
+  <screenshots>
+    <screenshot type="default">
+      <caption>Playing KBounce</caption>
+      <image>http://kde.org/images/screenshots/kbounce.png</image>
+    </screenshot>
+  </screenshots>
+  <project_group>KDE</project_group>
+</component>
