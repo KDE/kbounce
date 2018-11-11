@@ -88,8 +88,6 @@ struct KBounceHit
 typedef QList<KBounceHit> KBounceCollision;
 
 #define GAME_DELAY 16
-#define MS2TICKS( ms ) ((ms)/GAME_DELAY)
-#define SOUND_DELAY MS2TICKS( 60 ) 
 
 #endif //GAMEOBJECT_H
 
