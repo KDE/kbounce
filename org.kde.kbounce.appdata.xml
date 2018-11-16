@@ -6,6 +6,7 @@
   <name>KBounce</name>
   <name xml:lang="ca">KBounce</name>
   <name xml:lang="ca-valencia">KBounce</name>
+  <name xml:lang="de">KBounce</name>
   <name xml:lang="es">KBounce</name>
   <name xml:lang="nl">KBounce</name>
   <name xml:lang="pt">KBounce</name>
@@ -17,6 +18,7 @@
   <summary>KBounce is a single player arcade game with the elements of puzzle</summary>
   <summary xml:lang="ca">El KBounce és un joc d'arcade de jugador únic amb elements de puzzle</summary>
   <summary xml:lang="ca-valencia">El KBounce és un joc d'arcade de jugador únic amb elements de puzzle</summary>
+  <summary xml:lang="de">KBounce ist ein Arcade- und Rätselspiel für einen Spieler</summary>
   <summary xml:lang="es">KBounce es un juego recreativo para un único jugador semejante a un rompecabezas</summary>
   <summary xml:lang="nl">KBounce is een arcade spel voor één speler met de elementen van een puzzel.</summary>
   <summary xml:lang="pt">O KBounce é um jogo de arcada para um único jogador, com os elementos de um 'puzzle'</summary>
@@ -47,6 +49,7 @@
       <caption>Playing KBounce</caption>
       <caption xml:lang="ca">Jugant al KBounce</caption>
       <caption xml:lang="ca-valencia">Jugant al KBounce</caption>
+      <caption xml:lang="de">KBounce spielen</caption>
       <caption xml:lang="es">Jugando a KBounce</caption>
       <caption xml:lang="nl">KBounce spelen</caption>
       <caption xml:lang="pt">Jogar ao KBounce</caption>
