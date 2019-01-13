@@ -344,7 +344,7 @@ void KBounceBoard::tick()
     }
 }
 
-QPixmap KBounceBoard::applyWallsOn(QPixmap background) const
+QPixmap KBounceBoard::applyWallsOn(const QPixmap &background) const
 {
     if (m_tileSize.isEmpty())
         return background;

@@ -45,7 +45,7 @@ class KBounceBoard: public QGraphicsObject
         explicit KBounceBoard( KBounceRenderer *renderer );
         ~KBounceBoard();
 
-        QPixmap applyWallsOn(QPixmap background) const;
+        QPixmap applyWallsOn(const QPixmap &background) const;
         void resize( QSize& size );
         void paint(QPainter *, const QStyleOptionGraphicsItem *, QWidget *) Q_DECL_OVERRIDE {}
 
