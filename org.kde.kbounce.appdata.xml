@@ -14,6 +14,7 @@
   <name xml:lang="gl">KBounce</name>
   <name xml:lang="id">KBounce</name>
   <name xml:lang="nl">KBounce</name>
+  <name xml:lang="pl">KOdbij</name>
   <name xml:lang="pt">KBounce</name>
   <name xml:lang="pt-BR">KBounce</name>
   <name xml:lang="sk">KBounce</name>
@@ -32,6 +33,7 @@
   <summary xml:lang="gl">KBounce é un xogo de arcada para un único xogador cos elementos dun quebracabezas</summary>
   <summary xml:lang="id">KBounce adalah sebuah permainan arcade pemain tunggal dengan unsur teka-teki.</summary>
   <summary xml:lang="nl">KBounce is een arcade spel voor één speler met de elementen van een puzzel.</summary>
+  <summary xml:lang="pl">KOdbij jest grą zręcznościową dla jednego gracza z elementami puzzli</summary>
   <summary xml:lang="pt">O KBounce é um jogo de arcada para um único jogador, com os elementos de um 'puzzle'</summary>
   <summary xml:lang="pt-BR">O KBounce é um jogo arcade de um jogador com elementos de quebra-cabeça</summary>
   <summary xml:lang="sv">Kstuds är ett arkadspel för en ensam spelare med inslag av problemlösning</summary>
@@ -50,6 +52,7 @@
     <p xml:lang="gl">KBounce é un xogo arcade para un xogador cos elementos dun quebracabezas. Xógase nun campo rodeado por unha parede e con dúas ou máis bólas que se moven polo campo botando contra as paredes. O xogador pode construír novas paredes, reducindo o tamaño do campo activo. O obxectivo do xogo é encher polo menos o 75% do campo e avanzar ao seguinte nivel.</p>
     <p xml:lang="id">KBounce adalah sebuah permainan arkade pemain tunggal dengan unsur teka-teki. Ini dimainkan pada sebuah bidang, dikepung oleh dinding, dengan bola dua atau lebih yang bergerak memantul-mantul pada bidang dinding. Pemain bisa membangun dinding yang baru, mengurangi ukuran bidang yang aktif. Tujuan permainan adalah mengisi setidaknya 75% pada bidang dan maju ke level selanjutnya.</p>
     <p xml:lang="nl">KBounce is een arcade spel voor een enkele speler met de elementen van een puzzel. Het wordt gespeeld op een veld, omringt door een muur, met twee of meer ballen die in het veld bewegen en botsen vanaf de muren. De speler kan nieuwe muren bouwen, waarmee de grootte van het actieve veld wordt verkleind. Het doel van het spel is om minstens 75% van het veld te vullen en door te gaan naar het volgende niveau.</p>
+    <p xml:lang="pl">KOdbij jest grą zręcznościową dla jednego gracza z elementami puzzli. Gra się nią na polu otoczonym ścianami z dwiema lub więcej piłkami, które poruszają się po polu odbijając się od ścian. Gracz może zbudować nowe ściany, ograniczając przy tym rozmiar pola. Celem gry jest wypełnienie co najmniej 75% pola, tak aby przejść do następnego poziomu.</p>
     <p xml:lang="pt">O KBounce é um jogo de arcada para um único jogador, com os elementos de um 'puzzle'. É jogado num campo rodeado por uma parede, com duas ou mais bolas que se deslocam no campo através de ricochetes nas paredes. O jogador poderá criar novas paredes, reduzindo o tamanho do campo activo. O objectivo do jogo é preencher pelo menos 75% do campo e passar para o nível seguinte.</p>
     <p xml:lang="pt-BR">O KBounce é um jogo arcade de um jogador com elementos de quebra-cabeça. É jogado em um campo, cercado por parede, com duas ou mais bolas que se movem sobre no campo batendo nas paredes. O jogador pode construir novas paredes diminuindo o tamanho do campo ativo. O objetivo do jogo é preencher pelo menos 75% do campo e avançar para o próximo nível.</p>
     <p xml:lang="sv">Kstuds är ett arkadspel för en ensam spelare med inslag av problemlösning. Det spelas på ett fält, som omges av väggar, med två eller flera bollar som rör sig över fältet och studsar mot väggarna. Spelaren kan bygga nya väggar, vilket minskar det aktiva fältets storlek. Spelets mål är att fylla minst 75 % av fältet och gå vidare till nästa nivå.</p>
@@ -72,6 +75,7 @@
       <caption xml:lang="gl">Xogando a KBounce</caption>
       <caption xml:lang="id">Memainkan KBounce</caption>
       <caption xml:lang="nl">KBounce spelen</caption>
+      <caption xml:lang="pl">Granie w KOdbij</caption>
       <caption xml:lang="pt">Jogar ao KBounce</caption>
       <caption xml:lang="pt-BR">Jogando KBounce</caption>
       <caption xml:lang="sk">Hranie KBounce</caption>
