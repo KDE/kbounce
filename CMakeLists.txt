@@ -46,8 +46,6 @@ add_subdirectory(sounds)
 add_subdirectory(pics)
 add_subdirectory(doc)
 
-include_directories(${CMAKE_SOURCE_DIR}/KF5KDEGames/highscore)
- 
 ########### next target ###############
 
 set(kbounce_SRCS
