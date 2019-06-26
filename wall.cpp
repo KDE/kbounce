@@ -20,7 +20,6 @@
 
 #include <cmath>
 
-#include <KRandom>
 
 #include <QPainter>
 #include <QStandardPaths>

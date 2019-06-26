@@ -22,7 +22,6 @@
 #include "backgroundselector.h"
 #include "ui_backgroundselector.h"
 
-#include <KConfigDialog>
 #include <KColorScheme>
 #include <KLocalizedString>
 

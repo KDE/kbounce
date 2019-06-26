@@ -23,7 +23,6 @@
 #include "backgroundselector.h"
 #include "debug.h"
 
-#include <KRandom>
 #include <KStandardGameAction>
 #include <KToggleAction>
 #include <KActionCollection>

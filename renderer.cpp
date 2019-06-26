@@ -24,8 +24,6 @@
 #include "settings.h"
 #include "debug.h"
 
-#include <QPainter>
-#include <QPalette>
 #include <QDir>
 
 #include <krandom.h>
