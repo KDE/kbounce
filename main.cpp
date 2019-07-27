@@ -28,6 +28,7 @@
 #include <QCommandLineParser>
 
 #include "debug.h"
+#include "kbounce_version.h"
 
 Q_LOGGING_CATEGORY(KBOUNCE_LOG, "log_kbounce")
 
@@ -43,7 +44,7 @@ int main(int argc, char **argv)
     migrate.migrate();
     KLocalizedString::setApplicationDomain("kbounce");
     KAboutData aboutData(QStringLiteral("kbounce"), i18n("KBounce"),
-            QStringLiteral("0.11"), i18n(description),
+            QStringLiteral(KBOUNCE_VERSION_STRING), i18n(description),
             KAboutLicense::GPL, i18n(copyleft), QString(),
             QStringLiteral("http://games.kde.org/kbounce"));
 
