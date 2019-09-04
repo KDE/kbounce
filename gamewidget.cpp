@@ -399,7 +399,7 @@ void KBounceGameWidget::generateOverlay()
     else
     {
         p.setBrush( QBrush( QColor( 188, 202, 222, 155 ) ) );
-        p.drawRoundRect( 0, 0, itemWidth, itemHeight, 25 );
+        p.drawRoundedRect( 0, 0, itemWidth, itemHeight, 25, 25 );
     }
 
     QString text;
