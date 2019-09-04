@@ -68,7 +68,7 @@
     <p xml:lang="uk">KBounce — аркадна гра із елементами головоломки для одного гравця. Гра відбувається на полі, яке обмежено стінками. Полем рухаються і відбиваються від стін дві або декілька кульок. Гравець може будувати нові стіни, зменшуючи розмір доступного для кульок простору. Метою гри є перекрити принаймні 75% площі ігрового поля для переходу на наступний рівень.</p>
     <p xml:lang="x-test">xxKBounce is a single player arcade game with the elements of puzzle. It is played on a field, surrounded by wall, with two or more balls that move about in the field bouncing off of walls. The player can build new walls, decreasing the size of active field. The goal of the game is to fill at least 75% of the field and advance to the next level.xx</p>
   </description>
-  <url type="homepage">http://games.kde.org/game.php?game=kbounce</url>
+  <url type="homepage">https://kde.org/applications/games/org.kde.kbounce</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=kbounce</url>
   <url type="help">https://docs.kde.org/?application=kbounce</url>
   <url type="donation">https://www.kde.org/community/donations/?app=kbounce&amp;source=appdata</url>
@@ -94,7 +94,7 @@
       <caption xml:lang="uk">Гра у KBounce</caption>
       <caption xml:lang="x-test">xxPlaying KBouncexx</caption>
       <caption xml:lang="zh-TW">KBounce 遊玩畫面</caption>
-      <image>http://kde.org/images/screenshots/kbounce.png</image>
+      <image>https://kde.org/images/screenshots/kbounce.png</image>
     </screenshot>
   </screenshots>
   <project_group>KDE</project_group>
