@@ -46,7 +46,7 @@ int main(int argc, char **argv)
     KAboutData aboutData(QStringLiteral("kbounce"), i18n("KBounce"),
             QStringLiteral(KBOUNCE_VERSION_STRING), i18n(description),
             KAboutLicense::GPL, i18n(copyleft), QString(),
-            QStringLiteral("http://games.kde.org/kbounce"));
+            QStringLiteral("https://kde.org/applications/games/org.kde.kbounce"));
 
     aboutData.addAuthor(i18n("Stefan Schimanski"),
             i18n("Original author"),
