@@ -184,7 +184,7 @@ void KBounceMainWindow::configureSettings()
     if ( KConfigDialog::showDialog( QStringLiteral("settings") ) ) return;
 
     KConfigDialog* dialog = new KConfigDialog( this, QStringLiteral("settings"), KBounceSettings::self());
-    dialog->addPage( new KgThemeSelector(m_gameWidget->renderer()->themeProvider(), 0, dialog), i18n( "Theme" ), QStringLiteral("games-config-theme") );
+    dialog->addPage( new KgThemeSelector(m_gameWidget->renderer()->themeProvider(), KgThemeSelector::DefaultBehavior, dialog), i18n( "Theme" ), QStringLiteral("games-config-theme") );
     dialog->addPage( new BackgroundSelector(dialog,KBounceSettings::self() ),i18n("Background"),QStringLiteral("games-config-background"));
     dialog->show();
     connect( dialog, &KConfigDialog::settingsChanged, this, &KBounceMainWindow::settingsChanged );
