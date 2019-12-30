@@ -108,7 +108,7 @@ QPixmap KBounceRenderer::getRandomBackgroundPixmap(const QString& path)
     // list directory
     QDir dir( path, QStringLiteral("*.png *.jpg"), QDir::Name|QDir::IgnoreCase, QDir::Files );
     if ( !dir.exists() ) {
-        qCDebug(KBOUNCE_LOG) << "CustomBackground Directory not found" << endl;
+        qCDebug(KBOUNCE_LOG) << "CustomBackground Directory not found";
         return QPixmap();
     }
 
