@@ -22,6 +22,7 @@
   <name xml:lang="pt-BR">KBounce</name>
   <name xml:lang="ru">KBounce</name>
   <name xml:lang="sk">KBounce</name>
+  <name xml:lang="sl">KBounce</name>
   <name xml:lang="sv">Kstuds</name>
   <name xml:lang="uk">KBounce</name>
   <name xml:lang="x-test">xxKBouncexx</name>
@@ -44,6 +45,7 @@
   <summary xml:lang="pt">O KBounce é um jogo de arcada para um único jogador, com os elementos de um 'puzzle'</summary>
   <summary xml:lang="pt-BR">O KBounce é um jogo arcade de um jogador com elementos de quebra-cabeça</summary>
   <summary xml:lang="sk">KBounce je arkádová hra pre jedného hráča s prvkami puzzle</summary>
+  <summary xml:lang="sl">KBounce je arkadna igra za enega igralca z elementi sestavljanke</summary>
   <summary xml:lang="sv">Kstuds är ett arkadspel för en ensam spelare med inslag av problemlösning</summary>
   <summary xml:lang="uk">KBounce — це аркадна гра для одного гравця з елементами головоломки</summary>
   <summary xml:lang="x-test">xxKBounce is a single player arcade game with the elements of puzzlexx</summary>
@@ -68,6 +70,7 @@
     <p xml:lang="pt">O KBounce é um jogo de arcada para um único jogador, com os elementos de um 'puzzle'. É jogado num campo rodeado por uma parede, com duas ou mais bolas que se deslocam no campo através de ricochetes nas paredes. O jogador poderá criar novas paredes, reduzindo o tamanho do campo activo. O objectivo do jogo é preencher pelo menos 75% do campo e passar para o nível seguinte.</p>
     <p xml:lang="pt-BR">O KBounce é um jogo arcade de um jogador com elementos de quebra-cabeça. É jogado em um campo, cercado por parede, com duas ou mais bolas que se movem sobre no campo batendo nas paredes. O jogador pode construir novas paredes diminuindo o tamanho do campo ativo. O objetivo do jogo é preencher pelo menos 75% do campo e avançar para o próximo nível.</p>
     <p xml:lang="sk">KBounce je arkádová hra pre jedného hráča s prvkami puzzle. Hrá sa na poli, obklopenom stenou, s dvoma alebo viacerými loptičkami, ktoré sa pohybujú v poli, odrážajúcimi sa od stien. Hráč môže vytvárať nové steny, čím zmenšuje veľkosť aktívneho poľa. Cieľom hry je vyplniť najmenej 75% poľa a postúpiť na ďalšiu úroveň.</p>
+    <p xml:lang="sl">KBounce je arkadna igra za enega igralca z elementi sestavljanke. Igra se na polju, obdanem s steno, z dvema ali več kroglicami, ki se gibljejo po polju, ki se odbijajo od sten. Igralec lahko zgradi nove zidove in tako zmanjša velikost aktivnega polja. Cilj igre je zapolniti vsaj 75% polja in napredovati na naslednjo stopnjo.</p>
     <p xml:lang="sv">Kstuds är ett arkadspel för en ensam spelare med inslag av problemlösning. Det spelas på ett fält, som omges av väggar, med två eller flera bollar som rör sig över fältet och studsar mot väggarna. Spelaren kan bygga nya väggar, vilket minskar det aktiva fältets storlek. Spelets mål är att fylla minst 75 % av fältet och gå vidare till nästa nivå.</p>
     <p xml:lang="uk">KBounce — аркадна гра із елементами головоломки для одного гравця. Гра відбувається на полі, яке обмежено стінками. Полем рухаються і відбиваються від стін дві або декілька кульок. Гравець може будувати нові стіни, зменшуючи розмір доступного для кульок простору. Метою гри є перекрити принаймні 75% площі ігрового поля для переходу на наступний рівень.</p>
     <p xml:lang="x-test">xxKBounce is a single player arcade game with the elements of puzzle. It is played on a field, surrounded by wall, with two or more balls that move about in the field bouncing off of walls. The player can build new walls, decreasing the size of active field. The goal of the game is to fill at least 75% of the field and advance to the next level.xx</p>
@@ -96,6 +99,7 @@
       <caption xml:lang="pt">Jogar ao KBounce</caption>
       <caption xml:lang="pt-BR">Jogando KBounce</caption>
       <caption xml:lang="sk">Hranie KBounce</caption>
+      <caption xml:lang="sl">Igra KBounce</caption>
       <caption xml:lang="sv">Spela Kstuds</caption>
       <caption xml:lang="uk">Гра у KBounce</caption>
       <caption xml:lang="x-test">xxPlaying KBouncexx</caption>
