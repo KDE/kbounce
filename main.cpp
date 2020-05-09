@@ -37,6 +37,8 @@ static const char copyleft[] = I18N_NOOP("(c) 2000-2005, Stefan Schimanski\n(c) 
 
 int main(int argc, char **argv)
 {
+    // Fixes blurry icons with fractional scaling
+    QGuiApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
     QApplication app(argc, argv);
     Kdelibs4ConfigMigrator migrate(QStringLiteral("kbounce"));
     migrate.setConfigFiles(QStringList() << QStringLiteral("kbouncerc"));
