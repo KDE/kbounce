@@ -17,6 +17,7 @@
   <name xml:lang="it">KBounce</name>
   <name xml:lang="ko">KBounce</name>
   <name xml:lang="nl">KBounce</name>
+  <name xml:lang="nn">KBounce</name>
   <name xml:lang="pl">KOdbij</name>
   <name xml:lang="pt">KBounce</name>
   <name xml:lang="pt-BR">KBounce</name>
@@ -95,6 +96,7 @@
       <caption xml:lang="it">Giocare a KBounce</caption>
       <caption xml:lang="ko">KBounce 플레이</caption>
       <caption xml:lang="nl">KBounce spelen</caption>
+      <caption xml:lang="nn">Spelar KBounce</caption>
       <caption xml:lang="pl">Granie w KOdbij</caption>
       <caption xml:lang="pt">Jogar ao KBounce</caption>
       <caption xml:lang="pt-BR">Jogando KBounce</caption>
