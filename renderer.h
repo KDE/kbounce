@@ -36,6 +36,7 @@
 
 class KBounceRenderer : public KGameRenderer
 {
+    Q_OBJECT
     public:
         /**
          * Constructor.
@@ -49,7 +50,7 @@ class KBounceRenderer : public KGameRenderer
         /**
          * Sets Background size and invalidates background cache
          */
-        void setBackgroundSize( const QSize& size);
+        void setBackgroundSize(QSize size);
         /**
          * Renders background to QPixmap of size set by setBachgroundSize
          * Background pixmap is cached (setBackgroundSize() invalidates the cache)

@@ -54,7 +54,7 @@ void KBounceRenderer::setCustomBackgroundPath(const QString& path)
     m_cachedBackground = QPixmap();
 }
 
-void KBounceRenderer::setBackgroundSize( const QSize& size )
+void KBounceRenderer::setBackgroundSize( QSize size )
 {
     if (size != m_backgroundSize )
     {
