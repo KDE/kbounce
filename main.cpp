@@ -21,7 +21,7 @@
 #include <KAboutData>
 #include <KCrash>
 #include <KLocalizedString>
-#include <kdelibs4configmigrator.h>
+#include <Kdelibs4ConfigMigrator>
 #include <KDBusService>
 
 #include <QApplication>
