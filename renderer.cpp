@@ -25,8 +25,8 @@
 #include "debug.h"
 
 #include <QDir>
+#include <QRandomGenerator>
 
-#include <krandom.h>
 #include <KgThemeProvider>
 
 static KgThemeProvider* provider()
@@ -116,7 +116,7 @@ QPixmap KBounceRenderer::getRandomBackgroundPixmap(const QString& path)
     {
         QString filename;
         // return random pixmap
-        uint pos = KRandom::random() % dir.count();
+        const uint pos = QRandomGenerator::global()->bounded(dir.count());
         if ( pos < dir.count() )
         {
             filename = dir.absoluteFilePath( dir[pos] ); 

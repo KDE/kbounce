@@ -18,11 +18,10 @@
 
 #include "board.h"
 
-#include <KRandom>
-
 #include <QGraphicsScene>
 #include <QTimer>
 #include <QPainter>
+#include <QRandomGenerator>
 
 #include "ball.h"
 #include "gameobject.h"
@@ -127,10 +126,11 @@ void KBounceBoard::newLevel( int level )
     }
     foreach( KBounceBall* ball, m_balls )
     {
-        ball->setRelativePos( 4 + KRandom::random() % ( TILE_NUM_W - 8 ),
-                4 + KRandom::random() % ( TILE_NUM_H - 8 ) );
-        ball->setVelocity( ((KRandom::random() & 1)*2-1)*m_ballVelocity,
-                ((KRandom::random() & 1)*2-1)*m_ballVelocity );
+        ball->setRelativePos( 4 + QRandomGenerator::global()->bounded( TILE_NUM_W - 8 ),
+                4 + QRandomGenerator::global()->bounded( TILE_NUM_H - 8 ) );
+
+        ball->setVelocity( (QRandomGenerator::global()->bounded(2)*2-1)*m_ballVelocity,
+                (QRandomGenerator::global()->bounded(2)*2-1)*m_ballVelocity );
         ball->setRandomFrame();
         ball->show();
     }

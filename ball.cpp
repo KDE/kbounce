@@ -21,7 +21,7 @@
 
 #include <cmath>
 
-#include <KRandom>
+#include <QRandomGenerator>
 
 #include "board.h"
 #include "renderer.h"
@@ -110,7 +110,7 @@ void KBounceBall::setRandomFrame()
     int frame = 1;
     if ( m_framesNum > 1 )
     {
-        frame = KRandom::random() % m_framesNum;
+        frame = QRandomGenerator::global()->bounded(m_framesNum);
     }
     setFrame( frame );
 }
