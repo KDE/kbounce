@@ -24,7 +24,6 @@
 #include <QRandomGenerator>
 
 #include "ball.h"
-#include "gameobject.h"
 #include "wall.h"
 #include "debug.h"
 

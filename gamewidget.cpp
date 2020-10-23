@@ -25,7 +25,6 @@
 #include <QTimer>
 #include <QStandardPaths>
 
-#include <KgDifficulty>
 #include <KgThemeProvider>
 #include <KColorScheme>
 #include <KLocalizedString>

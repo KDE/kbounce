@@ -18,7 +18,6 @@
 
 
 #include "mainwindow.h"
-#include "gamewidget.h"
 #include "settings.h"
 #include "backgroundselector.h"
 #include "debug.h"
