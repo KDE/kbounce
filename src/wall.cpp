@@ -56,12 +56,12 @@ KBounceWall::~KBounceWall()
 {
 }
 
-void KBounceWall::collide( KBounceCollision collision )
+void KBounceWall::collide(const KBounceCollision &collision)
 {
     if ( !isVisible() )
         return;
 
-    foreach( const KBounceHit &hit, collision ) {
+    for (const KBounceHit &hit : collision) {
         switch (hit.type) {
             case ALL:
                 break;

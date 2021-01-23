@@ -57,7 +57,7 @@ class KBounceWall : public QObject, public KGameRenderedItem
          * Changes object's state when collisions have been detected
          * Called once per frame before advance() and update()
          */
-        void collide( KBounceCollision collision );
+        void collide(const KBounceCollision &collision);
         /**
          * Performs various movement and state calculations non-related
          * to collision responses. Also updates m_boundingRect and 

@@ -47,8 +47,7 @@ KBounceBoard::KBounceBoard( KBounceRenderer* renderer )
     m_walls.append( new KBounceWall( KBounceWall::Right, m_renderer, this ) );
     m_walls.append( new KBounceWall( KBounceWall::Down, m_renderer, this ) );
     m_walls.append( new KBounceWall( KBounceWall::Left, m_renderer, this ) );
-    foreach( KBounceWall* wall, m_walls )
-    {
+    for (KBounceWall* wall : qAsConst(m_walls)) {
         wall->hide();
         connect( wall, &KBounceWall::died, this, &KBounceBoard::wallDied );
         connect( wall, &KBounceWall::finished, this, &KBounceBoard::wallFinished );
@@ -90,11 +89,11 @@ void KBounceBoard::resize( QSize& size )
 
     m_tileSize = QSize( minTileSize, minTileSize );
 
-    foreach( KBounceBall* ball, m_balls ) {
+    for (KBounceBall* ball : qAsConst(m_balls)) {
         ball->resize( m_tileSize );
     }
 
-    foreach( KBounceWall* wall, m_walls ) {
+    for (KBounceWall* wall : qAsConst(m_walls)) {
         wall->resize( m_tileSize );
     }
 
@@ -123,8 +122,7 @@ void KBounceBoard::newLevel( int level )
         ball->resize( m_tileSize );
         m_balls.append( ball );
     }
-    foreach( KBounceBall* ball, m_balls )
-    {
+    for (KBounceBall* ball : qAsConst(m_balls)) {
         ball->setRelativePos( 4 + QRandomGenerator::global()->bounded( TILE_NUM_W - 8 ),
                 4 + QRandomGenerator::global()->bounded( TILE_NUM_H - 8 ) );
 
@@ -135,8 +133,7 @@ void KBounceBoard::newLevel( int level )
     }
     emit ballsChanged( level + 1 );
 
-    foreach( KBounceWall* wall, m_walls )
-    {
+    for (KBounceWall* wall : qAsConst(m_walls)) {
         wall->setWallVelocity(m_wallVelocity);
         wall->hide();
     }
@@ -215,8 +212,7 @@ KBounceCollision KBounceBoard::checkCollision( void* object, const QRectF& rect,
 
     if ( (type & WALL) != 0 )
     {
-        foreach( KBounceWall* wall, m_walls )
-        {
+        for (KBounceWall* wall : qAsConst(m_walls)) {
             if ( object != wall )
             {
                 if ( wall->isVisible() && rect.intersects( wall->nextBoundingRect() ) )
@@ -233,8 +229,7 @@ KBounceCollision KBounceBoard::checkCollision( void* object, const QRectF& rect,
 
     if ( (type & BALL) != 0 )
     {
-        foreach( KBounceBall* ball, m_balls )
-        {
+        for (KBounceBall* ball : qAsConst(m_balls)) {
             if ( object != ball )
             {
                 if ( rect.intersects( ball->nextBoundingRect() ) )
@@ -290,15 +285,13 @@ KBounceCollision KBounceBoard::checkCollisionTiles( const QRectF& rect)
 
 void KBounceBoard::checkCollisions()
 {
-    foreach( KBounceWall* wall, m_walls )
-    {
+    for (KBounceWall* wall : qAsConst(m_walls)){
         QRectF rect = wall->nextBoundingRect();
         KBounceCollision collision;
         collision = checkCollision( wall, rect, ALL );
         wall->collide( collision );
     }
-    foreach( KBounceBall* ball, m_balls )
-    {
+    for (KBounceBall* ball : qAsConst(m_balls)) {
         QRectF rect = ball->nextBoundingRect();
         KBounceCollision collision;
         collision = checkCollision( ball, rect, ALL );
@@ -323,22 +316,18 @@ void KBounceBoard::tick()
 {
     checkCollisions();
 
-    foreach( KBounceBall* ball, m_balls )
-    {
+    for (KBounceBall* ball : qAsConst(m_balls)) {
         ball->goForward();
     }
-    foreach( KBounceWall* wall, m_walls )
-    {
+    for (KBounceWall* wall : qAsConst(m_walls)) {
         wall->goForward();
     }
 
-    foreach( KBounceBall* ball, m_balls )
-    {
+    for (KBounceBall* ball : qAsConst(m_balls)) {
         ball->update();
     }
 
-    foreach( KBounceWall* wall, m_walls )
-    {
+    for (KBounceWall* wall : qAsConst(m_walls)) {
         wall->update();
     }
 }
@@ -378,8 +367,7 @@ void KBounceBoard::wallFinished( int x1, int y1, int x2, int y2 )
         for ( int y = y1; y < y2; y++ )
             m_tiles[x][y] = Wall;
 
-    foreach ( KBounceBall* ball, m_balls )
-    {
+    for (KBounceBall* ball : qAsConst(m_balls)) {
         int x1 = static_cast<int>( ball->ballBoundingRect().x() );
         int y1 = static_cast<int>( ball->ballBoundingRect().y() );
         int x2 = static_cast<int>( ball->ballBoundingRect().right() );

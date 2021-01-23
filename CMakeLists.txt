@@ -41,6 +41,7 @@ include(ECMAddAppIcon)
 include(ECMSetupVersion)
 
 add_definitions(
+    -DQT_NO_FOREACH
     -DQT_NO_CAST_FROM_ASCII
     -DQT_NO_CAST_TO_ASCII
     -DQT_NO_CAST_FROM_BYTEARRAY
