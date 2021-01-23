@@ -44,7 +44,7 @@ class KBounceGameWidget : public QGraphicsView
         void setPaused( bool );
         void settingsChanged();
         void setSuspended( bool );
-        void levelChanged();
+        void handleLevelChanged();
 
     Q_SIGNALS:
         void gameOver();

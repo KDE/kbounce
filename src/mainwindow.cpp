@@ -40,7 +40,7 @@ KBounceMainWindow::KBounceMainWindow()
     m_statusBar->insertPermanentWidget(4, timeLabel, 1);
 
     m_gameWidget = new KBounceGameWidget( this );
-    connect( m_gameWidget, SIGNAL(levelChanged(int)), this, SLOT(displayLevel(int)) );
+    connect( m_gameWidget, &KBounceGameWidget::levelChanged, this, &KBounceMainWindow::displayLevel );
     connect( m_gameWidget, &KBounceGameWidget::scoreChanged, this, &KBounceMainWindow::displayScore );
     connect( m_gameWidget, &KBounceGameWidget::livesChanged, this, &KBounceMainWindow::displayLives );
     connect( m_gameWidget, &KBounceGameWidget::filledChanged, this, &KBounceMainWindow::displayFilled );
@@ -79,7 +79,8 @@ void KBounceMainWindow::initXMLUI()
             KgDifficultyLevel::Easy, KgDifficultyLevel::Hard
             );
     KgDifficultyGUI::init(this);
-    connect(Kg::difficulty(), SIGNAL(currentLevelChanged(const KgDifficultyLevel*)), m_gameWidget, SLOT(levelChanged()));
+    connect(Kg::difficulty(), &KgDifficulty::currentLevelChanged,
+            m_gameWidget, &KBounceGameWidget::handleLevelChanged);
 
     // Settings
     KStandardAction::preferences( this, &KBounceMainWindow::configureSettings, actionCollection() );

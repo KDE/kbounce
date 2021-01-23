@@ -178,7 +178,7 @@ void KBounceGameWidget::setGameDifficulty( const KgDifficultyLevel * difficulty 
     }
 }
 
-void KBounceGameWidget::levelChanged()
+void KBounceGameWidget::handleLevelChanged()
 {
     setGameDifficulty( Kg::difficulty()->currentLevel() );
 
