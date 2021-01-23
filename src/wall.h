@@ -102,7 +102,7 @@ class KBounceWall : public QObject, public KGameRenderedItem
          */
         void static loadSprites();
 
-    signals:
+    Q_SIGNALS:
         void finished( int left, int top, int right, int bottom );
         void died();
 

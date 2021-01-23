@@ -65,12 +65,12 @@ class KBounceBoard: public QGraphicsObject
 
         void setBallVelocity(qreal velocity);
         void setWallVelocity(qreal velocity);
-    signals:
+    Q_SIGNALS:
         void ballsChanged( int balls );
         void fillChanged( int fill );
         void wallDied();
 
-    protected slots:
+    protected Q_SLOTS:
         void tick();
         void wallFinished( int x1, int y1, int x2, int y2 );
 

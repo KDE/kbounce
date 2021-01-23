@@ -38,7 +38,7 @@ class KBounceMainWindow : public KXmlGuiWindow
         KBounceMainWindow();
         ~KBounceMainWindow() override;
 
-    protected slots:
+    protected Q_SLOTS:
         void newGame();
         void pauseGame();
         void closeGame();

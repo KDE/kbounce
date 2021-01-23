@@ -35,7 +35,7 @@ class BackgroundSelector : public QWidget {
         ~BackgroundSelector() override;
 
         void setupData();
-    private slots:
+    private Q_SLOTS:
         void imagePathChanged(const QString& path);
         void useRandomBackgroundPicturesChanged(bool state);
         void previewBackgroundPicture();

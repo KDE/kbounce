@@ -50,7 +50,7 @@ class KBounceGameWidget : public QGraphicsView
 
         QSize minimumSizeHint() const override;
 
-    public slots:
+    public Q_SLOTS:
         void closeGame();
         void newGame();
         void setPaused( bool );
@@ -58,7 +58,7 @@ class KBounceGameWidget : public QGraphicsView
         void setSuspended( bool );
         void levelChanged();
 
-    signals:
+    Q_SIGNALS:
         void gameOver();
         void levelChanged( int level );
         void scoreChanged( int score );
@@ -67,7 +67,7 @@ class KBounceGameWidget : public QGraphicsView
         void timeChanged( int time );
         void stateChanged( KBounceGameWidget::State state );
 
-    protected slots:
+    protected Q_SLOTS:
         void onFillChanged( int filled );
         void onLivesChanged( int lives );
         void onWallDied();
