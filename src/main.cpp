@@ -18,9 +18,6 @@
 #include "debug.h"
 #include "kbounce_version.h"
 
-static const char description[] = I18N_NOOP("KDE Bounce Ball Game");
-static const char copyleft[] = I18N_NOOP("(c) 2000-2005, Stefan Schimanski\n(c) 2007, Tomasz Boczkowski");
-
 int main(int argc, char **argv)
 {
     // Fixes blurry icons with fractional scaling
@@ -32,8 +29,11 @@ int main(int argc, char **argv)
     migrate.migrate();
     KLocalizedString::setApplicationDomain("kbounce");
     KAboutData aboutData(QStringLiteral("kbounce"), i18n("KBounce"),
-            QStringLiteral(KBOUNCE_VERSION_STRING), i18n(description),
-            KAboutLicense::GPL, i18n(copyleft), QString(),
+            QStringLiteral(KBOUNCE_VERSION_STRING),
+            i18n("Bounce Ball Game"),
+            KAboutLicense::GPL,
+            i18n("(c) 2000-2005, Stefan Schimanski\n(c) 2007, Tomasz Boczkowski"),
+            QString(),
             QStringLiteral("https://kde.org/applications/games/org.kde.kbounce"));
 
     aboutData.addAuthor(i18n("Stefan Schimanski"),
