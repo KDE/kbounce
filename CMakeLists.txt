@@ -8,8 +8,8 @@ set(RELEASE_SERVICE_VERSION "${RELEASE_SERVICE_VERSION_MAJOR}.${RELEASE_SERVICE_
 
 project(kbounce VERSION ${RELEASE_SERVICE_VERSION})
 
-set (QT_MIN_VERSION "5.10.0")
-set (KF5_MIN_VERSION "5.46.0")
+set (QT_MIN_VERSION "5.12.0")
+set (KF5_MIN_VERSION "5.68.0")
 
 find_package(ECM ${KF5_MIN_VERSION} REQUIRED CONFIG)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH} )
@@ -39,6 +39,7 @@ include(FeatureSummary)
 include(ECMInstallIcons)
 include(ECMAddAppIcon)
 include(ECMSetupVersion)
+include(ECMQtDeclareLoggingCategory)
 
 add_definitions(
     -DQT_NO_FOREACH
