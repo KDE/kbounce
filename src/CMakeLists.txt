@@ -27,6 +27,10 @@ ecm_qt_declare_logging_category(kbounce_SRCS
     EXPORT KBOUNCE
 )
 
+qt5_add_resources(kbounce_SRCS
+    kbounce.qrc
+)
+
 file(GLOB ICONS_SRCS "${CMAKE_SOURCE_DIR}/pics/*-apps-kbounce.png")
 ecm_add_app_icon(kbounce_SRCS ICONS ${ICONS_SRCS})
 
@@ -46,7 +50,6 @@ install(TARGETS kbounce  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
 install(PROGRAMS org.kde.kbounce.desktop  DESTINATION  ${KDE_INSTALL_APPDIR})
 install(FILES org.kde.kbounce.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
-install(FILES kbounceui.rc  DESTINATION  ${KDE_INSTALL_KXMLGUI5DIR}/kbounce)
 
 ecm_qt_install_logging_categories(
     EXPORT KBOUNCE
