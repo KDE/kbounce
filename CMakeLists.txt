@@ -31,11 +31,12 @@ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
 
 find_package(KF5KDEGames 4.9.0 REQUIRED)
 
+include(KDEInstallDirs)
+include(KDECMakeSettings)
+include(KDECompilerSettings NO_POLICY_SCOPE)
+
 include(FeatureSummary)
 include(ECMInstallIcons)
-include(KDEInstallDirs)
-include(KDECompilerSettings NO_POLICY_SCOPE)
-include(KDECMakeSettings)
 include(ECMAddAppIcon)
 include(ECMSetupVersion)
 
@@ -54,5 +55,7 @@ add_subdirectory(sounds)
 add_subdirectory(pics)
 add_subdirectory(doc)
 add_subdirectory(src)
+
+
 
 feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
