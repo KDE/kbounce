@@ -29,8 +29,8 @@
 #include "settings.h"
 
 QSize KBounceWall::s_tileSize;
-KBounceRenderer * KBounceWall::m_renderer = NULL;
-KBounceWall::Sprites * KBounceWall::s_sprites = NULL;
+KBounceRenderer * KBounceWall::m_renderer = nullptr;
+KBounceWall::Sprites * KBounceWall::s_sprites = nullptr;
 
 
 KBounceWall::KBounceWall( Direction dir, KBounceRenderer* renderer, KBounceBoard* board )

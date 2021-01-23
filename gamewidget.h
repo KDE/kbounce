@@ -40,7 +40,7 @@ class KBounceGameWidget : public QGraphicsView
     public:
         enum State { BeforeFirstGame, Running, BetweenLevels, Paused, Suspended, GameOver };
 
-        explicit KBounceGameWidget( QWidget* parent = 0 );
+        explicit KBounceGameWidget( QWidget* parent = nullptr );
         ~KBounceGameWidget();
 
         int level();
