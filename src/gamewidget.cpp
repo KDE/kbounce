@@ -84,8 +84,8 @@ void KBounceGameWidget::closeGame()
         m_clock->stop();
         m_board->setPaused( true );
         m_state = GameOver;
-        emit stateChanged( m_state );
-        emit gameOver();
+        Q_EMIT stateChanged( m_state );
+        Q_EMIT gameOver();
 
         Kg::difficulty()->setGameRunning( false );
         redraw();
@@ -98,8 +98,8 @@ void KBounceGameWidget::newGame()
     m_level = 1;
     m_score = 0;
 
-    emit levelChanged( m_level );
-    emit scoreChanged( m_score );
+    Q_EMIT levelChanged( m_level );
+    Q_EMIT scoreChanged( m_score );
 
     Kg::difficulty()->setGameRunning( true );
     newLevel();
@@ -112,14 +112,14 @@ void KBounceGameWidget::setPaused( bool val )
         m_clock->start();
         m_board->setPaused( false );
         m_state = Running;
-        emit stateChanged( m_state );
+        Q_EMIT stateChanged( m_state );
     }
     else if ( m_state == Running && val == true )
     {
         m_clock->stop();
         m_board->setPaused( true );
         m_state = Paused;
-        emit stateChanged( m_state );
+        Q_EMIT stateChanged( m_state );
     }
 
     redraw();
@@ -132,7 +132,7 @@ void KBounceGameWidget::setSuspended( bool val )
         m_clock->start();
         m_board->setPaused( false );
         m_state = Running;
-        emit stateChanged( m_state );
+        Q_EMIT stateChanged( m_state );
     }
 
     if ( m_state == Running && val == true )
@@ -140,7 +140,7 @@ void KBounceGameWidget::setSuspended( bool val )
         m_clock->stop();
         m_board->setPaused( true );
         m_state = Suspended;
-        emit stateChanged( m_state );
+        Q_EMIT stateChanged( m_state );
     }
     redraw();
 }
@@ -188,15 +188,15 @@ void KBounceGameWidget::levelChanged()
 
 void KBounceGameWidget::onFillChanged( int fill )
 {
-    emit filledChanged( fill );
+    Q_EMIT filledChanged( fill );
     if ( fill >= MIN_FILL_PERCENT )
     {
         closeLevel();
         m_level++;
-        emit levelChanged( m_level );
+        Q_EMIT levelChanged( m_level );
 
         m_state = BetweenLevels;
-        emit stateChanged( m_state );
+        Q_EMIT stateChanged( m_state );
 
         redraw();
     }
@@ -211,7 +211,7 @@ void KBounceGameWidget::onWallDied()
     else
     {
         m_lives--;
-        emit livesChanged( m_lives );
+        Q_EMIT livesChanged( m_lives );
     }
 }
 
@@ -231,7 +231,7 @@ void KBounceGameWidget::tick()
     ticks--;
     if ( ticks <= 0 )
     {
-        emit timeChanged( --m_time );
+        Q_EMIT timeChanged( --m_time );
         if ( m_time == 0 )
         {
             closeGame();
@@ -299,7 +299,7 @@ void KBounceGameWidget::closeLevel()
     }
     m_score += m_bonus;
     m_score += POINTS_FOR_LIFE * m_lives;
-    emit scoreChanged( m_score );
+    Q_EMIT scoreChanged( m_score );
 
     m_clock->stop();
     m_board->setPaused( true );
@@ -308,7 +308,7 @@ void KBounceGameWidget::closeLevel()
 void KBounceGameWidget::newLevel()
 {
     m_state = Running;
-    emit stateChanged( m_state );
+    Q_EMIT stateChanged( m_state );
 
     m_clock->start();
     m_board->newLevel( m_level );
@@ -317,8 +317,8 @@ void KBounceGameWidget::newLevel()
     m_bonus = 0;
     m_lives = m_level + 1;
     m_time = 30 * ( m_level + 2 );
-    emit livesChanged( m_lives );
-    emit timeChanged( m_time );
+    Q_EMIT livesChanged( m_lives );
+    Q_EMIT timeChanged( m_time );
 
     if (KBounceSettings::useRandomBackgroundPictures())
         m_renderer.loadNewBackgroundPixmap();

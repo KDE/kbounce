@@ -68,7 +68,7 @@ void KBounceWall::collide(const KBounceCollision &collision)
                         finish( true, m_dir );
                     }
                 } else {
-                    emit died();
+                    Q_EMIT died();
                     hide();
                 }
                 break;
@@ -292,7 +292,7 @@ void KBounceWall::finish( bool shorten, Direction dir )
         }
     }
 
-    emit finished( left, top, right, bottom );
+    Q_EMIT finished( left, top, right, bottom );
     hide();
 
     if (KBounceSettings::playSounds())

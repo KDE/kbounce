@@ -97,7 +97,7 @@ void KBounceBoard::newLevel( int level )
 {
     m_clock->stop();
     clear();
-    emit fillChanged( m_filled );
+    Q_EMIT fillChanged( m_filled );
 
     while ( m_balls.count() > level + 1 )
     {
@@ -119,7 +119,7 @@ void KBounceBoard::newLevel( int level )
         ball->setRandomFrame();
         ball->show();
     }
-    emit ballsChanged( level + 1 );
+    Q_EMIT ballsChanged( level + 1 );
 
     for (KBounceWall* wall : qAsConst(m_walls)) {
         wall->setWallVelocity(m_wallVelocity);
@@ -386,7 +386,7 @@ void KBounceBoard::wallFinished( int x1, int y1, int x2, int y2 )
 
     scene()->setBackgroundBrush(applyWallsOn(m_renderer->renderBackground()));
 
-    emit fillChanged( m_filled );
+    Q_EMIT fillChanged( m_filled );
 }
 
 void KBounceBoard::clear()
