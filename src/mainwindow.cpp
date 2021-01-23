@@ -68,11 +68,11 @@ KBounceMainWindow::~KBounceMainWindow()
 void KBounceMainWindow::initXMLUI()
 {
     // Game
-    m_newAction = KStandardGameAction::gameNew(this, SLOT(newGame()), actionCollection());
-    KStandardGameAction::end(this, SLOT(closeGame()), actionCollection());
-    m_pauseAction = KStandardGameAction::pause(this, SLOT(pauseGame()), actionCollection());
-    KStandardGameAction::highscores(this, SLOT(showHighscore()), actionCollection());
-    KStandardGameAction::quit(this, SLOT(close()), actionCollection());
+    m_newAction = KStandardGameAction::gameNew(this, &KBounceMainWindow::newGame, actionCollection());
+    KStandardGameAction::end(this, &KBounceMainWindow::closeGame, actionCollection());
+    m_pauseAction = KStandardGameAction::pause(this, &KBounceMainWindow::pauseGame, actionCollection());
+    KStandardGameAction::highscores(this, &KBounceMainWindow::showHighscore, actionCollection());
+    KStandardGameAction::quit(this, &QWidget::close, actionCollection());
 
     // Difficulty
     Kg::difficulty()->addStandardLevelRange(
@@ -82,7 +82,7 @@ void KBounceMainWindow::initXMLUI()
     connect(Kg::difficulty(), SIGNAL(currentLevelChanged(const KgDifficultyLevel*)), m_gameWidget, SLOT(levelChanged()));
 
     // Settings
-    KStandardAction::preferences( this, SLOT(configureSettings()), actionCollection() );
+    KStandardAction::preferences( this, &KBounceMainWindow::configureSettings, actionCollection() );
     m_soundAction = new KToggleAction( i18n("&Play Sounds"), this );
     actionCollection()->addAction( QStringLiteral(  "toggle_sound" ), m_soundAction );
     connect( m_soundAction, &QAction::triggered, this, &KBounceMainWindow::setSounds );
