@@ -32,7 +32,7 @@ class BackgroundSelector : public QWidget {
     Q_OBJECT
     public:
         explicit BackgroundSelector(QWidget *parent ,KConfigSkeleton * config );
-        ~BackgroundSelector();
+        ~BackgroundSelector() override;
 
         void setupData();
     private slots:
@@ -40,7 +40,7 @@ class BackgroundSelector : public QWidget {
         void useRandomBackgroundPicturesChanged(bool state);
         void previewBackgroundPicture();
     protected:
-        void changeEvent(QEvent *e) Q_DECL_OVERRIDE;
+        void changeEvent(QEvent *e) override;
         void enableSettings(bool enable=true);
     private:
         Ui::KBounceBackgroundSelector *ui;

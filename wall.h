@@ -51,7 +51,7 @@ class KBounceWall : public QObject, public KGameRenderedItem
          * in the same time
          */
         KBounceWall( Direction dir, KBounceRenderer* renderer, KBounceBoard* board );
-        ~KBounceWall();
+        ~KBounceWall() override;
 
         /**
          * Changes object's state when collisions have been detected

@@ -41,14 +41,14 @@ class KBounceGameWidget : public QGraphicsView
         enum State { BeforeFirstGame, Running, BetweenLevels, Paused, Suspended, GameOver };
 
         explicit KBounceGameWidget( QWidget* parent = nullptr );
-        ~KBounceGameWidget();
+        ~KBounceGameWidget() override;
 
         int level();
         int score();
         KBounceGameWidget::State state() const { return m_state; }
         KBounceRenderer* renderer() { return &m_renderer; }
 
-        QSize minimumSizeHint() const Q_DECL_OVERRIDE;
+        QSize minimumSizeHint() const override;
 
     public slots:
         void closeGame();
@@ -74,9 +74,9 @@ class KBounceGameWidget : public QGraphicsView
         void tick();
 
     protected:
-        void resizeEvent( QResizeEvent* event ) Q_DECL_OVERRIDE;
-        void mouseReleaseEvent( QMouseEvent* event ) Q_DECL_OVERRIDE;
-        void focusOutEvent(QFocusEvent *event) Q_DECL_OVERRIDE;
+        void resizeEvent( QResizeEvent* event ) override;
+        void mouseReleaseEvent( QMouseEvent* event ) override;
+        void focusOutEvent(QFocusEvent *event) override;
         void closeLevel();
         void newLevel();
         void updateCursor();

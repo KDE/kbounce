@@ -36,7 +36,7 @@ class KBounceMainWindow : public KXmlGuiWindow
     Q_OBJECT
     public:
         KBounceMainWindow();
-        ~KBounceMainWindow();
+        ~KBounceMainWindow() override;
 
     protected slots:
         void newGame();
@@ -58,8 +58,8 @@ class KBounceMainWindow : public KXmlGuiWindow
         void initXMLUI();
         void highscore();
 
-        void focusOutEvent( QFocusEvent * ) Q_DECL_OVERRIDE;
-        void focusInEvent ( QFocusEvent * ) Q_DECL_OVERRIDE;
+        void focusOutEvent( QFocusEvent * ) override;
+        void focusInEvent ( QFocusEvent * ) override;
 
         KBounceGameWidget* m_gameWidget;
 

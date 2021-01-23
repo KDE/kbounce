@@ -42,11 +42,11 @@ class KBounceBoard: public QGraphicsObject
         enum TileType{ Empty, Free, Border, Wall, Temp };
 
         explicit KBounceBoard( KBounceRenderer *renderer );
-        ~KBounceBoard();
+        ~KBounceBoard() override;
 
         QPixmap applyWallsOn(const QPixmap &background) const;
         void resize( QSize& size );
-        void paint(QPainter *, const QStyleOptionGraphicsItem *, QWidget *) Q_DECL_OVERRIDE {}
+        void paint(QPainter *, const QStyleOptionGraphicsItem *, QWidget *) override {}
 
         void newLevel( int level );
         void setPaused( bool );
@@ -61,7 +61,7 @@ class KBounceBoard: public QGraphicsObject
         void checkCollisions();
 
         QPoint mapPosition( const QPointF& pos ) const;
-        QRectF boundingRect() const Q_DECL_OVERRIDE;
+        QRectF boundingRect() const override;
 
         void setBallVelocity(qreal velocity);
         void setWallVelocity(qreal velocity);

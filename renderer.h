@@ -46,7 +46,7 @@ class KBounceRenderer : public KGameRenderer
         /**
          * Destructor.
          */
-        ~KBounceRenderer();
+        ~KBounceRenderer() override;
         /**
          * Sets Background size and invalidates background cache
          */

@@ -46,7 +46,7 @@ class KBounceBall : public KGameRenderedItem
         /**
          * Destructor
          */
-        ~KBounceBall();
+        ~KBounceBall() override;
 
         /**
          * Changes ball's state when collisions have been detected
