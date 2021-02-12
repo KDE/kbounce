@@ -8,6 +8,7 @@ set(kbounce_SRCS
     renderer.cpp
     wall.cpp 
     backgroundselector.cpp
+    kbounce.qrc
 )
 
 ecm_setup_version(${RELEASE_SERVICE_VERSION}
@@ -25,10 +26,6 @@ ecm_qt_declare_logging_category(kbounce_SRCS
     CATEGORY_NAME log_kbounce
     DESCRIPTION "KBounce game"
     EXPORT KBOUNCE
-)
-
-qt5_add_resources(kbounce_SRCS
-    kbounce.qrc
 )
 
 file(GLOB ICONS_SRCS "${CMAKE_SOURCE_DIR}/pics/*-apps-kbounce.png")
