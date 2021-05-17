@@ -1,4 +1,11 @@
-set(kbounce_SRCS
+ecm_setup_version(${RELEASE_SERVICE_VERSION}
+    VARIABLE_PREFIX KBOUNCE
+    VERSION_HEADER kbounce_version.h
+)
+
+add_executable(kbounce)
+
+target_sources(kbounce PRIVATE
     ball.cpp
     board.cpp
     gameobject.cpp
@@ -8,19 +15,15 @@ set(kbounce_SRCS
     renderer.cpp
     wall.cpp 
     backgroundselector.cpp
+
     kbounce.qrc
 )
 
-ecm_setup_version(${RELEASE_SERVICE_VERSION}
-    VARIABLE_PREFIX KBOUNCE
-    VERSION_HEADER kbounce_version.h
-)
+kconfig_add_kcfg_files(kbounce settings.kcfgc)
 
-kconfig_add_kcfg_files(kbounce_SRCS settings.kcfgc)
+ki18n_wrap_ui(kbounce  backgroundselector.ui )
 
-ki18n_wrap_ui(kbounce_SRCS  backgroundselector.ui )
-
-ecm_qt_declare_logging_category(kbounce_SRCS
+ecm_qt_declare_logging_category(kbounce
     HEADER debug.h
     IDENTIFIER KBOUNCE_LOG
     CATEGORY_NAME log_kbounce
@@ -29,9 +32,7 @@ ecm_qt_declare_logging_category(kbounce_SRCS
 )
 
 file(GLOB ICONS_SRCS "${CMAKE_SOURCE_DIR}/pics/*-apps-kbounce.png")
-ecm_add_app_icon(kbounce_SRCS ICONS ${ICONS_SRCS})
-
-add_executable(kbounce ${kbounce_SRCS})
+ecm_add_app_icon(kbounce ICONS ${ICONS_SRCS})
 
 target_link_libraries(kbounce 
     KF5KDEGames
