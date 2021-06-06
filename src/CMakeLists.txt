@@ -41,7 +41,7 @@ target_link_libraries(kbounce
     KF5::KIOWidgets
     KF5::DBusAddons
     KF5::Crash
-    Qt5::Svg 
+    Qt::Svg 
 )
 
 install(TARGETS kbounce  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
