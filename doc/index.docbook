@@ -34,11 +34,11 @@
 <legalnotice>&FDLNotice;</legalnotice>
 
 
-<date>2016-05-09</date>
-<releaseinfo>0.11 (Applications 16.04)</releaseinfo>
+<date>2021-06-25</date>
+<releaseinfo>KDE Gear 21.04</releaseinfo>
 
 <abstract>
-	<para>This documentation describes the game of &kbounce; version 0.11</para>
+	<para>This documentation describes the game of &kbounce; version 21.04</para>
 </abstract>
 
 
@@ -50,7 +50,7 @@
 	<keyword>arcade</keyword>
 	<keyword>puzzle</keyword>
 	<keyword>balls</keyword>
-	<keyword>jezzball</keyword>
+	<keyword>JezzBall</keyword>
 	<keyword>KBounce</keyword>
 </keywordset>
 
@@ -85,7 +85,7 @@ The size of the active area of the field is decreased by making new walls that e
 </para>
 
 <para>
-New walls are built by clicking the &LMB; in an active area of the field, at which point two walls will begin to grow in opposite directions from the square the mouse was clicked in.  Only one wall in each direction may be growing on the screen at any given time.
+New walls are built by clicking the &LMB; in an active area of the field, at which point one wall will begin to grow in opposite directions from the square the mouse was clicked in. Only one wall in each direction may be growing on the screen at any given time.
 </para>
 
 <para>
@@ -308,7 +308,7 @@ Pauses or resumes the current game.
 <varlistentry id="game-end">
 <term><menuchoice>
 <shortcut>
-<keycombo action="simul">&Ctrl;<keycap>End</keycap></keycombo>
+<keycombo action="simul">&Ctrl;&End;</keycombo>
 </shortcut>
 <guimenu>Game</guimenu>
 <guimenuitem>End Game</guimenuitem>
