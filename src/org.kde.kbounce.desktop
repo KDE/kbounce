@@ -78,7 +78,7 @@ Icon=kbounce
 GenericName=Ball Bouncing Game
 GenericName[bs]=Igra lopta koja odskače
 GenericName[ca]=Un joc de boles que reboten
-GenericName[ca@valencia]=Un joc de pilotes que reboten
+GenericName[ca@valencia]=Un joc de boles que reboten
 GenericName[cs]=Hra s poskakujícími míčky
 GenericName[da]=Et spil med hoppende bolde
 GenericName[de]=Bälle einfangen
@@ -130,7 +130,7 @@ GenericName[zh_TW]=彈力球遊戲
 
 Comment=Ball Bouncing Game
 Comment[ca]=Un joc de boles que reboten
-Comment[ca@valencia]=Un joc de pilotes que reboten
+Comment[ca@valencia]=Un joc de boles que reboten
 Comment[cs]=Hra s poskakujícími míčky
 Comment[da]=Et spil med hoppende bolde
 Comment[de]=Bälle einfangen
