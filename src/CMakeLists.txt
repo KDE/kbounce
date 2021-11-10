@@ -6,15 +6,23 @@ ecm_setup_version(${RELEASE_SERVICE_VERSION}
 add_executable(kbounce)
 
 target_sources(kbounce PRIVATE
-    ball.cpp
-    board.cpp
-    gameobject.cpp
-    gamewidget.cpp
-    main.cpp 
-    mainwindow.cpp 
-    renderer.cpp
-    wall.cpp 
     backgroundselector.cpp
+    backgroundselector.h
+    ball.cpp
+    ball.h
+    board.cpp
+    board.h
+    gameobject.cpp
+    gameobject.h
+    gamewidget.cpp
+    gamewidget.h
+    main.cpp
+    mainwindow.cpp
+    mainwindow.h
+    renderer.cpp
+    renderer.h
+    wall.cpp
+    wall.h
 
     kbounce.qrc
 )
