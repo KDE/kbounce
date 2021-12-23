@@ -1,6 +1,7 @@
 [KGameTheme]
 VersionFormat=1
 Name=Strange Geometry
+Name[ar]=هندسة غريبة
 Name[bs]=Čudna geometrija
 Name[ca]=Geometria estranya
 Name[ca@valencia]=Geometria estranya
@@ -52,6 +53,7 @@ Name[x-test]=xxStrange Geometryxx
 Name[zh_CN]=畸形几何
 Name[zh_TW]=奇怪的形狀
 Description=A simple high-contrast theme for those who like it clean.
+Description[ar]=مظهر بسيط عالي التباين لمن يحبونه نظيفًا.
 Description[bs]=Jednostavna tema visokog kontrasta za one koji vole čistoću.
 Description[ca]=Un tema senzill en alt contrast per a aquells als que els agrada un aspecte net.
 Description[ca@valencia]=Un tema senzill en alt contrast per a aquells als que els agrada un aspecte net.
