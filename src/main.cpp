@@ -9,7 +9,9 @@
 #include <KAboutData>
 #include <KCrash>
 #include <KLocalizedString>
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 #include <Kdelibs4ConfigMigrator>
+#endif
 #include <KDBusService>
 
 #include <QApplication>
@@ -25,10 +27,12 @@ int main(int argc, char **argv)
     QGuiApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
 #endif
     QApplication app(argc, argv);
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     Kdelibs4ConfigMigrator migrate(QStringLiteral("kbounce"));
     migrate.setConfigFiles(QStringList() << QStringLiteral("kbouncerc"));
     migrate.setUiFiles(QStringList() << QStringLiteral("kbounceui.rc"));
     migrate.migrate();
+#endif
     KLocalizedString::setApplicationDomain("kbounce");
     KAboutData aboutData(QStringLiteral("kbounce"), i18n("KBounce"),
             QStringLiteral(KBOUNCE_VERSION_STRING),
