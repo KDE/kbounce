@@ -30,6 +30,7 @@
   <name xml:lang="sk">KBounce</name>
   <name xml:lang="sl">KBounce</name>
   <name xml:lang="sv">Kstuds</name>
+  <name xml:lang="tr">KBounce</name>
   <name xml:lang="uk">KBounce</name>
   <name xml:lang="x-test">xxKBouncexx</name>
   <name xml:lang="zh-CN">KBounce</name>
@@ -59,6 +60,7 @@
   <summary xml:lang="sk">KBounce je arkádová hra pre jedného hráča s prvkami puzzle</summary>
   <summary xml:lang="sl">KBounce je arkadna igra za enega igralca z elementi sestavljanke</summary>
   <summary xml:lang="sv">Kstuds är ett arkadspel för en ensam spelare med inslag av problemlösning</summary>
+  <summary xml:lang="tr">KBounce, yapboz ögelerine sahip tek kişilik bir eğlence salonu oyunudur</summary>
   <summary xml:lang="uk">KBounce — це аркадна гра для одного гравця з елементами головоломки</summary>
   <summary xml:lang="x-test">xxKBounce is a single player arcade game with the elements of puzzlexx</summary>
   <summary xml:lang="zh-CN">KBounce 是一个带有解谜成分的单人街机游戏</summary>
@@ -91,6 +93,7 @@
     <p xml:lang="sk">KBounce je arkádová hra pre jedného hráča s prvkami puzzle. Hrá sa na poli, obklopenom stenou, s dvoma alebo viacerými loptičkami, ktoré sa pohybujú v poli, odrážajúcimi sa od stien. Hráč môže vytvárať nové steny, čím zmenšuje veľkosť aktívneho poľa. Cieľom hry je vyplniť najmenej 75% poľa a postúpiť na ďalšiu úroveň.</p>
     <p xml:lang="sl">KBounce je arkadna igra za enega igralca z elementi sestavljanke. Igra se na polju, obdanem s steno, z dvema ali več kroglicami, ki se gibljejo po polju, ki se odbijajo od sten. Igralec lahko zgradi nove zidove in tako zmanjša velikost aktivnega polja. Cilj igre je zapolniti vsaj 75% polja in napredovati na naslednjo stopnjo.</p>
     <p xml:lang="sv">Kstuds är ett arkadspel för en ensam spelare med inslag av problemlösning. Det spelas på ett fält, som omges av väggar, med två eller flera bollar som rör sig över fältet och studsar mot väggarna. Spelaren kan bygga nya väggar, vilket minskar det aktiva fältets storlek. Spelets mål är att fylla minst 75 % av fältet och gå vidare till nästa nivå.</p>
+    <p xml:lang="tr">KBounce, yapboz ögelerine sahip tek kişilik bir eğlence salonu oyunudur. Duvarla çevrili bir alanda, iki veya daha çok topun alan duvarlarına çarptığı bir alanda oynanır. Oyuncu, yeni duvarlar yapabilir ve etkin alanın boyutunu azaltabilir. Oyunun amacı, alanın en az yüzde 75'ini doldurmak ve bir sonraki düzeye geçmektir.</p>
     <p xml:lang="uk">KBounce — аркадна гра із елементами головоломки для одного гравця. Гра відбувається на полі, яке обмежено стінками. Полем рухаються і відбиваються від стін дві або декілька кульок. Гравець може будувати нові стіни, зменшуючи розмір доступного для кульок простору. Метою гри є перекрити принаймні 75% площі ігрового поля для переходу на наступний рівень.</p>
     <p xml:lang="x-test">xxKBounce is a single player arcade game with the elements of puzzle. It is played on a field, surrounded by wall, with two or more balls that move about in the field bouncing off of walls. The player can build new walls, decreasing the size of active field. The goal of the game is to fill at least 75% of the field and advance to the next level.xx</p>
     <p xml:lang="zh-CN">KBounce 是一个带有解谜成分的单人街机游戏。一般在一个由墙环绕的场地中进行游戏，其中有两个会在场地中四处移动并且会在墙壁上反弹的球。玩家可以建造新墙来缩小有效场地的面积。游戏目标为填满场地的75%来前进到下一关。</p>
@@ -127,6 +130,7 @@
       <caption xml:lang="sk">Hranie KBounce</caption>
       <caption xml:lang="sl">Igra KBounce</caption>
       <caption xml:lang="sv">Spela Kstuds</caption>
+      <caption xml:lang="tr">KBounce Oynarken</caption>
       <caption xml:lang="uk">Гра у KBounce</caption>
       <caption xml:lang="x-test">xxPlaying KBouncexx</caption>
       <caption xml:lang="zh-CN">游玩 KBounce</caption>
