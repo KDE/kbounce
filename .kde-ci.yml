@@ -17,3 +17,5 @@ Dependencies:
     'frameworks/kxmlgui': '@stable'
     'frameworks/kio': '@stable'
     'frameworks/kdoctools': '@stable'
+Options:
+  require-passing-tests-on: [ 'Linux', 'FreeBSD']
