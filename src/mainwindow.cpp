@@ -10,13 +10,15 @@
 #include "debug.h"
 
 #include <KStandardGameAction>
+#include <KScoreDialog>
+#include <KgThemeSelector>
+#include <KgDifficulty>
+
+#include <KStandardGuiItem>
 #include <KToggleAction>
 #include <KActionCollection>
 #include <KConfigDialog>
 #include <KMessageBox>
-#include <KScoreDialog>
-#include <KgThemeSelector>
-#include <KgDifficulty>
 #include <KLocalizedString>
 
 #include <QStatusBar>
@@ -123,7 +125,10 @@ void KBounceMainWindow::closeGame()
     KBounceGameWidget::State old_state = m_gameWidget->state();
     if ( old_state == KBounceGameWidget::Running )
         m_gameWidget->setPaused( true );
-    int ret = KMessageBox::questionYesNo( this, i18n( "Do you really want to close the running game?" ), QString(),  KStandardGuiItem::yes(), KStandardGuiItem::cancel() );
+    int ret = KMessageBox::questionYesNo(this, i18n("Are you sure you want to quit the current game?"),
+                                         QString(),
+                                         KGuiItem(i18nc("@action;button", "Quit Game"), QStringLiteral("window-close")),
+                                         KStandardGuiItem::cancel() );
     if ( ret == KMessageBox::Yes )
     {
         m_gameWidget->closeGame();
