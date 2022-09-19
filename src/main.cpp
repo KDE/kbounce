@@ -40,7 +40,7 @@ int main(int argc, char **argv)
             KAboutLicense::GPL,
             i18n("(c) 2000-2005, Stefan Schimanski\n(c) 2007, Tomasz Boczkowski"),
             QString(),
-            QStringLiteral("https://kde.org/applications/games/org.kde.kbounce"));
+            QStringLiteral("https://apps.kde.org/kbounce"));
 
     aboutData.addAuthor(i18n("Stefan Schimanski"),
             i18n("Original author"),

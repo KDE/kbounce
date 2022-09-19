@@ -101,7 +101,7 @@
     <p xml:lang="zh-CN">KBounce 是一个带有解谜成分的单人街机游戏。一般在一个由墙环绕的场地中进行游戏，其中有两个会在场地中四处移动并且会在墙壁上反弹的球。玩家可以建造新墙来缩小有效场地的面积。游戏目标为填满场地的75%来前进到下一关。</p>
     <p xml:lang="zh-TW">KBounce 是一款具有謎題元素的單人街機遊戲。它是在一個被牆壁包圍的場地進行，有兩個或兩個以上的球在牆壁間反彈。玩家可以建造新的牆來減少活動場地大小。遊戲目標是佔領至少75%的場地，然後進到下一個等級。</p>
   </description>
-  <url type="homepage">https://kde.org/applications/games/org.kde.kbounce</url>
+  <url type="homepage">https://apps.kde.org/kbounce</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=kbounce</url>
   <url type="help">https://docs.kde.org/?application=kbounce</url>
   <url type="donation">https://www.kde.org/community/donations/?app=kbounce&amp;source=appdata</url>
