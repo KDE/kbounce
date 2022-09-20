@@ -143,6 +143,10 @@
   </screenshots>
   <project_group>KDE</project_group>
   <content_rating type="oars-1.1"/>
+  <launchable type="desktop-id">org.kde.kbounce.desktop</launchable>
+  <provides>
+    <binary>kbounce</binary>
+  </provides>
   <releases>
     <release version="22.08.1" date="2022-09-08"/>
     <release version="22.08.0" date="2022-08-18"/>
