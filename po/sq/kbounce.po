@@ -1,0 +1,262 @@
+# Albanian translation for kdegames
+# Copyright (c) 2009 Rosetta Contributors and Canonical Ltd 2009
+# This file is distributed under the same license as the kdegames package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2009.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kdegames\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-07-08 00:43+0000\n"
+"PO-Revision-Date: 2009-07-30 13:24+0000\n"
+"Last-Translator: Vilson Gjeci <vilsongjeci@gmail.com>\n"
+"Language-Team: Albanian <sq@li.org>\n"
+"Language: sq\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2011-04-22 04:11+0000\n"
+"X-Generator: Launchpad (build 12883)\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "KDE Shqip, Launchpad Contributions: Vilson Gjeci"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "kde-shqip@yahoogroups.com,vilsongjeci@gmail.com"
+
+#: backgroundselector.cpp:98
+#, kde-format
+msgid "No background pictures found."
+msgstr ""
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, KBounceBackgroundSelector)
+#: backgroundselector.ui:14
+#, kde-format
+msgid "kbouncebackgroundselector"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_UseRandomBackgroundPictures)
+#: backgroundselector.ui:24
+#, kde-format
+msgid "Enable random pictures as background"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, backgoundPicturePathLabel)
+#: backgroundselector.ui:54
+#, kde-format
+msgid "Choose picture path:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: backgroundselector.ui:75
+#, kde-format
+msgid "Preview"
+msgstr ""
+
+#: gamewidget.cpp:396
+#, kde-format
+msgid ""
+"Welcome to KBounce.\n"
+" Click to start a game"
+msgstr ""
+"Mirëseerdhët në KBounce.\n"
+" Klikoni për të nisur lojën"
+
+#: gamewidget.cpp:399
+#, kde-format
+msgid ""
+"Paused\n"
+" Click to resume"
+msgstr ""
+
+#: gamewidget.cpp:402
+#, kde-format
+msgid "You have successfully cleared more than %1% of the board\n"
+msgstr "Ju keni pastruar me sukses më tepër se %1% të fushës\n"
+
+#: gamewidget.cpp:403
+#, kde-format
+msgid "%1 points: %2 points per remaining life\n"
+msgstr "%1 pikë: %2 pikë për jetët që ngelen\n"
+
+#: gamewidget.cpp:404
+#, kde-format
+msgid "%1 points: Bonus\n"
+msgstr "%1 pikë: Bonus\n"
+
+#: gamewidget.cpp:405
+#, kde-format
+msgid "%1 points: Total score for this level\n"
+msgstr "%1 pikë. Pikët totale për këtë nivel\n"
+
+#: gamewidget.cpp:406
+#, kde-format
+msgid "On to level %1. Remember you get %2 lives this time!"
+msgstr "Për tek niveli %1. Mbani mend që ju merrni %2 jetë kësaj radhe!"
+
+#: gamewidget.cpp:409
+#, kde-format
+msgid ""
+"Game over.\n"
+" Click to start a game"
+msgstr ""
+"Loja përfundoi\n"
+" Kliko për të nisur një lojë"
+
+#. i18n: ectx: label, entry (PlaySounds), group (Sound)
+#: kbounce.kcfg:16
+#, kde-format
+msgid "Whether game sounds are played."
+msgstr "Nëse duhet të luhen zërat e lojës."
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kbounceui.rc:17
+#, kde-format
+msgid "Main Toolbar"
+msgstr "Shiriti Kryesor"
+
+#: main.cpp:37
+#, kde-format
+msgid "KBounce"
+msgstr "KBounce"
+
+#: main.cpp:39
+#, fuzzy, kde-format
+#| msgid "KDE Bounce Ball Game"
+msgid "Bounce Ball Game"
+msgstr "Loja KDE Bounce Ball"
+
+#: main.cpp:41
+#, kde-format
+msgid ""
+"(c) 2000-2005, Stefan Schimanski\n"
+"(c) 2007, Tomasz Boczkowski"
+msgstr ""
+
+#: main.cpp:45
+#, kde-format
+msgid "Stefan Schimanski"
+msgstr "Stefan Schimanski"
+
+#: main.cpp:46
+#, kde-format
+msgid "Original author"
+msgstr "Autori origjinal"
+
+#: main.cpp:49
+#, kde-format
+msgid "Sandro Sigala"
+msgstr "Sandro Sigala"
+
+#: main.cpp:50
+#, kde-format
+msgid "Highscore"
+msgstr "Pikët më të larta"
+
+#: main.cpp:53
+#, kde-format
+msgid "Benjamin Meyer"
+msgstr "Benjamin Meyer"
+
+#: main.cpp:54
+#, kde-format
+msgid "Contributions"
+msgstr "Kontributet"
+
+#: main.cpp:57
+#, kde-format
+msgid "Tomasz Boczkowski"
+msgstr "Tomasz Boczkowski"
+
+#: main.cpp:58
+#, kde-format
+msgid "Port to KDE4. Current maintainer"
+msgstr "Porti për KDE4. Mirëmbajtësi i tanishëm"
+
+#: main.cpp:61
+#, kde-format
+msgid "Dmitry Suzdalev"
+msgstr "Dmitry Suzdalev"
+
+#: main.cpp:62
+#, kde-format
+msgid "Port to QGraphicsView framework"
+msgstr "Porti për QGraphicsView framework"
+
+#: main.cpp:65
+#, kde-format
+msgid "Andreas Scherf"
+msgstr ""
+
+#: main.cpp:66
+#, kde-format
+msgid "Image Background and Fixes"
+msgstr ""
+
+#: mainwindow.cpp:32 mainwindow.cpp:205
+#, kde-format
+msgid "Level: %1"
+msgstr "Niveli: %1"
+
+#: mainwindow.cpp:33 mainwindow.cpp:210
+#, kde-format
+msgid "Score: %1"
+msgstr "Pikët: %1"
+
+#: mainwindow.cpp:34 mainwindow.cpp:215
+#, kde-format
+msgid "Filled: %1%"
+msgstr "Mbushur: %1%"
+
+#: mainwindow.cpp:35 mainwindow.cpp:220
+#, kde-format
+msgid "Lives: %1"
+msgstr "Jetët: %1"
+
+#: mainwindow.cpp:36 mainwindow.cpp:225
+#, kde-format
+msgid "Time: %1"
+msgstr "Koha: %1"
+
+#: mainwindow.cpp:89
+#, kde-format
+msgid "&Play Sounds"
+msgstr "&Luaj Zërat"
+
+#: mainwindow.cpp:128
+#, fuzzy, kde-format
+#| msgid "Do you really want to close the running game?"
+msgid "Are you sure you want to quit the current game?"
+msgstr "Dëshironi me të vërtetë ta mbyllni lojën e nisur?"
+
+#: mainwindow.cpp:130
+#, kde-format
+msgctxt "@action;button"
+msgid "Quit Game"
+msgstr ""
+
+#: mainwindow.cpp:144 mainwindow.cpp:247
+#, kde-format
+msgid "Game over. Click to start a game"
+msgstr ""
+
+#: mainwindow.cpp:179
+#, kde-format
+msgid "Theme"
+msgstr "Tema"
+
+#: mainwindow.cpp:180
+#, kde-format
+msgid "Background"
+msgstr ""
+
+#~ msgid "Paused"
+#~ msgstr "Në Pauzë"
+
+#~ msgid "The graphical theme to be used."
+#~ msgstr "Tema grafike që do të përdoret."

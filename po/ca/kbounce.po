@@ -1,0 +1,263 @@
+# Translation of kbounce.po to Catalan
+# Copyright (C) 2002-2022 This_file_is_part_of_KDE
+#
+# Àlex Corretgé i Bergua <alex@domini.net>, 2002.
+# Albert Astals Cid <aacid@kde.org>, 2003, 2004, 2005, 2007, 2008.
+# Josep M. Ferrer <txemaq@gmail.com>, 2004, 2008, 2010, 2013, 2019, 2020, 2022.
+# Aleix Pol <aleixpol@gmail.com>, 2007.
+# Manuel Tortosa Moreno <manutortosa@gmail.com>, 2009, 2010.
+# Manuel Tortosa <manutortosa@chakra-project.org>, 2010.
+# Antoni Bella Pérez <antonibella5@yahoo.com>, 2020, 2021.
+msgid ""
+msgstr ""
+"Project-Id-Version: kbounce\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-07-08 00:43+0000\n"
+"PO-Revision-Date: 2022-07-08 11:55+0200\n"
+"Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
+"Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
+"Language: ca\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 20.12.0\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Accelerator-Marker: &\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Àlex Corretgé i Bergua, Aleix Pol,Manuel Tortosa Moreno"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "alex@domini.net,aleixpol@gmail.com,manutortosa@gmail.com"
+
+#: backgroundselector.cpp:98
+#, kde-format
+msgid "No background pictures found."
+msgstr "No s'ha trobat cap imatge de fons."
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, KBounceBackgroundSelector)
+#: backgroundselector.ui:14
+#, kde-format
+msgid "kbouncebackgroundselector"
+msgstr "kbouncebackgroundselector"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_UseRandomBackgroundPictures)
+#: backgroundselector.ui:24
+#, kde-format
+msgid "Enable random pictures as background"
+msgstr "Habilita imatges aleatòries com a fons"
+
+#. i18n: ectx: property (text), widget (QLabel, backgoundPicturePathLabel)
+#: backgroundselector.ui:54
+#, kde-format
+msgid "Choose picture path:"
+msgstr "Selecciona el camí de les imatges:"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: backgroundselector.ui:75
+#, kde-format
+msgid "Preview"
+msgstr "Vista prèvia"
+
+#: gamewidget.cpp:396
+#, kde-format
+msgid ""
+"Welcome to KBounce.\n"
+" Click to start a game"
+msgstr ""
+"Et donem la benvinguda al KBounce.\n"
+" Cliqueu per a començar una partida"
+
+#: gamewidget.cpp:399
+#, kde-format
+msgid ""
+"Paused\n"
+" Click to resume"
+msgstr ""
+"En pausa\n"
+" Cliqueu per a reprendre"
+
+#: gamewidget.cpp:402
+#, kde-format
+msgid "You have successfully cleared more than %1% of the board\n"
+msgstr "Has netejat més del %1% del tauler amb èxit\n"
+
+#: gamewidget.cpp:403
+#, kde-format
+msgid "%1 points: %2 points per remaining life\n"
+msgstr "%1 punts: %2 punts per vida conservada\n"
+
+#: gamewidget.cpp:404
+#, kde-format
+msgid "%1 points: Bonus\n"
+msgstr "%1 punts: Bons\n"
+
+#: gamewidget.cpp:405
+#, kde-format
+msgid "%1 points: Total score for this level\n"
+msgstr "%1 punts: Puntuació total per a aquest nivell\n"
+
+#: gamewidget.cpp:406
+#, kde-format
+msgid "On to level %1. Remember you get %2 lives this time!"
+msgstr "Cap al nivell %1. Recorda que tens %2 vides!"
+
+#: gamewidget.cpp:409
+#, kde-format
+msgid ""
+"Game over.\n"
+" Click to start a game"
+msgstr ""
+"Final de la partida.\n"
+" Cliqueu per a començar una partida"
+
+#. i18n: ectx: label, entry (PlaySounds), group (Sound)
+#: kbounce.kcfg:16
+#, kde-format
+msgid "Whether game sounds are played."
+msgstr "Si es reprodueixen els sons del joc."
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kbounceui.rc:17
+#, kde-format
+msgid "Main Toolbar"
+msgstr "Barra d'eines principal"
+
+#: main.cpp:37
+#, kde-format
+msgid "KBounce"
+msgstr "KBounce"
+
+#: main.cpp:39
+#, kde-format
+msgid "Bounce Ball Game"
+msgstr "Un joc de boles que reboten"
+
+#: main.cpp:41
+#, kde-format
+msgid ""
+"(c) 2000-2005, Stefan Schimanski\n"
+"(c) 2007, Tomasz Boczkowski"
+msgstr ""
+"(c) 2000-2005, Stefan Schimanski\n"
+"(c) 2007, Tomasz Boczkowski"
+
+#: main.cpp:45
+#, kde-format
+msgid "Stefan Schimanski"
+msgstr "Stefan Schimanski"
+
+#: main.cpp:46
+#, kde-format
+msgid "Original author"
+msgstr "Autor original"
+
+#: main.cpp:49
+#, kde-format
+msgid "Sandro Sigala"
+msgstr "Sandro Sigala"
+
+#: main.cpp:50
+#, kde-format
+msgid "Highscore"
+msgstr "Puntuacions màximes"
+
+#: main.cpp:53
+#, kde-format
+msgid "Benjamin Meyer"
+msgstr "Benjamin Meyer"
+
+#: main.cpp:54
+#, kde-format
+msgid "Contributions"
+msgstr "Col·laboracions"
+
+#: main.cpp:57
+#, kde-format
+msgid "Tomasz Boczkowski"
+msgstr "Tomasz Boczkowski"
+
+#: main.cpp:58
+#, kde-format
+msgid "Port to KDE4. Current maintainer"
+msgstr "Adaptació al KDE 4. Mantenidor actual"
+
+#: main.cpp:61
+#, kde-format
+msgid "Dmitry Suzdalev"
+msgstr "Dmitry Suzdalev"
+
+#: main.cpp:62
+#, kde-format
+msgid "Port to QGraphicsView framework"
+msgstr "Adaptació al marc de treball QGraphicsView."
+
+#: main.cpp:65
+#, kde-format
+msgid "Andreas Scherf"
+msgstr "Andreas Scherf"
+
+#: main.cpp:66
+#, kde-format
+msgid "Image Background and Fixes"
+msgstr "Imatge de fons i esmenes"
+
+#: mainwindow.cpp:32 mainwindow.cpp:205
+#, kde-format
+msgid "Level: %1"
+msgstr "Nivell: %1"
+
+#: mainwindow.cpp:33 mainwindow.cpp:210
+#, kde-format
+msgid "Score: %1"
+msgstr "Puntuació: %1"
+
+#: mainwindow.cpp:34 mainwindow.cpp:215
+#, kde-format
+msgid "Filled: %1%"
+msgstr "Àrea ocupada: %1%"
+
+#: mainwindow.cpp:35 mainwindow.cpp:220
+#, kde-format
+msgid "Lives: %1"
+msgstr "Vides: %1"
+
+#: mainwindow.cpp:36 mainwindow.cpp:225
+#, kde-format
+msgid "Time: %1"
+msgstr "Temps: %1"
+
+#: mainwindow.cpp:89
+#, kde-format
+msgid "&Play Sounds"
+msgstr "Reprodueix els &sons"
+
+#: mainwindow.cpp:128
+#, kde-format
+msgid "Are you sure you want to quit the current game?"
+msgstr "Segur que vols sortir de la partida actual?"
+
+#: mainwindow.cpp:130
+#, kde-format
+msgctxt "@action;button"
+msgid "Quit Game"
+msgstr "Surt de la partida"
+
+#: mainwindow.cpp:144 mainwindow.cpp:247
+#, kde-format
+msgid "Game over. Click to start a game"
+msgstr "Final de la partida. Cliqueu per a començar una partida"
+
+#: mainwindow.cpp:179
+#, kde-format
+msgid "Theme"
+msgstr "Tema"
+
+#: mainwindow.cpp:180
+#, kde-format
+msgid "Background"
+msgstr "Fons"

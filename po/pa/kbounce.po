@@ -1,0 +1,299 @@
+# translation of kbounce.po to Punjabi
+#
+# Amanpreet Singh Brar <aalam@redhat.com>, 2005.
+# A S Alam <aalam@users.sf.net>, 2007.
+msgid ""
+msgstr ""
+"Project-Id-Version: kbounce\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-07-08 00:43+0000\n"
+"PO-Revision-Date: 2007-08-05 21:30+0530\n"
+"Last-Translator: A S Alam <aalam@users.sf.net>\n"
+"Language-Team: Punjabi <punjabi-l10n@lists.sf.net>\n"
+"Language: pa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "ਅਮਨਪਰੀਤ ਸਿੰਘ ਆਲਮ"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "aalam@users.sf.net"
+
+#: backgroundselector.cpp:98
+#, kde-format
+msgid "No background pictures found."
+msgstr ""
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, KBounceBackgroundSelector)
+#: backgroundselector.ui:14
+#, kde-format
+msgid "kbouncebackgroundselector"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_UseRandomBackgroundPictures)
+#: backgroundselector.ui:24
+#, kde-format
+msgid "Enable random pictures as background"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, backgoundPicturePathLabel)
+#: backgroundselector.ui:54
+#, kde-format
+msgid "Choose picture path:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: backgroundselector.ui:75
+#, kde-format
+msgid "Preview"
+msgstr ""
+
+#: gamewidget.cpp:396
+#, fuzzy, kde-format
+#| msgid ""
+#| "Welcome to KBounce.\n"
+#| " Press Ctrl+N or space to start a game"
+msgid ""
+"Welcome to KBounce.\n"
+" Click to start a game"
+msgstr ""
+"ਕੇ-ਬਾਊਂਸ ਵਲੋਂ ਜੀ ਆਇਆਂ ਨੂੰ।\n"
+" ਖੇਡ ਸ਼ੁਰੂ ਕਰਨ ਲਈ Ctrl+N ਜਾਂ ਸਪੇਸ ਦੱਬੋ"
+
+#: gamewidget.cpp:399
+#, kde-format
+msgid ""
+"Paused\n"
+" Click to resume"
+msgstr ""
+
+#: gamewidget.cpp:402
+#, kde-format
+msgid "You have successfully cleared more than %1% of the board\n"
+msgstr "ਤੁਸੀਂ ਸਫ਼ਲਤਾਪੂਰਕ %1% ਬੋਰਡ ਸਾਫ਼ ਕਰ ਦਿੱਤਾ ਹੈ\n"
+
+#: gamewidget.cpp:403
+#, kde-format
+msgid "%1 points: %2 points per remaining life\n"
+msgstr "%1 ਅੰਕ ਹਨ:  ਅ%2ੰਕ ਪ੍ਰਤੀ ਬਾਕੀ ਜਿੰਦਗੀ\n"
+
+#: gamewidget.cpp:404
+#, kde-format
+msgid "%1 points: Bonus\n"
+msgstr "%1 ਅੰਕ ਹਨ: ਬੋਨਸ\n"
+
+#: gamewidget.cpp:405
+#, kde-format
+msgid "%1 points: Total score for this level\n"
+msgstr "%1 ਅੰਕ ਹਨ। ਇਸ ਪੱਧਰ ਦਾ ਇਹ ਕੁੱਲ ਸਕੋਰ ਹੈ\n"
+
+#: gamewidget.cpp:406
+#, kde-format
+msgid "On to level %1. Remember you get %2 lives this time!"
+msgstr "%1 ਪੱਧਰ ਉੱਤੇ। ਯਾਦ ਰੱਖੋ ਕਿ ਇਸ ਸਮੇਂ ਤੁਹਾਡੇ ਕੋਲ %2 ਜਿੰਦਗੀਆਂ ਬਾਕੀ ਹਨ!"
+
+#: gamewidget.cpp:409
+#, fuzzy, kde-format
+#| msgid ""
+#| "Welcome to KBounce.\n"
+#| " Press Ctrl+N or space to start a game"
+msgid ""
+"Game over.\n"
+" Click to start a game"
+msgstr ""
+"ਕੇ-ਬਾਊਂਸ ਵਲੋਂ ਜੀ ਆਇਆਂ ਨੂੰ।\n"
+" ਖੇਡ ਸ਼ੁਰੂ ਕਰਨ ਲਈ Ctrl+N ਜਾਂ ਸਪੇਸ ਦੱਬੋ"
+
+#. i18n: ectx: label, entry (PlaySounds), group (Sound)
+#: kbounce.kcfg:16
+#, kde-format
+msgid "Whether game sounds are played."
+msgstr ""
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kbounceui.rc:17
+#, kde-format
+msgid "Main Toolbar"
+msgstr "ਮੁੱਖ ਸੰਦਪੱਟੀ"
+
+#: main.cpp:37
+#, kde-format
+msgid "KBounce"
+msgstr "KBounce"
+
+#: main.cpp:39
+#, fuzzy, kde-format
+#| msgid "KDE Bounce Ball Game"
+msgid "Bounce Ball Game"
+msgstr "KDE ਕੁੱਦਦੀ ਗੇਂਦ ਖੇਡ"
+
+#: main.cpp:41
+#, kde-format
+msgid ""
+"(c) 2000-2005, Stefan Schimanski\n"
+"(c) 2007, Tomasz Boczkowski"
+msgstr ""
+
+#: main.cpp:45
+#, kde-format
+msgid "Stefan Schimanski"
+msgstr ""
+
+#: main.cpp:46
+#, kde-format
+msgid "Original author"
+msgstr "ਅਸਲੀ ਲੇਖਕ"
+
+#: main.cpp:49
+#, kde-format
+msgid "Sandro Sigala"
+msgstr ""
+
+#: main.cpp:50
+#, kde-format
+msgid "Highscore"
+msgstr "ਉੱਚ ਸਕੋਰ"
+
+#: main.cpp:53
+#, kde-format
+msgid "Benjamin Meyer"
+msgstr ""
+
+#: main.cpp:54
+#, kde-format
+msgid "Contributions"
+msgstr "ਯੋਗਦਾਨ"
+
+#: main.cpp:57
+#, kde-format
+msgid "Tomasz Boczkowski"
+msgstr ""
+
+#: main.cpp:58
+#, kde-format
+msgid "Port to KDE4. Current maintainer"
+msgstr ""
+
+#: main.cpp:61
+#, kde-format
+msgid "Dmitry Suzdalev"
+msgstr ""
+
+#: main.cpp:62
+#, kde-format
+msgid "Port to QGraphicsView framework"
+msgstr "QGraphicsView ਫਰੇਮਵਰਕ ਲਈ ਪੋਰਟ ਕੀਤਾ"
+
+#: main.cpp:65
+#, kde-format
+msgid "Andreas Scherf"
+msgstr ""
+
+#: main.cpp:66
+#, kde-format
+msgid "Image Background and Fixes"
+msgstr ""
+
+#: mainwindow.cpp:32 mainwindow.cpp:205
+#, kde-format
+msgid "Level: %1"
+msgstr "ਪੱਧਰ: %1"
+
+#: mainwindow.cpp:33 mainwindow.cpp:210
+#, kde-format
+msgid "Score: %1"
+msgstr "ਸਕੋਰ: %1"
+
+#: mainwindow.cpp:34 mainwindow.cpp:215
+#, kde-format
+msgid "Filled: %1%"
+msgstr "ਭਰੇ: %1%"
+
+#: mainwindow.cpp:35 mainwindow.cpp:220
+#, kde-format
+msgid "Lives: %1"
+msgstr "ਜ਼ਿੰਦਗੀਆਂ: %1"
+
+#: mainwindow.cpp:36 mainwindow.cpp:225
+#, kde-format
+msgid "Time: %1"
+msgstr "ਸਮਾਂ: %1"
+
+#: mainwindow.cpp:89
+#, kde-format
+msgid "&Play Sounds"
+msgstr "ਧੁਨੀ ਚਲਾਓ(&P)"
+
+#: mainwindow.cpp:128
+#, fuzzy, kde-format
+#| msgid "Do you really want to close the running game?"
+msgid "Are you sure you want to quit the current game?"
+msgstr "ਕੀ ਤੁਸੀਂ ਚੱਲ ਰਹੀ ਖੇਡ ਨੂੰ ਬੰਦ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ?"
+
+#: mainwindow.cpp:130
+#, kde-format
+msgctxt "@action;button"
+msgid "Quit Game"
+msgstr ""
+
+#: mainwindow.cpp:144 mainwindow.cpp:247
+#, fuzzy, kde-format
+#| msgid ""
+#| "Welcome to KBounce.\n"
+#| " Press Ctrl+N or space to start a game"
+msgid "Game over. Click to start a game"
+msgstr ""
+"ਕੇ-ਬਾਊਂਸ ਵਲੋਂ ਜੀ ਆਇਆਂ ਨੂੰ।\n"
+" ਖੇਡ ਸ਼ੁਰੂ ਕਰਨ ਲਈ Ctrl+N ਜਾਂ ਸਪੇਸ ਦੱਬੋ"
+
+#: mainwindow.cpp:179
+#, kde-format
+msgid "Theme"
+msgstr ""
+
+#: mainwindow.cpp:180
+#, kde-format
+msgid "Background"
+msgstr ""
+
+#~ msgid "Paused"
+#~ msgstr "ਵਿਰਾਮ ਕੀਤੀ"
+
+#~ msgid "Game over. Press <Space> for a new game"
+#~ msgstr "ਖੇਡ ਖਤਮ ਹੋਈ। ਨਵੀਂ ਖੇਡ ਸ਼ੁਰੂ ਕਰਨ ਲਈ <Space> ਦਬਾਓ"
+
+#~ msgid "Game over."
+#~ msgstr "ਖੇਡ ਖਤਮ ਹੋਈ।"
+
+#, fuzzy
+#~| msgid "Level: %1"
+#~ msgid "Level: XX"
+#~ msgstr "ਪੱਧਰ: %1"
+
+#, fuzzy
+#~| msgid "Score: %1"
+#~ msgid "Score: XXXXXX"
+#~ msgstr "ਸਕੋਰ: %1"
+
+#, fuzzy
+#~| msgid "Filled: %1%"
+#~ msgid "Filled: XX"
+#~ msgstr "ਭਰੇ: %1%"
+
+#, fuzzy
+#~| msgid "Lives: %1"
+#~ msgid "Lives: XX"
+#~ msgstr "ਜ਼ਿੰਦਗੀਆਂ: %1"
+
+#, fuzzy
+#~| msgid "Time: %1"
+#~ msgid "Time: XXX"
+#~ msgstr "ਸਮਾਂ: %1"

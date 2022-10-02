@@ -1,0 +1,299 @@
+# Copyright (C) 2021 Free Software Foundation, Inc.
+#
+# Kishore G <kishore96@gmail.com>, 2021.
+msgid ""
+msgstr ""
+"Project-Id-Version: kbounce\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-07-08 00:43+0000\n"
+"PO-Revision-Date: 2021-01-18 19:17+0530\n"
+"Last-Translator: Kishore G <kishore96@gmail.com>\n"
+"Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
+"Language: ta\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 20.12.1\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "மொழிப்பெயர்பாளரின் பெயர்கள்ி"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "ifelix25@yahoo.co.in"
+
+#: backgroundselector.cpp:98
+#, kde-format
+msgid "No background pictures found."
+msgstr ""
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, KBounceBackgroundSelector)
+#: backgroundselector.ui:14
+#, kde-format
+msgid "kbouncebackgroundselector"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_UseRandomBackgroundPictures)
+#: backgroundselector.ui:24
+#, kde-format
+msgid "Enable random pictures as background"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, backgoundPicturePathLabel)
+#: backgroundselector.ui:54
+#, kde-format
+msgid "Choose picture path:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: backgroundselector.ui:75
+#, kde-format
+msgid "Preview"
+msgstr ""
+
+#: gamewidget.cpp:396
+#, kde-format
+msgid ""
+"Welcome to KBounce.\n"
+" Click to start a game"
+msgstr ""
+
+#: gamewidget.cpp:399
+#, kde-format
+msgid ""
+"Paused\n"
+" Click to resume"
+msgstr ""
+
+#: gamewidget.cpp:402
+#, fuzzy, kde-format
+msgid "You have successfully cleared more than %1% of the board\n"
+msgstr "நீங்கள் வெற்றிகரமாக 75 சதவிகிதம் முடித்துவிட்டீர்கள்\n"
+
+#: gamewidget.cpp:403
+#, fuzzy, kde-format
+msgid "%1 points: %2 points per remaining life\n"
+msgstr "%1 புள்ளிகள்: மீதமுள்ள வாழ்விற்கு 15 புள்ளிகள் \n"
+
+#: gamewidget.cpp:404
+#, kde-format
+msgid "%1 points: Bonus\n"
+msgstr "%1 புள்ளிகள்:அதிகம் \n"
+
+#: gamewidget.cpp:405
+#, kde-format
+msgid "%1 points: Total score for this level\n"
+msgstr "%1 புள்ளிகள்: இந்த நிலைக்கான மொத்த எண்ணிக்கை\n"
+
+#: gamewidget.cpp:406
+#, kde-format
+msgid "On to level %1. Remember you get %2 lives this time!"
+msgstr "%1 நிலைக்கு. இம்முறை உங்களுக்கு %2 உயிர்கள் கிடைக்கும்!"
+
+#: gamewidget.cpp:409
+#, fuzzy, kde-format
+#| msgid "Press %1 to start a game!"
+msgid ""
+"Game over.\n"
+" Click to start a game"
+msgstr "விளையாட்டை துவங்க %1ஐ அழுத்தவும்!"
+
+#. i18n: ectx: label, entry (PlaySounds), group (Sound)
+#: kbounce.kcfg:16
+#, kde-format
+msgid "Whether game sounds are played."
+msgstr ""
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kbounceui.rc:17
+#, kde-format
+msgid "Main Toolbar"
+msgstr "பிரதான கருவிப்பட்டை"
+
+#: main.cpp:37
+#, kde-format
+msgid "KBounce"
+msgstr "Kகுதிப்பு"
+
+#: main.cpp:39
+#, fuzzy, kde-format
+#| msgid "KDE Bounce Ball Game"
+msgid "Bounce Ball Game"
+msgstr "KDE குதிக்கும் பந்து விளையாட்டு"
+
+#: main.cpp:41
+#, kde-format
+msgid ""
+"(c) 2000-2005, Stefan Schimanski\n"
+"(c) 2007, Tomasz Boczkowski"
+msgstr ""
+
+#: main.cpp:45
+#, kde-format
+msgid "Stefan Schimanski"
+msgstr ""
+
+#: main.cpp:46
+#, kde-format
+msgid "Original author"
+msgstr "மூல ஆசிரியர்"
+
+#: main.cpp:49
+#, kde-format
+msgid "Sandro Sigala"
+msgstr ""
+
+#: main.cpp:50
+#, kde-format
+msgid "Highscore"
+msgstr ""
+
+#: main.cpp:53
+#, kde-format
+msgid "Benjamin Meyer"
+msgstr ""
+
+#: main.cpp:54
+#, kde-format
+msgid "Contributions"
+msgstr "பங்களிப்பு"
+
+#: main.cpp:57
+#, kde-format
+msgid "Tomasz Boczkowski"
+msgstr ""
+
+#: main.cpp:58
+#, kde-format
+msgid "Port to KDE4. Current maintainer"
+msgstr ""
+
+#: main.cpp:61
+#, kde-format
+msgid "Dmitry Suzdalev"
+msgstr ""
+
+#: main.cpp:62
+#, kde-format
+msgid "Port to QGraphicsView framework"
+msgstr ""
+
+#: main.cpp:65
+#, kde-format
+msgid "Andreas Scherf"
+msgstr ""
+
+#: main.cpp:66
+#, fuzzy, kde-format
+#| msgid "Select Background Image Folder"
+msgid "Image Background and Fixes"
+msgstr "பின்னணி பட அடைவை தேர்வு செய்"
+
+#: mainwindow.cpp:32 mainwindow.cpp:205
+#, fuzzy, kde-format
+msgid "Level: %1"
+msgstr "நிலை:"
+
+#: mainwindow.cpp:33 mainwindow.cpp:210
+#, fuzzy, kde-format
+msgid "Score: %1"
+msgstr "புள்ளிகள்:"
+
+#: mainwindow.cpp:34 mainwindow.cpp:215
+#, fuzzy, kde-format
+msgid "Filled: %1%"
+msgstr "நிரப்பப்பட்ட பகுதி:"
+
+#: mainwindow.cpp:35 mainwindow.cpp:220
+#, fuzzy, kde-format
+msgid "Lives: %1"
+msgstr "வாழ்வுகள்:"
+
+#: mainwindow.cpp:36 mainwindow.cpp:225
+#, fuzzy, kde-format
+msgid "Time: %1"
+msgstr "நேரம்:"
+
+#: mainwindow.cpp:89
+#, kde-format
+msgid "&Play Sounds"
+msgstr "&ஒலிகளை இசை"
+
+#: mainwindow.cpp:128
+#, fuzzy, kde-format
+#| msgid "Do you really want to close the running game?"
+msgid "Are you sure you want to quit the current game?"
+msgstr "இயங்கிக்கொண்டிருக்கும் விளையாட்டை நீங்கள் உண்மையாகவே நிறுத்த விரும்புகிறீரா?  "
+
+#: mainwindow.cpp:130
+#, kde-format
+msgctxt "@action;button"
+msgid "Quit Game"
+msgstr ""
+
+#: mainwindow.cpp:144 mainwindow.cpp:247
+#, fuzzy, kde-format
+#| msgid "Press %1 to start a game!"
+msgid "Game over. Click to start a game"
+msgstr "விளையாட்டை துவங்க %1ஐ அழுத்தவும்!"
+
+#: mainwindow.cpp:179
+#, kde-format
+msgid "Theme"
+msgstr ""
+
+#: mainwindow.cpp:180
+#, fuzzy, kde-format
+#| msgid "Show &Backgrounds"
+msgid "Background"
+msgstr "&பின்னணிகளை காட்டு"
+
+#~ msgid "Game over. Press <Space> for a new game"
+#~ msgstr "விளையாட்டு முடிந்தது!<இடைவெளி>புதிய விளையாட்டிற்காக அழுத்தவும்"
+
+#, fuzzy
+#~ msgid "Game over."
+#~ msgstr "விளையாட்டு தற்காலிகமாக நிறுத்தி வைக்கப்பட்டுள்ளது."
+
+#, fuzzy
+#~ msgid "Level: XX"
+#~ msgstr "நிலை:"
+
+#, fuzzy
+#~ msgid "Score: XXXXXX"
+#~ msgstr "புள்ளிகள்:"
+
+#, fuzzy
+#~ msgid "Filled: XX"
+#~ msgstr "நிரப்பப்பட்ட பகுதி:"
+
+#, fuzzy
+#~ msgid "Lives: XX"
+#~ msgstr "வாழ்வுகள்:"
+
+#, fuzzy
+#~ msgid "Time: XXX"
+#~ msgstr "நேரம்:"
+
+#, fuzzy
+#~ msgid "Level"
+#~ msgstr "நிலை:"
+
+#~ msgid "&Select Background Folder..."
+#~ msgstr "ஆவண பின்னணியை தேர்வு செய்..."
+
+#~ msgid "Hide &Backgrounds"
+#~ msgstr "&பின்னணிகளை மறை"
+
+#~ msgid "Game Over! Score: %1"
+#~ msgstr "விளையாட்டு முடிந்தது! புள்ளிகள்:%1"
+
+#~ msgid "You may now turn on background images."
+#~ msgstr "இப்போது நீங்கள் பின்னணி படங்களை செயல்படுத்தலாம்."
+
+#~ msgid "Game suspended"
+#~ msgstr "விளையாட்டு தற்காலிகமாக நிறுத்தி வைக்கப்பட்டுள்ளது"

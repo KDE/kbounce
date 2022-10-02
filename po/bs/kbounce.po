@@ -1,0 +1,265 @@
+# Bosnian translation for kdegames
+# Copyright (c) 2010 Rosetta Contributors and Canonical Ltd 2010
+# This file is distributed under the same license as the kdegames package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kdegames\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-07-08 00:43+0000\n"
+"PO-Revision-Date: 2014-10-20 19:50+0000\n"
+"Last-Translator: Samir Ribić <Unknown>\n"
+"Language-Team: Bosnian <bs@li.org>\n"
+"Language: bs\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Launchpad (build 17341)\n"
+"X-Launchpad-Export-Date: 2015-02-15 05:58+0000\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr ""
+"Miloš Puzović,Slobodan Marković,Časlav Ilić,Slobodan Simic, Amer Zildžić,"
+"Muslimovic Jasmin,Samir Ribić"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr ""
+"M.puzovic@etoncollege.org.uk, twiddle@eunet.yu, caslav.ilic@gmx.nit,"
+"ssimic@sezampro.yu,zildzic@etf.ba,mj@etf.ba,samir.ribic@etf.unsa.ba"
+
+#: backgroundselector.cpp:98
+#, kde-format
+msgid "No background pictures found."
+msgstr "Nisu nađene slike za pozadinu."
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, KBounceBackgroundSelector)
+#: backgroundselector.ui:14
+#, kde-format
+msgid "kbouncebackgroundselector"
+msgstr "kodbojpozadinskiodabirač"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_UseRandomBackgroundPictures)
+#: backgroundselector.ui:24
+#, kde-format
+msgid "Enable random pictures as background"
+msgstr "Omogući nasumične slike kao pozadinu"
+
+#. i18n: ectx: property (text), widget (QLabel, backgoundPicturePathLabel)
+#: backgroundselector.ui:54
+#, kde-format
+msgid "Choose picture path:"
+msgstr "Izaberite putanju slike:"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: backgroundselector.ui:75
+#, kde-format
+msgid "Preview"
+msgstr "Pregled"
+
+#: gamewidget.cpp:396
+#, kde-format
+msgid ""
+"Welcome to KBounce.\n"
+" Click to start a game"
+msgstr ""
+"Dobro došli u K‑odboj.\n"
+"Kliknite za početak igre."
+
+#: gamewidget.cpp:399
+#, kde-format
+msgid ""
+"Paused\n"
+" Click to resume"
+msgstr ""
+"Pauza\n"
+" Kliknite za nastavak"
+
+#: gamewidget.cpp:402
+#, kde-format
+msgid "You have successfully cleared more than %1% of the board\n"
+msgstr "Uspješno ste očistili više od %1% table.\n"
+
+#: gamewidget.cpp:403
+#, kde-format
+msgid "%1 points: %2 points per remaining life\n"
+msgstr "%1 poena: %2 poena po preostalom životu\n"
+
+#: gamewidget.cpp:404
+#, kde-format
+msgid "%1 points: Bonus\n"
+msgstr "%1 poena: Bonus\n"
+
+#: gamewidget.cpp:405
+#, kde-format
+msgid "%1 points: Total score for this level\n"
+msgstr "%1 poena: Ukupan rezultat za ovaj nivo\n"
+
+#: gamewidget.cpp:406
+#, kde-format
+msgid "On to level %1. Remember you get %2 lives this time!"
+msgstr "Sada ide nivo %1. Zapamtite da ovog puta dobijate %2 života!"
+
+#: gamewidget.cpp:409
+#, kde-format
+msgid ""
+"Game over.\n"
+" Click to start a game"
+msgstr ""
+"Kraj igre.\n"
+"Kliknite da započnete novu."
+
+#. i18n: ectx: label, entry (PlaySounds), group (Sound)
+#: kbounce.kcfg:16
+#, kde-format
+msgid "Whether game sounds are played."
+msgstr "Da li će se emitovati zvuk u igri."
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kbounceui.rc:17
+#, kde-format
+msgid "Main Toolbar"
+msgstr "Glavna alatna traka"
+
+#: main.cpp:37
+#, kde-format
+msgid "KBounce"
+msgstr "K‑odboj"
+
+#: main.cpp:39
+#, fuzzy, kde-format
+#| msgid "KDE Bounce Ball Game"
+msgid "Bounce Ball Game"
+msgstr "Igra sa odbijanjem lopte za KDE"
+
+#: main.cpp:41
+#, kde-format
+msgid ""
+"(c) 2000-2005, Stefan Schimanski\n"
+"(c) 2007, Tomasz Boczkowski"
+msgstr ""
+"(c) 2000-2005, Stefan Schimanski\n"
+"(c) 2007, Tomasz Boczkowski"
+
+#: main.cpp:45
+#, kde-format
+msgid "Stefan Schimanski"
+msgstr "Stefan Schimanski"
+
+#: main.cpp:46
+#, kde-format
+msgid "Original author"
+msgstr "Prvobitni autor"
+
+#: main.cpp:49
+#, kde-format
+msgid "Sandro Sigala"
+msgstr "Sandro Sigala"
+
+#: main.cpp:50
+#, kde-format
+msgid "Highscore"
+msgstr "Najbolji rezultat"
+
+#: main.cpp:53
+#, kde-format
+msgid "Benjamin Meyer"
+msgstr "Benjamin Meyer"
+
+#: main.cpp:54
+#, kde-format
+msgid "Contributions"
+msgstr "Prilozi"
+
+#: main.cpp:57
+#, kde-format
+msgid "Tomasz Boczkowski"
+msgstr "Tomasz Boczkowski"
+
+#: main.cpp:58
+#, kde-format
+msgid "Port to KDE4. Current maintainer"
+msgstr "Prenošenje na KDE4, trenutni održavalac"
+
+#: main.cpp:61
+#, kde-format
+msgid "Dmitry Suzdalev"
+msgstr "Dmitry Suzdalev"
+
+#: main.cpp:62
+#, kde-format
+msgid "Port to QGraphicsView framework"
+msgstr "Prenošenje na radni okvir QGraphicsView"
+
+#: main.cpp:65
+#, kde-format
+msgid "Andreas Scherf"
+msgstr "Andreas Scherf"
+
+#: main.cpp:66
+#, kde-format
+msgid "Image Background and Fixes"
+msgstr "Slika pozadine i popravke"
+
+#: mainwindow.cpp:32 mainwindow.cpp:205
+#, kde-format
+msgid "Level: %1"
+msgstr "Nivo: %1"
+
+#: mainwindow.cpp:33 mainwindow.cpp:210
+#, kde-format
+msgid "Score: %1"
+msgstr "Rezultat: %1"
+
+#: mainwindow.cpp:34 mainwindow.cpp:215
+#, kde-format
+msgid "Filled: %1%"
+msgstr "Popunjeno: %1%"
+
+#: mainwindow.cpp:35 mainwindow.cpp:220
+#, kde-format
+msgid "Lives: %1"
+msgstr "Života: %1"
+
+#: mainwindow.cpp:36 mainwindow.cpp:225
+#, kde-format
+msgid "Time: %1"
+msgstr "Vrijeme: %1"
+
+#: mainwindow.cpp:89
+#, kde-format
+msgid "&Play Sounds"
+msgstr "Pusti zvuke"
+
+#: mainwindow.cpp:128
+#, fuzzy, kde-format
+#| msgid "Do you really want to close the running game?"
+msgid "Are you sure you want to quit the current game?"
+msgstr "Želite li zaista želite da zatvorite pokrenutu igru?"
+
+#: mainwindow.cpp:130
+#, kde-format
+msgctxt "@action;button"
+msgid "Quit Game"
+msgstr ""
+
+#: mainwindow.cpp:144 mainwindow.cpp:247
+#, kde-format
+msgid "Game over. Click to start a game"
+msgstr "Kraj igre. Kliknite da započnete novu."
+
+#: mainwindow.cpp:179
+#, kde-format
+msgid "Theme"
+msgstr "Tema"
+
+#: mainwindow.cpp:180
+#, kde-format
+msgid "Background"
+msgstr "Pozadina"

@@ -1,0 +1,266 @@
+# Translation of kbounce.po into Serbian.
+# Milos Puzovic <m.puzovic@etoncollege.org.uk>, 2001.
+# Chusslove Illich <caslav.ilic@gmx.net>, 2003, 2004, 2009, 2010, 2013, 2016.
+# Bojan Bozovic <bole89@infosky.net>, 2003.
+# Slobodan Simic <slsimic@gmail.com>, 2005, 2009, 2010.
+# Dalibor Djuric <dalibor.djuric@mozilla-srbija.org>, 2010.
+msgid ""
+msgstr ""
+"Project-Id-Version: kbounce\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2020-05-10 03:21+0200\n"
+"PO-Revision-Date: 2016-02-27 21:47+0100\n"
+"Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
+"Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
+"Language: sr@latin\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: kde4\n"
+"X-Environment: kde\n"
+"X-Generator: Lokalize 1.0\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Časlav Ilić,Slobodan Simić"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "caslav.ilic@gmx.net,slsimic@gmail.com"
+
+#: backgroundselector.cpp:111
+#, kde-format
+msgid "No background pictures found."
+msgstr "Nisu nađene slike za pozadinu."
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, KBounceBackgroundSelector)
+#: backgroundselector.ui:14
+#, kde-format
+msgid "kbouncebackgroundselector"
+msgstr "kbouncebackgroundselector"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_UseRandomBackgroundPictures)
+#: backgroundselector.ui:24
+#, kde-format
+msgid "Enable random pictures as background"
+msgstr "Uključi nasumične slike kao pozadinu"
+
+#. i18n: ectx: property (text), widget (QLabel, backgoundPicturePathLabel)
+#: backgroundselector.ui:54
+#, kde-format
+msgid "Choose picture path:"
+msgstr "Izaberite putanju slike:"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: backgroundselector.ui:75
+#, kde-format
+msgid "Preview"
+msgstr "Pregled"
+
+#: gamewidget.cpp:409
+#, kde-format
+msgid ""
+"Welcome to KBounce.\n"
+" Click to start a game"
+msgstr ""
+"Dobro došli u K‑odboj.\n"
+"Kliknite za početak igre."
+
+#: gamewidget.cpp:412
+#, kde-format
+msgid ""
+"Paused\n"
+" Click to resume"
+msgstr ""
+"Pauzirano.\n"
+"Kliknite za nastavak."
+
+#: gamewidget.cpp:415
+#, kde-format
+msgid "You have successfully cleared more than %1% of the board\n"
+msgstr "Uspešno ste očistili više od %1% table.\n"
+
+# >! Plurals.
+#: gamewidget.cpp:416
+#, kde-format
+msgid "%1 points: %2 points per remaining life\n"
+msgstr "%1 poena: %2 poena po preostalom životu\n"
+
+# >! Plurals.
+#: gamewidget.cpp:417
+#, kde-format
+msgid "%1 points: Bonus\n"
+msgstr "%1 poena: bonus\n"
+
+# >! Plurals.
+#: gamewidget.cpp:418
+#, kde-format
+msgid "%1 points: Total score for this level\n"
+msgstr "%1 poena: ukupan rezultat za ovaj nivo\n"
+
+# >! Plurals.
+#: gamewidget.cpp:419
+#, kde-format
+msgid "On to level %1. Remember you get %2 lives this time!"
+msgstr "Sledi nivo %1. Zapamtite da ovog puta dobijate %2 života!"
+
+#: gamewidget.cpp:422
+#, kde-format
+msgid ""
+"Game over.\n"
+" Click to start a game"
+msgstr ""
+"Kraj igre.\n"
+"Kliknite da započnete novu."
+
+#. i18n: ectx: label, entry (PlaySounds), group (Sound)
+#: kbounce.kcfg:16
+#, kde-format
+msgid "Whether game sounds are played."
+msgstr "Da li puštati zvukove igri."
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kbounceui.rc:17
+#, kde-format
+msgid "Main Toolbar"
+msgstr "Glavna traka"
+
+#: main.cpp:35
+#, kde-format
+msgid "KDE Bounce Ball Game"
+msgstr "Igra odbijanja lopte za KDE"
+
+#: main.cpp:36
+#, kde-format
+msgid ""
+"(c) 2000-2005, Stefan Schimanski\n"
+"(c) 2007, Tomasz Boczkowski"
+msgstr ""
+"© 2000–2005, Štefan Šimanski\n"
+"© 2007, Tomaš Bočkovski"
+
+#: main.cpp:48
+#, kde-format
+msgid "KBounce"
+msgstr "K‑odboj"
+
+#: main.cpp:53
+#, kde-format
+msgid "Stefan Schimanski"
+msgstr "Štefan Šimanski"
+
+#: main.cpp:54
+#, kde-format
+msgid "Original author"
+msgstr "Prvobitni autor"
+
+#: main.cpp:57
+#, kde-format
+msgid "Sandro Sigala"
+msgstr "Sandro Sigala"
+
+#: main.cpp:58
+#, kde-format
+msgid "Highscore"
+msgstr "Najrezultat"
+
+#: main.cpp:61
+#, kde-format
+msgid "Benjamin Meyer"
+msgstr "Bendžamin K. Mejer"
+
+#: main.cpp:62
+#, kde-format
+msgid "Contributions"
+msgstr "Doprinosi"
+
+#: main.cpp:65
+#, kde-format
+msgid "Tomasz Boczkowski"
+msgstr "Tomaš Bočkovski"
+
+#: main.cpp:66
+#, kde-format
+msgid "Port to KDE4. Current maintainer"
+msgstr "Prenošenje na KDE4, trenutni održavalac"
+
+#: main.cpp:69
+#, kde-format
+msgid "Dmitry Suzdalev"
+msgstr "Dmitrij Suzdaljev"
+
+#: main.cpp:70
+#, kde-format
+msgid "Port to QGraphicsView framework"
+msgstr "Prenošenje na radni okvir QGraphicsView"
+
+#: main.cpp:73
+#, kde-format
+msgid "Andreas Scherf"
+msgstr "Andreas Šerf"
+
+#: main.cpp:74
+#, kde-format
+msgid "Image Background and Fixes"
+msgstr "Slika pozadine i popravke"
+
+# >> @info:status
+#: mainwindow.cpp:44 mainwindow.cpp:213
+#, kde-format
+msgid "Level: %1"
+msgstr "nivo: %1"
+
+# >> @info:status
+#: mainwindow.cpp:45 mainwindow.cpp:218
+#, kde-format
+msgid "Score: %1"
+msgstr "rezultat: %1"
+
+# >> @info:status
+#: mainwindow.cpp:46 mainwindow.cpp:223
+#, kde-format
+msgid "Filled: %1%"
+msgstr "popunjeno: %1%"
+
+# >> @info:status
+#: mainwindow.cpp:47 mainwindow.cpp:228
+#, kde-format
+msgid "Lives: %1"
+msgstr "života: %1"
+
+# >> @info:status
+#: mainwindow.cpp:48 mainwindow.cpp:233
+#, kde-format
+msgid "Time: %1"
+msgstr "vreme: %1"
+
+# >> @option:check
+#: mainwindow.cpp:100
+#, kde-format
+msgid "&Play Sounds"
+msgstr "&Puštaj zvukove"
+
+#: mainwindow.cpp:139
+#, kde-format
+msgid "Do you really want to close the running game?"
+msgstr "Želite li zaista da napustite tekuću partiju?"
+
+#: mainwindow.cpp:152 mainwindow.cpp:255
+#, kde-format
+msgid "Game over. Click to start a game"
+msgstr "Kraj igre. Kliknite da započnete novu."
+
+#: mainwindow.cpp:187
+#, kde-format
+msgid "Theme"
+msgstr "Tema"
+
+#: mainwindow.cpp:188
+#, kde-format
+msgid "Background"
+msgstr "Pozadina"

@@ -1,0 +1,670 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY % Ukrainian "INCLUDE"
+> 
+  <!ENTITY % addindex "IGNORE">
+]>
+
+<book id="kbounce" lang="&language;">
+<bookinfo>
+<title
+>Підручник з &kbounce;</title>
+
+<authorgroup>
+<author
+><firstname
+>Tomasz</firstname
+><surname
+>Boczkowski</surname
+> <affiliation
+><address
+><email
+>tboczkowski@onet.pl</email
+></address
+></affiliation>
+</author>
+<othercredit role="reviewer"
+><firstname
+>Eugene</firstname
+><surname
+>Trounev</surname
+> <contrib
+>Рецензент</contrib>
+<affiliation
+><address
+>eugene.trounev@gmail.com</address
+></affiliation>
+</othercredit>
+<othercredit role="translator"
+><firstname
+>Юрій</firstname
+><surname
+>Чорноіван</surname
+><affiliation
+><address
+><email
+>yurchor@ukr.net</email
+></address
+></affiliation
+><contrib
+>Переклад українською</contrib
+></othercredit
+> 
+</authorgroup>
+
+<copyright>
+<year
+>2002</year>
+<holder
+>&Aaron.J.Seigo;</holder>
+</copyright>
+
+<copyright>
+<year
+>2007</year>
+<holder
+>Tomasz Boczkowski</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+
+<date
+>25 червня 2021 року</date>
+<releaseinfo
+>KDE Gear 21.04</releaseinfo>
+
+<abstract>
+	<para
+>У цій документації описано гру &kbounce; версії 21.04.</para>
+</abstract>
+
+
+<keywordset>
+	<keyword
+>KDE</keyword
+> <!-- do not change this! -->
+	<keyword
+>kdegames</keyword
+> <!-- do not change this! -->
+	<keyword
+>гра</keyword
+> <!-- do not change this! -->
+<!-- Game genre. Use as many as necessary. Available game types are: Arcade, Board, Card, Dice, Toys, Logic, Strategy.-->
+	<keyword
+>аркада</keyword>
+	<keyword
+>головоломка</keyword>
+	<keyword
+>кульки</keyword>
+	<keyword
+>JezzBall</keyword>
+	<keyword
+>KBounce</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Вступ</title>
+<note
+><title
+>Тип гри:</title
+><para
+>Головоломка, аркада</para
+></note
+><!-- Game genre. Use as many as necessary. Available game types are: Arcade, Board, Card, Dice, Toys, Logic, Strategy.-->
+	<note
+><title
+>Можлива кількість гравців:</title
+><para
+>Один</para
+></note
+><!--Number of possible players. It can be: One, Two,..., Multiplayer-->
+<para
+>&kbounce; — це аркадна гра для одного гравця з елементами головоломки. </para>
+
+<para
+>У цю гру грають на полі, обмеженому стінами, з двома або більшою кількістю кульок, які рухаються полем, відбиваючись від стін. Гравець може будувати нові стіни, зменшуючи розмір активного поля. </para>
+
+<para
+>Метою гри є відгородити принаймні 75&percnt; поля і перейти на наступний рівень. </para>
+</chapter>
+
+<chapter id="how-to-play">
+<title
+>Як грати</title>
+
+<para
+>Перед гравцем буде показано прямокутне вкрите плитками поле обмежене стінами. У цьому полі рухатимуться дві або більша кількість кульок, які відбиватимуться від стін. Метою гри є зменшення площі області, де можуть рухатися кульки. </para>
+
+<para
+>Зменшити площу активної області поля можна створенням нових стін, які відгороджуватимуть області без кульок. Щоб перейти на наступний рівень, гравцеві потрібно зменшити площу активної області принаймні на 75&percnt; за відведений за цього час. </para>
+
+<para
+>Нові стіни можна будувати наведенням вказівника на певну точку у активній області поля з наступним клацанням лівою кнопкою миші: у вказаній точці від квадратика, на якому сталося клацання мишею, почнуть рости у протилежних напрямках стіни. У заданий момент часу у кожному з напрямків на екрані може рости лише одна стіна. </para>
+
+<para
+>Коли вказівник миші знаходитиметься всередині ігрового поля, курсор виглядатиме як пара стрілок, що вказують у протилежних напрямках, горизонтальних або вертикальних. Ці стрілки вказують напрямок росту стін після клацання лівою кнопкою миші. Напрямок можна змінити клацанням правою кнопкою миші. </para>
+
+<para
+>У нової стіни є <quote
+>головна частина</quote
+>, яка рухається у напрямку від точки, де сталося клацання кнопкою миші. Стіна не стане суцільною, доки ця <quote
+>головна частина</quote
+> не досягне іншої стіни. Якщо кулька зіткнеться з будь-якою частиною нової стіни, окрім головної, до того, як нова стіна досягне іншої стіни, нова стіна повністю зникне, і ви втратите одне життя. Якщо ж кулька зіткнеться з головною частиною у напрямку росту стіни, стіна припинить ріст, стане суцільною, а ви не втратите життя. Якщо кулька зіткнеться з головною частиною у напрямку, протилежному до руху стіни, кулька відіб’ється, а стіна продовжить свій ріст у звичайному режимі. </para>
+</chapter>
+
+<chapter id="rules_and_tips"
+><title
+>Правила гри, стратегія та поради</title
+> <!-- do not change this! -->
+<sect1 id="rules">
+<title
+>Правила гри</title>
+
+<para
+>Гра розпочинається на першому рівні, де полем рухаються дві кульки. У гравця є два життя і 90 секунд на спробу пройти рівень. </para>
+
+<para
+>На n-ому рівні буде n + 1 кулька. У гравця буде n + 1 життя. На проходження рівня буде виділено 30 * ( n + 2 ) секунд. </para>
+
+<para
+>Якщо відбувається зіткнення кульки зі стіною, що росте, гравець втрачає одне життя. Винятком є зіткнення кульки з <quote
+>головною частиною</quote
+> стіни, коли втрати життя не відбувається. </para>
+
+<para
+>Метою, що стоїть перед гравцем на кожному з рівнів, є відгородити від кульок стінами 75&percnt; площі поля. </para>
+
+<para
+>Втрата всіх життів або перевищення часового обмеження призводять до завершення гри. </para>
+
+<para
+>Якщо гравець проходить рівень, він (вона) отримує по 15 очок за кожне життя, що залишилося, і бонус, який залежить від кількості кульок і кількості плиток, які вдалося відгородити понад 75&percnt;. Після підрахунку очок гравець переходить на наступний рівень. </para>
+ 
+</sect1>
+
+<sect1 id="strategy">
+<title
+>Стратегія та поради</title>
+<itemizedlist>
+
+<listitem>
+<para
+>Більшість гравців вважають, що гра стає складною лише на третьому або четвертому рівнях (номер рівня визначає кількість кульок, які з’являються на полі одночасно). </para>
+</listitem>
+
+<listitem>
+<para
+>Секрет успішної гри у &kbounce; полягає у побудові <quote
+>коридорів</quote
+>. Щоб побудувати коридор, почніть пару стін, які ростимуть поряд з іншою стіною, і розрахуйте час так, щоб у одну зі стін влучила кулька, а у іншу — ні, так, щоб остання стіна стала суцільною. </para>
+
+<screenshot>
+<screeninfo
+>Побудова коридору</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="kbounce_corridor1.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Побудова коридору</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Таким чином, на полі утвориться вузький коридор висотою у декілька клітинок, обмежений з трьох боків суцільними стінами. Зачекайте доки кулька заскочить до відкритого кінця коридору, а потім закрийте коридор новою стіною. Хоча, ймовірно, під час створення кожного з коридорів ви втрачатимете одне життя, існує можливість спіймати до одного коридору одразу декілька кульок. </para>
+
+<screenshot>
+<screeninfo
+>Замикання кульок у коридорі</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="kbounce_corridor2.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Замикання кульок у коридорі</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+</listitem>
+
+<listitem>
+<para
+>І остання підказка — розважливо розпорядіться часом! У вас достатньо часу, його показано у полі <guilabel
+>Час</guilabel
+>, розташованому в нижній частині вікна. Зайва поспішність обов’язково призведе до проблем! </para>
+</listitem>
+</itemizedlist>
+</sect1>
+</chapter>
+
+<chapter id="interface-overview">
+<title
+>Огляд інтерфейсу</title>
+
+<sect1 id="the-tool-bar">
+<title
+>Панель інструментів</title>
+
+<para
+>На панелі інструментів розташовано кнопки для найпоширеніших функцій гри. </para>
+
+<table>
+<title
+>Кнопки панелі інструментів</title>
+<tgroup cols="4">
+
+<thead>
+<row>
+<entry
+>Кнопка</entry>
+<entry
+>Назва</entry>
+<entry
+>Еквівалент у меню</entry>
+<entry
+>Дія</entry>
+</row>
+</thead>
+
+<tbody>
+<row>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata format="PNG" fileref="document-new.png"/>
+</imageobject>
+<textobject
+><phrase
+>Кнопка «Нова гра»</phrase
+></textobject>
+</inlinemediaobject>
+</entry>
+
+<entry>
+<guiicon
+>Створити</guiicon>
+</entry>
+
+<entry>
+<link linkend="game-new">
+<menuchoice
+><guimenu
+>Гра</guimenu
+> <guimenuitem
+>Створити</guimenuitem
+> </menuchoice>
+</link>
+</entry>
+
+<entry
+>Розпочинає нову гру. Якщо ви вже граєте у гру, поле буде очищено і ви розпочнете з першого рівня. </entry>
+</row>
+
+<row>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata format="PNG" fileref="media-playback-pause.png"/>
+</imageobject>
+<textobject>
+<phrase
+>Кнопка «Пауза»</phrase
+></textobject>
+</inlinemediaobject>
+</entry>
+
+<entry>
+<guiicon
+>Пауза</guiicon>
+</entry>
+
+<entry>
+<link linkend="game-pause">
+<menuchoice
+><guimenu
+>Гра</guimenu
+> <guimenuitem
+>Пауза</guimenuitem
+></menuchoice>
+</link>
+</entry>
+
+<entry
+>Призупиняє або поновлює поточну гру. </entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+</sect1>
+
+<sect1 id="the-menu-items">
+<title
+>Пункти меню</title>
+
+<sect2>
+<title
+>Меню «Гра»</title>
+
+<variablelist>
+<varlistentry id="game-new">
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Гра</guimenu
+> <guimenuitem
+>Створити</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+><action
+>Починає нову гру.</action
+></para>
+</listitem>
+</varlistentry>
+
+<varlistentry id="game-end">
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;&End;</keycombo
+> </shortcut
+> <guimenu
+>Гра</guimenu
+> <guimenuitem
+>Завершити гру</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+><action
+>Завершує поточну гру.</action
+></para>
+</listitem>
+</varlistentry>
+
+<varlistentry id="game-pause">
+<term
+><menuchoice
+><shortcut
+> <keycap
+>P</keycap
+> </shortcut
+> <guimenu
+>Гра</guimenu
+> <guimenuitem
+>Пауза</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+><action
+>Призупиняє або поновлює гру.</action
+></para>
+</listitem>
+</varlistentry>
+
+<varlistentry id="game-highscores">
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>H</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Гра</guimenu
+> <guimenuitem
+>Показати найкращі результати</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+>Відкриває діалогове вікно найкращих результатів, у якому буде показано різноманітні таблиці найкращих результатів. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry id="game-quit">
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Гра</guimenu
+> <guimenuitem
+>Вийти</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+><action
+>Завершує роботу</action
+> і закриває вікно &kbounce;. Якщо на час використання цього пункту ви грали у гру, ця гра вважатиметься програною.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+</sect2>
+
+<sect2 id="settings-menu">
+<title
+>Меню «Параметри»</title>
+
+<variablelist>
+
+<varlistentry id="settings-sounds">
+<term
+><menuchoice
+><guimenu
+>Параметри</guimenu
+> <guimenuitem
+>Відтворювати звуки</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+><action
+>Якщо позначено, під час гри у &kbounce; відтворюватимуться звуки гри.</action
+></para>
+</listitem>
+</varlistentry>
+
+<varlistentry id="settings-difficulty">
+<term
+><menuchoice
+><guimenu
+>Параметри</guimenu
+> <guisubmenu
+>Складність</guisubmenu
+> </menuchoice
+></term>
+<listitem>
+<para
+><action
+>Вибрати складність гри. Зі збільшенням складності рівнів стіни будуватимуться повільніше, а кульки рухатимуться швидше. Це зробить складнішим обгородження ділянки на ігровому майданчику.</action
+></para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+<para
+>Крім того, у &kbounce; передбачено типові для &kde; пункти меню <guimenu
+>Параметри</guimenu
+> і <guimenu
+>Довідка</guimenu
+>. Щоб дізнатися більше, ознайомтеся з розділами щодо <ulink url="help:/fundamentals/menus.html#menus-settings"
+>меню «Параметри»</ulink
+> та <ulink url="help:/fundamentals/menus.html#menus-help"
+>меню «Довідка»</ulink
+> підручника з основ роботи у &kde;. </para>
+
+</sect2>
+
+</sect1>
+</chapter>
+
+<chapter id="faq"
+><title
+>Часті запитання</title
+> <!-- do not change this! -->
+<!--This chapter is for frequently asked questions. Please use <qandaset
+> <qandaentry
+> only!-->
+<qandaset>
+<!--Following is a standard list of FAQ questions.-->
+<qandaentry>
+ <question
+><para
+>Я хочу змінити вигляд цієї гри. Як це зробити? </para
+></question>
+ <answer
+><para
+>Так. Щоб змінити візуальну тему &kbounce;, скористайтеся пунктом меню <menuchoice
+><guimenu
+>Параметри</guimenu
+> <guimenuitem
+>Налаштувати &kbounce;...</guimenuitem
+></menuchoice
+>.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>Я помилився (помилилася)? Можна це виправити? </para
+></question>
+ <answer
+><para
+>У &kbounce; немає можливості <quote
+>Вернути</quote
+> позицію до виконання певної дії.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>Чи можна використовувати для гри клавіатуру?</para
+></question>
+ <answer
+><para
+>Ні. У &kbounce; неможливо грати за допомогою клавіатури.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>Я змушений (змушена) перервати гру, але гру ще не завершено. Чи можу я зберегти поточний стан?</para
+></question>
+  <answer
+><para
+>У поточній версії &kbounce; немає функції <quote
+>Зберегти</quote
+>.</para
+></answer>
+</qandaentry>
+</qandaset>
+</chapter>
+
+<chapter id="configuration"
+><title
+>Налаштування гри</title
+> <!-- do not change this! -->
+<para
+>За допомогою діалогового вікна налаштування &kbounce; ви можете змінити візуальну тему вікна гри &kbounce;.</para>
+<para
+>Щоб вибрати нову тему, просто позначте назву теми у списку для вибору. Ліворуч від кожного з пунктів у списку буде показано невеличке зображення попереднього перегляду. Вибрану тему буде негайно застосовано. </para>
+<para
+>Ви можете вибрати випадкові зображення тла із вказаної вами теки із зображеннями. </para>
+<para
+>Після того, як ви виберете бажаний для вас варіант, ви можете натиснути кнопку <guibutton
+>Гаразд</guibutton
+>. Цю кнопки розташовано у нижній частині відповідного діалогового вікна. </para>
+</chapter>
+
+<chapter id="credits-and-license">
+<title
+>Подяки і ліцензування</title>
+
+
+<para
+>&kbounce;</para>
+
+<itemizedlist>
+<listitem>
+<para
+>Stefan Schimanski <email
+>schimmi@kde.org</email
+> — перший автор</para>
+</listitem>
+<listitem>
+<para
+>Sandro Sigala <email
+>ssigala@globalnet.it</email
+> — найкращі результати</para>
+</listitem>
+<listitem>
+<para
+>Benjamin Meyer <email
+>ben+kbounce@meyerhome.net</email
+> — внески у розробку</para>
+</listitem>
+<listitem>
+<para
+>Dmitry Suzdalev <email
+>dimsuz@gmail.com</email
+></para>
+</listitem>
+<listitem>
+<para
+>Tomasz Boczkowski <email
+>tboczkowski@onet.pl</email
+> — портування на KDE4 і KGameCavas</para>
+</listitem>
+</itemizedlist>
+
+<para
+>Авторські права на документацію належать &Aaron.J.Seigo; &Aaron.J.Seigo.mail;, ©2002</para>
+<para
+>Авторські права на документацію до програми належать Tomasz Boczkowski <email
+>tboczkowski@onet.pl</email
+>, ©2007</para>
+
+<para
+>Цей підручник присвячено Dennis E. Powell.</para>
+
+<para
+>Переклад українською: Юрій Чорноіван <email
+>yurchor@ukr.net</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index; 
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes: nil
+sgml-general-insert-case: lower
+End:
+-->
+

@@ -1,0 +1,266 @@
+# translation of kbounce.po to Telugu
+# విజయ్ కిరణ్ కముజు <infyquest@gmail.com>, 2007.
+# V Naresh Kumar <cyan_00391@yahoo.co.in>, 2007.
+msgid ""
+msgstr ""
+"Project-Id-Version: kbounce\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-07-08 00:43+0000\n"
+"PO-Revision-Date: 2007-07-17 18:54+0530\n"
+"Last-Translator: V Naresh Kumar <cyan_00391@yahoo.co.in>\n"
+"Language-Team: Telugu <en@li.org>\n"
+"Language: te\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr ""
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr ""
+
+#: backgroundselector.cpp:98
+#, kde-format
+msgid "No background pictures found."
+msgstr ""
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, KBounceBackgroundSelector)
+#: backgroundselector.ui:14
+#, kde-format
+msgid "kbouncebackgroundselector"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_UseRandomBackgroundPictures)
+#: backgroundselector.ui:24
+#, kde-format
+msgid "Enable random pictures as background"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, backgoundPicturePathLabel)
+#: backgroundselector.ui:54
+#, kde-format
+msgid "Choose picture path:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: backgroundselector.ui:75
+#, kde-format
+msgid "Preview"
+msgstr ""
+
+#: gamewidget.cpp:396
+#, kde-format
+msgid ""
+"Welcome to KBounce.\n"
+" Click to start a game"
+msgstr ""
+
+#: gamewidget.cpp:399
+#, kde-format
+msgid ""
+"Paused\n"
+" Click to resume"
+msgstr ""
+
+#: gamewidget.cpp:402
+#, kde-format
+msgid "You have successfully cleared more than %1% of the board\n"
+msgstr ""
+
+#: gamewidget.cpp:403
+#, fuzzy, kde-format
+#| msgid "%1 points: 15 points per remaining life\n"
+msgid "%1 points: %2 points per remaining life\n"
+msgstr "%1 పాయింట్లు: మిగిలిన ప్రతీ ఛాన్సుకు 15 పాయింట్లు\n"
+
+#: gamewidget.cpp:404
+#, kde-format
+msgid "%1 points: Bonus\n"
+msgstr "%1 పాయింట్ల బహుమానము\n"
+
+#: gamewidget.cpp:405
+#, kde-format
+msgid "%1 points: Total score for this level\n"
+msgstr "ఈ స్థాయిలో మీ స్కోరు: %1 పాయింట్లు\n"
+
+#: gamewidget.cpp:406
+#, kde-format
+msgid "On to level %1. Remember you get %2 lives this time!"
+msgstr "%1 వ స్థాయికి వెళ్తున్నాము. ఇప్పుడు మీకు %2 ఛాన్సులు ఉన్నాయి."
+
+#: gamewidget.cpp:409
+#, fuzzy, kde-format
+#| msgid "Game over. Press <Space> for a new game"
+msgid ""
+"Game over.\n"
+" Click to start a game"
+msgstr "ఆట అయ్యిపోయింది. కొత్త ఆట కొరకు <space> నొక్కండి"
+
+#. i18n: ectx: label, entry (PlaySounds), group (Sound)
+#: kbounce.kcfg:16
+#, kde-format
+msgid "Whether game sounds are played."
+msgstr ""
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kbounceui.rc:17
+#, kde-format
+msgid "Main Toolbar"
+msgstr ""
+
+#: main.cpp:37
+#, kde-format
+msgid "KBounce"
+msgstr "కెబవున్స్"
+
+#: main.cpp:39
+#, fuzzy, kde-format
+#| msgid "KDE Bounce Ball Game"
+msgid "Bounce Ball Game"
+msgstr "కెడిఈ బవున్స్ బంతి ఆట"
+
+#: main.cpp:41
+#, kde-format
+msgid ""
+"(c) 2000-2005, Stefan Schimanski\n"
+"(c) 2007, Tomasz Boczkowski"
+msgstr ""
+
+#: main.cpp:45
+#, kde-format
+msgid "Stefan Schimanski"
+msgstr ""
+
+#: main.cpp:46
+#, kde-format
+msgid "Original author"
+msgstr "అసలు మూలకర్త"
+
+#: main.cpp:49
+#, kde-format
+msgid "Sandro Sigala"
+msgstr ""
+
+#: main.cpp:50
+#, kde-format
+msgid "Highscore"
+msgstr ""
+
+#: main.cpp:53
+#, kde-format
+msgid "Benjamin Meyer"
+msgstr ""
+
+#: main.cpp:54
+#, kde-format
+msgid "Contributions"
+msgstr ""
+
+#: main.cpp:57
+#, kde-format
+msgid "Tomasz Boczkowski"
+msgstr ""
+
+#: main.cpp:58
+#, kde-format
+msgid "Port to KDE4. Current maintainer"
+msgstr ""
+
+#: main.cpp:61
+#, kde-format
+msgid "Dmitry Suzdalev"
+msgstr ""
+
+#: main.cpp:62
+#, kde-format
+msgid "Port to QGraphicsView framework"
+msgstr ""
+
+#: main.cpp:65
+#, kde-format
+msgid "Andreas Scherf"
+msgstr ""
+
+#: main.cpp:66
+#, kde-format
+msgid "Image Background and Fixes"
+msgstr ""
+
+#: mainwindow.cpp:32 mainwindow.cpp:205
+#, fuzzy, kde-format
+#| msgid "Level:"
+msgid "Level: %1"
+msgstr "స్ధాయి:"
+
+#: mainwindow.cpp:33 mainwindow.cpp:210
+#, fuzzy, kde-format
+#| msgid "Score:"
+msgid "Score: %1"
+msgstr "స్కోరు:"
+
+#: mainwindow.cpp:34 mainwindow.cpp:215
+#, fuzzy, kde-format
+#| msgid "Filled area:"
+msgid "Filled: %1%"
+msgstr "నిండిఉన్న స్థలము:"
+
+#: mainwindow.cpp:35 mainwindow.cpp:220
+#, fuzzy, kde-format
+#| msgid "Lives:"
+msgid "Lives: %1"
+msgstr "ఛాన్సులు:"
+
+#: mainwindow.cpp:36 mainwindow.cpp:225
+#, fuzzy, kde-format
+#| msgid "Time:"
+msgid "Time: %1"
+msgstr "సమయం:"
+
+#: mainwindow.cpp:89
+#, kde-format
+msgid "&Play Sounds"
+msgstr "(&P) శబ్ధాలను వాడండి"
+
+#: mainwindow.cpp:128
+#, fuzzy, kde-format
+#| msgid "Do you really want to close the running game?"
+msgid "Are you sure you want to quit the current game?"
+msgstr "ఈ ఆటని నిజంగా ఆపెయ్యమంటారా?"
+
+#: mainwindow.cpp:130
+#, kde-format
+msgctxt "@action;button"
+msgid "Quit Game"
+msgstr ""
+
+#: mainwindow.cpp:144 mainwindow.cpp:247
+#, fuzzy, kde-format
+#| msgid "Game over. Press <Space> for a new game"
+msgid "Game over. Click to start a game"
+msgstr "ఆట అయ్యిపోయింది. కొత్త ఆట కొరకు <space> నొక్కండి"
+
+#: mainwindow.cpp:179
+#, fuzzy, kde-format
+#| msgid "Time:"
+msgid "Theme"
+msgstr "సమయం:"
+
+#: mainwindow.cpp:180
+#, kde-format
+msgid "Background"
+msgstr ""
+
+#~ msgid "Game over. Press <Space> for a new game"
+#~ msgstr "ఆట అయ్యిపోయింది. కొత్త ఆట కొరకు <space> నొక్కండి"
+
+#, fuzzy
+#~| msgid "Game paused."
+#~ msgid "Game over."
+#~ msgstr "ఆటకు విరామము."

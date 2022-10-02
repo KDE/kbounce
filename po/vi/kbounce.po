@@ -1,0 +1,250 @@
+# Kbounce.pot Vietnamese translation.
+# Copyright (C) 2012 Free Software Foundation, Inc.
+#
+# Nguyễn Ngọc Tuấn <scorpionfirevn@operamail.com>, 2002.
+# Lê Hoàng Phương <herophuong93@gmail.com>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: kbounce\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-07-08 00:43+0000\n"
+"PO-Revision-Date: 2012-01-09 22:04+0700\n"
+"Last-Translator: Lê Hoàng Phương <herophuong93@gmail.com>\n"
+"Language-Team: Vietnamese <kde-i18n-vi@kde.org>\n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.4\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Nguyễn Ngọc Tuấn"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "scorpionfirevn@operamail.com"
+
+#: backgroundselector.cpp:98
+#, kde-format
+msgid "No background pictures found."
+msgstr ""
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, KBounceBackgroundSelector)
+#: backgroundselector.ui:14
+#, kde-format
+msgid "kbouncebackgroundselector"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_UseRandomBackgroundPictures)
+#: backgroundselector.ui:24
+#, kde-format
+msgid "Enable random pictures as background"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, backgoundPicturePathLabel)
+#: backgroundselector.ui:54
+#, kde-format
+msgid "Choose picture path:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: backgroundselector.ui:75
+#, kde-format
+msgid "Preview"
+msgstr ""
+
+#: gamewidget.cpp:396
+#, kde-format
+msgid ""
+"Welcome to KBounce.\n"
+" Click to start a game"
+msgstr ""
+
+#: gamewidget.cpp:399
+#, kde-format
+msgid ""
+"Paused\n"
+" Click to resume"
+msgstr ""
+
+#: gamewidget.cpp:402
+#, fuzzy, kde-format
+msgid "You have successfully cleared more than %1% of the board\n"
+msgstr "Bạn đã xoá sạch hơn 75% của bảng.\n"
+
+#: gamewidget.cpp:403
+#, fuzzy, kde-format
+msgid "%1 points: %2 points per remaining life\n"
+msgstr "15 điểm cho mỗi mạng còn lại: %1 điểm\n"
+
+#: gamewidget.cpp:404
+#, kde-format
+msgid "%1 points: Bonus\n"
+msgstr "Thưởng:                      %1 điểm\n"
+
+#: gamewidget.cpp:405
+#, kde-format
+msgid "%1 points: Total score for this level\n"
+msgstr "Điểm tổng cộng của vòng này: %1 điểm\n"
+
+#: gamewidget.cpp:406
+#, fuzzy, kde-format
+msgid "On to level %1. Remember you get %2 lives this time!"
+msgstr "Nhớ là bạn sẽ có %2 mạng trong vòng %1 !"
+
+#: gamewidget.cpp:409
+#, fuzzy, kde-format
+msgid ""
+"Game over.\n"
+" Click to start a game"
+msgstr "Nhấn <Space> để bắt đầu chơi!"
+
+#. i18n: ectx: label, entry (PlaySounds), group (Sound)
+#: kbounce.kcfg:16
+#, kde-format
+msgid "Whether game sounds are played."
+msgstr ""
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kbounceui.rc:17
+#, kde-format
+msgid "Main Toolbar"
+msgstr ""
+
+#: main.cpp:37
+#, kde-format
+msgid "KBounce"
+msgstr ""
+
+#: main.cpp:39
+#, kde-format
+msgid "Bounce Ball Game"
+msgstr ""
+
+#: main.cpp:41
+#, kde-format
+msgid ""
+"(c) 2000-2005, Stefan Schimanski\n"
+"(c) 2007, Tomasz Boczkowski"
+msgstr ""
+
+#: main.cpp:45
+#, kde-format
+msgid "Stefan Schimanski"
+msgstr ""
+
+#: main.cpp:46
+#, kde-format
+msgid "Original author"
+msgstr "Tác giả đầu tiên"
+
+#: main.cpp:49
+#, kde-format
+msgid "Sandro Sigala"
+msgstr ""
+
+#: main.cpp:50
+#, kde-format
+msgid "Highscore"
+msgstr ""
+
+#: main.cpp:53
+#, kde-format
+msgid "Benjamin Meyer"
+msgstr ""
+
+#: main.cpp:54
+#, kde-format
+msgid "Contributions"
+msgstr "Những đóng góp"
+
+#: main.cpp:57
+#, kde-format
+msgid "Tomasz Boczkowski"
+msgstr ""
+
+#: main.cpp:58
+#, kde-format
+msgid "Port to KDE4. Current maintainer"
+msgstr ""
+
+#: main.cpp:61
+#, kde-format
+msgid "Dmitry Suzdalev"
+msgstr ""
+
+#: main.cpp:62
+#, kde-format
+msgid "Port to QGraphicsView framework"
+msgstr ""
+
+#: main.cpp:65
+#, kde-format
+msgid "Andreas Scherf"
+msgstr ""
+
+#: main.cpp:66
+#, fuzzy, kde-format
+msgid "Image Background and Fixes"
+msgstr "Chọn thư mục chứa ảnh nền"
+
+#: mainwindow.cpp:32 mainwindow.cpp:205
+#, fuzzy, kde-format
+msgid "Level: %1"
+msgstr "Vòng:"
+
+#: mainwindow.cpp:33 mainwindow.cpp:210
+#, fuzzy, kde-format
+msgid "Score: %1"
+msgstr "Điểm số:"
+
+#: mainwindow.cpp:34 mainwindow.cpp:215
+#, fuzzy, kde-format
+msgid "Filled: %1%"
+msgstr "Khu vực đã lấp:"
+
+#: mainwindow.cpp:35 mainwindow.cpp:220
+#, fuzzy, kde-format
+msgid "Lives: %1"
+msgstr "Mạng:"
+
+#: mainwindow.cpp:36 mainwindow.cpp:225
+#, fuzzy, kde-format
+msgid "Time: %1"
+msgstr "Thời gian:"
+
+#: mainwindow.cpp:89
+#, kde-format
+msgid "&Play Sounds"
+msgstr ""
+
+#: mainwindow.cpp:128
+#, fuzzy, kde-format
+#| msgid "Do you really want to close the running game?"
+msgid "Are you sure you want to quit the current game?"
+msgstr "Bạn thực sự muốn thoát khỏi trò chơi không?"
+
+#: mainwindow.cpp:130
+#, kde-format
+msgctxt "@action;button"
+msgid "Quit Game"
+msgstr ""
+
+#: mainwindow.cpp:144 mainwindow.cpp:247
+#, fuzzy, kde-format
+msgid "Game over. Click to start a game"
+msgstr "Nhấn <Space> để bắt đầu chơi!"
+
+#: mainwindow.cpp:179
+#, kde-format
+msgid "Theme"
+msgstr ""
+
+#: mainwindow.cpp:180
+#, fuzzy, kde-format
+msgid "Background"
+msgstr "&Nền"

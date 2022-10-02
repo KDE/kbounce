@@ -1,0 +1,678 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY % Swedish "INCLUDE"
+> 
+  <!ENTITY % addindex "IGNORE">
+]>
+
+<book id="kbounce" lang="&language;">
+<bookinfo>
+<title
+>Handbok Kstuds</title>
+
+<authorgroup>
+<author
+><firstname
+>Tomasz</firstname
+><surname
+>Boczkowski</surname
+> <affiliation
+><address
+><email
+>tboczkowski@onet.pl</email
+></address
+></affiliation>
+</author>
+<othercredit role="reviewer"
+><firstname
+>Eugene</firstname
+><surname
+>Trounev</surname
+> <contrib
+>Granskare</contrib>
+<affiliation
+><address
+>eugene.trounev@gmail.com</address
+></affiliation>
+</othercredit>
+<othercredit role="translator"
+> <firstname
+>Stefan</firstname
+> <surname
+>Asserhäll</surname
+> <affiliation
+><address
+><email
+>stefan.asserhall@bredband.net</email
+></address
+></affiliation
+> <contrib
+>Översättare</contrib
+></othercredit
+> 
+</authorgroup>
+
+<copyright>
+<year
+>2002</year>
+<holder
+>&Aaron.J.Seigo;</holder>
+</copyright>
+
+<copyright>
+<year
+>2007</year>
+<holder
+>Tomasz Boczkowski</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+
+<date
+>2021-06-25</date>
+<releaseinfo
+>KDE Gear 21.04</releaseinfo>
+
+<abstract>
+	<para
+>Denna dokumentation beskriver spelet Kstuds, version 21.04</para>
+</abstract>
+
+
+<keywordset>
+	<keyword
+>KDE</keyword
+> <!-- do not change this! -->
+	<keyword
+>kdegames</keyword
+> <!-- do not change this! -->
+	<keyword
+>spel</keyword
+> <!-- do not change this! -->
+<!-- Game genre. Use as many as necessary. Available game types are: Arcade, Board, Card, Dice, Toys, Logic, Strategy.-->
+	<keyword
+>spelhall</keyword>
+	<keyword
+>problemlösning</keyword>
+	<keyword
+>bollar</keyword>
+	<keyword
+>Jezzboll</keyword>
+	<keyword
+>Kstuds</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Inledning</title>
+<note
+><title
+>Speltyp:</title
+><para
+>Problemlösning, spelhall</para
+></note
+><!-- Game genre. Use as many as necessary. Available game types are: Arcade, Board, Card, Dice, Toys, Logic, Strategy.-->
+	<note
+><title
+>Antal möjliga spelare:</title
+><para
+>En</para
+></note
+><!--Number of possible players. It can be: One, Two,..., Multiplayer-->
+<para
+>Kstuds är ett spel för en ensam spelare med inslag av problemlösning. </para>
+
+<para
+>Det spelas på ett fält, som omges av väggar, med två eller flera bollar som rör sig över fältet och studsar mot väggarna. Spelaren kan bygga nya väggar, vilket minskar det aktiva fältets storlek. </para>
+
+<para
+>Spelets mål är att fylla minst 75 &percnt; av fältet och gå vidare till nästa nivå. </para>
+</chapter>
+
+<chapter id="how-to-play">
+<title
+>Hur man spelar</title>
+
+<para
+>Ett rektangulärt fält omgivet av väggar visas för spelaren. Två eller flera bollar rör sig i fältet och studsar på väggarna. Spelets syfte är att minska storleken på det utrymme där bollarna finns. </para>
+
+<para
+>Storleken på fältets aktiva område minskas genom att nya väggar skapas som stänger av områden utan bollar. För att avsluta en nivå, måste spelaren minska storleken på det aktiva området med minst 75 &percnt; inom den tillgängliga tiden. </para>
+
+<para
+>Nya väggar byggs genom att klicka med <mousebutton
+>vänster</mousebutton
+> musknapp i ett aktivt område på fältet, vilket gör att en vägg börjar växa fram i båda riktningarna från rutan där musen klickades. Bara en vägg i vardera riktning kan växa på skärmen vid en given tidpunkt. </para>
+
+<para
+>När musen finns på fältet, visas markören som ett par pilar som pekar åt varsitt håll, antingen horisontellt eller vertikalt. Pilarna pekar i riktningen som väggarna kommer att växa fram när <mousebutton
+>vänster</mousebutton
+> musknapp klickas. Riktningen kan ändras genom att klicka med <mousebutton
+>höger</mousebutton
+> musknapp. </para>
+
+<para
+>En ny vägg har en <quote
+>ända</quote
+> som rör sig bort från punkten där musen klickades. En vägg är inte beständig förrän <quote
+>änden</quote
+> når en annan vägg. Om en boll stöder ihop med någon del av väggen utom änden, innan änden har nått fram till en annan vägg, försvinner den nya väggen helt och hållet och ett liv går förlorat. Om en boll stöter ihop med änden i riktningen som väggen växer fram, slutar väggen att växa och blir beständig, utan att något liv går förlorat. Om en boll stöter ihop med änden från något annat håll, studsar den och väggen fortsätter att växa normalt. </para>
+</chapter>
+
+<chapter id="rules_and_tips"
+><title
+>Spelets regler, strategi och tips</title
+> <!-- do not change this! -->
+<sect1 id="rules">
+<title
+>Spelets regler</title>
+
+<para
+>Spelet börjar med nivå 1, där två bollar rör sig på fältet. Spelaren har två liv och 90 sekunder på sig för att lyckas avsluta nivån. </para>
+
+<para
+>På nivå N finns det N + 1 bollar. Spelaren får N + 1 liv, och har 30 * (N + 2) sekunder på sig att avsluta nivån. </para>
+
+<para
+>När en boll kolliderar med en växande vägg förlorar spelaren ett liv. Ett undantag är en kollision med väggens <quote
+>hörn</quote
+> då inget liv går förlorat. </para>
+
+<para
+>Målet i varje nivå är att täcka minst 75 &percnt; av fältet med väggar. </para>
+
+<para
+>Förlust av alla liv och att överskrida tilldelad tid gör att spelet slutar. </para>
+
+<para
+>Om en spelare avslutar en nivå får han 15 poäng för varje återstående liv, och en bonus beroende på antal bollar och antal ifyllda utrymmen över 75 &percnt;. Spelaren går också vidare till nästa nivå. </para>
+ 
+</sect1>
+
+<sect1 id="strategy">
+<title
+>Strategi och tips</title>
+<itemizedlist>
+
+<listitem>
+<para
+>Många spelare tycker att spelet blir riktigt svårt redan på tredje eller fjärde nivån, beroende på antalet bollar som finns samtidigt på fältet. </para>
+</listitem>
+
+<listitem>
+<para
+>Tricket för att lyckas med Kstuds är att bygga <quote
+>korridorer</quote
+>. För att bygga en korridor, låt ett par väggar växa nära en annan vägg, och gör det så att en av väggarna träffas av en boll och den andra inte, så att den blir bestående. </para>
+
+<screenshot>
+<screeninfo
+>Bygga en korridor</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="kbounce_corridor1.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Bygga en korridor</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Det här lämnar en smal korridor på fältet som bara är några få rutor bred, omgiven av väggar på tre sidor. Vänta på att bollarna studsar in i korridorens öppna ände, och stäng korridoren bakom bollarna med en ny vägg. Även om du troligen förlorar ett liv för varje korridor som skapas, kan du fånga flera bollar i samma korridor. </para>
+
+<screenshot>
+<screeninfo
+>Fånga bollar i en korridor</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="kbounce_corridor2.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Fånga bollar i en korridor</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+</listitem>
+
+<listitem>
+<para
+>Ett sista tips &mdash; ta det lugnt! Det finns gott om tid, som visas i rutan <guilabel
+>Tid</guilabel
+> till längst ner på skärmen. Att skynda på gör bara att du får det besvärligt! </para>
+</listitem>
+</itemizedlist>
+</sect1>
+</chapter>
+
+<chapter id="interface-overview">
+<title
+>Översikt av gränssnittet</title>
+
+<sect1 id="the-tool-bar">
+<title
+>Verktygsraden</title>
+
+<para
+>Verktygsraden tillhandahåller knappar för funktioner som ofta används. </para>
+
+<table>
+<title
+>Knappar i verktygsraden</title>
+<tgroup cols="4">
+
+<thead>
+<row>
+<entry
+>Knapp</entry>
+<entry
+>Namn</entry>
+<entry
+>Motsvarande menyalternativ</entry>
+<entry
+>Åtgärd</entry>
+</row>
+</thead>
+
+<tbody>
+<row>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata format="PNG" fileref="document-new.png"/>
+</imageobject>
+<textobject
+><phrase
+>Knapp för nytt spel</phrase
+></textobject>
+</inlinemediaobject>
+</entry>
+
+<entry>
+<guiicon
+>Ny</guiicon>
+</entry>
+
+<entry>
+<link linkend="game-new">
+<menuchoice
+><guimenu
+>Spel</guimenu
+> <guimenuitem
+>Ny</guimenuitem
+> </menuchoice>
+</link>
+</entry>
+
+<entry
+>Startar ett nytt spel. Om ett spel för närvarande pågår rensas fältet och nivån återställs till 1. </entry>
+</row>
+
+<row>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata format="PNG" fileref="media-playback-pause.png"/>
+</imageobject>
+<textobject>
+<phrase
+>Pausknapp</phrase
+></textobject>
+</inlinemediaobject>
+</entry>
+
+<entry>
+<guiicon
+>Paus</guiicon>
+</entry>
+
+<entry>
+<link linkend="game-pause">
+<menuchoice
+><guimenu
+>Spel</guimenu
+> <guimenuitem
+>Paus</guimenuitem
+></menuchoice>
+</link>
+</entry>
+
+<entry
+>Gör paus eller återupptar pågående spel. </entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+</sect1>
+
+<sect1 id="the-menu-items">
+<title
+>Menyalternativen</title>
+
+<sect2>
+<title
+>Menyn Spel</title>
+
+<variablelist>
+<varlistentry id="game-new">
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Spel</guimenu
+> <guimenuitem
+>Ny</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+><action
+>Startar ett nytt spel.</action
+></para>
+</listitem>
+</varlistentry>
+
+<varlistentry id="game-end">
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>End</keycap
+> </keycombo
+> </shortcut
+> <guimenu
+>Spel</guimenu
+> <guimenuitem
+>Sluta spel</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+><action
+>Avslutar det pågående spelet.</action
+></para>
+</listitem>
+</varlistentry>
+
+<varlistentry id="game-pause">
+<term
+><menuchoice
+><shortcut
+> <keycap
+>P</keycap
+> </shortcut
+> <guimenu
+>Spel</guimenu
+> <guimenuitem
+>Paus</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+><action
+>Gör paus eller återupptar spelet.</action
+></para>
+</listitem>
+</varlistentry>
+
+<varlistentry id="game-highscores">
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>H</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Spel</guimenu
+> <guimenuitem
+>Visa bästa resultat</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+>Öppnar en dialogruta som visar olika tabeller med bästa resultat. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry id="game-quit">
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Spel</guimenu
+> <guimenuitem
+>Avsluta</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+><action
+>Avsluta</action
+> och stäng Kstuds. Om ett spel för närvarande pågår, går dess tillstånd förlorat.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+</sect2>
+
+<sect2 id="settings-menu">
+<title
+>Menyn Inställningar</title>
+
+<variablelist>
+
+<varlistentry id="settings-sounds">
+<term
+><menuchoice
+><guimenu
+>Inställningar</guimenu
+> <guimenuitem
+>Spela ljud</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+><action
+>Om markerad, spelas Kstuds spelljud.</action
+></para>
+</listitem>
+</varlistentry>
+
+<varlistentry id="settings-difficulty">
+<term
+><menuchoice
+><guimenu
+>Inställningar</guimenu
+> <guimenuitem
+>Svårighetsnivå</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+><action
+>Välj spelets svårighet. Med högre svårighetsnivåer byggs väggarna långsammare medan bollarna rör sig fortare. Det gör det svårare att ringa in ett område på spelbrädet.</action
+></para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+<para
+>Dessutom har Kstuds de vanliga menyalternativen <guimenu
+>Inställningar</guimenu
+> och <guimenu
+>Hjälp</guimenu
+> i &kde;. För mer information, läs avsnitten  <ulink url="help:/fundamentals/menus.html#menus-settings"
+>Menyn Inställningar</ulink
+> och <ulink url="help:/fundamentals/menus.html#menus-help"
+>Menyn Hjälp</ulink
+> i &kde;:s Grunder. </para>
+
+</sect2>
+
+</sect1>
+</chapter>
+
+<chapter id="faq"
+><title
+>Vanliga frågor</title
+> <!-- do not change this! -->
+<!--This chapter is for frequently asked questions. Please use <qandaset
+> <qandaentry
+> only!-->
+<qandaset>
+<!--Following is a standard list of FAQ questions.-->
+<qandaentry>
+ <question
+><para
+>Jag vill ändra hur spelet ser ut. Kan man göra det? </para
+></question>
+ <answer
+><para
+>Ja. Du kan använda alternativet <menuchoice
+><guimenu
+>Inställningar</guimenu
+> <guimenuitem
+>Anpassa Kstuds...</guimenuitem
+></menuchoice
+> i menyraden för att ändra Kstuds visuella tema.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>Jag gjorde ett misstag. Kan man ångra sig? </para
+></question>
+ <answer
+><para
+>Kstuds har inte någon <quote
+>ångra-funktion</quote
+>.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>Kan man använda tangentbordet för att spela?</para
+></question>
+ <answer
+><para
+>Nej. Kstuds kan inte spelas med tangentbordet.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>Jag måste avsluta spelet nu, men jag är inte klar än. Kan man spara det man har gjort?</para
+></question>
+  <answer
+><para
+>Kstuds har för närvarande inte någon funktion för att <quote
+>spara</quote
+>.</para
+></answer>
+</qandaentry>
+</qandaset>
+</chapter>
+
+<chapter id="configuration"
+><title
+>Spelanpassning</title
+> <!-- do not change this! -->
+<para
+>Inställningsdialogrutan i Kstuds låter dig välja Kstuds visuella tema.</para>
+<para
+>Markera helt enkelt temat i urvalslistan för att välja ett nytt tema. Varje objekt i listan visar en liten förhandsgranskning till vänster om temats namn. En markering verkställs omedelbart. </para>
+<para
+>Du kan välja slumpmässiga bakgrundsbilder från en användardefinierad katalog med bilder. </para>
+<para
+>När du väl är nöjd med temat du har valt kan du antingen klicka på knappen <guibutton
+>Ok</guibutton
+>, som finns längst ner i dialogrutan. </para>
+</chapter>
+
+<chapter id="credits-and-license">
+<title
+>Tack till och licens</title>
+
+
+<para
+>&kbounce;</para>
+
+<itemizedlist>
+<listitem>
+<para
+>Stefan Schimanski <email
+>schimmi@kde.org</email
+> - Ursprunglig upphovsman</para>
+</listitem>
+<listitem>
+<para
+>Sandro Sigala <email
+>ssigala@globalnet.it</email
+> - Poängtoppen</para>
+</listitem>
+<listitem>
+<para
+>Benjamin Meyer <email
+>ben+kbounce@meyerhome.net</email
+> - Bidrag</para>
+</listitem>
+<listitem>
+<para
+>Dmitry Suzdalev <email
+>dimsuz@gmail.com</email
+></para>
+</listitem>
+<listitem>
+<para
+>Tomasz Boczkowski <email
+>tboczkowski@onet.pl</email
+> - Anpassning till KDE4 och KGameCavas</para>
+</listitem>
+</itemizedlist>
+
+<para
+>Dokumentation copyright 2002, &Aaron.J.Seigo; &Aaron.J.Seigo.mail;</para>
+<para
+>Dokumentation copyright 2007, Tomasz Boczkowski <email
+>tboczkowski@onet.pl</email
+></para>
+
+<para
+>Den här handboken är tillägnad Dennis E. Powell.</para>
+
+<para
+>Översättning Stefan Asserhäll <email
+>stefan.asserhall@bredband.net</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index; 
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes: nil
+sgml-general-insert-case: lower
+End:
+-->
+

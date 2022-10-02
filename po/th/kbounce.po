@@ -1,0 +1,313 @@
+# translation of kbounce.po to Thai
+# Copyright (C) 2003, 2006 Free Software Foundation, Inc.
+#
+# Thanomsub Noppaburana <donga_n@yahoo.com>, 2003.
+# Sahachart Anukulkitch <drrider@gmail.com>, 2006.
+# Thanomsub Noppaburana <donga.nb@gmail.com>, 2010.
+msgid ""
+msgstr ""
+"Project-Id-Version: kbounce\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-07-08 00:43+0000\n"
+"PO-Revision-Date: 2010-03-28 18:21+0700\n"
+"Last-Translator: Thanomsub Noppaburana <donga.nb@gmail.com>\n"
+"Language-Team: Thai <thai-l10n@googlegroups.com>\n"
+"Language: th\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.0\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "ถนอมทรัพย์ นพบูรณ์"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "donga.nb@gmail.com"
+
+#: backgroundselector.cpp:98
+#, kde-format
+msgid "No background pictures found."
+msgstr "ไม่พบภาพพื้นหลังใด ๆ"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, KBounceBackgroundSelector)
+#: backgroundselector.ui:14
+#, kde-format
+msgid "kbouncebackgroundselector"
+msgstr "kbouncebackgroundselector"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_UseRandomBackgroundPictures)
+#: backgroundselector.ui:24
+#, fuzzy, kde-format
+#| msgid "Enable random pictures as background."
+msgid "Enable random pictures as background"
+msgstr "เปิดใช้การสุ่มภาพพื้นหลัง"
+
+#. i18n: ectx: property (text), widget (QLabel, backgoundPicturePathLabel)
+#: backgroundselector.ui:54
+#, kde-format
+msgid "Choose picture path:"
+msgstr "เลือกพาธของภาพพื้นหลัง:"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: backgroundselector.ui:75
+#, kde-format
+msgid "Preview"
+msgstr "แสดงตัวอย่าง"
+
+#: gamewidget.cpp:396
+#, kde-format
+msgid ""
+"Welcome to KBounce.\n"
+" Click to start a game"
+msgstr ""
+"ขอต้อนรับสู่เกมถมพื้นที่บอลกระเด้ง-K\n"
+" คลิกเพื่อทำการเริ่มเล่นเกม"
+
+#: gamewidget.cpp:399
+#, kde-format
+msgid ""
+"Paused\n"
+" Click to resume"
+msgstr ""
+
+#: gamewidget.cpp:402
+#, kde-format
+msgid "You have successfully cleared more than %1% of the board\n"
+msgstr "คุณได้ถมพื้นที่บนกระดานไปได้มากกว่า %1% แล้ว\n"
+
+#: gamewidget.cpp:403
+#, kde-format
+msgid "%1 points: %2 points per remaining life\n"
+msgstr "คะแนนที่ได้เพิ่มจากตัวเล่นที่เหลืออีกตัวละ %2 คะแนน: %1 คะแนน\n"
+
+#: gamewidget.cpp:404
+#, kde-format
+msgid "%1 points: Bonus\n"
+msgstr "คะแนนโบนัส: %1 คะแนน\n"
+
+#: gamewidget.cpp:405
+#, kde-format
+msgid "%1 points: Total score for this level\n"
+msgstr "คะแนนรวมของระดับการเล่นนี้: %1 คะแนน\n"
+
+#: gamewidget.cpp:406
+#, kde-format
+msgid "On to level %1. Remember you get %2 lives this time!"
+msgstr ""
+"เข้าสู่ระดับการเล่น %1\n"
+"จำไว้ว่าในตอนนี้คุณเหลือตัวเล่นอีก %2 ตัว !"
+
+#: gamewidget.cpp:409
+#, kde-format
+msgid ""
+"Game over.\n"
+" Click to start a game"
+msgstr ""
+"จบเกมแล้ว\n"
+" คลิกเพื่อเริ่มเกมใหม่"
+
+#. i18n: ectx: label, entry (PlaySounds), group (Sound)
+#: kbounce.kcfg:16
+#, kde-format
+msgid "Whether game sounds are played."
+msgstr "มีการเล่นเสียงในเกม"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kbounceui.rc:17
+#, kde-format
+msgid "Main Toolbar"
+msgstr "แถบเครื่องมือหลัก"
+
+#: main.cpp:37
+#, kde-format
+msgid "KBounce"
+msgstr "เกมถมพื้นที่บอลกระเด้ง-K"
+
+#: main.cpp:39
+#, fuzzy, kde-format
+#| msgid "KDE Bounce Ball Game"
+msgid "Bounce Ball Game"
+msgstr "เกมถมพื้นที่บอลกระเด้งของ KDE"
+
+#: main.cpp:41
+#, kde-format
+msgid ""
+"(c) 2000-2005, Stefan Schimanski\n"
+"(c) 2007, Tomasz Boczkowski"
+msgstr ""
+
+#: main.cpp:45
+#, kde-format
+msgid "Stefan Schimanski"
+msgstr "Stefan Schimanski"
+
+#: main.cpp:46
+#, kde-format
+msgid "Original author"
+msgstr "ผู้เขียนแรกเริ่ม"
+
+#: main.cpp:49
+#, kde-format
+msgid "Sandro Sigala"
+msgstr "Sandro Sigala"
+
+#: main.cpp:50
+#, kde-format
+msgid "Highscore"
+msgstr "คะแนนสูงสุด"
+
+#: main.cpp:53
+#, kde-format
+msgid "Benjamin Meyer"
+msgstr "Benjamin Meyer"
+
+#: main.cpp:54
+#, kde-format
+msgid "Contributions"
+msgstr "ผู้ช่วยเหลือ"
+
+#: main.cpp:57
+#, kde-format
+msgid "Tomasz Boczkowski"
+msgstr "Tomasz Boczkowski"
+
+#: main.cpp:58
+#, kde-format
+msgid "Port to KDE4. Current maintainer"
+msgstr "พอร์ทมายัง KDE4, ผู้ดูแลปัจจุบัน"
+
+#: main.cpp:61
+#, kde-format
+msgid "Dmitry Suzdalev"
+msgstr "Dmitry Suzdalev"
+
+#: main.cpp:62
+#, kde-format
+msgid "Port to QGraphicsView framework"
+msgstr "พอร์ทไปใช้เฟรมเวิร์ก QGraphicsView"
+
+#: main.cpp:65
+#, kde-format
+msgid "Andreas Scherf"
+msgstr "Andreas Scherf"
+
+#: main.cpp:66
+#, kde-format
+msgid "Image Background and Fixes"
+msgstr "ภาพพื้นหลังและแก้ไขข้อผิดพลาดต่าง ๆ"
+
+#: mainwindow.cpp:32 mainwindow.cpp:205
+#, kde-format
+msgid "Level: %1"
+msgstr "ระดับการเล่น: %1"
+
+#: mainwindow.cpp:33 mainwindow.cpp:210
+#, kde-format
+msgid "Score: %1"
+msgstr "คะแนน: %1"
+
+#: mainwindow.cpp:34 mainwindow.cpp:215
+#, kde-format
+msgid "Filled: %1%"
+msgstr "พื้นที่ที่ถมได้: %1%"
+
+#: mainwindow.cpp:35 mainwindow.cpp:220
+#, kde-format
+msgid "Lives: %1"
+msgstr "จำนวนตัวเล่น: %1"
+
+#: mainwindow.cpp:36 mainwindow.cpp:225
+#, kde-format
+msgid "Time: %1"
+msgstr "เวลา: %1"
+
+#: mainwindow.cpp:89
+#, kde-format
+msgid "&Play Sounds"
+msgstr "เล่นเสีย&ง"
+
+#: mainwindow.cpp:128
+#, fuzzy, kde-format
+#| msgid "Do you really want to close the running game?"
+msgid "Are you sure you want to quit the current game?"
+msgstr "คุณต้องการจะปิดเกมที่กำลังเล่นอยู่จริงหรือไม่ ?"
+
+#: mainwindow.cpp:130
+#, kde-format
+msgctxt "@action;button"
+msgid "Quit Game"
+msgstr ""
+
+#: mainwindow.cpp:144 mainwindow.cpp:247
+#, kde-format
+msgid "Game over. Click to start a game"
+msgstr "จบเกมแล้ว คลิกเพื่อเริ่มเกมใหม่"
+
+#: mainwindow.cpp:179
+#, kde-format
+msgid "Theme"
+msgstr "ชุดตกแต่ง"
+
+#: mainwindow.cpp:180
+#, kde-format
+msgid "Background"
+msgstr "ภาพพื้นหลัง"
+
+#~ msgid "Paused"
+#~ msgstr "ถูกหยุดชั่วคราว"
+
+#~ msgid "The graphical theme to be used."
+#~ msgstr "ชุดตกแต่งกราฟิกที่จะใช้"
+
+#~ msgid "Difficulty level"
+#~ msgstr "ระดับความยาก"
+
+#~ msgid "Game over. Press <Space> for a new game"
+#~ msgstr "จบเกม กด <Space> เพื่อเริ่มเล่นเกมใหม่"
+
+#, fuzzy
+#~ msgid "Game over."
+#~ msgstr "เกมหยุดชั่วคราว"
+
+#, fuzzy
+#~ msgid "Level: XX"
+#~ msgstr "ระดับ:"
+
+#, fuzzy
+#~ msgid "Score: XXXXXX"
+#~ msgstr "คะแนน:"
+
+#, fuzzy
+#~ msgid "Filled: XX"
+#~ msgstr "พื้นที่ที่ถมได้:"
+
+#, fuzzy
+#~ msgid "Lives: XX"
+#~ msgstr "ตัวเล่น:"
+
+#, fuzzy
+#~ msgid "Time: XXX"
+#~ msgstr "เวลา:"
+
+#~ msgid "Level"
+#~ msgstr "ระดับ"
+
+#~ msgid "&Select Background Folder..."
+#~ msgstr "เลือกไ&ดเร็กทอรีของภาพพื้นหลัง..."
+
+#~ msgid "Hide &Backgrounds"
+#~ msgstr "ซ่&อนพื้นหลัง"
+
+#~ msgid "Game Over! Score: %1"
+#~ msgstr "จบเกม ! ได้คะแนน: %1"
+
+#~ msgid "You may now turn on background images."
+#~ msgstr "ตอนนี้คุณได้เปิดใช้งานภาพพื้นหลังแล้ว"
+
+#~ msgid "Game suspended"
+#~ msgstr "เกมหยุดค้าง"

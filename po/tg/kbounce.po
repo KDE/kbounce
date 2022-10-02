@@ -1,0 +1,308 @@
+# translation of kbounce.po to Tajik
+# translation of kbounce.po to
+# translation of kbounce.po to tajik
+# translation of kbounce.po to Тоҷикӣ
+# Copyright (C) 2004, 1980, 2005 Free Software Foundation, Inc.
+# 2004, infoDev, a World Bank organization
+# 2004, Khujand Computer Technologies, Inc.
+# 2004, KCT1, NGO
+# Youth Opportunities NGO, 2005.
+# Dilshod Marupov <dma165@hotmail.com>, 2004.
+# Hiromon <H_Abrorova@rambler.ru>, 2004.
+# Victor Ibragimov <youth_opportunities@tajikngo.org>, 2005.
+msgid ""
+msgstr ""
+"Project-Id-Version: kbounce\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-07-08 00:43+0000\n"
+"PO-Revision-Date: 2005-10-14 18:55+0500\n"
+"Last-Translator: Victor Ibragimov <youth_opportunities@tajikngo.org>\n"
+"Language-Team: Tajik\n"
+"Language: tg\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.10\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Роджер Ковакс, Виктор Ибрагимов, Марина Колючева"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr ""
+"rkovacs@khujand.org, youth_opportunities@tajikngo.org, MarinaKL@tajikngo.org"
+
+#: backgroundselector.cpp:98
+#, kde-format
+msgid "No background pictures found."
+msgstr ""
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, KBounceBackgroundSelector)
+#: backgroundselector.ui:14
+#, kde-format
+msgid "kbouncebackgroundselector"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_UseRandomBackgroundPictures)
+#: backgroundselector.ui:24
+#, kde-format
+msgid "Enable random pictures as background"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, backgoundPicturePathLabel)
+#: backgroundselector.ui:54
+#, kde-format
+msgid "Choose picture path:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: backgroundselector.ui:75
+#, kde-format
+msgid "Preview"
+msgstr ""
+
+#: gamewidget.cpp:396
+#, kde-format
+msgid ""
+"Welcome to KBounce.\n"
+" Click to start a game"
+msgstr ""
+
+#: gamewidget.cpp:399
+#, kde-format
+msgid ""
+"Paused\n"
+" Click to resume"
+msgstr ""
+
+#: gamewidget.cpp:402
+#, fuzzy, kde-format
+msgid "You have successfully cleared more than %1% of the board\n"
+msgstr "Шумо бо муваффақият 75% -и тахтаро тоза кардед.\n"
+
+#: gamewidget.cpp:403
+#, fuzzy, kde-format
+msgid "%1 points: %2 points per remaining life\n"
+msgstr "%1 холҳо: 15 холҳо барои ҷони боқимонда\n"
+
+#: gamewidget.cpp:404
+#, kde-format
+msgid "%1 points: Bonus\n"
+msgstr "%1 холҳо: Мукофот\n"
+
+#: gamewidget.cpp:405
+#, kde-format
+msgid "%1 points: Total score for this level\n"
+msgstr "%1 холҳо: Холҳои умумии ин сатҳ\n"
+
+#: gamewidget.cpp:406
+#, kde-format
+msgid "On to level %1. Remember you get %2 lives this time!"
+msgstr "Дар сатҳи %1. Дар хотир доред, ки ин дафъа шумо %2 ҷон хоҳед дошт!"
+
+#: gamewidget.cpp:409
+#, fuzzy, kde-format
+#| msgid "Press %1 to start a game!"
+msgid ""
+"Game over.\n"
+" Click to start a game"
+msgstr "Барои оғози бозӣ %1-ро пахш кунед!"
+
+#. i18n: ectx: label, entry (PlaySounds), group (Sound)
+#: kbounce.kcfg:16
+#, kde-format
+msgid "Whether game sounds are played."
+msgstr ""
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kbounceui.rc:17
+#, kde-format
+msgid "Main Toolbar"
+msgstr ""
+
+#: main.cpp:37
+#, kde-format
+msgid "KBounce"
+msgstr "KБозӣ бо Тӯбҳо"
+
+#: main.cpp:39
+#, fuzzy, kde-format
+#| msgid "KDE Bounce Ball Game"
+msgid "Bounce Ball Game"
+msgstr "KDE Бозӣ бо Тӯбҳо"
+
+#: main.cpp:41
+#, kde-format
+msgid ""
+"(c) 2000-2005, Stefan Schimanski\n"
+"(c) 2007, Tomasz Boczkowski"
+msgstr ""
+
+#: main.cpp:45
+#, kde-format
+msgid "Stefan Schimanski"
+msgstr ""
+
+#: main.cpp:46
+#, kde-format
+msgid "Original author"
+msgstr "Муаллифи ибтидоӣ"
+
+#: main.cpp:49
+#, kde-format
+msgid "Sandro Sigala"
+msgstr ""
+
+#: main.cpp:50
+#, kde-format
+msgid "Highscore"
+msgstr ""
+
+#: main.cpp:53
+#, kde-format
+msgid "Benjamin Meyer"
+msgstr ""
+
+#: main.cpp:54
+#, kde-format
+msgid "Contributions"
+msgstr "Ҳамкорон"
+
+#: main.cpp:57
+#, kde-format
+msgid "Tomasz Boczkowski"
+msgstr ""
+
+#: main.cpp:58
+#, kde-format
+msgid "Port to KDE4. Current maintainer"
+msgstr ""
+
+#: main.cpp:61
+#, kde-format
+msgid "Dmitry Suzdalev"
+msgstr ""
+
+#: main.cpp:62
+#, kde-format
+msgid "Port to QGraphicsView framework"
+msgstr ""
+
+#: main.cpp:65
+#, kde-format
+msgid "Andreas Scherf"
+msgstr ""
+
+#: main.cpp:66
+#, fuzzy, kde-format
+#| msgid "Select Background Image Folder"
+msgid "Image Background and Fixes"
+msgstr "Интихоби Феҳристи Симоҳои Паснамо"
+
+#: mainwindow.cpp:32 mainwindow.cpp:205
+#, fuzzy, kde-format
+msgid "Level: %1"
+msgstr "Сатҳ:"
+
+#: mainwindow.cpp:33 mainwindow.cpp:210
+#, fuzzy, kde-format
+msgid "Score: %1"
+msgstr "Холҳо:"
+
+#: mainwindow.cpp:34 mainwindow.cpp:215
+#, fuzzy, kde-format
+msgid "Filled: %1%"
+msgstr "Минтақаи пуршуда:"
+
+#: mainwindow.cpp:35 mainwindow.cpp:220
+#, fuzzy, kde-format
+msgid "Lives: %1"
+msgstr "Ҷонҳо:"
+
+#: mainwindow.cpp:36 mainwindow.cpp:225
+#, fuzzy, kde-format
+msgid "Time: %1"
+msgstr "Вақт:"
+
+#: mainwindow.cpp:89
+#, kde-format
+msgid "&Play Sounds"
+msgstr "&Бозикунии Овоз"
+
+#: mainwindow.cpp:128
+#, fuzzy, kde-format
+#| msgid "Do you really want to close the running game?"
+msgid "Are you sure you want to quit the current game?"
+msgstr "Дар ҳақиқат мехоҳед, ки бозии корандозишударо пӯшед?"
+
+#: mainwindow.cpp:130
+#, kde-format
+msgctxt "@action;button"
+msgid "Quit Game"
+msgstr ""
+
+#: mainwindow.cpp:144 mainwindow.cpp:247
+#, fuzzy, kde-format
+#| msgid "Press %1 to start a game!"
+msgid "Game over. Click to start a game"
+msgstr "Барои оғози бозӣ %1-ро пахш кунед!"
+
+#: mainwindow.cpp:179
+#, kde-format
+msgid "Theme"
+msgstr ""
+
+#: mainwindow.cpp:180
+#, fuzzy, kde-format
+#| msgid "Show &Backgrounds"
+msgid "Background"
+msgstr "Нишон додани &Паснамо"
+
+#~ msgid "Game over. Press <Space> for a new game"
+#~ msgstr "Бозӣ ба охир расид. Барои оғози бозии нав <Space> -ро пахш кунед"
+
+#, fuzzy
+#~ msgid "Game over."
+#~ msgstr "Бозӣ таваққуф карда шуд."
+
+#, fuzzy
+#~ msgid "Level: XX"
+#~ msgstr "Сатҳ:"
+
+#, fuzzy
+#~ msgid "Score: XXXXXX"
+#~ msgstr "Холҳо:"
+
+#, fuzzy
+#~ msgid "Filled: XX"
+#~ msgstr "Минтақаи пуршуда:"
+
+#, fuzzy
+#~ msgid "Lives: XX"
+#~ msgstr "Ҷонҳо:"
+
+#, fuzzy
+#~ msgid "Time: XXX"
+#~ msgstr "Вақт:"
+
+#~ msgid "Level"
+#~ msgstr "Сатҳ"
+
+#~ msgid "&Select Background Folder..."
+#~ msgstr "&Интихоби Феҳристи Паснамо..."
+
+#~ msgid "Hide &Backgrounds"
+#~ msgstr "Пинҳон кардани &Паснамо"
+
+#~ msgid "Game Over! Score: %1"
+#~ msgstr "Бозӣ ба Охир расид! Холҳо: %1"
+
+#~ msgid "You may now turn on background images."
+#~ msgstr "Ҳоло шумо метавонед симоҳои паснаморо даргиронед."
+
+#~ msgid "Game suspended"
+#~ msgstr "Бозӣ боздошта шуд"

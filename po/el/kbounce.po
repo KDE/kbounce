@@ -1,0 +1,276 @@
+# translation of kbounce.po to greek
+# Copyright (C) 2003, 2007, 2008 Free Software Foundation, Inc.
+#
+# Charalambos Kanios <kaniosh@linuxmail.org>, 2003.
+# Stergios Dramis <sdramis@egnatia.ee.auth.gr>, 2003.
+# Spiros Georgaras <sng@hellug.gr>, 2007.
+# Toussis Manolis <manolis@koppermind.homelinux.org>, 2007, 2008.
+# Antonis Geralis <capoiosct@gmail.com>, 2012.
+# Dimitrios Glentadakis <dglent@gmail.com>, 2012, 2013.
+# Dimitris Kardarakos <dimkard@gmail.com>, 2013.
+# Stelios <sstavra@gmail.com>, 2021.
+msgid ""
+msgstr ""
+"Project-Id-Version: kbounce\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-07-08 00:43+0000\n"
+"PO-Revision-Date: 2021-06-12 11:21+0300\n"
+"Last-Translator: Stelios <sstavra@gmail.com>\n"
+"Language-Team: Greek <kde-i18n-el@kde.org>\n"
+"Language: el\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 20.04.2\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Τούσης Μανώλης"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "manolis@koppermind.homelinux.org"
+
+#: backgroundselector.cpp:98
+#, kde-format
+msgid "No background pictures found."
+msgstr "Δε βρέθηκαν εικόνες φόντου."
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, KBounceBackgroundSelector)
+#: backgroundselector.ui:14
+#, kde-format
+msgid "kbouncebackgroundselector"
+msgstr "kbouncebackgroundselector"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_UseRandomBackgroundPictures)
+#: backgroundselector.ui:24
+#, kde-format
+msgid "Enable random pictures as background"
+msgstr "Ενεργοποίηση τυχαίων εικόνων ως φόντο"
+
+#. i18n: ectx: property (text), widget (QLabel, backgoundPicturePathLabel)
+#: backgroundselector.ui:54
+#, kde-format
+msgid "Choose picture path:"
+msgstr "Επιλογή διαδρομής εικόνας:"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: backgroundselector.ui:75
+#, kde-format
+msgid "Preview"
+msgstr "Προεπισκόπηση"
+
+#: gamewidget.cpp:396
+#, kde-format
+msgid ""
+"Welcome to KBounce.\n"
+" Click to start a game"
+msgstr ""
+"Καλώς ήρθατε στο KBounce.\n"
+" Κάντε κλικ για να ξεκινήσετε ένα παιχνίδι"
+
+#: gamewidget.cpp:399
+#, kde-format
+msgid ""
+"Paused\n"
+" Click to resume"
+msgstr ""
+"Παύση\n"
+"Κάντε κλικ για να συνεχίσετε"
+
+#: gamewidget.cpp:402
+#, kde-format
+msgid "You have successfully cleared more than %1% of the board\n"
+msgstr "Έχετε καθαρίσει επιτυχώς περισσότερο από το %1% του πίνακα\n"
+
+#: gamewidget.cpp:403
+#, kde-format
+msgid "%1 points: %2 points per remaining life\n"
+msgstr "%1 πόντοι: %2 πόντοι για κάθε παραμένουσα ζωή\n"
+
+#: gamewidget.cpp:404
+#, kde-format
+msgid "%1 points: Bonus\n"
+msgstr "%1 πόντοι: Μπόνους\n"
+
+#: gamewidget.cpp:405
+#, kde-format
+msgid "%1 points: Total score for this level\n"
+msgstr "%1 πόντοι: Συνολική βαθμολογία για αυτό το επίπεδο\n"
+
+#: gamewidget.cpp:406
+#, kde-format
+msgid "On to level %1. Remember you get %2 lives this time!"
+msgstr "Προς το επίπεδο %1. Θυμηθείτε ότι παίρνετε %2 ζωές αυτή τη φορά!"
+
+#: gamewidget.cpp:409
+#, kde-format
+msgid ""
+"Game over.\n"
+" Click to start a game"
+msgstr ""
+"Τέλος παιχνιδιού.\n"
+" Κάντε κλικ για να ξεκινήσετε ένα παιχνίδι"
+
+#. i18n: ectx: label, entry (PlaySounds), group (Sound)
+#: kbounce.kcfg:16
+#, kde-format
+msgid "Whether game sounds are played."
+msgstr "Αν θα γίνεται αναπαραγωγή των ήχων του παιχνιδιού."
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kbounceui.rc:17
+#, kde-format
+msgid "Main Toolbar"
+msgstr "Κύρια γραμμή εργαλείων"
+
+#: main.cpp:37
+#, kde-format
+msgid "KBounce"
+msgstr "KBounce"
+
+#: main.cpp:39
+#, kde-format
+msgid "Bounce Ball Game"
+msgstr "Παιχνίδι με μπάλες αναπήδησης"
+
+#: main.cpp:41
+#, kde-format
+msgid ""
+"(c) 2000-2005, Stefan Schimanski\n"
+"(c) 2007, Tomasz Boczkowski"
+msgstr ""
+"(c) 2000-2005, Stefan Schimanski\n"
+"(c) 2007, Tomasz Boczkowski"
+
+#: main.cpp:45
+#, kde-format
+msgid "Stefan Schimanski"
+msgstr "Stefan Schimanski"
+
+#: main.cpp:46
+#, kde-format
+msgid "Original author"
+msgstr "Αρχικός συγγραφέας"
+
+#: main.cpp:49
+#, kde-format
+msgid "Sandro Sigala"
+msgstr "Sandro Sigala"
+
+#: main.cpp:50
+#, kde-format
+msgid "Highscore"
+msgstr "Υψηλή βαθμολογία"
+
+#: main.cpp:53
+#, kde-format
+msgid "Benjamin Meyer"
+msgstr "Benjamin Meyer"
+
+#: main.cpp:54
+#, kde-format
+msgid "Contributions"
+msgstr "Συνεισφορές"
+
+#: main.cpp:57
+#, kde-format
+msgid "Tomasz Boczkowski"
+msgstr "Tomasz Boczkowski"
+
+#: main.cpp:58
+#, kde-format
+msgid "Port to KDE4. Current maintainer"
+msgstr "Προσαρμογή στο KDE4. Τρέχων συντηρητής"
+
+#: main.cpp:61
+#, kde-format
+msgid "Dmitry Suzdalev"
+msgstr "Dmitry Suzdalev"
+
+#: main.cpp:62
+#, kde-format
+msgid "Port to QGraphicsView framework"
+msgstr "Μεταφορά στο πλαίσιο εργασίας QGraphicsView"
+
+#: main.cpp:65
+#, kde-format
+msgid "Andreas Scherf"
+msgstr "Andreas Scherf"
+
+#: main.cpp:66
+#, kde-format
+msgid "Image Background and Fixes"
+msgstr "Εικόνα φόντου και διορθώσεις"
+
+#: mainwindow.cpp:32 mainwindow.cpp:205
+#, kde-format
+msgid "Level: %1"
+msgstr "Επίπεδο: %1"
+
+#: mainwindow.cpp:33 mainwindow.cpp:210
+#, kde-format
+msgid "Score: %1"
+msgstr "Βαθμός: %1"
+
+#: mainwindow.cpp:34 mainwindow.cpp:215
+#, kde-format
+msgid "Filled: %1%"
+msgstr "Γεμισμένη περιοχή: %1%"
+
+#: mainwindow.cpp:35 mainwindow.cpp:220
+#, kde-format
+msgid "Lives: %1"
+msgstr "Ζωές: %1"
+
+#: mainwindow.cpp:36 mainwindow.cpp:225
+#, kde-format
+msgid "Time: %1"
+msgstr "Χρόνος: %1"
+
+#: mainwindow.cpp:89
+#, kde-format
+msgid "&Play Sounds"
+msgstr "&Αναπαραγωγή ήχων"
+
+#: mainwindow.cpp:128
+#, fuzzy, kde-format
+#| msgid "Do you really want to close the running game?"
+msgid "Are you sure you want to quit the current game?"
+msgstr "Θέλετε πραγματικά να κλείσετε το τρέχον παιχνίδι;"
+
+#: mainwindow.cpp:130
+#, kde-format
+msgctxt "@action;button"
+msgid "Quit Game"
+msgstr ""
+
+#: mainwindow.cpp:144 mainwindow.cpp:247
+#, kde-format
+msgid "Game over. Click to start a game"
+msgstr "Τέλος παιχνιδιού. Κάντε κλικ για να ξεκινήσετε ένα παιχνίδι"
+
+#: mainwindow.cpp:179
+#, kde-format
+msgid "Theme"
+msgstr "Θέμα"
+
+#: mainwindow.cpp:180
+#, kde-format
+msgid "Background"
+msgstr "Φόντο"
+
+#~ msgid "Paused"
+#~ msgstr "Παύση"
+
+#~ msgid "The graphical theme to be used."
+#~ msgstr "Το γραφικό θέμα που θα χρησιμοποιηθεί."
+
+#~ msgid "Game over. Press <Space> for a new game"
+#~ msgstr "Τέλος παιχνιδιού. Πατήστε <Κενό> για ένα νέο παιχνίδι"
+
+#~ msgid "Game over."
+#~ msgstr "Τέλος παιχνιδιού."

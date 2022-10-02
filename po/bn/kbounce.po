@@ -1,0 +1,301 @@
+# Bangla translation of KBounce.
+# Copyright (C) 2003-2006 KDE Foundation.
+# This file is distributed under the same license as the KBounce package.
+# Deepayan Sarkar <deepayan@bengalinux.org>, 2003, 2004, 2005.
+# Progga <progga@BengaLinux.Org>, 2006.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kbounce (KDE 3.5)\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-07-08 00:43+0000\n"
+"PO-Revision-Date: 2006-04-04 12:45+0600\n"
+"Last-Translator: Progga <progga@BengaLinux.Org>\n"
+"Language-Team: Bangla <kde-translation@BengaLinux.Org>\n"
+"Language: bn\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "দীপায়ন সরকার"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "deepayan@bengalinux.org"
+
+#: backgroundselector.cpp:98
+#, kde-format
+msgid "No background pictures found."
+msgstr ""
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, KBounceBackgroundSelector)
+#: backgroundselector.ui:14
+#, kde-format
+msgid "kbouncebackgroundselector"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_UseRandomBackgroundPictures)
+#: backgroundselector.ui:24
+#, kde-format
+msgid "Enable random pictures as background"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, backgoundPicturePathLabel)
+#: backgroundselector.ui:54
+#, kde-format
+msgid "Choose picture path:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: backgroundselector.ui:75
+#, kde-format
+msgid "Preview"
+msgstr ""
+
+#: gamewidget.cpp:396
+#, kde-format
+msgid ""
+"Welcome to KBounce.\n"
+" Click to start a game"
+msgstr ""
+
+#: gamewidget.cpp:399
+#, kde-format
+msgid ""
+"Paused\n"
+" Click to resume"
+msgstr ""
+
+# bug in msgid?
+#: gamewidget.cpp:402
+#, fuzzy, kde-format
+msgid "You have successfully cleared more than %1% of the board\n"
+msgstr "আপনি ক্রীড়াক্ষেত্রের ৭৫ শতাংশের বেশী ফাঁকা করতে সক্ষম হয়েছেন।\n"
+
+#: gamewidget.cpp:403
+#, fuzzy, kde-format
+msgid "%1 points: %2 points per remaining life\n"
+msgstr "%1 পয়েন্ট: বাকি প্রতিটি জীবনের জন্য ১৫ পয়েন্ট\n"
+
+#: gamewidget.cpp:404
+#, kde-format
+msgid "%1 points: Bonus\n"
+msgstr "%1 পয়েন্ট: বোনাস\n"
+
+#: gamewidget.cpp:405
+#, kde-format
+msgid "%1 points: Total score for this level\n"
+msgstr "%1 পয়েন্ট: এই স্তরের জন্য মোট স্কোর\n"
+
+#: gamewidget.cpp:406
+#, kde-format
+msgid "On to level %1. Remember you get %2 lives this time!"
+msgstr "এবার আপনি স্তর %1-এ অগ্রসর হলেন। মনে রাখবেন, এখন আপনার %2-টি জীবন!"
+
+#: gamewidget.cpp:409
+#, fuzzy, kde-format
+#| msgid "Press %1 to start a game!"
+msgid ""
+"Game over.\n"
+" Click to start a game"
+msgstr "দান শুরু করতে %1 চাপুন!"
+
+#. i18n: ectx: label, entry (PlaySounds), group (Sound)
+#: kbounce.kcfg:16
+#, kde-format
+msgid "Whether game sounds are played."
+msgstr ""
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kbounceui.rc:17
+#, kde-format
+msgid "Main Toolbar"
+msgstr ""
+
+#: main.cpp:37
+#, kde-format
+msgid "KBounce"
+msgstr "কে-বাউন্স"
+
+#: main.cpp:39
+#, fuzzy, kde-format
+#| msgid "KDE Bounce Ball Game"
+msgid "Bounce Ball Game"
+msgstr "কে.ডি.ই বল বাউন্স করার খেলা"
+
+#: main.cpp:41
+#, kde-format
+msgid ""
+"(c) 2000-2005, Stefan Schimanski\n"
+"(c) 2007, Tomasz Boczkowski"
+msgstr ""
+
+#: main.cpp:45
+#, kde-format
+msgid "Stefan Schimanski"
+msgstr ""
+
+#: main.cpp:46
+#, kde-format
+msgid "Original author"
+msgstr "প্রারম্ভিক লেখক"
+
+#: main.cpp:49
+#, kde-format
+msgid "Sandro Sigala"
+msgstr ""
+
+#: main.cpp:50
+#, kde-format
+msgid "Highscore"
+msgstr ""
+
+#: main.cpp:53
+#, kde-format
+msgid "Benjamin Meyer"
+msgstr ""
+
+#: main.cpp:54
+#, kde-format
+msgid "Contributions"
+msgstr "সাহায্য"
+
+#: main.cpp:57
+#, kde-format
+msgid "Tomasz Boczkowski"
+msgstr ""
+
+#: main.cpp:58
+#, kde-format
+msgid "Port to KDE4. Current maintainer"
+msgstr ""
+
+#: main.cpp:61
+#, kde-format
+msgid "Dmitry Suzdalev"
+msgstr ""
+
+#: main.cpp:62
+#, kde-format
+msgid "Port to QGraphicsView framework"
+msgstr ""
+
+#: main.cpp:65
+#, kde-format
+msgid "Andreas Scherf"
+msgstr ""
+
+#: main.cpp:66
+#, fuzzy, kde-format
+#| msgid "Select Background Image Folder"
+msgid "Image Background and Fixes"
+msgstr "পটভূমি-চিত্রের ফোল্ডার বেছে নিন"
+
+#: mainwindow.cpp:32 mainwindow.cpp:205
+#, fuzzy, kde-format
+msgid "Level: %1"
+msgstr "স্তর:"
+
+#: mainwindow.cpp:33 mainwindow.cpp:210
+#, fuzzy, kde-format
+msgid "Score: %1"
+msgstr "স্কোর:"
+
+#: mainwindow.cpp:34 mainwindow.cpp:215
+#, fuzzy, kde-format
+msgid "Filled: %1%"
+msgstr "ভর্তি হয়েছে:"
+
+#: mainwindow.cpp:35 mainwindow.cpp:220
+#, fuzzy, kde-format
+msgid "Lives: %1"
+msgstr "জীবন:"
+
+#: mainwindow.cpp:36 mainwindow.cpp:225
+#, fuzzy, kde-format
+msgid "Time: %1"
+msgstr "সময়:"
+
+#: mainwindow.cpp:89
+#, kde-format
+msgid "&Play Sounds"
+msgstr "আওয়া&জ চালাও"
+
+#: mainwindow.cpp:128
+#, fuzzy, kde-format
+#| msgid "Do you really want to close the running game?"
+msgid "Are you sure you want to quit the current game?"
+msgstr "আপনি কি সত্যিই চলন্ত দানটি বন্ধ করতে চান?"
+
+#: mainwindow.cpp:130
+#, kde-format
+msgctxt "@action;button"
+msgid "Quit Game"
+msgstr ""
+
+#: mainwindow.cpp:144 mainwindow.cpp:247
+#, fuzzy, kde-format
+#| msgid "Press %1 to start a game!"
+msgid "Game over. Click to start a game"
+msgstr "দান শুরু করতে %1 চাপুন!"
+
+#: mainwindow.cpp:179
+#, kde-format
+msgid "Theme"
+msgstr ""
+
+#: mainwindow.cpp:180
+#, fuzzy, kde-format
+#| msgid "Show &Backgrounds"
+msgid "Background"
+msgstr "&পটভূমি দেখাও"
+
+#~ msgid "Game over. Press <Space> for a new game"
+#~ msgstr "খেল খতম। নতুন দানের জন্য <Space> চাপুন"
+
+#, fuzzy
+#~ msgid "Game over."
+#~ msgstr "খেলায় সাময়িক বিরতি।"
+
+#, fuzzy
+#~ msgid "Level: XX"
+#~ msgstr "স্তর:"
+
+#, fuzzy
+#~ msgid "Score: XXXXXX"
+#~ msgstr "স্কোর:"
+
+#, fuzzy
+#~ msgid "Filled: XX"
+#~ msgstr "ভর্তি হয়েছে:"
+
+#, fuzzy
+#~ msgid "Lives: XX"
+#~ msgstr "জীবন:"
+
+#, fuzzy
+#~ msgid "Time: XXX"
+#~ msgstr "সময়:"
+
+#~ msgid "Level"
+#~ msgstr "স্তর"
+
+#~ msgid "&Select Background Folder..."
+#~ msgstr "&পটভূমি-চিত্রের ফোল্ডার বেছে নিন..."
+
+#~ msgid "Hide &Backgrounds"
+#~ msgstr "&পটভূমি লুকোও"
+
+#~ msgid "Game Over! Score: %1"
+#~ msgstr "খেল খতম! স্কোর: %1"
+
+#~ msgid "You may now turn on background images."
+#~ msgstr "এবার আপনি পটভূমি-চিত্র সক্রিয় করতে পারেন।"
+
+#~ msgid "Game suspended"
+#~ msgstr "খেলা স্থগিত"

@@ -1,0 +1,720 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY % Spanish "INCLUDE"
+> 
+  <!ENTITY % addindex "IGNORE">
+]>
+
+<book id="kbounce" lang="&language;">
+<bookinfo>
+<title
+>Manual de &kbounce;</title>
+
+<authorgroup>
+<author
+><firstname
+>Tomasz</firstname
+><surname
+>Boczkowski</surname
+> <affiliation
+><address
+><email
+>tboczkowski@onet.pl</email
+></address
+></affiliation>
+</author>
+<othercredit role="reviewer"
+><firstname
+>Eugene</firstname
+><surname
+>Trounev</surname
+> <contrib
+>Revisor</contrib>
+<affiliation
+><address
+>eugene.trounev@gmail.com</address
+></affiliation>
+</othercredit>
+<othercredit role="translator"
+> <firstname
+>Rocío</firstname
+> <surname
+>Gallego</surname
+> <affiliation
+><address
+><email
+>traducciones@rociogallego.com</email
+></address
+></affiliation
+> <contrib
+>Traducción</contrib
+> </othercredit
+><othercredit role="translator"
+> <firstname
+>Rafael</firstname
+> <surname
+>Osuna</surname
+> <affiliation
+><address
+><email
+>rosuna@wol.es</email
+></address
+></affiliation
+> <contrib
+>Traductor</contrib
+> </othercredit
+><othercredit role="translator"
+> <firstname
+>Pablo</firstname
+> <surname
+>de Vicente</surname
+> <affiliation
+><address
+><email
+>pvicentea@wanadoo.es</email
+></address
+></affiliation
+> <contrib
+>Traductor</contrib
+> </othercredit
+> <othercredit role="translator"
+> <firstname
+>Pablo</firstname
+> <surname
+>Barneo</surname
+> <affiliation
+><address
+><email
+>pablob@nikhef.nl</email
+></address
+></affiliation
+> <contrib
+>Traductor</contrib
+> </othercredit
+> <othercredit role="translator"
+> <firstname
+>Kira</firstname
+> <surname
+>J. Fernández</surname
+> <affiliation
+><address
+><email
+>kirajfdez@gmail.com</email
+></address
+></affiliation
+> <contrib
+>Traductora</contrib
+> </othercredit
+> 
+</authorgroup>
+
+<copyright>
+<year
+>2002</year>
+<holder
+>&Aaron.J.Seigo;</holder>
+</copyright>
+
+<copyright>
+<year
+>2007</year>
+<holder
+>Tomasz Boczkowski</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+
+<date
+>2021-06-25</date>
+<releaseinfo
+>KDE Gear 21.04</releaseinfo>
+
+<abstract>
+	<para
+>Esta documentación describe el juego &kbounce; versión 21.04</para>
+</abstract>
+
+
+<keywordset>
+	<keyword
+>KDE</keyword
+> <!-- do not change this! -->
+	<keyword
+>kdegames</keyword
+> <!-- do not change this! -->
+	<keyword
+>juego</keyword
+> <!-- do not change this! -->
+<!-- Game genre. Use as many as necessary. Available game types are: Arcade, Board, Card, Dice, Toys, Logic, Strategy.-->
+	<keyword
+>arcade</keyword>
+	<keyword
+>rompecabezas</keyword>
+	<keyword
+>bolas</keyword>
+	<keyword
+>JezzBall</keyword>
+	<keyword
+>KBounce</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Introducción</title>
+<note
+><title
+>Tipo de juego:</title
+><para
+>Rompecabezas, Arcade</para
+></note
+><!-- Game genre. Use as many as necessary. Available game types are: Arcade, Board, Card, Dice, Toys, Logic, Strategy.-->
+	<note
+><title
+>Número de posibles jugadores:</title
+><para
+>Uno</para
+></note
+><!--Number of possible players. It can be: One, Two,..., Multiplayer-->
+<para
+>&kbounce; es un juego recreativo para un solo jugador con los elementos de un rompecabezas. </para>
+
+<para
+>Se juega en un campo, rodeado de paredes, con dos o más bolas que se mueven en el campo rebotando en las paredes. El jugador puede construir paredes nuevas, reduciendo el tamaño del campo activo. </para>
+
+<para
+>Para ganar el juego debe rellenar al menos el 75&percnt; del campo y avanzar al siguiente nivel. </para>
+</chapter>
+
+<chapter id="how-to-play">
+<title
+>Cómo jugar</title>
+
+<para
+>Al jugador se le presenta un campo embaldosado rectangular rodeado de paredes. Dos o más bolas que se mueven en el campo rebotando en las paredes. El objeto del juego es limitar el tamaño de la habitación para las bolas. </para>
+
+<para
+>El tamaño del área del campo se disminuye haciendo nuevas paredes que encierran áreas sin bolas en ellas. Para completar un nivel, el jugador debe disminuir el tamaño del campo activo al menos un 75&percnt; en el tiempo permitido. </para>
+
+<para
+>Se pueden construir nuevas paredes pulsando con el &LMB; del ratón en una zona activa del campo, punto en el que comenzará a crecer una pared en dirección opuesta y partiendo del cuadrado pulsando con el ratón. Únicamente pueden crecer dos paredes simultáneamente en la pantalla en un momento dado. </para>
+
+<para
+>Cuando el ratón está en el campo, el cursor se muestra como un par de flechas apuntando en direcciones opuestas, ya sea en dirección vertical u horizontal. Las flechas apuntan en la dirección en la que crecerán las paredes cuando se pulse el &LMB; del ratón. La dirección se puede cambiar pulsando el &RMB;. </para>
+
+<para
+>Una pared nueva tiene una «cabeza», que se aleja del punto en el que se ha pulsado el ratón. Una pared no será permanente hasta que su «cabeza» tome contacto con otra pared. Si una bola colisiona con cualquier parte de la pared, excepto la cabeza, antes de que esta se junte con otra pared, la pared nueva desaparecerá completamente y se perderá una vida. Si la bola colisiona con la cabeza en la dirección de crecimiento de la pared, la pared detendrá su crecimiento y se quedará allí permanentemente, sin que se pierda ninguna vida. Si una bola colisiona con la cabeza desde cualquier otro lado, la bola rebotará y la pared seguirá creciendo normalmente. </para>
+</chapter>
+
+<chapter id="rules_and_tips"
+><title
+>Reglas del juego, estrategias y consejos</title
+> <!-- do not change this! -->
+<sect1 id="rules">
+<title
+>Reglas del juego</title>
+
+<para
+>El juego se inicia en el nivel 1 en el que dos bolas se mueven por el campo. El jugador tiene dos vidas y 90 segundos para completar correctamente el nivel. </para>
+
+<para
+>En el nivel n-ésimo hay n + 1 bolas. El jugador tendrá n + 1 vidas. Tendrá 30 * ( n + 2) segundos para completarlo. </para>
+
+<para
+>Cuando una bola colisione con una pared que esté creciendo el jugador perderá una vida. La excepción es si la colisión se produce en la «cabeza» donde no se pierde ninguna vida. </para>
+
+<para
+>El objetivo de cada nivel es cubrir al menos el 75&percnt; del campo con una pared. </para>
+
+<para
+>La pérdida de todas las vidas y excederse de tiempo da como resultado el final de la partida. </para>
+
+<para
+>Si un jugador completa un nivel recibe 15 puntos por cada vida que tenga, y un bono dependiendo del número de bolas y del número de baldosas rellenadas por encima del 75&percnt;. También avanza al siguiente nivel. </para>
+ 
+</sect1>
+
+<sect1 id="strategy">
+<title
+>Estrategias y consejos</title>
+<itemizedlist>
+
+<listitem>
+<para
+>Muchos jugadores encuentran el juego muy difícil al llegar al tercer o cuarto nivel, debido al número de bolas que hay simultáneamente en el campo. </para>
+</listitem>
+
+<listitem>
+<para
+>El truco para jugar a &kbounce; con éxito es construir «pasillos». Para construir un pasillo, inicie un par de paredes que crezcan cerca de otra pared, y lo más probable es que una de esas paredes será tocada por una bola, mientras que el otro no, sino que se hará permanente. </para>
+
+<screenshot>
+<screeninfo
+>Construcción de un pasillo</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="kbounce_corridor1.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Construcción de un pasillo</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Esto dejará un estrecho pasillo de solo unos pocos cuadros de alto en el campo, rodeado de paredes por tres lados. Espere a que las bolas reboten en el extremo abierto del pasillo, y cierre el pasillo por detrás de las bolas con un pared nueva. Aunque lo más probable es que pierda una vida por cada pasillo creado, puede atrapar a varias bolas en un único pasillo. </para>
+
+<screenshot>
+<screeninfo
+>Bolas capturadas en un pasillo</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="kbounce_corridor2.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Capturar bolas en un pasillo</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+</listitem>
+
+<listitem>
+<para
+>Un último consejo: ¡tenga paciencia!. Hay mucho tiempo, como se muestra en el indicador de <guilabel
+>Tiempo</guilabel
+> que se encuentra a la derecha de la pantalla. ¡Las prisas solo le causarán problemas! </para>
+</listitem>
+</itemizedlist>
+</sect1>
+</chapter>
+
+<chapter id="interface-overview">
+<title
+>Vista general de la interfaz</title>
+
+<sect1 id="the-tool-bar">
+<title
+>La barra de herramientas</title>
+
+<para
+>La barra de herramientas proporciona botones para las funciones utilizadas habitualmente. </para>
+
+<table>
+<title
+>Botones de la barra de herramientas</title>
+<tgroup cols="4">
+
+<thead>
+<row>
+<entry
+>Botón</entry>
+<entry
+>Nombre</entry>
+<entry
+>Menú equivalente</entry>
+<entry
+>Acción</entry>
+</row>
+</thead>
+
+<tbody>
+<row>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata format="PNG" fileref="document-new.png"/>
+</imageobject>
+<textobject
+><phrase
+>Botón partida nueva</phrase
+></textobject>
+</inlinemediaobject>
+</entry>
+
+<entry>
+<guiicon
+>Nuevo</guiicon>
+</entry>
+
+<entry>
+<link linkend="game-new">
+<menuchoice
+><guimenu
+>Juego</guimenu
+> <guimenuitem
+>Nuevo</guimenuitem
+> </menuchoice>
+</link>
+</entry>
+
+<entry
+>Inicia una partida nueva. Si se está jugando una partida se limpia el campo y se establece el nivel a 1. </entry>
+</row>
+
+<row>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata format="PNG" fileref="media-playback-pause.png"/>
+</imageobject>
+<textobject>
+<phrase
+>Botón detener</phrase
+></textobject>
+</inlinemediaobject>
+</entry>
+
+<entry>
+<guiicon
+>Detener</guiicon>
+</entry>
+
+<entry>
+<link linkend="game-pause">
+<menuchoice
+><guimenu
+>Juego</guimenu
+> <guimenuitem
+>Detener</guimenuitem
+></menuchoice>
+</link>
+</entry>
+
+<entry
+>Detiene o continúa el juego. </entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+</sect1>
+
+<sect1 id="the-menu-items">
+<title
+>Los elementos del Menú</title>
+
+<sect2>
+<title
+>El menú Juego</title>
+
+<variablelist>
+<varlistentry id="game-new">
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Juego</guimenu
+> <guimenuitem
+>Nuevo</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+><action
+>Inicia una partida nueva.</action
+></para>
+</listitem>
+</varlistentry>
+
+<varlistentry id="game-end">
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;&End;</keycombo
+> </shortcut
+> <guimenu
+>Juego</guimenu
+> <guimenuitem
+>Terminar partida</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+><action
+>Finaliza la partida actual.</action
+></para>
+</listitem>
+</varlistentry>
+
+<varlistentry id="game-pause">
+<term
+><menuchoice
+><shortcut
+> <keycap
+>P</keycap
+></shortcut
+> <guimenu
+>Juego</guimenu
+> <guimenuitem
+>Pausa</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+><action
+>Detiene o continúa la partida.</action
+></para>
+</listitem>
+</varlistentry>
+
+<varlistentry id="game-highscores">
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>H</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Juego</guimenu
+> <guimenuitem
+>Mostrar mejores puntuaciones</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+>Abre un diálogo que muestra tablas diferentes de mejores puntuaciones. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry id="game-quit">
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Juego</guimenu
+> <guimenuitem
+>Salir</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+><action
+>Sale</action
+> y cierra &kbounce;. Si se está jugando una partida, se pierde su estado</para>
+</listitem>
+</varlistentry>
+</variablelist>
+</sect2>
+
+<sect2 id="settings-menu">
+<title
+>El menú Preferencias</title>
+
+<variablelist>
+
+<varlistentry id="settings-sounds">
+<term
+><menuchoice
+><guimenu
+>Preferencias</guimenu
+> <guimenuitem
+>Reproducir sonidos</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+><action
+>Si está seleccionado, se reproducen los sonidos de &kbounce;.</action
+></para>
+</listitem>
+</varlistentry>
+
+<varlistentry id="settings-difficulty">
+<term
+><menuchoice
+><guimenu
+>Preferencias</guimenu
+> <guisubmenu
+>Dificultad</guisubmenu
+> </menuchoice
+></term>
+<listitem>
+<para
+><action
+>Seleccionar una dificultad para la partida. En los niveles más altos de dificultad, las paredes se construyen más lentamente mientras que las bolas se mueven más deprisa. Esto hace más difícil cercar una zona en el tablero.</action
+></para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+<para
+>Además &kbounce; tiene las opciones de menú <guimenu
+>Preferencias</guimenu
+> y <guimenu
+>Ayuda</guimenu
+> comunes de &kde;. Para obtener más información, consulte las secciones sobre el <ulink url="help:/fundamentals/menus.html#menus-settings"
+>Menú «Preferencias»</ulink
+> y <ulink url="help:/fundamentals/menus.html#menus-help"
+>Menú «Ayuda» </ulink
+> de «Aspectos básicos de &kde;». </para>
+
+</sect2>
+
+</sect1>
+</chapter>
+
+<chapter id="faq"
+><title
+>Preguntas frecuentes</title
+> <!-- do not change this! -->
+<!--This chapter is for frequently asked questions. Please use <qandaset
+> <qandaentry
+> only!-->
+<qandaset>
+<!--Following is a standard list of FAQ questions.-->
+<qandaentry>
+ <question
+><para
+>Quiero cambiar el aspecto del juego ¿Puedo? </para
+></question>
+ <answer
+><para
+>Sí. Para cambiar el tema visual de &kbounce; puede utilizar la opción <menuchoice
+><guimenu
+>Preferencias</guimenu
+><guimenuitem
+>Configurar &kbounce;...</guimenuitem
+></menuchoice
+> en la barra de menú.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>He cometido un error ¿puedo deshacerlo? </para
+></question>
+ <answer
+><para
+>&kbounce; no tiene la funcionalidad de «Deshacer».</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>¿Puedo utilizar el teclado para jugar a este juego?</para
+></question>
+ <answer
+><para
+>No. No se puede utilizar el teclado para jugar a &kbounce;.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>Debo abandonar la partida, pero todavía no he finalizado ¿Puedo guardar mi progreso?</para
+></question>
+  <answer
+><para
+>&kbounce; no tiene por ahora la funcionalidad «Guardar».</para
+></answer>
+</qandaentry>
+</qandaset>
+</chapter>
+
+<chapter id="configuration"
+><title
+>Configuración del juego</title
+> <!-- do not change this! -->
+<para
+>El diálogo de configuración de &kbounce; le permite seleccionar los temas visuales para &kbounce;.</para>
+<para
+>Para seleccionar un nuevo tema, basta con elegirlo en la lista de selección. Cada uno de los elementos de la lista tiene una pequeña vista previa a la izquierda del nombre del tema. El tema seleccionado se aplica inmediatamente. </para>
+<para
+>Puede seleccionar imágenes de fondo aleatorias de una carpeta definida por el usuario que contenga imágenes. </para>
+<para
+>Cuando esté satisfecho con el tema que ha seleccionado, pulse el botón <guibutton
+>Aceptar</guibutton
+> situado en la parte inferior del cuadro de diálogo. </para>
+</chapter>
+
+<chapter id="credits-and-license">
+<title
+>Créditos y licencia</title>
+
+
+<para
+>&kbounce;.</para>
+
+<itemizedlist>
+<listitem>
+<para
+>Stefan Schimanski <email
+>schimmi@kde.org</email
+>. Autor original.</para>
+</listitem>
+<listitem>
+<para
+>Sandro Sigala <email
+>ssigala@globalnet.it</email
+> - Mejores puntuaciones.</para>
+</listitem>
+<listitem>
+<para
+>Benjamin Meyer <email
+>ben+kbounce@meyerhome.net</email
+>. Colaboraciones.</para>
+</listitem>
+<listitem>
+<para
+>Dmitry Suzdalev <email
+>dimsuz@gmail.com</email
+>.</para>
+</listitem>
+<listitem>
+<para
+>Tomasz Boczkowski <email
+>tboczkowski@onet.pl</email
+>. Portado a KDE4 y KGameCavas</para>
+</listitem>
+</itemizedlist>
+
+<para
+>Derechos de autor de la documentación. 2002. &Aaron.J.Seigo; &Aaron.J.Seigo.mail;.</para>
+<para
+>Derechos de autor de la documentación 2007, Tomasz Boczkowski <email
+>tboczkowski@onet.pl</email
+>.</para>
+
+<para
+>Este manual está dedicado a Dennis E. Powell.</para>
+
+<para
+>Traducido por Rocío Gallego <email
+>traducciones@rociogallego.com</email
+>, Rafael Osuna <email
+>rosuna@wol.es</email
+>, Pablo de Vicente <email
+>pvicentea@wanadoo.es</email
+> y Kira J. Fernández <email
+>kirajfdez@gmail.com</email
+>.</para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index; 
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes: nil
+sgml-general-insert-case: lower
+End:
+-->
+

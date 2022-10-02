@@ -1,0 +1,303 @@
+# translation of kbounce.po to Xhosa
+# translation of kbounce.po to
+# K Desktop Environment - kdegames
+# Copyright (C) 2001 translate.org.za
+# Antoinette Dekeni <antoinette@transalate.org.za>, 2001,2002.
+# Thelma Lungcuzo <thelma@translate.org.za>, 2002
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kbounce\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-07-08 00:43+0000\n"
+"PO-Revision-Date: 2002-09-02 16:06+0200\n"
+"Last-Translator: Thelma Lungcuzo <thelma@translate.org.za>\n"
+"Language-Team: Xhosa <xhosa@translate.org.za>\n"
+"Language: xh\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.0beta2\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Lwandle Mgidlana,Thelma Lungcuzo"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "lwandle@transator.org.za,thelma@translator.org.za"
+
+#: backgroundselector.cpp:98
+#, kde-format
+msgid "No background pictures found."
+msgstr ""
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, KBounceBackgroundSelector)
+#: backgroundselector.ui:14
+#, kde-format
+msgid "kbouncebackgroundselector"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_UseRandomBackgroundPictures)
+#: backgroundselector.ui:24
+#, kde-format
+msgid "Enable random pictures as background"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, backgoundPicturePathLabel)
+#: backgroundselector.ui:54
+#, kde-format
+msgid "Choose picture path:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: backgroundselector.ui:75
+#, kde-format
+msgid "Preview"
+msgstr ""
+
+#: gamewidget.cpp:396
+#, kde-format
+msgid ""
+"Welcome to KBounce.\n"
+" Click to start a game"
+msgstr ""
+
+#: gamewidget.cpp:399
+#, kde-format
+msgid ""
+"Paused\n"
+" Click to resume"
+msgstr ""
+
+#: gamewidget.cpp:402
+#, fuzzy, kde-format
+msgid "You have successfully cleared more than %1% of the board\n"
+msgstr "Ucime ngempumelelo ngaphezulu kwe 75% ye bhodi.\n"
+
+#: gamewidget.cpp:403
+#, fuzzy, kde-format
+msgid "%1 points: %2 points per remaining life\n"
+msgstr "%1 amanqaku: amanqaku ayi 15 ngobomi obushiyekileyo\n"
+
+#: gamewidget.cpp:404
+#, kde-format
+msgid "%1 points: Bonus\n"
+msgstr "%1 amanqaku: amanqaku ongeziweyo\n"
+
+#: gamewidget.cpp:405
+#, kde-format
+msgid "%1 points: Total score for this level\n"
+msgstr "%1 imixholo: inqaku elipheleleyo lalomphakamo\n"
+
+#: gamewidget.cpp:406
+#, kde-format
+msgid "On to level %1. Remember you get %2 lives this time!"
+msgstr "Kumphakamo %1. khumbula ufumana %2 ziphile kweli thuba! "
+
+#: gamewidget.cpp:409
+#, fuzzy, kde-format
+#| msgid "Press %1 to start a game!"
+msgid ""
+"Game over.\n"
+" Click to start a game"
+msgstr "Cinezela %1 ukuqala umdlalo!"
+
+#. i18n: ectx: label, entry (PlaySounds), group (Sound)
+#: kbounce.kcfg:16
+#, kde-format
+msgid "Whether game sounds are played."
+msgstr ""
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kbounceui.rc:17
+#, kde-format
+msgid "Main Toolbar"
+msgstr ""
+
+#: main.cpp:37
+#, kde-format
+msgid "KBounce"
+msgstr "KBounce"
+
+#: main.cpp:39
+#, fuzzy, kde-format
+#| msgid "KDE Bounce Ball Game"
+msgid "Bounce Ball Game"
+msgstr "KDE Umdlalo wokujika we Ball"
+
+#: main.cpp:41
+#, kde-format
+msgid ""
+"(c) 2000-2005, Stefan Schimanski\n"
+"(c) 2007, Tomasz Boczkowski"
+msgstr ""
+
+#: main.cpp:45
+#, kde-format
+msgid "Stefan Schimanski"
+msgstr ""
+
+#: main.cpp:46
+#, kde-format
+msgid "Original author"
+msgstr "Umbhali woqobo"
+
+#: main.cpp:49
+#, kde-format
+msgid "Sandro Sigala"
+msgstr ""
+
+#: main.cpp:50
+#, kde-format
+msgid "Highscore"
+msgstr ""
+
+#: main.cpp:53
+#, kde-format
+msgid "Benjamin Meyer"
+msgstr ""
+
+#: main.cpp:54
+#, kde-format
+msgid "Contributions"
+msgstr "Ungeniso"
+
+#: main.cpp:57
+#, kde-format
+msgid "Tomasz Boczkowski"
+msgstr ""
+
+#: main.cpp:58
+#, kde-format
+msgid "Port to KDE4. Current maintainer"
+msgstr ""
+
+#: main.cpp:61
+#, kde-format
+msgid "Dmitry Suzdalev"
+msgstr ""
+
+#: main.cpp:62
+#, kde-format
+msgid "Port to QGraphicsView framework"
+msgstr ""
+
+#: main.cpp:65
+#, kde-format
+msgid "Andreas Scherf"
+msgstr ""
+
+#: main.cpp:66
+#, fuzzy, kde-format
+msgid "Image Background and Fixes"
+msgstr "Khetha ulawulo lomfanekiso Wesiqalo"
+
+#: mainwindow.cpp:32 mainwindow.cpp:205
+#, fuzzy, kde-format
+msgid "Level: %1"
+msgstr "Umphakamo:"
+
+#: mainwindow.cpp:33 mainwindow.cpp:210
+#, fuzzy, kde-format
+msgid "Score: %1"
+msgstr "Inqaku:"
+
+#: mainwindow.cpp:34 mainwindow.cpp:215
+#, fuzzy, kde-format
+msgid "Filled: %1%"
+msgstr "I ariya yomhlaba:"
+
+#: mainwindow.cpp:35 mainwindow.cpp:220
+#, fuzzy, kde-format
+msgid "Lives: %1"
+msgstr "Ihlala:"
+
+#: mainwindow.cpp:36 mainwindow.cpp:225
+#, fuzzy, kde-format
+msgid "Time: %1"
+msgstr "Ixesha:"
+
+#: mainwindow.cpp:89
+#, kde-format
+msgid "&Play Sounds"
+msgstr ""
+
+#: mainwindow.cpp:128
+#, fuzzy, kde-format
+#| msgid "Do you really want to close the running game?"
+msgid "Are you sure you want to quit the current game?"
+msgstr "Ufuna ngenene ukuvala umdlalo owenziwayo?"
+
+#: mainwindow.cpp:130
+#, kde-format
+msgctxt "@action;button"
+msgid "Quit Game"
+msgstr ""
+
+#: mainwindow.cpp:144 mainwindow.cpp:247
+#, fuzzy, kde-format
+#| msgid "Press %1 to start a game!"
+msgid "Game over. Click to start a game"
+msgstr "Cinezela %1 ukuqala umdlalo!"
+
+#: mainwindow.cpp:179
+#, kde-format
+msgid "Theme"
+msgstr ""
+
+#: mainwindow.cpp:180
+#, fuzzy, kde-format
+msgid "Background"
+msgstr "&Isiqalo"
+
+#~ msgid "Game over. Press <Space> for a new game"
+#~ msgstr "Umdlalo uphelile. Cinezela <Isipeyisi> yomdlalo omtsha"
+
+#, fuzzy
+#~ msgid "Game over."
+#~ msgstr "Umdlalo umile."
+
+#, fuzzy
+#~ msgid "Level: XX"
+#~ msgstr "Umphakamo:"
+
+#, fuzzy
+#~ msgid "Score: XXXXXX"
+#~ msgstr "Inqaku:"
+
+#, fuzzy
+#~ msgid "Filled: XX"
+#~ msgstr "I ariya yomhlaba:"
+
+#, fuzzy
+#~ msgid "Lives: XX"
+#~ msgstr "Ihlala:"
+
+#, fuzzy
+#~ msgid "Time: XXX"
+#~ msgstr "Ixesha:"
+
+#, fuzzy
+#~ msgid "Level"
+#~ msgstr "Umphakamo:"
+
+#, fuzzy
+#~ msgid "&Select Background Folder..."
+#~ msgstr "Khetha ulawulo lomfanekiso Wesiqalo"
+
+#, fuzzy
+#~ msgid "Hide &Backgrounds"
+#~ msgstr "&Isiqalo"
+
+#~ msgid "Game Over! Score: %1"
+#~ msgstr "Umdlalo Uphelile! Inqaku: %1"
+
+#~ msgid "You may now turn on background images."
+#~ msgstr "Uyakwazi ngoku ukuqalisa imifanekiso yesiqalo."
+
+#~ msgid "Game suspended"
+#~ msgstr "Umdlalo ugxothiwe"
