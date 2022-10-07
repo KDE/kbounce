@@ -20,6 +20,7 @@
   <name xml:lang="gl">KBounce</name>
   <name xml:lang="id">KBounce</name>
   <name xml:lang="it">KBounce</name>
+  <name xml:lang="ka">KBounce</name>
   <name xml:lang="ko">KBounce</name>
   <name xml:lang="nl">KBounce</name>
   <name xml:lang="nn">KBounce</name>
@@ -123,6 +124,7 @@
       <caption xml:lang="gl">Xogando a KBounce</caption>
       <caption xml:lang="id">Memainkan KBounce</caption>
       <caption xml:lang="it">Giocare a KBounce</caption>
+      <caption xml:lang="ka">Playing KBounce-ის თამაში</caption>
       <caption xml:lang="ko">KBounce 플레이</caption>
       <caption xml:lang="nl">KBounce spelen</caption>
       <caption xml:lang="nn">Spelar KBounce</caption>
