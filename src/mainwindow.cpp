@@ -14,6 +14,7 @@
 #include <KgThemeSelector>
 #include <KgDifficulty>
 
+#include <kwidgetsaddons_version.h>
 #include <KStandardGuiItem>
 #include <KToggleAction>
 #include <KActionCollection>
@@ -125,11 +126,20 @@ void KBounceMainWindow::closeGame()
     KBounceGameWidget::State old_state = m_gameWidget->state();
     if ( old_state == KBounceGameWidget::Running )
         m_gameWidget->setPaused( true );
-    int ret = KMessageBox::questionYesNo(this, i18n("Are you sure you want to quit the current game?"),
+#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
+    int ret = KMessageBox::questionTwoActions(this,
+#else
+    int ret = KMessageBox::questionYesNo(this,
+#endif
+                                         i18n("Are you sure you want to quit the current game?"),
                                          QString(),
                                          KGuiItem(i18nc("@action;button", "Quit Game"), QStringLiteral("window-close")),
                                          KStandardGuiItem::cancel() );
+#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
+    if ( ret == KMessageBox::PrimaryAction )
+#else
     if ( ret == KMessageBox::Yes )
+#endif
     {
         m_gameWidget->closeGame();
     }
