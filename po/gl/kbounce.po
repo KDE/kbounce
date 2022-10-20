@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kbounce\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-07-08 00:43+0000\n"
+"POT-Creation-Date: 2022-10-20 00:44+0000\n"
 "PO-Revision-Date: 2017-10-21 12:32+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <kde-i18n-doc@kde.org>\n"
@@ -205,59 +205,59 @@ msgstr "Andreas Scherf"
 msgid "Image Background and Fixes"
 msgstr "Imaxe de fondo e arranxos"
 
-#: mainwindow.cpp:32 mainwindow.cpp:205
+#: mainwindow.cpp:33 mainwindow.cpp:215
 #, kde-format
 msgid "Level: %1"
 msgstr "Nivel: %1"
 
-#: mainwindow.cpp:33 mainwindow.cpp:210
+#: mainwindow.cpp:34 mainwindow.cpp:220
 #, kde-format
 msgid "Score: %1"
 msgstr "Puntuación: %1"
 
-#: mainwindow.cpp:34 mainwindow.cpp:215
+#: mainwindow.cpp:35 mainwindow.cpp:225
 #, kde-format
 msgid "Filled: %1%"
 msgstr "Enchido: %1%"
 
-#: mainwindow.cpp:35 mainwindow.cpp:220
+#: mainwindow.cpp:36 mainwindow.cpp:230
 #, kde-format
 msgid "Lives: %1"
 msgstr "Vidas: %1"
 
-#: mainwindow.cpp:36 mainwindow.cpp:225
+#: mainwindow.cpp:37 mainwindow.cpp:235
 #, kde-format
 msgid "Time: %1"
 msgstr "Tempo: %1"
 
-#: mainwindow.cpp:89
+#: mainwindow.cpp:90
 #, kde-format
 msgid "&Play Sounds"
 msgstr "&Reproducir os sons"
 
-#: mainwindow.cpp:128
+#: mainwindow.cpp:134
 #, fuzzy, kde-format
 #| msgid "Do you really want to close the running game?"
 msgid "Are you sure you want to quit the current game?"
 msgstr "Seguro que queres pechar a partida que estás a xogar?"
 
-#: mainwindow.cpp:130
+#: mainwindow.cpp:136
 #, kde-format
 msgctxt "@action;button"
 msgid "Quit Game"
 msgstr ""
 
-#: mainwindow.cpp:144 mainwindow.cpp:247
+#: mainwindow.cpp:154 mainwindow.cpp:257
 #, kde-format
 msgid "Game over. Click to start a game"
 msgstr "Rematou a partida. Preme para comezar unha partida"
 
-#: mainwindow.cpp:179
+#: mainwindow.cpp:189
 #, kde-format
 msgid "Theme"
 msgstr "Tema visual"
 
-#: mainwindow.cpp:180
+#: mainwindow.cpp:190
 #, kde-format
 msgid "Background"
 msgstr "Fondo"

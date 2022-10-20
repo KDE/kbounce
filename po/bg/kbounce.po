@@ -1,7 +1,7 @@
 # Bulgarian translation of KDE.
 # This file is licensed under the GPL.
 #
-# $Id: kbounce.po 1630335 2022-08-01 06:55:38Z mkkdr $
+# $Id: kbounce.po 1636410 2022-10-20 01:43:51Z scripty $
 #
 # Petar Toushkov <pt.launchpad@gmail.com>, 2010.
 # Yasen Pramatarov <yasen@lindeas.com>, 2011.
@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kbounce\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-07-08 00:43+0000\n"
+"POT-Creation-Date: 2022-10-20 00:44+0000\n"
 "PO-Revision-Date: 2022-08-01 08:21+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: \n"
@@ -201,58 +201,58 @@ msgstr "Andreas Scherf"
 msgid "Image Background and Fixes"
 msgstr "Фон и поправки"
 
-#: mainwindow.cpp:32 mainwindow.cpp:205
+#: mainwindow.cpp:33 mainwindow.cpp:215
 #, kde-format
 msgid "Level: %1"
 msgstr "Ниво: %1"
 
-#: mainwindow.cpp:33 mainwindow.cpp:210
+#: mainwindow.cpp:34 mainwindow.cpp:220
 #, kde-format
 msgid "Score: %1"
 msgstr "Резултат: %1"
 
-#: mainwindow.cpp:34 mainwindow.cpp:215
+#: mainwindow.cpp:35 mainwindow.cpp:225
 #, kde-format
 msgid "Filled: %1%"
 msgstr "Запълнени: %1%"
 
-#: mainwindow.cpp:35 mainwindow.cpp:220
+#: mainwindow.cpp:36 mainwindow.cpp:230
 #, kde-format
 msgid "Lives: %1"
 msgstr "Животи: %1"
 
-#: mainwindow.cpp:36 mainwindow.cpp:225
+#: mainwindow.cpp:37 mainwindow.cpp:235
 #, kde-format
 msgid "Time: %1"
 msgstr "Време: %1"
 
-#: mainwindow.cpp:89
+#: mainwindow.cpp:90
 #, kde-format
 msgid "&Play Sounds"
 msgstr "Използване на з&вуци"
 
-#: mainwindow.cpp:128
+#: mainwindow.cpp:134
 #, kde-format
 msgid "Are you sure you want to quit the current game?"
 msgstr "Сигурни ли сте, че желаете да напуснете текущата игра?"
 
-#: mainwindow.cpp:130
+#: mainwindow.cpp:136
 #, kde-format
 msgctxt "@action;button"
 msgid "Quit Game"
 msgstr ""
 
-#: mainwindow.cpp:144 mainwindow.cpp:247
+#: mainwindow.cpp:154 mainwindow.cpp:257
 #, kde-format
 msgid "Game over. Click to start a game"
 msgstr "Край на играта. Щракнете за начало на нова игра."
 
-#: mainwindow.cpp:179
+#: mainwindow.cpp:189
 #, kde-format
 msgid "Theme"
 msgstr "Тема"
 
-#: mainwindow.cpp:180
+#: mainwindow.cpp:190
 #, kde-format
 msgid "Background"
 msgstr "Фон"

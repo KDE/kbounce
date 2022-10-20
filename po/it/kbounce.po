@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kbounce\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-07-08 00:43+0000\n"
+"POT-Creation-Date: 2022-10-20 00:44+0000\n"
 "PO-Revision-Date: 2022-07-10 19:15+0200\n"
 "Last-Translator: Valter Mura <valtermura@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -202,58 +202,58 @@ msgstr "Andreas Scherf"
 msgid "Image Background and Fixes"
 msgstr "Immagini per lo sfondo e correzioni"
 
-#: mainwindow.cpp:32 mainwindow.cpp:205
+#: mainwindow.cpp:33 mainwindow.cpp:215
 #, kde-format
 msgid "Level: %1"
 msgstr "Livello: %1"
 
-#: mainwindow.cpp:33 mainwindow.cpp:210
+#: mainwindow.cpp:34 mainwindow.cpp:220
 #, kde-format
 msgid "Score: %1"
 msgstr "Punteggio: %1"
 
-#: mainwindow.cpp:34 mainwindow.cpp:215
+#: mainwindow.cpp:35 mainwindow.cpp:225
 #, kde-format
 msgid "Filled: %1%"
 msgstr "Area bonificata: %1%"
 
-#: mainwindow.cpp:35 mainwindow.cpp:220
+#: mainwindow.cpp:36 mainwindow.cpp:230
 #, kde-format
 msgid "Lives: %1"
 msgstr "Vite: %1"
 
-#: mainwindow.cpp:36 mainwindow.cpp:225
+#: mainwindow.cpp:37 mainwindow.cpp:235
 #, kde-format
 msgid "Time: %1"
 msgstr "Tempo: %1"
 
-#: mainwindow.cpp:89
+#: mainwindow.cpp:90
 #, kde-format
 msgid "&Play Sounds"
 msgstr "Con &suoni"
 
-#: mainwindow.cpp:128
+#: mainwindow.cpp:134
 #, kde-format
 msgid "Are you sure you want to quit the current game?"
 msgstr "Vuoi davvero uscire dalla partita attuale?"
 
-#: mainwindow.cpp:130
+#: mainwindow.cpp:136
 #, kde-format
 msgctxt "@action;button"
 msgid "Quit Game"
 msgstr "Esci"
 
-#: mainwindow.cpp:144 mainwindow.cpp:247
+#: mainwindow.cpp:154 mainwindow.cpp:257
 #, kde-format
 msgid "Game over. Click to start a game"
 msgstr "Partita terminata. Con un clic puoi iniziarne un'altra"
 
-#: mainwindow.cpp:179
+#: mainwindow.cpp:189
 #, kde-format
 msgid "Theme"
 msgstr "Tema"
 
-#: mainwindow.cpp:180
+#: mainwindow.cpp:190
 #, kde-format
 msgid "Background"
 msgstr "Sfondo"

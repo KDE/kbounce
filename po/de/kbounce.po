@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kbounce\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-07-08 00:43+0000\n"
+"POT-Creation-Date: 2022-10-20 00:44+0000\n"
 "PO-Revision-Date: 2022-07-11 23:49+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -201,60 +201,60 @@ msgstr "Andreas Scherf"
 msgid "Image Background and Fixes"
 msgstr "Bild als Hintergrund und weitere Korrekturen"
 
-#: mainwindow.cpp:32 mainwindow.cpp:205
+#: mainwindow.cpp:33 mainwindow.cpp:215
 #, kde-format
 msgid "Level: %1"
 msgstr "Ebene: %1"
 
-#: mainwindow.cpp:33 mainwindow.cpp:210
+#: mainwindow.cpp:34 mainwindow.cpp:220
 #, kde-format
 msgid "Score: %1"
 msgstr "Punkte: %1"
 
-#: mainwindow.cpp:34 mainwindow.cpp:215
+#: mainwindow.cpp:35 mainwindow.cpp:225
 #, kde-format
 msgid "Filled: %1%"
 msgstr "Gefüllte Fläche: %1 %"
 
-#: mainwindow.cpp:35 mainwindow.cpp:220
+#: mainwindow.cpp:36 mainwindow.cpp:230
 #, kde-format
 msgid "Lives: %1"
 msgstr "Leben: %1"
 
-#: mainwindow.cpp:36 mainwindow.cpp:225
+#: mainwindow.cpp:37 mainwindow.cpp:235
 #, kde-format
 msgid "Time: %1"
 msgstr "Zeit: %1"
 
-#: mainwindow.cpp:89
+#: mainwindow.cpp:90
 #, kde-format
 msgid "&Play Sounds"
 msgstr "&Klänge wiedergeben"
 
-#: mainwindow.cpp:128
+#: mainwindow.cpp:134
 #, kde-format
 msgid "Are you sure you want to quit the current game?"
 msgstr "Möchten Sie das aktuelle Spiel wirklich beenden?"
 
-#: mainwindow.cpp:130
+#: mainwindow.cpp:136
 #, kde-format
 msgctxt "@action;button"
 msgid "Quit Game"
 msgstr "Spiel beenden"
 
-#: mainwindow.cpp:144 mainwindow.cpp:247
+#: mainwindow.cpp:154 mainwindow.cpp:257
 #, kde-format
 msgid "Game over. Click to start a game"
 msgstr ""
 "Das Spiel ist beendet.\n"
 "Drücken Sie eine Taste, um ein neues Spiel zu starten."
 
-#: mainwindow.cpp:179
+#: mainwindow.cpp:189
 #, kde-format
 msgid "Theme"
 msgstr "Design"
 
-#: mainwindow.cpp:180
+#: mainwindow.cpp:190
 #, kde-format
 msgid "Background"
 msgstr "Hintergrund"
