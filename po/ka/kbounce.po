@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kbounce\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-20 00:44+0000\n"
-"PO-Revision-Date: 2022-11-27 22:32+0100\n"
+"PO-Revision-Date: 2022-12-01 08:50+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -43,7 +43,7 @@ msgstr "kbouncebackgroundselector"
 #: backgroundselector.ui:24
 #, kde-format
 msgid "Enable random pictures as background"
-msgstr ""
+msgstr "ფონად შემთხვევითი სურათის დაყენება"
 
 #. i18n: ectx: property (text), widget (QLabel, backgoundPicturePathLabel)
 #: backgroundselector.ui:54
@@ -63,6 +63,8 @@ msgid ""
 "Welcome to KBounce.\n"
 " Click to start a game"
 msgstr ""
+"მოგესალმებათ KBounce\n"
+"სათამაშოდ დააწკაპუნეთ"
 
 #: gamewidget.cpp:399
 #, kde-format
@@ -70,16 +72,18 @@ msgid ""
 "Paused\n"
 " Click to resume"
 msgstr ""
+"შეჩერებულია\n"
+"გასაგრძელებლად დააწკაპუნეთ"
 
 #: gamewidget.cpp:402
 #, kde-format
 msgid "You have successfully cleared more than %1% of the board\n"
-msgstr ""
+msgstr "წარმატებით გაასუფთავეთ დაფის %1%\n"
 
 #: gamewidget.cpp:403
 #, kde-format
 msgid "%1 points: %2 points per remaining life\n"
-msgstr ""
+msgstr "%1 ქულა: %2 ქულა თითოეული დარჩენილი სიცოცხლისთვის\n"
 
 #: gamewidget.cpp:404
 #, kde-format
@@ -89,12 +93,12 @@ msgstr "%1 ქულა; ბონუსი\n"
 #: gamewidget.cpp:405
 #, kde-format
 msgid "%1 points: Total score for this level\n"
-msgstr ""
+msgstr "%1 ქულა: ქულების ჯამი ამ დონისთვის\n"
 
 #: gamewidget.cpp:406
 #, kde-format
 msgid "On to level %1. Remember you get %2 lives this time!"
-msgstr ""
+msgstr "%1-ე დონე. დაიმახსოვრეთ, ამჯერად %2 სიცოცხლე მიიღეთ!"
 
 #: gamewidget.cpp:409
 #, kde-format
@@ -133,6 +137,8 @@ msgid ""
 "(c) 2000-2005, Stefan Schimanski\n"
 "(c) 2007, Tomasz Boczkowski"
 msgstr ""
+"(c) 2000-2005, Stefan Schimanski\n"
+"(c) 2007, Tomasz Boczkowski"
 
 #: main.cpp:45
 #, kde-format
@@ -172,7 +178,7 @@ msgstr "Tomasz Boczkowski"
 #: main.cpp:58
 #, kde-format
 msgid "Port to KDE4. Current maintainer"
-msgstr ""
+msgstr "გადატანა KDE4 -ზე. პროექტის მიმდინარე ლიდერი"
 
 #: main.cpp:61
 #, kde-format
@@ -182,7 +188,7 @@ msgstr "Dmitry Suzdalev"
 #: main.cpp:62
 #, kde-format
 msgid "Port to QGraphicsView framework"
-msgstr ""
+msgstr "QGraphicsView -ის გამოყენების დაწყება"
 
 #: main.cpp:65
 #, kde-format
@@ -192,7 +198,7 @@ msgstr "Andreas Scherf"
 #: main.cpp:66
 #, kde-format
 msgid "Image Background and Fixes"
-msgstr ""
+msgstr "სურათის ფონი და შეცდომების გასწორება"
 
 #: mainwindow.cpp:33 mainwindow.cpp:215
 #, kde-format
