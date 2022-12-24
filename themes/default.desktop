@@ -2,6 +2,7 @@
 VersionFormat=1
 Name=Egyptian Bounce
 Name[ar]=سمة مصرية
+Name[bg]=Египетски мотиви
 Name[bs]=Egipatsko odskakanje
 Name[ca]=Bounce egipci
 Name[ca@valencia]=Bounce egipci
@@ -49,6 +50,7 @@ Name[zh_CN]=埃及弹球
 Name[zh_TW]=埃及彈跳
 Description=KBounce, Egyptian style.
 Description[ar]=لعبة الارتداد ك في نمط مصري
+Description[bg]=Египетски стил за KBounce.
 Description[bs]=KBounce, Egipatski stil.
 Description[ca]=El KBounce, estil egipci.
 Description[ca@valencia]=KBounce, estil egipci.

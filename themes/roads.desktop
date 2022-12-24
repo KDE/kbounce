@@ -2,6 +2,7 @@
 VersionFormat=1
 Name=Roads
 Name[ar]=الطرق
+Name[bg]=Пътища
 Name[bs]=Putevi
 Name[ca]=Carreteres
 Name[ca@valencia]=Carreteres
@@ -54,6 +55,7 @@ Name[zh_CN]=道路
 Name[zh_TW]=Roads
 Description=Roads, cones and wheels.
 Description[ar]=الطرق والأقماع والعجلات.
+Description[bg]=Пътища, конуси и колела.
 Description[bs]=Putevi, konusi i točkovi.
 Description[ca]=Carreteres, cons i rodes.
 Description[ca@valencia]=Carreteres, cons i rodes.
