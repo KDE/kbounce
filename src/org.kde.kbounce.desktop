@@ -3,6 +3,7 @@ Name=KBounce
 Name[af]=K-hop
 Name[ar]=الارتداد ك
 Name[be]=Несуцішныя шарыкі
+Name[bg]=KBounce
 Name[bn]=কে-বাউন্স
 Name[br]=KBounce
 Name[bs]=KBounce
@@ -79,6 +80,7 @@ Icon=kbounce
 
 GenericName=Ball Bouncing Game
 GenericName[ar]=لعبة الكرة المرتدة
+GenericName[bg]=Игра с подскачащи топки
 GenericName[bs]=Igra lopta koja odskače
 GenericName[ca]=Un joc de boles que reboten
 GenericName[ca@valencia]=Un joc de boles que reboten
@@ -134,6 +136,7 @@ GenericName[zh_TW]=彈力球遊戲
 
 Comment=Ball Bouncing Game
 Comment[ar]=لعبة الكرة المرتدة
+Comment[bg]=Игра с подскачащи топки
 Comment[ca]=Un joc de boles que reboten
 Comment[ca@valencia]=Un joc de boles que reboten
 Comment[cs]=Hra s poskakujícími míčky
