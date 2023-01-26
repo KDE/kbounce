@@ -44,11 +44,11 @@ ecm_add_app_icon(kbounce ICONS ${ICONS_SRCS})
 
 target_link_libraries(kbounce 
     KF5KDEGames
-    KF5::XmlGui
-    KF5::I18n 
-    KF5::KIOWidgets
-    KF5::DBusAddons
-    KF5::Crash
+    KF${KF_MAJOR_VERSION}::XmlGui
+    KF${KF_MAJOR_VERSION}::I18n 
+    KF${KF_MAJOR_VERSION}::KIOWidgets
+    KF${KF_MAJOR_VERSION}::DBusAddons
+    KF${KF_MAJOR_VERSION}::Crash
     Qt::Svg 
 )
 
