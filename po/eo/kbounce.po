@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: kbounce\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-20 00:44+0000\n"
-"PO-Revision-Date: 2007-12-31 03:22+0100\n"
-"Last-Translator: Pierre-Marie Pédrot <pedrotpmx@wanadoo.fr>\n"
+"PO-Revision-Date: 2023-03-20 22:43+0100\n"
+"Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
@@ -58,16 +58,13 @@ msgid "Preview"
 msgstr "Antaŭrigardo"
 
 #: gamewidget.cpp:396
-#, fuzzy, kde-format
-#| msgid ""
-#| "Welcome to KBounce.\n"
-#| " Press Ctrl+N or space to start a game"
+#, kde-format
 msgid ""
 "Welcome to KBounce.\n"
 " Click to start a game"
 msgstr ""
 "Bonvenon al KBounce.\n"
-" Premu Ktrl+N aŭ spacon por komenci ludon"
+" Klaku por komenci ludon"
 
 #: gamewidget.cpp:399
 #, kde-format
@@ -75,6 +72,8 @@ msgid ""
 "Paused\n"
 " Click to resume"
 msgstr ""
+"Paŭzita\n"
+" Klaku por daŭrigi"
 
 #: gamewidget.cpp:402
 #, kde-format
@@ -102,16 +101,11 @@ msgid "On to level %1. Remember you get %2 lives this time!"
 msgstr "Je la nivelo %1. Memoru, ke vi ricevis %2 vivojn tiufoje!"
 
 #: gamewidget.cpp:409
-#, fuzzy, kde-format
-#| msgid ""
-#| "Welcome to KBounce.\n"
-#| " Press Ctrl+N or space to start a game"
+#, kde-format
 msgid ""
 "Game over.\n"
 " Click to start a game"
 msgstr ""
-"Bonvenon al KBounce.\n"
-" Premu Ktrl+N aŭ spacon por komenci ludon"
 
 #. i18n: ectx: label, entry (PlaySounds), group (Sound)
 #: kbounce.kcfg:16
@@ -131,10 +125,9 @@ msgid "KBounce"
 msgstr "KBounce"
 
 #: main.cpp:39
-#, fuzzy, kde-format
-#| msgid "KDE Bounce Ball Game"
+#, kde-format
 msgid "Bounce Ball Game"
-msgstr "KDE saltpilkludo"
+msgstr ""
 
 #: main.cpp:41
 #, kde-format
@@ -234,10 +227,9 @@ msgid "&Play Sounds"
 msgstr "&Ludi sonojn"
 
 #: mainwindow.cpp:134
-#, fuzzy, kde-format
-#| msgid "Do you really want to close the running game?"
+#, kde-format
 msgid "Are you sure you want to quit the current game?"
-msgstr "Ĉu vi vere volas fini la nunan ludon?"
+msgstr ""
 
 #: mainwindow.cpp:136
 #, kde-format
@@ -246,14 +238,9 @@ msgid "Quit Game"
 msgstr ""
 
 #: mainwindow.cpp:154 mainwindow.cpp:257
-#, fuzzy, kde-format
-#| msgid ""
-#| "Welcome to KBounce.\n"
-#| " Press Ctrl+N or space to start a game"
+#, kde-format
 msgid "Game over. Click to start a game"
 msgstr ""
-"Bonvenon al KBounce.\n"
-" Premu Ktrl+N aŭ spacon por komenci ludon"
 
 #: mainwindow.cpp:189
 #, kde-format
@@ -264,18 +251,3 @@ msgstr "Etoso"
 #, kde-format
 msgid "Background"
 msgstr "Fono"
-
-#~ msgid "Paused"
-#~ msgstr "Paŭzata"
-
-#~ msgid "The graphical theme to be used."
-#~ msgstr "La uzota grafika etoso."
-
-#~ msgid "Difficulty level"
-#~ msgstr "Facileca nivelo"
-
-#~ msgid "Game over. Press <Space> for a new game"
-#~ msgstr "Ludo finita. Premu <Space> por nova ludo"
-
-#~ msgid "Game over."
-#~ msgstr "Ludfino."
