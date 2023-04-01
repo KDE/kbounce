@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: kdegames-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-20 00:44+0000\n"
-"PO-Revision-Date: 2023-03-19 21:01+0300\n"
+"PO-Revision-Date: 2023-03-31 21:30+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -84,7 +84,7 @@ msgstr ""
 #: gamewidget.cpp:402
 #, kde-format
 msgid "You have successfully cleared more than %1% of the board\n"
-msgstr "Tahtanın %%1 oranından fazlasını temizlediniz\n"
+msgstr "Tahtanın %​%1 oranından fazlasını temizlediniz\n"
 
 #: gamewidget.cpp:403
 #, kde-format
@@ -219,7 +219,7 @@ msgstr "Puan: %1"
 #: mainwindow.cpp:35 mainwindow.cpp:225
 #, kde-format
 msgid "Filled: %1%"
-msgstr "Dolu bölge: %%1"
+msgstr "Dolu bölge: %​%1"
 
 #: mainwindow.cpp:36 mainwindow.cpp:230
 #, kde-format
