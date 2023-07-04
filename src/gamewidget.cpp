@@ -452,5 +452,4 @@ void KBounceGameWidget::updateCursor()
         unsetCursor();
 }
 
-
-
+#include "moc_gamewidget.cpp"

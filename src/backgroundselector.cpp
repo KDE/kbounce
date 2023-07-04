@@ -107,6 +107,4 @@ void BackgroundSelector::previewBackgroundPicture()
     ui->backgroundPicturePreview->setPixmap(previewPixmap.scaled(previewSize,Qt::KeepAspectRatio,Qt::SmoothTransformation));
 }
 
-
-
-
+#include "moc_backgroundselector.cpp"

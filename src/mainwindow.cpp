@@ -276,3 +276,5 @@ void KBounceMainWindow::focusInEvent ( QFocusEvent *ev )
     //m_board->setSuspended( true );
     KXmlGuiWindow::focusInEvent( ev );
 }
+
+#include "moc_mainwindow.cpp"

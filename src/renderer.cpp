@@ -126,3 +126,5 @@ QPixmap KBounceRenderer::getRandomBackgroundPixmap(const QString& path)
     }
     else return QPixmap();
 }
+
+#include "moc_renderer.cpp"

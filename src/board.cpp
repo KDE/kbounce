@@ -413,5 +413,4 @@ void KBounceBoard::fill( int x, int y )
     if ( x > 0 ) fill ( x - 1, y );
 }
 
-
-
+#include "moc_board.cpp"
