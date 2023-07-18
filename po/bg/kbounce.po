@@ -1,7 +1,7 @@
 # Bulgarian translation of KDE.
 # This file is licensed under the GPL.
 #
-# $Id: kbounce.po 1640682 2022-12-24 01:42:27Z scripty $
+# $Id: kbounce.po 1641842 2023-01-10 03:15:06Z scripty $
 #
 # Petar Toushkov <pt.launchpad@gmail.com>, 2010.
 # Yasen Pramatarov <yasen@lindeas.com>, 2011.
