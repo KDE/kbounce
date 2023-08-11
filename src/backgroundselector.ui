@@ -63,6 +63,9 @@
            <verstretch>0</verstretch>
           </sizepolicy>
          </property>
+         <property name="mode">
+          <set>KFile::Directory|KFile::ExistingOnly|KFile::LocalOnly</set>
+         </property>
         </widget>
        </item>
       </layout>
