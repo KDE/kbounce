@@ -1,5 +1,5 @@
 # Translation of kbounce.po to Catalan (Valencian)
-# Copyright (C) 2002-2022 This_file_is_part_of_KDE
+# Copyright (C) 2002-2023 This_file_is_part_of_KDE
 #
 # Àlex Corretgé i Bergua <alex@domini.net>, 2002.
 # Albert Astals Cid <aacid@kde.org>, 2003, 2004, 2005, 2007, 2008.
