@@ -164,8 +164,8 @@ void KBounceGameWidget::setGameDifficulty( const KgDifficultyLevel * difficulty 
 {
     switch ( difficulty->hardness() ) {
         case KgDifficultyLevel::Easy:
-            m_board->setBallVelocity(0.100);
             m_board->setWallVelocity(0.250);
+            m_board->setBallVelocity(0.100);
             break;
         case KgDifficultyLevel::Medium:
             m_board->setWallVelocity(0.125);
