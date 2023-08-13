@@ -54,6 +54,9 @@ KBounceMainWindow::KBounceMainWindow()
 
     initXMLUI();
 
+    /* Set initial ball and wall velocity according to the difficulty */
+    m_gameWidget->handleLevelChanged();
+
     setFocusPolicy(Qt::StrongFocus);
     setFocus();
     setupGUI();
