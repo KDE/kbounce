@@ -2,7 +2,7 @@
 # Translation of kbounce.po to Slovenian
 # SLOVENIAN TRANSLATION OF KDEGAMES.
 # Copyright (C) 2001, 2003, 2004, 2006, 2007 Free Software Foundation, Inc.
-# $Id: kbounce.po 1636410 2022-10-20 01:43:51Z scripty $
+# $Id: kbounce.po 1658193 2023-08-15 02:57:18Z scripty $
 # $Source$
 #
 # Marko Samastur <markos@elite.org>, 2000.
@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kbounce\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-20 00:44+0000\n"
+"POT-Creation-Date: 2023-08-15 02:24+0000\n"
 "PO-Revision-Date: 2022-07-09 15:43+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -62,7 +62,7 @@ msgid "Choose picture path:"
 msgstr "Izberite pot do slik:"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: backgroundselector.ui:75
+#: backgroundselector.ui:78
 #, kde-format
 msgid "Preview"
 msgstr "Predogled"

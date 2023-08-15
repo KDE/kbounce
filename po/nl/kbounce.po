@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kbounce\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-20 00:44+0000\n"
+"POT-Creation-Date: 2023-08-15 02:24+0000\n"
 "PO-Revision-Date: 2022-07-09 00:10+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -60,7 +60,7 @@ msgid "Choose picture path:"
 msgstr "Kies pad met afbeeldingen:"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: backgroundselector.ui:75
+#: backgroundselector.ui:78
 #, kde-format
 msgid "Preview"
 msgstr "Voorbeeld"

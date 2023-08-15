@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kbounce\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-20 00:44+0000\n"
+"POT-Creation-Date: 2023-08-15 02:24+0000\n"
 "PO-Revision-Date: 2012-06-29 20:19+0300\n"
 "Last-Translator: Einars Sprugis <einars8@gmail.com>\n"
 "Language-Team: Latvian <locale@laka.lv>\n"
@@ -54,7 +54,7 @@ msgid "Choose picture path:"
 msgstr "Izvēlies attēla ceļu:"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: backgroundselector.ui:75
+#: backgroundselector.ui:78
 #, kde-format
 msgid "Preview"
 msgstr "Priekšskatījums"
