@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.3\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-15 00:42+0000\n"
+"POT-Creation-Date: 2023-08-18 00:42+0000\n"
 "PO-Revision-Date: 2013-03-29 11:34+0100\n"
 "Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -199,59 +199,59 @@ msgstr "Andreas Scherf"
 msgid "Image Background and Fixes"
 msgstr "Háttérkép és javítások"
 
-#: mainwindow.cpp:33 mainwindow.cpp:215
+#: mainwindow.cpp:33 mainwindow.cpp:218
 #, kde-format
 msgid "Level: %1"
 msgstr "Szint: %1"
 
-#: mainwindow.cpp:34 mainwindow.cpp:220
+#: mainwindow.cpp:34 mainwindow.cpp:223
 #, kde-format
 msgid "Score: %1"
 msgstr "Pontszám: %1"
 
-#: mainwindow.cpp:35 mainwindow.cpp:225
+#: mainwindow.cpp:35 mainwindow.cpp:228
 #, kde-format
 msgid "Filled: %1%"
 msgstr "Betöltött terület: %1%"
 
-#: mainwindow.cpp:36 mainwindow.cpp:230
+#: mainwindow.cpp:36 mainwindow.cpp:233
 #, kde-format
 msgid "Lives: %1"
 msgstr "Az életek száma: %1"
 
-#: mainwindow.cpp:37 mainwindow.cpp:235
+#: mainwindow.cpp:37 mainwindow.cpp:238
 #, kde-format
 msgid "Time: %1"
 msgstr "Idő: %1"
 
-#: mainwindow.cpp:90
+#: mainwindow.cpp:93
 #, kde-format
 msgid "&Play Sounds"
 msgstr "&Hanglejátszás"
 
-#: mainwindow.cpp:134
+#: mainwindow.cpp:137
 #, fuzzy, kde-format
 #| msgid "Do you really want to close the running game?"
 msgid "Are you sure you want to quit the current game?"
 msgstr "Biztosan be szeretné fejezni? Még tart egy játék."
 
-#: mainwindow.cpp:136
+#: mainwindow.cpp:139
 #, kde-format
 msgctxt "@action;button"
 msgid "Quit Game"
 msgstr ""
 
-#: mainwindow.cpp:154 mainwindow.cpp:257
+#: mainwindow.cpp:157 mainwindow.cpp:260
 #, kde-format
 msgid "Game over. Click to start a game"
 msgstr "Vége a játéknak! Kattintson a játék kezdéséhez"
 
-#: mainwindow.cpp:189
+#: mainwindow.cpp:192
 #, kde-format
 msgid "Theme"
 msgstr "Téma"
 
-#: mainwindow.cpp:190
+#: mainwindow.cpp:193
 #, kde-format
 msgid "Background"
 msgstr "Háttér"

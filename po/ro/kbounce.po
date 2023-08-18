@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kbounce\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-15 00:42+0000\n"
+"POT-Creation-Date: 2023-08-18 00:42+0000\n"
 "PO-Revision-Date: 2022-02-05 19:28+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian\n"
@@ -200,59 +200,59 @@ msgstr "Andreas Scherf"
 msgid "Image Background and Fixes"
 msgstr "Fundal cu imagini și corecții"
 
-#: mainwindow.cpp:33 mainwindow.cpp:215
+#: mainwindow.cpp:33 mainwindow.cpp:218
 #, kde-format
 msgid "Level: %1"
 msgstr "Nivel: %1"
 
-#: mainwindow.cpp:34 mainwindow.cpp:220
+#: mainwindow.cpp:34 mainwindow.cpp:223
 #, kde-format
 msgid "Score: %1"
 msgstr "Scor: %1"
 
-#: mainwindow.cpp:35 mainwindow.cpp:225
+#: mainwindow.cpp:35 mainwindow.cpp:228
 #, kde-format
 msgid "Filled: %1%"
 msgstr "Umplut: %1%"
 
-#: mainwindow.cpp:36 mainwindow.cpp:230
+#: mainwindow.cpp:36 mainwindow.cpp:233
 #, kde-format
 msgid "Lives: %1"
 msgstr "Vieți: %1"
 
-#: mainwindow.cpp:37 mainwindow.cpp:235
+#: mainwindow.cpp:37 mainwindow.cpp:238
 #, kde-format
 msgid "Time: %1"
 msgstr "Timp: %1"
 
-#: mainwindow.cpp:90
+#: mainwindow.cpp:93
 #, kde-format
 msgid "&Play Sounds"
 msgstr "&Redă sunete"
 
-#: mainwindow.cpp:134
+#: mainwindow.cpp:137
 #, fuzzy, kde-format
 #| msgid "Do you really want to close the running game?"
 msgid "Are you sure you want to quit the current game?"
 msgstr "Sigur doriți închideți jocul curent?"
 
-#: mainwindow.cpp:136
+#: mainwindow.cpp:139
 #, kde-format
 msgctxt "@action;button"
 msgid "Quit Game"
 msgstr ""
 
-#: mainwindow.cpp:154 mainwindow.cpp:257
+#: mainwindow.cpp:157 mainwindow.cpp:260
 #, kde-format
 msgid "Game over. Click to start a game"
 msgstr "Joc încheiat. Apăsați pentru a începe un joc"
 
-#: mainwindow.cpp:189
+#: mainwindow.cpp:192
 #, kde-format
 msgid "Theme"
 msgstr "Tematică"
 
-#: mainwindow.cpp:190
+#: mainwindow.cpp:193
 #, kde-format
 msgid "Background"
 msgstr "Fundal"
