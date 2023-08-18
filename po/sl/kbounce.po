@@ -2,7 +2,7 @@
 # Translation of kbounce.po to Slovenian
 # SLOVENIAN TRANSLATION OF KDEGAMES.
 # Copyright (C) 2001, 2003, 2004, 2006, 2007 Free Software Foundation, Inc.
-# $Id: kbounce.po 1658193 2023-08-15 02:57:18Z scripty $
+# $Id: kbounce.po 1658477 2023-08-18 02:54:16Z scripty $
 # $Source$
 #
 # Marko Samastur <markos@elite.org>, 2000.
@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kbounce\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-15 02:24+0000\n"
+"POT-Creation-Date: 2023-08-18 02:22+0000\n"
 "PO-Revision-Date: 2022-07-09 15:43+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -210,58 +210,58 @@ msgstr "Andreas Scherf"
 msgid "Image Background and Fixes"
 msgstr "Slika ozadja in popravki"
 
-#: mainwindow.cpp:33 mainwindow.cpp:215
+#: mainwindow.cpp:33 mainwindow.cpp:218
 #, kde-format
 msgid "Level: %1"
 msgstr "Stopnja: %1"
 
-#: mainwindow.cpp:34 mainwindow.cpp:220
+#: mainwindow.cpp:34 mainwindow.cpp:223
 #, kde-format
 msgid "Score: %1"
 msgstr "Rezultat: %1"
 
-#: mainwindow.cpp:35 mainwindow.cpp:225
+#: mainwindow.cpp:35 mainwindow.cpp:228
 #, kde-format
 msgid "Filled: %1%"
 msgstr "Zapolnjeno: %1 %"
 
-#: mainwindow.cpp:36 mainwindow.cpp:230
+#: mainwindow.cpp:36 mainwindow.cpp:233
 #, kde-format
 msgid "Lives: %1"
 msgstr "Življenja: %1"
 
-#: mainwindow.cpp:37 mainwindow.cpp:235
+#: mainwindow.cpp:37 mainwindow.cpp:238
 #, kde-format
 msgid "Time: %1"
 msgstr "Čas: %1"
 
-#: mainwindow.cpp:90
+#: mainwindow.cpp:93
 #, kde-format
 msgid "&Play Sounds"
 msgstr "&Predvajaj zvoke"
 
-#: mainwindow.cpp:134
+#: mainwindow.cpp:137
 #, kde-format
 msgid "Are you sure you want to quit the current game?"
 msgstr "Ali ste prepričani, da želite zapustiti trenutno igro?"
 
-#: mainwindow.cpp:136
+#: mainwindow.cpp:139
 #, kde-format
 msgctxt "@action;button"
 msgid "Quit Game"
 msgstr "Zapusti igro"
 
-#: mainwindow.cpp:154 mainwindow.cpp:257
+#: mainwindow.cpp:157 mainwindow.cpp:260
 #, kde-format
 msgid "Game over. Click to start a game"
 msgstr "Konec igre. Kliknite za novo igro"
 
-#: mainwindow.cpp:189
+#: mainwindow.cpp:192
 #, kde-format
 msgid "Theme"
 msgstr "Tema"
 
-#: mainwindow.cpp:190
+#: mainwindow.cpp:193
 #, kde-format
 msgid "Background"
 msgstr "Ozadje"

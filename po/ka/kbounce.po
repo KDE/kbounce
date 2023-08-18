@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kbounce\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-15 02:24+0000\n"
+"POT-Creation-Date: 2023-08-18 02:22+0000\n"
 "PO-Revision-Date: 2022-12-01 08:50+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -200,58 +200,58 @@ msgstr "Andreas Scherf"
 msgid "Image Background and Fixes"
 msgstr "სურათის ფონი და შეცდომების გასწორება"
 
-#: mainwindow.cpp:33 mainwindow.cpp:215
+#: mainwindow.cpp:33 mainwindow.cpp:218
 #, kde-format
 msgid "Level: %1"
 msgstr "დონე: %1"
 
-#: mainwindow.cpp:34 mainwindow.cpp:220
+#: mainwindow.cpp:34 mainwindow.cpp:223
 #, kde-format
 msgid "Score: %1"
 msgstr "ქულები: %1"
 
-#: mainwindow.cpp:35 mainwindow.cpp:225
+#: mainwindow.cpp:35 mainwindow.cpp:228
 #, kde-format
 msgid "Filled: %1%"
 msgstr "შევსებულია: %1%"
 
-#: mainwindow.cpp:36 mainwindow.cpp:230
+#: mainwindow.cpp:36 mainwindow.cpp:233
 #, kde-format
 msgid "Lives: %1"
 msgstr "სიცოცხლეები: %1"
 
-#: mainwindow.cpp:37 mainwindow.cpp:235
+#: mainwindow.cpp:37 mainwindow.cpp:238
 #, kde-format
 msgid "Time: %1"
 msgstr "დრო: %1"
 
-#: mainwindow.cpp:90
+#: mainwindow.cpp:93
 #, kde-format
 msgid "&Play Sounds"
 msgstr "&ხმის დაკვრა"
 
-#: mainwindow.cpp:134
+#: mainwindow.cpp:137
 #, kde-format
 msgid "Are you sure you want to quit the current game?"
 msgstr "დარწმუნებული ბრძნდებით, რომ გნებავთ, გახვიდეთ მიმდინარე თამაშიდან?"
 
-#: mainwindow.cpp:136
+#: mainwindow.cpp:139
 #, kde-format
 msgctxt "@action;button"
 msgid "Quit Game"
 msgstr "თამაშიდან გასვლა"
 
-#: mainwindow.cpp:154 mainwindow.cpp:257
+#: mainwindow.cpp:157 mainwindow.cpp:260
 #, kde-format
 msgid "Game over. Click to start a game"
 msgstr "თამაში დასრულდა. დასაწყებად დააწკაპუნეთ"
 
-#: mainwindow.cpp:189
+#: mainwindow.cpp:192
 #, kde-format
 msgid "Theme"
 msgstr "თემა"
 
-#: mainwindow.cpp:190
+#: mainwindow.cpp:193
 #, kde-format
 msgid "Background"
 msgstr "ფონი"
