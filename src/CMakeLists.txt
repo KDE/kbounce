@@ -42,19 +42,14 @@ ecm_qt_declare_logging_category(kbounce
 file(GLOB ICONS_SRCS "${CMAKE_SOURCE_DIR}/pics/*-apps-kbounce.png")
 ecm_add_app_icon(kbounce ICONS ${ICONS_SRCS})
 
-if (QT_MAJOR_VERSION STREQUAL "6")
-    target_link_libraries(kbounce KDEGames6)
-else()
-    target_link_libraries(kbounce KF5KDEGames)
-endif()
-
 target_link_libraries(kbounce 
-    KF${KF_MAJOR_VERSION}::XmlGui
-    KF${KF_MAJOR_VERSION}::I18n 
-    KF${KF_MAJOR_VERSION}::KIOWidgets
-    KF${KF_MAJOR_VERSION}::DBusAddons
-    KF${KF_MAJOR_VERSION}::Crash
-    Qt::Svg 
+    KDEGames6
+    KF6::XmlGui
+    KF6::I18n
+    KF6::KIOWidgets
+    KF6::DBusAddons
+    KF6::Crash
+    Qt6::Svg
 )
 
 install(TARGETS kbounce  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
