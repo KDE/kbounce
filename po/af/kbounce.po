@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kbounce VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-18 00:42+0000\n"
+"POT-Creation-Date: 2023-09-25 01:39+0000\n"
 "PO-Revision-Date: 2002-11-07 11:32+0200\n"
 "Last-Translator: WEB-Translator <http://kde.af.org.za>\n"
 "Language-Team: AFRIKAANS <AF@lia.org.za>\n"
@@ -114,138 +114,138 @@ msgstr ""
 msgid "Main Toolbar"
 msgstr ""
 
-#: main.cpp:37
+#: main.cpp:25
 #, kde-format
 msgid "KBounce"
 msgstr "K-hop"
 
-#: main.cpp:39
+#: main.cpp:27
 #, fuzzy, kde-format
 #| msgid "KDE Bounce Ball Game"
 msgid "Bounce Ball Game"
 msgstr "Kde Hop Bal Speletjie"
 
-#: main.cpp:41
+#: main.cpp:29
 #, kde-format
 msgid ""
 "(c) 2000-2005, Stefan Schimanski\n"
 "(c) 2007, Tomasz Boczkowski"
 msgstr ""
 
-#: main.cpp:45
+#: main.cpp:33
 #, kde-format
 msgid "Stefan Schimanski"
 msgstr ""
 
-#: main.cpp:46
+#: main.cpp:34
 #, kde-format
 msgid "Original author"
 msgstr "Oorspronklike outeur"
 
-#: main.cpp:49
+#: main.cpp:37
 #, kde-format
 msgid "Sandro Sigala"
 msgstr ""
 
-#: main.cpp:50
+#: main.cpp:38
 #, kde-format
 msgid "Highscore"
 msgstr ""
 
-#: main.cpp:53
+#: main.cpp:41
 #, kde-format
 msgid "Benjamin Meyer"
 msgstr ""
 
-#: main.cpp:54
+#: main.cpp:42
 #, kde-format
 msgid "Contributions"
 msgstr "Bydraes"
 
-#: main.cpp:57
+#: main.cpp:45
 #, kde-format
 msgid "Tomasz Boczkowski"
 msgstr ""
 
-#: main.cpp:58
+#: main.cpp:46
 #, kde-format
 msgid "Port to KDE4. Current maintainer"
 msgstr ""
 
-#: main.cpp:61
+#: main.cpp:49
 #, kde-format
 msgid "Dmitry Suzdalev"
 msgstr ""
 
-#: main.cpp:62
+#: main.cpp:50
 #, kde-format
 msgid "Port to QGraphicsView framework"
 msgstr ""
 
-#: main.cpp:65
+#: main.cpp:53
 #, kde-format
 msgid "Andreas Scherf"
 msgstr ""
 
-#: main.cpp:66
+#: main.cpp:54
 #, fuzzy, kde-format
 msgid "Image Background and Fixes"
 msgstr "Kies Agtergrond Beeld Gids"
 
-#: mainwindow.cpp:33 mainwindow.cpp:218
+#: mainwindow.cpp:32 mainwindow.cpp:209
 #, fuzzy, kde-format
 msgid "Level: %1"
 msgstr "Vlak:"
 
-#: mainwindow.cpp:34 mainwindow.cpp:223
+#: mainwindow.cpp:33 mainwindow.cpp:214
 #, fuzzy, kde-format
 msgid "Score: %1"
 msgstr "Telling:"
 
-#: mainwindow.cpp:35 mainwindow.cpp:228
+#: mainwindow.cpp:34 mainwindow.cpp:219
 #, fuzzy, kde-format
 msgid "Filled: %1%"
 msgstr "Gevul area:"
 
-#: mainwindow.cpp:36 mainwindow.cpp:233
+#: mainwindow.cpp:35 mainwindow.cpp:224
 #, fuzzy, kde-format
 msgid "Lives: %1"
 msgstr "Lewens:"
 
-#: mainwindow.cpp:37 mainwindow.cpp:238
+#: mainwindow.cpp:36 mainwindow.cpp:229
 #, fuzzy, kde-format
 msgid "Time: %1"
 msgstr "Tyd:"
 
-#: mainwindow.cpp:93
+#: mainwindow.cpp:92
 #, kde-format
 msgid "&Play Sounds"
 msgstr ""
 
-#: mainwindow.cpp:137
+#: mainwindow.cpp:132
 #, fuzzy, kde-format
 #| msgid "Do you really want to close the running game?"
 msgid "Are you sure you want to quit the current game?"
 msgstr "Doen jy rerig wil hê na maak toe die wat loop speletjie?"
 
-#: mainwindow.cpp:139
+#: mainwindow.cpp:134
 #, kde-format
 msgctxt "@action;button"
 msgid "Quit Game"
 msgstr ""
 
-#: mainwindow.cpp:157 mainwindow.cpp:260
+#: mainwindow.cpp:148 mainwindow.cpp:251
 #, fuzzy, kde-format
 #| msgid "Press %1 to start a game!"
 msgid "Game over. Click to start a game"
 msgstr "Druk %1 na begin 'n speletjie!"
 
-#: mainwindow.cpp:192
+#: mainwindow.cpp:183
 #, kde-format
 msgid "Theme"
 msgstr ""
 
-#: mainwindow.cpp:193
+#: mainwindow.cpp:184
 #, fuzzy, kde-format
 msgid "Background"
 msgstr "Agtergrond"

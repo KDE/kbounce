@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kbounce\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-18 00:42+0000\n"
+"POT-Creation-Date: 2023-09-25 01:39+0000\n"
 "PO-Revision-Date: 2021-01-18 19:17+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -114,139 +114,139 @@ msgstr ""
 msgid "Main Toolbar"
 msgstr "பிரதான கருவிப்பட்டை"
 
-#: main.cpp:37
+#: main.cpp:25
 #, kde-format
 msgid "KBounce"
 msgstr "Kகுதிப்பு"
 
-#: main.cpp:39
+#: main.cpp:27
 #, fuzzy, kde-format
 #| msgid "KDE Bounce Ball Game"
 msgid "Bounce Ball Game"
 msgstr "KDE குதிக்கும் பந்து விளையாட்டு"
 
-#: main.cpp:41
+#: main.cpp:29
 #, kde-format
 msgid ""
 "(c) 2000-2005, Stefan Schimanski\n"
 "(c) 2007, Tomasz Boczkowski"
 msgstr ""
 
-#: main.cpp:45
+#: main.cpp:33
 #, kde-format
 msgid "Stefan Schimanski"
 msgstr ""
 
-#: main.cpp:46
+#: main.cpp:34
 #, kde-format
 msgid "Original author"
 msgstr "மூல ஆசிரியர்"
 
-#: main.cpp:49
+#: main.cpp:37
 #, kde-format
 msgid "Sandro Sigala"
 msgstr ""
 
-#: main.cpp:50
+#: main.cpp:38
 #, kde-format
 msgid "Highscore"
 msgstr ""
 
-#: main.cpp:53
+#: main.cpp:41
 #, kde-format
 msgid "Benjamin Meyer"
 msgstr ""
 
-#: main.cpp:54
+#: main.cpp:42
 #, kde-format
 msgid "Contributions"
 msgstr "பங்களிப்பு"
 
-#: main.cpp:57
+#: main.cpp:45
 #, kde-format
 msgid "Tomasz Boczkowski"
 msgstr ""
 
-#: main.cpp:58
+#: main.cpp:46
 #, kde-format
 msgid "Port to KDE4. Current maintainer"
 msgstr ""
 
-#: main.cpp:61
+#: main.cpp:49
 #, kde-format
 msgid "Dmitry Suzdalev"
 msgstr ""
 
-#: main.cpp:62
+#: main.cpp:50
 #, kde-format
 msgid "Port to QGraphicsView framework"
 msgstr ""
 
-#: main.cpp:65
+#: main.cpp:53
 #, kde-format
 msgid "Andreas Scherf"
 msgstr ""
 
-#: main.cpp:66
+#: main.cpp:54
 #, fuzzy, kde-format
 #| msgid "Select Background Image Folder"
 msgid "Image Background and Fixes"
 msgstr "பின்னணி பட அடைவை தேர்வு செய்"
 
-#: mainwindow.cpp:33 mainwindow.cpp:218
+#: mainwindow.cpp:32 mainwindow.cpp:209
 #, fuzzy, kde-format
 msgid "Level: %1"
 msgstr "நிலை:"
 
-#: mainwindow.cpp:34 mainwindow.cpp:223
+#: mainwindow.cpp:33 mainwindow.cpp:214
 #, fuzzy, kde-format
 msgid "Score: %1"
 msgstr "புள்ளிகள்:"
 
-#: mainwindow.cpp:35 mainwindow.cpp:228
+#: mainwindow.cpp:34 mainwindow.cpp:219
 #, fuzzy, kde-format
 msgid "Filled: %1%"
 msgstr "நிரப்பப்பட்ட பகுதி:"
 
-#: mainwindow.cpp:36 mainwindow.cpp:233
+#: mainwindow.cpp:35 mainwindow.cpp:224
 #, fuzzy, kde-format
 msgid "Lives: %1"
 msgstr "வாழ்வுகள்:"
 
-#: mainwindow.cpp:37 mainwindow.cpp:238
+#: mainwindow.cpp:36 mainwindow.cpp:229
 #, fuzzy, kde-format
 msgid "Time: %1"
 msgstr "நேரம்:"
 
-#: mainwindow.cpp:93
+#: mainwindow.cpp:92
 #, kde-format
 msgid "&Play Sounds"
 msgstr "&ஒலிகளை இசை"
 
-#: mainwindow.cpp:137
+#: mainwindow.cpp:132
 #, fuzzy, kde-format
 #| msgid "Do you really want to close the running game?"
 msgid "Are you sure you want to quit the current game?"
 msgstr "இயங்கிக்கொண்டிருக்கும் விளையாட்டை நீங்கள் உண்மையாகவே நிறுத்த விரும்புகிறீரா?  "
 
-#: mainwindow.cpp:139
+#: mainwindow.cpp:134
 #, kde-format
 msgctxt "@action;button"
 msgid "Quit Game"
 msgstr ""
 
-#: mainwindow.cpp:157 mainwindow.cpp:260
+#: mainwindow.cpp:148 mainwindow.cpp:251
 #, fuzzy, kde-format
 #| msgid "Press %1 to start a game!"
 msgid "Game over. Click to start a game"
 msgstr "விளையாட்டை துவங்க %1ஐ அழுத்தவும்!"
 
-#: mainwindow.cpp:192
+#: mainwindow.cpp:183
 #, kde-format
 msgid "Theme"
 msgstr ""
 
-#: mainwindow.cpp:193
+#: mainwindow.cpp:184
 #, fuzzy, kde-format
 #| msgid "Show &Backgrounds"
 msgid "Background"

@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kbounce\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-18 00:42+0000\n"
+"POT-Creation-Date: 2023-09-25 01:39+0000\n"
 "PO-Revision-Date: 2023-01-05 11:05+0200\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -127,17 +127,17 @@ msgstr "Αν θα γίνεται αναπαραγωγή των ήχων του �
 msgid "Main Toolbar"
 msgstr "Κύρια γραμμή εργαλείων"
 
-#: main.cpp:37
+#: main.cpp:25
 #, kde-format
 msgid "KBounce"
 msgstr "KBounce"
 
-#: main.cpp:39
+#: main.cpp:27
 #, kde-format
 msgid "Bounce Ball Game"
 msgstr "Παιχνίδι με μπάλες αναπήδησης"
 
-#: main.cpp:41
+#: main.cpp:29
 #, kde-format
 msgid ""
 "(c) 2000-2005, Stefan Schimanski\n"
@@ -146,118 +146,118 @@ msgstr ""
 "(c) 2000-2005, Stefan Schimanski\n"
 "(c) 2007, Tomasz Boczkowski"
 
-#: main.cpp:45
+#: main.cpp:33
 #, kde-format
 msgid "Stefan Schimanski"
 msgstr "Stefan Schimanski"
 
-#: main.cpp:46
+#: main.cpp:34
 #, kde-format
 msgid "Original author"
 msgstr "Αρχικός συγγραφέας"
 
-#: main.cpp:49
+#: main.cpp:37
 #, kde-format
 msgid "Sandro Sigala"
 msgstr "Sandro Sigala"
 
-#: main.cpp:50
+#: main.cpp:38
 #, kde-format
 msgid "Highscore"
 msgstr "Υψηλή βαθμολογία"
 
-#: main.cpp:53
+#: main.cpp:41
 #, kde-format
 msgid "Benjamin Meyer"
 msgstr "Benjamin Meyer"
 
-#: main.cpp:54
+#: main.cpp:42
 #, kde-format
 msgid "Contributions"
 msgstr "Συνεισφορές"
 
-#: main.cpp:57
+#: main.cpp:45
 #, kde-format
 msgid "Tomasz Boczkowski"
 msgstr "Tomasz Boczkowski"
 
-#: main.cpp:58
+#: main.cpp:46
 #, kde-format
 msgid "Port to KDE4. Current maintainer"
 msgstr "Προσαρμογή στο KDE4. Τρέχων συντηρητής"
 
-#: main.cpp:61
+#: main.cpp:49
 #, kde-format
 msgid "Dmitry Suzdalev"
 msgstr "Dmitry Suzdalev"
 
-#: main.cpp:62
+#: main.cpp:50
 #, kde-format
 msgid "Port to QGraphicsView framework"
 msgstr "Μεταφορά στο πλαίσιο εργασίας QGraphicsView"
 
-#: main.cpp:65
+#: main.cpp:53
 #, kde-format
 msgid "Andreas Scherf"
 msgstr "Andreas Scherf"
 
-#: main.cpp:66
+#: main.cpp:54
 #, kde-format
 msgid "Image Background and Fixes"
 msgstr "Εικόνα φόντου και διορθώσεις"
 
-#: mainwindow.cpp:33 mainwindow.cpp:218
+#: mainwindow.cpp:32 mainwindow.cpp:209
 #, kde-format
 msgid "Level: %1"
 msgstr "Επίπεδο: %1"
 
-#: mainwindow.cpp:34 mainwindow.cpp:223
+#: mainwindow.cpp:33 mainwindow.cpp:214
 #, kde-format
 msgid "Score: %1"
 msgstr "Βαθμός: %1"
 
-#: mainwindow.cpp:35 mainwindow.cpp:228
+#: mainwindow.cpp:34 mainwindow.cpp:219
 #, kde-format
 msgid "Filled: %1%"
 msgstr "Γεμισμένη περιοχή: %1%"
 
-#: mainwindow.cpp:36 mainwindow.cpp:233
+#: mainwindow.cpp:35 mainwindow.cpp:224
 #, kde-format
 msgid "Lives: %1"
 msgstr "Ζωές: %1"
 
-#: mainwindow.cpp:37 mainwindow.cpp:238
+#: mainwindow.cpp:36 mainwindow.cpp:229
 #, kde-format
 msgid "Time: %1"
 msgstr "Χρόνος: %1"
 
-#: mainwindow.cpp:93
+#: mainwindow.cpp:92
 #, kde-format
 msgid "&Play Sounds"
 msgstr "&Αναπαραγωγή ήχων"
 
-#: mainwindow.cpp:137
+#: mainwindow.cpp:132
 #, kde-format
 msgid "Are you sure you want to quit the current game?"
 msgstr "Είστε βέβαιοι ότι θέλετε να κλείσετε το τρέχον παιχνίδι;"
 
-#: mainwindow.cpp:139
+#: mainwindow.cpp:134
 #, kde-format
 msgctxt "@action;button"
 msgid "Quit Game"
 msgstr "Έξοδος από το παιχνίδι"
 
-#: mainwindow.cpp:157 mainwindow.cpp:260
+#: mainwindow.cpp:148 mainwindow.cpp:251
 #, kde-format
 msgid "Game over. Click to start a game"
 msgstr "Τέλος παιχνιδιού. Κάντε κλικ για να ξεκινήσετε ένα παιχνίδι"
 
-#: mainwindow.cpp:192
+#: mainwindow.cpp:183
 #, kde-format
 msgid "Theme"
 msgstr "Θέμα"
 
-#: mainwindow.cpp:193
+#: mainwindow.cpp:184
 #, kde-format
 msgid "Background"
 msgstr "Φόντο"

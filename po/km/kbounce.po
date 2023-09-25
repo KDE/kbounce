@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kbounce\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-18 00:42+0000\n"
+"POT-Creation-Date: 2023-09-25 01:39+0000\n"
 "PO-Revision-Date: 2009-10-28 08:52+0700\n"
 "Last-Translator: Morn Met\n"
 "Language-Team: Khmer <kde-i18n-doc@kde.org>\n"
@@ -119,18 +119,18 @@ msgstr "ថា​តើ​សំឡេង​​ល្បែង​​ត្រូ
 msgid "Main Toolbar"
 msgstr "របារ​ឧបករណ៍​មេ"
 
-#: main.cpp:37
+#: main.cpp:25
 #, kde-format
 msgid "KBounce"
 msgstr "KBounce"
 
-#: main.cpp:39
+#: main.cpp:27
 #, fuzzy, kde-format
 #| msgid "KDE Bounce Ball Game"
 msgid "Bounce Ball Game"
 msgstr "ល្បែង​បាល់​លោត​របស់ KDE "
 
-#: main.cpp:41
+#: main.cpp:29
 #, kde-format
 msgid ""
 "(c) 2000-2005, Stefan Schimanski\n"
@@ -139,121 +139,121 @@ msgstr ""
 "រក្សា​សិទ្ធិ​​ឆ្នាំ​ ២​០​០​០​-២​០​០​៥​ ដោយ​ Stefan Schimanski\n"
 "រក្សា​សិទ្ធិ​ឆ្នាំ ២​០​​​​​​​​​​​​​​​០​​៧ ដោយ​ Tomasz Boczkowski"
 
-#: main.cpp:45
+#: main.cpp:33
 #, kde-format
 msgid "Stefan Schimanski"
 msgstr "Stefan Schimanski"
 
-#: main.cpp:46
+#: main.cpp:34
 #, kde-format
 msgid "Original author"
 msgstr "អ្នក​និពន្ធ​ដើម"
 
-#: main.cpp:49
+#: main.cpp:37
 #, kde-format
 msgid "Sandro Sigala"
 msgstr "Sandro Sigala"
 
-#: main.cpp:50
+#: main.cpp:38
 #, kde-format
 msgid "Highscore"
 msgstr "ពិន្ទុ​ខ្ពស់"
 
-#: main.cpp:53
+#: main.cpp:41
 #, kde-format
 msgid "Benjamin Meyer"
 msgstr "Benjamin Meyer"
 
-#: main.cpp:54
+#: main.cpp:42
 #, kde-format
 msgid "Contributions"
 msgstr "ចូលរួម"
 
-#: main.cpp:57
+#: main.cpp:45
 #, kde-format
 msgid "Tomasz Boczkowski"
 msgstr "Tomasz Boczkowski"
 
-#: main.cpp:58
+#: main.cpp:46
 #, kde-format
 msgid "Port to KDE4. Current maintainer"
 msgstr "ច្រក​ទៅ​កាន់ KDE4 ។ អ្នក​ថែទាំ​បច្ចុប្បន្ន"
 
-#: main.cpp:61
+#: main.cpp:49
 #, kde-format
 msgid "Dmitry Suzdalev"
 msgstr "Dmitry Suzdalev"
 
-#: main.cpp:62
+#: main.cpp:50
 #, kde-format
 msgid "Port to QGraphicsView framework"
 msgstr "ច្រក​ទៅ​កាន់​គម្រោង QGraphicsView"
 
-#: main.cpp:65
+#: main.cpp:53
 #, kde-format
 msgid "Andreas Scherf"
 msgstr "Andreas Scherf"
 
-#: main.cpp:66
+#: main.cpp:54
 #, kde-format
 msgid "Image Background and Fixes"
 msgstr "ផ្ទៃខាងក្រោយ​រូបភាព​ និង​ការ​កែ​ប្រែ​"
 
-#: mainwindow.cpp:33 mainwindow.cpp:218
+#: mainwindow.cpp:32 mainwindow.cpp:209
 #, kde-format
 msgid "Level: %1"
 msgstr "កម្រិត ៖ %1"
 
-#: mainwindow.cpp:34 mainwindow.cpp:223
+#: mainwindow.cpp:33 mainwindow.cpp:214
 #, kde-format
 msgid "Score: %1"
 msgstr "ពិន្ទុ ៖ %1"
 
-#: mainwindow.cpp:35 mainwindow.cpp:228
+#: mainwindow.cpp:34 mainwindow.cpp:219
 #, kde-format
 msgid "Filled: %1%"
 msgstr "បានបំពេញ ៖ %1%"
 
-#: mainwindow.cpp:36 mainwindow.cpp:233
+#: mainwindow.cpp:35 mainwindow.cpp:224
 #, kde-format
 msgid "Lives: %1"
 msgstr "ជីវិត ៖ %1"
 
-#: mainwindow.cpp:37 mainwindow.cpp:238
+#: mainwindow.cpp:36 mainwindow.cpp:229
 #, kde-format
 msgid "Time: %1"
 msgstr "ពេលវេលា ៖ %1"
 
-#: mainwindow.cpp:93
+#: mainwindow.cpp:92
 #, kde-format
 msgid "&Play Sounds"
 msgstr "ចាក់​សម្លេង"
 
-#: mainwindow.cpp:137
+#: mainwindow.cpp:132
 #, fuzzy, kde-format
 #| msgid "Do you really want to close the running game?"
 msgid "Are you sure you want to quit the current game?"
 msgstr "តើ​អ្នក​ពិត​ជា​ចង់​បិទ​ល្បែង ដែល​កំពុង​រត់​ឬ ?"
 
-#: mainwindow.cpp:139
+#: mainwindow.cpp:134
 #, kde-format
 msgctxt "@action;button"
 msgid "Quit Game"
 msgstr ""
 
-#: mainwindow.cpp:157 mainwindow.cpp:260
+#: mainwindow.cpp:148 mainwindow.cpp:251
 #, kde-format
 msgid "Game over. Click to start a game"
 msgstr ""
 "ល្បែង​ចប់ហើយ ។\n"
 " ចុច​ដើម្បី​ចាប់ផ្ដើម​ល្បែង"
 
-#: mainwindow.cpp:192
+#: mainwindow.cpp:183
 #, kde-format
 msgid "Theme"
 msgstr "ស្បែក"
 
-#: mainwindow.cpp:193
+#: mainwindow.cpp:184
 #, kde-format
 msgid "Background"
 msgstr "ផ្ទៃខាងក្រោយ​"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kbounce trunk\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-18 00:42+0000\n"
+"POT-Creation-Date: 2023-09-25 01:39+0000\n"
 "PO-Revision-Date: 2019-12-12 21:41+0000\n"
 "Last-Translator: Vivek KJ Pazhedath <vivekkj2004@gmail.com>\n"
 "Language-Team: SMC <smc.org.in>\n"
@@ -121,127 +121,127 @@ msgstr "ശബ്ദങ്ങള്‍ കേള്‍പ്പിയ്ക്�
 msgid "Main Toolbar"
 msgstr "പ്രധാന ഉപകരണപ്പട്ട"
 
-#: main.cpp:37
+#: main.cpp:25
 #, kde-format
 msgid "KBounce"
 msgstr "കെബൌണ്‍സ്"
 
-#: main.cpp:39
+#: main.cpp:27
 #, fuzzy, kde-format
 #| msgid "KDE Bounce Ball Game"
 msgid "Bounce Ball Game"
 msgstr "കെഡിഇ ചാടും പന്ത് കളി"
 
-#: main.cpp:41
+#: main.cpp:29
 #, kde-format
 msgid ""
 "(c) 2000-2005, Stefan Schimanski\n"
 "(c) 2007, Tomasz Boczkowski"
 msgstr ""
 
-#: main.cpp:45
+#: main.cpp:33
 #, kde-format
 msgid "Stefan Schimanski"
 msgstr "സ്റ്റെഫാന്‍ ഷിമന്‍സ്കി"
 
-#: main.cpp:46
+#: main.cpp:34
 #, kde-format
 msgid "Original author"
 msgstr "ആദ്യ രചയിതാവ്"
 
-#: main.cpp:49
+#: main.cpp:37
 #, kde-format
 msgid "Sandro Sigala"
 msgstr "സാന്ദ്രോ സിഗല"
 
-#: main.cpp:50
+#: main.cpp:38
 #, kde-format
 msgid "Highscore"
 msgstr "ഉയര്‍ന്ന സ്കോര്‍"
 
-#: main.cpp:53
+#: main.cpp:41
 #, kde-format
 msgid "Benjamin Meyer"
 msgstr "ബെഞ്ചമിന്‍ മെയര്‍"
 
-#: main.cpp:54
+#: main.cpp:42
 #, kde-format
 msgid "Contributions"
 msgstr "സംഭാവനകള്‍"
 
-#: main.cpp:57
+#: main.cpp:45
 #, kde-format
 msgid "Tomasz Boczkowski"
 msgstr "തൊമസ് ബൊക്സ്കൊവ്സ്കി"
 
-#: main.cpp:58
+#: main.cpp:46
 #, kde-format
 msgid "Port to KDE4. Current maintainer"
 msgstr "കെഡിഇ4ല്‍ പ്രവര്‍ത്തിയ്ക്കുന്നതാക്കി. ഇപ്പോഴത്തെ പരിപാലകന്‍"
 
-#: main.cpp:61
+#: main.cpp:49
 #, kde-format
 msgid "Dmitry Suzdalev"
 msgstr "ഡിമിട്രി സുസ്ഡാലെവ്"
 
-#: main.cpp:62
+#: main.cpp:50
 #, kde-format
 msgid "Port to QGraphicsView framework"
 msgstr "ക്യൂഗ്രാഫിക്സ് ഫ്രേംവര്‍ക്കുപയോഗിയ്ക്കാന്‍ തയ്യാറാക്കി"
 
-#: main.cpp:65
+#: main.cpp:53
 #, kde-format
 msgid "Andreas Scherf"
 msgstr ""
 
-#: main.cpp:66
+#: main.cpp:54
 #, kde-format
 msgid "Image Background and Fixes"
 msgstr ""
 
-#: mainwindow.cpp:33 mainwindow.cpp:218
+#: mainwindow.cpp:32 mainwindow.cpp:209
 #, kde-format
 msgid "Level: %1"
 msgstr "നില: %1"
 
-#: mainwindow.cpp:34 mainwindow.cpp:223
+#: mainwindow.cpp:33 mainwindow.cpp:214
 #, kde-format
 msgid "Score: %1"
 msgstr "സ്കോര്‍: %1"
 
-#: mainwindow.cpp:35 mainwindow.cpp:228
+#: mainwindow.cpp:34 mainwindow.cpp:219
 #, kde-format
 msgid "Filled: %1%"
 msgstr "നിറച്ചവ: %1%"
 
-#: mainwindow.cpp:36 mainwindow.cpp:233
+#: mainwindow.cpp:35 mainwindow.cpp:224
 #, kde-format
 msgid "Lives: %1"
 msgstr "അവസരങ്ങള്‍: %1"
 
-#: mainwindow.cpp:37 mainwindow.cpp:238
+#: mainwindow.cpp:36 mainwindow.cpp:229
 #, kde-format
 msgid "Time: %1"
 msgstr "സമയം: %1"
 
-#: mainwindow.cpp:93
+#: mainwindow.cpp:92
 #, kde-format
 msgid "&Play Sounds"
 msgstr "&ശബ്ദങ്ങള്‍ കേള്‍പ്പിയ്ക്കുക"
 
-#: mainwindow.cpp:137
+#: mainwindow.cpp:132
 #, fuzzy, kde-format
 #| msgid "Do you really want to close the running game?"
 msgid "Are you sure you want to quit the current game?"
 msgstr "കളിച്ചുകൊണ്ടിരിക്കുന്ന കളി നിര്‍ത്തണോ?"
 
-#: mainwindow.cpp:139
+#: mainwindow.cpp:134
 #, kde-format
 msgctxt "@action;button"
 msgid "Quit Game"
 msgstr ""
 
-#: mainwindow.cpp:157 mainwindow.cpp:260
+#: mainwindow.cpp:148 mainwindow.cpp:251
 #, fuzzy, kde-format
 #| msgid ""
 #| "Welcome to KBounce.\n"
@@ -251,12 +251,12 @@ msgstr ""
 "കെബൌണ്‍സിലേക്ക് സ്വാഗതം.\n"
 " കളി തുടങ്ങുവാന്‍ ക്ലിക്ക് ചെയ്യുക"
 
-#: mainwindow.cpp:192
+#: mainwindow.cpp:183
 #, kde-format
 msgid "Theme"
 msgstr "പ്രമേയം"
 
-#: mainwindow.cpp:193
+#: mainwindow.cpp:184
 #, kde-format
 msgid "Background"
 msgstr ""
