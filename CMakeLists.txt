@@ -31,14 +31,15 @@ find_package(Qt6 ${QT_MIN_VERSION} REQUIRED COMPONENTS
 )
 
 find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS
-    CoreAddons 
-    Config 
+    ColorScheme
+    Config
+    CoreAddons
     Crash
-    WidgetsAddons 
-    DBusAddons 
-    I18n 
-    ConfigWidgets 
-    Completion 
+    WidgetsAddons
+    DBusAddons
+    I18n
+    ConfigWidgets
+    Completion
     XmlGui
     KIO
     DocTools
