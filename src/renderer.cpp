@@ -12,14 +12,14 @@
 #include "debug.h"
 
 // KDEGames
-#include <KgThemeProvider>
+#include <KGameThemeProvider>
 
 #include <QDir>
 #include <QRandomGenerator>
 
-static KgThemeProvider* provider()
+static KGameThemeProvider* provider()
 {
-    KgThemeProvider* prov = new KgThemeProvider;
+    KGameThemeProvider* prov = new KGameThemeProvider;
     prov->discoverThemes(
             QStringLiteral("themes"), //theme file location
             QStringLiteral("default") //default theme file name

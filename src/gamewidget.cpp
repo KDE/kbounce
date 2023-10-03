@@ -13,7 +13,7 @@
 #include <QTimer>
 #include <QStandardPaths>
 
-#include <KgThemeProvider>
+#include <KGameThemeProvider>
 #include <KColorScheme>
 #include <KLocalizedString>
 
@@ -47,7 +47,7 @@ KBounceGameWidget::KBounceGameWidget( QWidget* parent )
 
     setMouseTracking( true );
 
-    connect(m_renderer.themeProvider(), &KgThemeProvider::currentThemeChanged,
+    connect(m_renderer.themeProvider(), &KGameThemeProvider::currentThemeChanged,
             this, &KBounceGameWidget::settingsChanged);
 
     m_scene.addItem( m_board );
