@@ -15,7 +15,7 @@
 #include <QGraphicsPixmapItem>
 #include <QMouseEvent>
 
-#include <KgSound>
+#include <KGameSound>
 #include <KGameDifficulty>
 
 #include "board.h"
@@ -87,7 +87,7 @@ class KBounceGameWidget : public QGraphicsView
 
         bool m_vertical;
         QGraphicsScene m_scene;
-        KgSound m_soundTimeout;
+        KGameSound m_soundTimeout;
 };
 
 #endif

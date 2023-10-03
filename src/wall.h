@@ -12,7 +12,7 @@
 #include <KGameRenderedItem>
 
 #include <QObject>
-#include <KgSound>
+#include <KGameSound>
 #include "gameobject.h"
 
 class KBounceRenderer;
@@ -111,8 +111,8 @@ class KBounceWall : public QObject, public KGameRenderedItem
         KBounceBoard *m_board;
         Direction m_dir;
 
-        KgSound m_soundWallstart;
-        KgSound m_soundReflect;
+        KGameSound m_soundWallstart;
+        KGameSound m_soundReflect;
 
         QRectF m_boundingRect;
         QRectF m_nextBoundingRect;
