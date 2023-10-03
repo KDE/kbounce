@@ -12,7 +12,7 @@
 #include <KStandardGameAction>
 #include <KScoreDialog>
 #include <KgThemeSelector>
-#include <KgDifficulty>
+#include <KGameDifficulty>
 
 #include <KStandardGuiItem>
 #include <KToggleAction>
@@ -80,11 +80,11 @@ void KBounceMainWindow::initXMLUI()
     KStandardGameAction::quit(this, &QWidget::close, actionCollection());
 
     // Difficulty
-    Kg::difficulty()->addStandardLevelRange(
-            KgDifficultyLevel::Easy, KgDifficultyLevel::Hard
+    KGameDifficulty::global()->addStandardLevelRange(
+            KGameDifficultyLevel::Easy, KGameDifficultyLevel::Hard
             );
-    KgDifficultyGUI::init(this);
-    connect(Kg::difficulty(), &KgDifficulty::currentLevelChanged,
+    KGameDifficultyGUI::init(this);
+    connect(KGameDifficulty::global(), &KGameDifficulty::currentLevelChanged,
             m_gameWidget, &KBounceGameWidget::handleLevelChanged);
 
     // Settings
@@ -155,7 +155,7 @@ void KBounceMainWindow::gameOverNow()
 void KBounceMainWindow::showHighscore()
 {
     KScoreDialog ksdialog( KScoreDialog::Name | KScoreDialog::Score, this );
-    ksdialog.initFromDifficulty(Kg::difficulty());
+    ksdialog.initFromDifficulty(KGameDifficulty::global());
     ksdialog.exec();
 }
 
@@ -167,7 +167,7 @@ void KBounceMainWindow::highscore()
 
     qCDebug(KBOUNCE_LOG);
     KScoreDialog ksdialog( KScoreDialog::Name | KScoreDialog::Score | KScoreDialog::Level, this );
-    ksdialog.initFromDifficulty(Kg::difficulty());
+    ksdialog.initFromDifficulty(KGameDifficulty::global());
     KScoreDialog::FieldInfo info;
     info[KScoreDialog::Score].setNum( m_gameWidget->score() );
     info[KScoreDialog::Level].setNum( m_gameWidget->level() );
