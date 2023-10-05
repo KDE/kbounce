@@ -78,14 +78,14 @@ QPixmap KBounceRenderer::renderBackground()
 {
     if (m_cachedBackground.isNull() && !m_backgroundSize.isNull())
     {
-        //This is a dirty fix to the qt's m_svgRenderer.render() method that
-        //leaves an garbage-filled border of a pixmap
+        //This is a dirty fix to the Qt's m_svgRenderer.render() method that
+        //leaves a garbage-filled border of a pixmap
         qCDebug(KBOUNCE_LOG) << "Rendering the background. Size:" << m_backgroundSize;
         if ( m_useRandomBackgrounds && loadNewBackgroundPixmap() )
         {
             return m_cachedBackground;
         }
-        // If no valid backgound pixmap found use the original from theme ...
+        // If no valid background pixmap found use the original from theme ...
         m_cachedBackground = spritePixmap( QStringLiteral("background"), m_backgroundSize );
     }
     return m_cachedBackground;

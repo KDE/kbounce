@@ -28,7 +28,7 @@ KBounceWall::KBounceWall( Direction dir, KBounceRenderer* renderer, KBounceBoard
       , m_soundWallstart( QStandardPaths::locate( QStandardPaths::AppDataLocation, QStringLiteral("sounds/wallstart.wav") ) )
       , m_soundReflect( QStandardPaths::locate( QStandardPaths::AppDataLocation, QStringLiteral("sounds/reflect.wav") ) )
 {
-    // The wall velocity would initialised on every new level.
+    // The wall velocity is initialised on every new level.
     m_wallVelocity = 0.0;
 
     if (!s_sprites) {

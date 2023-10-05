@@ -43,7 +43,7 @@ KBounceBoard::KBounceBoard( KBounceRenderer* renderer )
 
     clear();
 
-    // Initialize this members with the old default values.
+    // Initialize these members with the old default values.
     m_ballVelocity = 0.125;
     m_wallVelocity = 0.125;
 }
