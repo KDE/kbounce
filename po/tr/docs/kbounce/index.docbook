@@ -1,0 +1,668 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY % Turkish "INCLUDE"
+> 
+  <!ENTITY % addindex "IGNORE">
+]>
+
+<book id="kbounce" lang="&language;">
+<bookinfo>
+<title
+>&kbounce; El Kitabı</title>
+
+<authorgroup>
+<author
+><firstname
+>Tomasz</firstname
+><surname
+>Boczkowski</surname
+> <affiliation
+><address
+><email
+>tboczkowski@onet.pl</email
+></address
+></affiliation>
+</author>
+<othercredit role="reviewer"
+><firstname
+>Eugene</firstname
+><surname
+>Trounev</surname
+> <contrib
+>Gözden Geçiren</contrib>
+<affiliation
+><address
+>eugene.trounev@gmail.com</address
+></affiliation>
+</othercredit>
+<othercredit role="translator"
+><firstname
+>Emir</firstname
+><surname
+>SARI</surname
+><affiliation
+><address
+><email
+>emir_sari@îcloud.com</email
+></address
+></affiliation
+><contrib
+>Çeviri</contrib
+></othercredit
+> 
+</authorgroup>
+
+<copyright>
+<year
+>2002</year>
+<holder
+>&Aaron.J.Seigo;</holder>
+</copyright>
+
+<copyright>
+<year
+>2007</year>
+<holder
+>Tomasz Boczkowski</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+
+<date
+>2021-06-25</date>
+<releaseinfo
+>KDE Gear 21.04</releaseinfo>
+
+<abstract>
+	<para
+>Bu belgelendirme, &kbounce; 21.04 sürümündeki oyunu anlatmaktadır</para>
+</abstract>
+
+
+<keywordset>
+	<keyword
+>KDE</keyword
+> <!-- do not change this! -->
+	<keyword
+>kde oyunları</keyword
+> <!-- do not change this! -->
+	<keyword
+>oyun</keyword
+> <!-- do not change this! -->
+<!-- Game genre. Use as many as necessary. Available game types are: Arcade, Board, Card, Dice, Toys, Logic, Strategy.-->
+	<keyword
+>yarış</keyword>
+	<keyword
+>Yapboz</keyword>
+	<keyword
+>toplar</keyword>
+	<keyword
+>JezzBall</keyword>
+	<keyword
+>K Zıpla</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Giriş</title>
+<note
+><title
+>Oyun türü:</title
+><para
+>Yapboz, Yarış</para
+></note
+><!-- Game genre. Use as many as necessary. Available game types are: Arcade, Board, Card, Dice, Toys, Logic, Strategy.-->
+	<note
+><title
+>Olası oyuncu sayısı:</title
+><para
+>Bir</para
+></note
+><!--Number of possible players. It can be: One, Two,..., Multiplayer-->
+<para
+>&kbounce;, bulmaca unsurları ile tek oyunculu bir eğlence oyunudur. </para>
+
+<para
+>Duvarlarla çevrili, alanın duvarlarından sıçrayan alanda hareket eden iki veya daha fazla topla oynanan bir alanda oynanır. Oyuncu, etkin alanın boyutunu küçülterek yeni duvarlar yapabilir. </para>
+
+<para
+>Oyunun amacı, en az yüzde 75 veya daha fazla alanı doldurmak ve bir sonraki düzeye geçmektir. </para>
+</chapter>
+
+<chapter id="how-to-play">
+<title
+>Nasıl Oynanır</title>
+
+<para
+>Oyuncuya duvarlarıyla çevrili dikdörtgen kiremitli bir alan sunulmaktadır. İki veya daha fazla top, sahada dolaşır ve duvarlardan zıplar. Oyunun amacı toplar için odanın boyutunu sınırlamaktır. </para>
+
+<para
+>Etkin alanın boyutu, içinde toplar bulunmayen yeni duvarlar yaparak azaltılır. Bir düzeyi tamamlamak için oyuncu, etkin alanın boyutunu izin verilen süre içinde en az yüzde 75 azaltmalıdır. </para>
+
+<para
+>Yeni duvarlar, alanın etkin bir bölgesinde &LMB; tıklanarak yapılır. Bu yapıldığında bir duvar, farenin tıklandığı karenin tersi yönlerde büyümeye başlayacaktır. Herhangi bir zamanda yalnızca bir duvar her bir yönde büyüyebilir. </para>
+
+<para
+>Fare alana geldiğinde, imleç, karşıt yönde yatay veya dikey olarak işaret eden bir çift ok olarak gösterilir. Oklar, &LMB; tıklandığı zaman duvarların büyüyeceği yönü gösterir. Bu yön, &RMB;'ni tıklayarak değiştirilebilir. </para>
+
+<para
+>Yeni bir duvar, farenin tıklandığı noktadan uzaklaşan bir <quote
+>kafa</quote
+>içerir. Bu <quote
+>kafa</quote
+> başka bir duvara girene kadar bir duvar kalıcı değildir. Kafa bir başka duvarda girmeden önce bir top başın dışındaki herhangi bir bölüme çarparsa yeni duvar tamamen kaybolur ve bir can kaybedilir. Bir top duvarın büyümesi yönünde kafayla çarpışırsa duvar büyümeyi durduracak ve can kaybı olmaksızın kalıcı hale gelecektir. Bir top diğer taraftan kafa ile çarpışırsa top sıçramalı ve duvar normal olarak büyümeyi sürdürecektir. </para>
+</chapter>
+
+<chapter id="rules_and_tips"
+><title
+>Oyun Kuralları, Stratejileri, İpuçları</title
+> <!-- do not change this! -->
+<sect1 id="rules">
+<title
+>Oyun Kuralları</title>
+
+<para
+>Oyun, sahada iki topun hareket ettiği birinci düzey ile başlar. Düzeyi  başarıyla tamamlamak için oyuncunun iki canı ve 90 saniyesi vardır. </para>
+
+<para
+>N. düzeyde n + 1 top olur. Oyuncuya n + 1 can verilir. Tamamlamakiçin 30 * (n + 2) saniyeleri vardır. </para>
+
+<para
+>Bir top, büyüyen bir duvara çarptığında oyuncu bir can kaybeder. Bir istisna olarak, bir duvar <quote
+>kafa</quote
+> ile çarpışırsa can kaybedilmez. </para>
+
+<para
+>Her bir düzeyin hedefi, alanın en az yüzde 75'ini duvarlarla kaplamaktır. </para>
+
+<para
+>Tüm canların kaybı ve izin verilen sürenin aşılması oyunun sona ermesine neden olur. </para>
+
+<para
+>Bir oyuncu bir düzeyi tamamlarsa kalan her can için 15 puan, ve top sayısına ve yüzde 75 üzerindeki karoların sayısına bağlı olarak bir bonus alır. Ayrıca bir sonraki düzeye geçerler. </para>
+ 
+</sect1>
+
+<sect1 id="strategy">
+<title
+>Stratejiler ve İpuçları</title>
+<itemizedlist>
+
+<listitem>
+<para
+>Çoğu oyuncu, sahada aynı anda olabilen top sayıları göz önüne alındığında, oyunu yalnızca üçüncü veya dördüncü düzeyde oldukça zor buluyor. </para>
+</listitem>
+
+<listitem>
+<para
+>&kbounce;'yı başarılı olarak oynamanın püf noktası; <quote
+>koridorlar</quote
+> yapmaktır. Bir koridor yapmak için başka bir duvara yakın büyüyen bir çift duvar başlatın ve öyle bir zamanlayın ki duvarların birine top çarpsın; ancak diğerine çarpmasın; böylelikle kalıcı olsun. </para>
+
+<screenshot>
+<screeninfo
+>Bir koridor yapılıyor</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="kbounce_corridor1.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Bir koridor yapılıyor</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Bu, dar bir koridoru tarlada yalnızca birkaç kare yüksek, üç tarafı duvarlarla çevrili bırakacaktır. Topların koridorun açık ucuna sıçramasını bekleyin ve topun arkasındaki koridoru yeni bir duvarla kapatın. Yaratılan her koridor için büyük olasılıkla bir can kaybedecekseniz de, tek bir koridorda birden fazla topu yakalayabilirsiniz. </para>
+
+<screenshot>
+<screeninfo
+>Topları bir koridorda yakalama</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="kbounce_corridor2.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Topları bir koridorda yakalama</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+</listitem>
+
+<listitem>
+<para
+>Son bir ipucu &mdash; acele etmeyin! Ekranın altındaki <guilabel
+>Time</guilabel
+> görünümünde gösterildiği gibi bol miktarda zaman vardır. Acele yalnızca başını belaya sokar! </para>
+</listitem>
+</itemizedlist>
+</sect1>
+</chapter>
+
+<chapter id="interface-overview">
+<title
+>Arayüze Genel Bakış</title>
+
+<sect1 id="the-tool-bar">
+<title
+>Araç Çubuğu</title>
+
+<para
+>Araç çubuğu genel kullanılan işlevler için düğmeler sağlar. </para>
+
+<table>
+<title
+>Araç Çubuğu Düğmeleri</title>
+<tgroup cols="4">
+
+<thead>
+<row>
+<entry
+>Düğme</entry>
+<entry
+>Ad</entry>
+<entry
+>Menü Karşılığı</entry>
+<entry
+>Eylem</entry>
+</row>
+</thead>
+
+<tbody>
+<row>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata format="PNG" fileref="document-new.png"/>
+</imageobject>
+<textobject
+><phrase
+>Yeni Oyun Düğmesi</phrase
+></textobject>
+</inlinemediaobject>
+</entry>
+
+<entry>
+<guiicon
+>Yeni</guiicon>
+</entry>
+
+<entry>
+<link linkend="game-new">
+<menuchoice
+><guimenu
+>Oyun</guimenu
+> <guimenuitem
+>Yeni</guimenuitem
+> </menuchoice>
+</link>
+</entry>
+
+<entry
+>Yeni bir oyun başlatır. Geçerli bir oyun varsa temizlenir ve düzey 1 olarak ayarlanır. </entry>
+</row>
+
+<row>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata format="PNG" fileref="media-playback-pause.png"/>
+</imageobject>
+<textobject>
+<phrase
+>Duraklat Düğmesi</phrase
+></textobject>
+</inlinemediaobject>
+</entry>
+
+<entry>
+<guiicon
+>Duraklat</guiicon>
+</entry>
+
+<entry>
+<link linkend="game-pause">
+<menuchoice
+><guimenu
+>Oyun</guimenu
+> <guimenuitem
+>Duraklat</guimenuitem
+></menuchoice>
+</link>
+</entry>
+
+<entry
+>Geçerli oyunu duraklatır ve sürdürür </entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+</sect1>
+
+<sect1 id="the-menu-items">
+<title
+>Menü Ögeleri</title>
+
+<sect2>
+<title
+>Oyun Menüsü</title>
+
+<variablelist>
+<varlistentry id="game-new">
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Y</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Oyun</guimenu
+> <guimenuitem
+>Yeni</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+><action
+>Yeni bir oyun başlatır.</action
+></para>
+</listitem>
+</varlistentry>
+
+<varlistentry id="game-end">
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;&End;</keycombo
+> </shortcut
+> <guimenu
+>Oyun</guimenu
+> <guimenuitem
+>Oyunu Bitir</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+><action
+>Geçerli oyunu sonlandırır.</action
+></para>
+</listitem>
+</varlistentry>
+
+<varlistentry id="game-pause">
+<term
+><menuchoice
+><shortcut
+> <keycap
+>P</keycap
+> </shortcut
+> <guimenu
+>Oyun</guimenu
+> <guimenuitem
+>Duraklat</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+><action
+>Oyunu duraklatır veya sürdürür</action
+></para>
+</listitem>
+</varlistentry>
+
+<varlistentry id="game-highscores">
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Y</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Oyun</guimenu
+> <guimenuitem
+>Yüksek Puanları Göster</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+>Farklı yüksek puan tablolarını görüntüleyen bir iletişim kutusu açar. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry id="game-quit">
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Oyun</guimenu
+> <guimenuitem
+>Çık</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+><action
+>Çık</action
+> ve &kbounce;'yı kapat. Şu anda bir oyun oynanıyorsa durumu kaybolur.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+</sect2>
+
+<sect2 id="settings-menu">
+<title
+>Ayarlar Menüsü</title>
+
+<variablelist>
+
+<varlistentry id="settings-sounds">
+<term
+><menuchoice
+><guimenu
+>Ayarlar</guimenu
+> <guimenuitem
+>Sesleri Çal</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+><action
+>Seçiliyse &kbounce; oyun sesleri çalınır.</action
+></para>
+</listitem>
+</varlistentry>
+
+<varlistentry id="settings-difficulty">
+<term
+><menuchoice
+><guimenu
+>Ayarlar</guimenu
+> <guisubmenu
+>Zorluk Derecesi</guisubmenu
+> </menuchoice
+></term>
+<listitem>
+<para
+><action
+>Bir oyun zorluğu seçin. Yüksek zorluk düzeylerinde toplar daha hızlı hareket ederlen duvarlar daha yavaş yapılır. Bu, lider listesindeki bir alanı korumayı zorlaştırır.</action
+></para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+<para
+>Ek olarak, &kbounce;'da ortak &kde; <guimenu
+>Ayarlar</guimenu
+> menü ögeleri vardır; daha fazla bilgi için &kde; Temelleri'nde <ulink url="help:/fundamentals/menus.html#menus-settings"
+>Ayarlar Menüsü</ulink
+> ve <ulink url="help:/fundamentals/menus.html#menus-help"
+>Yardım Menüsü</ulink
+> ile ilgili bölüme bakın. </para>
+
+</sect2>
+
+</sect1>
+</chapter>
+
+<chapter id="faq"
+><title
+>Sıkça Sorulan Sorular</title
+> <!-- do not change this! -->
+<!--This chapter is for frequently asked questions. Please use <qandaset
+> <qandaentry
+> only!-->
+<qandaset>
+<!--Following is a standard list of FAQ questions.-->
+<qandaentry>
+ <question
+><para
+>Bu oyunun görünümünü değiştirmek istiyorum. Yapabilir miyim? </para
+></question>
+ <answer
+><para
+>Evet. &kbounce; görsel temasını değiştirmek için araç çubuğundaki <menuchoice
+><guimenu
+>Ayarlar</guimenu
+><guimenuitem
+> &kbounce; Uygulamasını Yapılandır...</guimenuitem
+></menuchoice
+> seçeneğini kullanabilirsiniz.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>Ben bir hata yaptım. Geri alabilir miyim? </para
+></question>
+ <answer
+><para
+>&kbounce;, <quote
+>Geri Al</quote
+> özelliğine sahip değildir.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>Bu oyunu oynamak için klavyeyi kullanabilir miyim?</para
+></question>
+ <answer
+><para
+>Hayır. &kbounce; klavye kullanılarak oynanamaz.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>Oyundan şimdi çıkmak zorundayım; ancak henüz bitirmedim. İlerlememi kaydedebilir miyim?</para
+></question>
+  <answer
+><para
+>&kbounce;, şu anda <quote
+>Kaydet</quote
+> özelliğine sahip değildir.</para
+></answer>
+</qandaentry>
+</qandaset>
+</chapter>
+
+<chapter id="configuration"
+><title
+>Oyun Yapılandırması</title
+> <!-- do not change this! -->
+<para
+>&kbounce; yapılandırma iletişim kutusu, &kbounce; için görsel temalar seçmenize izin verir.</para>
+<para
+>Yeni bir tema seçmek için seçim listesinden temayı seçin. Listedeki her öge, tema adına bırakılmış küçük bir önizleme gösterir. Bir seçim hemen uygulanır. </para>
+<para
+>Görsellerle birlikte kullanıcı tarafından tanımlanan bir klasörden rastgele arka plan resimleri seçebilirsiniz. </para>
+<para
+>Seçtiğiniz temadan memnun olduğunuzda, bu diyalogun alt kısmında yer alan <guibutton
+>Tamam</guibutton
+> düğmesini tıklayabilirsiniz. </para>
+</chapter>
+
+<chapter id="credits-and-license">
+<title
+>Emeği Geçenler ve Lisans</title>
+
+
+<para
+>&kbounce;</para>
+
+<itemizedlist>
+<listitem>
+<para
+>Stefan Schimanski <email
+>schimmi@kde.org</email
+> - Özgün Yazar</para>
+</listitem>
+<listitem>
+<para
+>Sandro Sigala <email
+>ssigala@globalnet.it</email
+> - Rekor</para>
+</listitem>
+<listitem>
+<para
+>Benjamin Meyer <email
+>ben+kbounce@meyerhome.net</email
+> - Katkılar</para>
+</listitem>
+<listitem>
+<para
+>Dmitry Suzdalev <email
+>dimsuz@gmail.com</email
+></para>
+</listitem>
+<listitem>
+<para
+>Tomasz Boczkowski <email
+>tboczkowski@onet.pl</email
+> - KDE4'e ve KGameCavas'a bağlama</para>
+</listitem>
+</itemizedlist>
+
+<para
+>Belgelendirme telif hakkı 2002, &Aaron.J.Seigo; &Aaron.J.Seigo.mail;</para>
+<para
+>Belgelendirme telif hakkı 2007, Tomasz Boczkowski <email
+>tboczkowski@onet.pl</email
+></para>
+
+<para
+>Bu el kitabı Dennis E. Powell'a adanmıştır.</para>
+
+<para
+>Emir SARI<email
+>emir_sari@icloud.com</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index; 
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes: nil
+sgml-general-insert-case: lower
+End:
+-->
+
