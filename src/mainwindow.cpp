@@ -9,7 +9,7 @@
 #include "backgroundselector.h"
 #include "debug.h"
 
-#include <KStandardGameAction>
+#include <KGameStandardAction>
 #include <KScoreDialog>
 #include <KGameThemeSelector>
 #include <KGameDifficulty>
@@ -73,11 +73,11 @@ KBounceMainWindow::~KBounceMainWindow()
 void KBounceMainWindow::initXMLUI()
 {
     // Game
-    m_newAction = KStandardGameAction::gameNew(this, &KBounceMainWindow::newGame, actionCollection());
-    KStandardGameAction::end(this, &KBounceMainWindow::closeGame, actionCollection());
-    m_pauseAction = KStandardGameAction::pause(this, &KBounceMainWindow::pauseGame, actionCollection());
-    KStandardGameAction::highscores(this, &KBounceMainWindow::showHighscore, actionCollection());
-    KStandardGameAction::quit(this, &QWidget::close, actionCollection());
+    m_newAction = KGameStandardAction::gameNew(this, &KBounceMainWindow::newGame, actionCollection());
+    KGameStandardAction::end(this, &KBounceMainWindow::closeGame, actionCollection());
+    m_pauseAction = KGameStandardAction::pause(this, &KBounceMainWindow::pauseGame, actionCollection());
+    KGameStandardAction::highscores(this, &KBounceMainWindow::showHighscore, actionCollection());
+    KGameStandardAction::quit(this, &QWidget::close, actionCollection());
 
     // Difficulty
     KGameDifficulty::global()->addStandardLevelRange(
