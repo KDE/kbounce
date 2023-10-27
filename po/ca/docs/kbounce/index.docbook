@@ -136,11 +136,7 @@
 >Quan el ratolí està sobre el camp, el cursor es mostrarà com un parell de fletxes apuntant en direccions oposades, sigui horitzontalment o verticalment. Les fletxes apuntaran en la direcció en què creixeran els murs quan es faci clic amb el &BER;. Aquesta direcció es pot canviar fent clic amb el &BDR;. </para>
 
 <para
->Un mur nou té un <quote
->cap</quote
-> que s'allunya del punt on s'ha fet clic amb el ratolí. Un mur no serà permanent fins que aquest <quote
->cap</quote
-> es trobi amb un altre mur. Si una bola xoca amb qualsevol part del mur excepte el cap, abans que el cap es trobi amb un altre mur, el mur nou desapareixerà completament i es perdrà una vida. Si una bola xoca amb el cap en la direcció de creixement del mur, el mur deixarà de créixer allà i es tornarà permanent, sense perdre cap vida. Si una pilota xoca amb el cap des de qualsevol altra costat, la pilota rebotarà i el mur seguirà creixent amb normalitat. </para>
+>Un mur nou té un «cap» que s'allunya del punt on s'ha fet clic amb el ratolí. Un mur no serà permanent fins que aquest «cap» es trobi amb un altre mur. Si una bola xoca amb qualsevol part del mur excepte el cap, abans que el cap es trobi amb un altre mur, el mur nou desapareixerà completament i es perdrà una vida. Si una bola xoca amb el cap en la direcció de creixement del mur, el mur deixarà de créixer allà i es tornarà permanent, sense perdre cap vida. Si una pilota xoca amb el cap des de qualsevol altra costat, la pilota rebotarà i el mur seguirà creixent amb normalitat. </para>
 </chapter>
 
 <chapter id="rules_and_tips"
@@ -158,9 +154,7 @@
 >En el nivell «n» hi ha «n + 1» boles. El jugador rep «n + 1» vides. Disposa de «30 * (n + 2)» segons per a completar-lo. </para>
 
 <para
->Quan una bola xoca amb un mur en creixement, el jugador perdrà una vida. Una excepció és la col·lisió amb el &nbsp;<quote
->cap</quote
-> del mur, no es perdrà cap vida. </para>
+>Quan una bola xoca amb un mur en creixement, el jugador perdrà una vida. Una excepció és la col·lisió amb el &nbsp;«cap» del mur, no es perdrà cap vida. </para>
 
 <para
 >L'objectiu de cada nivell és cobrir almenys el 75&percnt; del camp amb un mur. </para>
@@ -185,9 +179,7 @@
 
 <listitem>
 <para
->El truc per a jugar amb èxit al &kbounce;, és construir <quote
->passadissos</quote
->. Per a construir un passadís, comenceu un parell de murs que creixin prop d'un altre mur, i calculeu el temps perquè un dels murs sigui colpejat per una bola i l'altre no, i per tant es converteixi en permanent. </para>
+>El truc per a jugar amb èxit al &kbounce;, és construir «passadissos». Per a construir un passadís, comenceu un parell de murs que creixin prop d'un altre mur, i calculeu el temps perquè un dels murs sigui colpejat per una bola i l'altre no, i per tant es converteixi en permanent. </para>
 
 <screenshot>
 <screeninfo
@@ -541,9 +533,7 @@
 ></question>
  <answer
 ><para
->El &kbounce; no té una característica <quote
->Desfés</quote
->.</para
+>El &kbounce; no té una característica «Desfés».</para
 ></answer>
 </qandaentry>
 <qandaentry>
@@ -563,9 +553,7 @@
 ></question>
   <answer
 ><para
->En aquest moment, el &kbounce; no té una característica <quote
->Desa</quote
->.</para
+>En aquest moment, el &kbounce; no té una característica «Desa».</para
 ></answer>
 </qandaentry>
 </qandaset>
