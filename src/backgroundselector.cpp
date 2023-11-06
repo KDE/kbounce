@@ -53,7 +53,7 @@ void BackgroundSelector::setupData()
 
         //Get our currently configured Tileset entry
         KConfig * config = m_config->config();
-        KConfigGroup group = config->group("General");
+        KConfigGroup group = config->group(QStringLiteral("General"));
         QString picturePath = group.readPathEntry("BackgroundPicturePath",QDir::homePath() );
         ui->kurlrequester->setUrl(QUrl(picturePath));
         ui->kurlrequester->setStartDir(QUrl(picturePath));
