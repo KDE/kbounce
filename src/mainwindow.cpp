@@ -8,19 +8,19 @@
 #include "settings.h"
 #include "backgroundselector.h"
 #include "debug.h"
-
+// KDEGames
 #include <KGameStandardAction>
-#include <KScoreDialog>
+#include <KGameHighScoreDialog>
 #include <KGameThemeSelector>
 #include <KGameDifficulty>
-
+// KF
 #include <KStandardGuiItem>
 #include <KToggleAction>
 #include <KActionCollection>
 #include <KConfigDialog>
 #include <KMessageBox>
 #include <KLocalizedString>
-
+// Qt
 #include <QStatusBar>
 #include <QAction>
 
@@ -154,7 +154,7 @@ void KBounceMainWindow::gameOverNow()
  */
 void KBounceMainWindow::showHighscore()
 {
-    KScoreDialog ksdialog( KScoreDialog::Name | KScoreDialog::Score, this );
+    KGameHighScoreDialog ksdialog( KGameHighScoreDialog::Name | KGameHighScoreDialog::Score, this );
     ksdialog.initFromDifficulty(KGameDifficulty::global());
     ksdialog.exec();
 }
@@ -166,11 +166,11 @@ void KBounceMainWindow::highscore()
     }
 
     qCDebug(KBOUNCE_LOG);
-    KScoreDialog ksdialog( KScoreDialog::Name | KScoreDialog::Score | KScoreDialog::Level, this );
+    KGameHighScoreDialog ksdialog( KGameHighScoreDialog::Name | KGameHighScoreDialog::Score | KGameHighScoreDialog::Level, this );
     ksdialog.initFromDifficulty(KGameDifficulty::global());
-    KScoreDialog::FieldInfo info;
-    info[KScoreDialog::Score].setNum( m_gameWidget->score() );
-    info[KScoreDialog::Level].setNum( m_gameWidget->level() );
+    KGameHighScoreDialog::FieldInfo info;
+    info[KGameHighScoreDialog::Score].setNum( m_gameWidget->score() );
+    info[KGameHighScoreDialog::Level].setNum( m_gameWidget->level() );
     if ( ksdialog.addScore( info ) )
         ksdialog.exec();
 }
