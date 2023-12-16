@@ -6,19 +6,20 @@
 # Frank Weng (a.k.a. Franklin) <franklin@goodhorse.idv.tw>, 2009.
 # Frank Weng (a.k.a. Franklin) <franklin at goodhorse dot idv dot tw>, 2010.
 # Franklin Weng <franklin@mail.everfocus.com.tw>, 2010, 2013.
+# Kisaragi Hiu <mail@kisaragi-hiu.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kbounce\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-25 01:39+0000\n"
-"PO-Revision-Date: 2013-03-29 12:52+0800\n"
-"Last-Translator: Franklin Weng <franklin at goodhorse dot idv dot tw>\n"
-"Language-Team: Chinese Traditional <kde-tw@googlegroups.com>\n"
+"PO-Revision-Date: 2023-12-15 20:07+0900\n"
+"Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
+"Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.5\n"
+"X-Generator: Lokalize 24.01.80\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #, kde-format
@@ -132,10 +133,9 @@ msgid "KBounce"
 msgstr "KBounce"
 
 #: main.cpp:27
-#, fuzzy, kde-format
-#| msgid "KDE Bounce Ball Game"
+#, kde-format
 msgid "Bounce Ball Game"
-msgstr "KDE Bounce Ball 遊戲"
+msgstr "Bounce Ball 遊戲"
 
 #: main.cpp:29
 #, kde-format
@@ -237,16 +237,15 @@ msgid "&Play Sounds"
 msgstr "播放聲音(&P)"
 
 #: mainwindow.cpp:132
-#, fuzzy, kde-format
-#| msgid "Do you really want to close the running game?"
+#, kde-format
 msgid "Are you sure you want to quit the current game?"
-msgstr "您要關閉進行中的遊戲嗎？"
+msgstr "您確定要離開目前的遊戲嗎﹖"
 
 #: mainwindow.cpp:134
 #, kde-format
 msgctxt "@action;button"
 msgid "Quit Game"
-msgstr ""
+msgstr "離開遊戲"
 
 #: mainwindow.cpp:148 mainwindow.cpp:251
 #, kde-format
