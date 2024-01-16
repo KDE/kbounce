@@ -21,7 +21,8 @@ int main(int argc, char **argv)
 {
     QApplication app(argc, argv);
 
-    KLocalizedString::setApplicationDomain("kbounce");
+    KLocalizedString::setApplicationDomain(QByteArrayLiteral("kbounce"));
+
     KAboutData aboutData(QStringLiteral("kbounce"), i18n("KBounce"),
             QStringLiteral(KBOUNCE_VERSION_STRING),
             i18n("Bounce Ball Game"),
