@@ -178,6 +178,4 @@ Comment[x-test]=xxBall Bouncing Gamexx
 Comment[zh_CN]=弹球游戏
 Comment[zh_TW]=彈力球遊戲
 
-X-DBUS-StartupType=Multi
 Categories=Qt;KDE;Game;ArcadeGame;
-X-DBUS-ServiceName=org.kde.kbounce
