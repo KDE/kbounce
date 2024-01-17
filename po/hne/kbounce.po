@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kbounce\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-25 01:39+0000\n"
+"POT-Creation-Date: 2024-01-17 00:36+0000\n"
 "PO-Revision-Date: 2009-02-25 18:29+0530\n"
 "Last-Translator: Ravishankar Shrivastava <raviratlami@aol.in>\n"
 "Language-Team: Hindi <kde-i18n-doc@lists.kde.org>\n"
@@ -123,18 +123,18 @@ msgstr "का खेल अवाज बजाना हे."
 msgid "Main Toolbar"
 msgstr "मुख्य औजार पट्टी"
 
-#: main.cpp:25
+#: main.cpp:26
 #, kde-format
 msgid "KBounce"
 msgstr "के-बाउंस"
 
-#: main.cpp:27
+#: main.cpp:28
 #, fuzzy, kde-format
 #| msgid "KDE Bounce Ball Game"
 msgid "Bounce Ball Game"
 msgstr "केडीई गेंद उछलइया खेल"
 
-#: main.cpp:29
+#: main.cpp:30
 #, fuzzy, kde-format
 #| msgid "(c) 2000-2005, Stefan Schimanski"
 msgid ""
@@ -142,62 +142,62 @@ msgid ""
 "(c) 2007, Tomasz Boczkowski"
 msgstr "(c) 2000,2005 स्टीफन स्कीमांस्की"
 
-#: main.cpp:33
+#: main.cpp:34
 #, kde-format
 msgid "Stefan Schimanski"
 msgstr "स्टीफन सिमांस्की"
 
-#: main.cpp:34
+#: main.cpp:35
 #, kde-format
 msgid "Original author"
 msgstr "मूल लेखक"
 
-#: main.cpp:37
+#: main.cpp:38
 #, kde-format
 msgid "Sandro Sigala"
 msgstr "सांद्रो सिगाला"
 
-#: main.cpp:38
+#: main.cpp:39
 #, kde-format
 msgid "Highscore"
 msgstr "सर्वाधिक अंक"
 
-#: main.cpp:41
+#: main.cpp:42
 #, kde-format
 msgid "Benjamin Meyer"
 msgstr "बेंजामिन मेयर"
 
-#: main.cpp:42
+#: main.cpp:43
 #, kde-format
 msgid "Contributions"
 msgstr "मदद"
 
-#: main.cpp:45
+#: main.cpp:46
 #, kde-format
 msgid "Tomasz Boczkowski"
 msgstr "टोमास्ज बोक्जकोव्स्की"
 
-#: main.cpp:46
+#: main.cpp:47
 #, kde-format
 msgid "Port to KDE4. Current maintainer"
 msgstr "केडीई४ मं पोर्ट. अभी हाल के मेंटेनर"
 
-#: main.cpp:49
+#: main.cpp:50
 #, kde-format
 msgid "Dmitry Suzdalev"
 msgstr "दमित्रि सुज्दालेव"
 
-#: main.cpp:50
+#: main.cpp:51
 #, kde-format
 msgid "Port to QGraphicsView framework"
 msgstr "क्यूग्राफिक्सव्यू फ्रेमवर्क मं पोर्ट"
 
-#: main.cpp:53
+#: main.cpp:54
 #, kde-format
 msgid "Andreas Scherf"
 msgstr ""
 
-#: main.cpp:54
+#: main.cpp:55
 #, kde-format
 msgid "Image Background and Fixes"
 msgstr ""
