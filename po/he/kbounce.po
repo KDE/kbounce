@@ -13,21 +13,22 @@
 # Diego Iastrubni <elcuco@kdemail.net>, 2004, 2005.
 # Diego Iastrubni <elcuco@kde.org>, 2005.
 # Elkana Bardugo <ttv200@gmail.com>, 2017. #zanata
+# SPDX-FileCopyrightText: 2024 Yaron Shahrabani <sh.yaron@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kbounce\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-17 00:36+0000\n"
-"PO-Revision-Date: 2017-05-16 07:01-0400\n"
-"Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
-"Language-Team: Hebrew <kde-l10n-he@kde.org>\n"
+"PO-Revision-Date: 2024-01-19 08:26+0200\n"
+"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
+"Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Zanata 3.9.6\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
+"X-Generator: Poedit 3.4.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -42,31 +43,31 @@ msgstr "kde-l10n-he@kde.org"
 #: backgroundselector.cpp:98
 #, kde-format
 msgid "No background pictures found."
-msgstr ""
+msgstr "לא נמצאו תמונות רקע."
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, KBounceBackgroundSelector)
 #: backgroundselector.ui:14
 #, kde-format
 msgid "kbouncebackgroundselector"
-msgstr ""
+msgstr "kbouncebackgroundselector"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_UseRandomBackgroundPictures)
 #: backgroundselector.ui:24
 #, kde-format
 msgid "Enable random pictures as background"
-msgstr ""
+msgstr "הפעלת תמונות אקראיות כרקע"
 
 #. i18n: ectx: property (text), widget (QLabel, backgoundPicturePathLabel)
 #: backgroundselector.ui:54
 #, kde-format
 msgid "Choose picture path:"
-msgstr ""
+msgstr "בחירת נתיב לתמונה:"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: backgroundselector.ui:78
 #, kde-format
 msgid "Preview"
-msgstr ""
+msgstr "תצוגה מקדימה"
 
 #: gamewidget.cpp:396
 #, kde-format
@@ -74,6 +75,8 @@ msgid ""
 "Welcome to KBounce.\n"
 " Click to start a game"
 msgstr ""
+"ברוך בואך ל־KBounce.\n"
+" לחיצה תתחיל את המשחק"
 
 #: gamewidget.cpp:399
 #, kde-format
@@ -81,16 +84,18 @@ msgid ""
 "Paused\n"
 " Click to resume"
 msgstr ""
+"מושהה\n"
+" לחיצה תמשיך את המשחק"
 
 #: gamewidget.cpp:402
-#, fuzzy, kde-format
+#, kde-format
 msgid "You have successfully cleared more than %1% of the board\n"
-msgstr "ניקית בהצלחה למעלה מ־75% מהלוח.\n"
+msgstr "פינית בהצלחה יותר מ־%1% מהלוח\n"
 
 #: gamewidget.cpp:403
-#, fuzzy, kde-format
+#, kde-format
 msgid "%1 points: %2 points per remaining life\n"
-msgstr "%1 נקודות: 15 לכל חיים שנותרו\n"
+msgstr "%1 נקודות: %2 נקודות לכל חיים שנותרו\n"
 
 #: gamewidget.cpp:404
 #, kde-format
@@ -105,26 +110,28 @@ msgstr "%1 נקודות: התוצאה הכוללת לשלב זה\n"
 #: gamewidget.cpp:406
 #, kde-format
 msgid "On to level %1. Remember you get %2 lives this time!"
-msgstr "נעבור לשלב %1. שים לב שהפעם אתה מקבל %2 חיים!"
+msgstr "מתקדמים לשלב %1. נא לשים לב שהפעם יש עוד %2 חיים!"
 
 #: gamewidget.cpp:409
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "Game over.\n"
 " Click to start a game"
-msgstr "הקש %1 כדי להתחיל משחק!"
+msgstr ""
+"המשחק נגמר\n"
+" לחיצה תתחיל משחק חדש"
 
 #. i18n: ectx: label, entry (PlaySounds), group (Sound)
 #: kbounce.kcfg:16
 #, kde-format
 msgid "Whether game sounds are played."
-msgstr ""
+msgstr "האם צלילי המשחק יושמעו."
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: kbounceui.rc:17
 #, kde-format
 msgid "Main Toolbar"
-msgstr ""
+msgstr "סרגל כלים ראשי"
 
 #: main.cpp:26
 #, kde-format
@@ -132,10 +139,9 @@ msgid "KBounce"
 msgstr "KBounce"
 
 #: main.cpp:28
-#, fuzzy, kde-format
-#| msgid "KDE Bounce Ball Game"
+#, kde-format
 msgid "Bounce Ball Game"
-msgstr "משחק Bounce Ball עבור KDE"
+msgstr "משחק כדור קופץ"
 
 #: main.cpp:30
 #, kde-format
@@ -143,31 +149,33 @@ msgid ""
 "(c) 2000-2005, Stefan Schimanski\n"
 "(c) 2007, Tomasz Boczkowski"
 msgstr ""
+"(c) 2000‏-2005, סטפן שימנסקי\n"
+"(c) 2007, תומש בוצ׳קובסקי"
 
 #: main.cpp:34
 #, kde-format
 msgid "Stefan Schimanski"
-msgstr ""
+msgstr "סטפן שימנסקי"
 
 #: main.cpp:35
 #, kde-format
 msgid "Original author"
-msgstr "כותב מקורי"
+msgstr "יוצר מקורי"
 
 #: main.cpp:38
 #, kde-format
 msgid "Sandro Sigala"
-msgstr ""
+msgstr "סנדרו סיגאלה"
 
 #: main.cpp:39
 #, kde-format
 msgid "Highscore"
-msgstr ""
+msgstr "תוצאת שיא"
 
 #: main.cpp:42
 #, kde-format
 msgid "Benjamin Meyer"
-msgstr ""
+msgstr "בנג׳מין מייר"
 
 #: main.cpp:43
 #, kde-format
@@ -177,86 +185,85 @@ msgstr "תרומות"
 #: main.cpp:46
 #, kde-format
 msgid "Tomasz Boczkowski"
-msgstr ""
+msgstr "תומש בוצ׳קובסקי"
 
 #: main.cpp:47
 #, kde-format
 msgid "Port to KDE4. Current maintainer"
-msgstr ""
+msgstr "הסבה ל־KDE4. מתחזק נוכחי"
 
 #: main.cpp:50
 #, kde-format
 msgid "Dmitry Suzdalev"
-msgstr ""
+msgstr "דמיטרי סוזדלב"
 
 #: main.cpp:51
 #, kde-format
 msgid "Port to QGraphicsView framework"
-msgstr ""
+msgstr "הסבה לתשתית QGraphicsView"
 
 #: main.cpp:54
 #, kde-format
 msgid "Andreas Scherf"
-msgstr ""
+msgstr "אנדראס שרף"
 
 #: main.cpp:55
-#, fuzzy, kde-format
+#, kde-format
 msgid "Image Background and Fixes"
-msgstr "בחירת תיקיית תמונות רקע"
+msgstr "תמונות רקע ותיקונים"
 
 #: mainwindow.cpp:32 mainwindow.cpp:209
-#, fuzzy, kde-format
+#, kde-format
 msgid "Level: %1"
-msgstr "שלב:"
+msgstr "שלב: %1"
 
 #: mainwindow.cpp:33 mainwindow.cpp:214
-#, fuzzy, kde-format
+#, kde-format
 msgid "Score: %1"
-msgstr "תוצאה:"
+msgstr "תוצאה: %1"
 
 #: mainwindow.cpp:34 mainwindow.cpp:219
-#, fuzzy, kde-format
+#, kde-format
 msgid "Filled: %1%"
-msgstr "שטח ממולא:"
+msgstr "שטח שמולא: %1%"
 
 #: mainwindow.cpp:35 mainwindow.cpp:224
-#, fuzzy, kde-format
+#, kde-format
 msgid "Lives: %1"
-msgstr "חיים:"
+msgstr "חיים: %1"
 
 #: mainwindow.cpp:36 mainwindow.cpp:229
-#, fuzzy, kde-format
+#, kde-format
 msgid "Time: %1"
-msgstr "זמן:"
+msgstr "זמן: %1"
 
 #: mainwindow.cpp:92
 #, kde-format
 msgid "&Play Sounds"
-msgstr "&נגן צלילים"
+msgstr "ה&שמעת צלילים"
 
 #: mainwindow.cpp:132
-#, fuzzy, kde-format
-#| msgid "Do you really want to close the running game?"
+#, kde-format
 msgid "Are you sure you want to quit the current game?"
-msgstr "האם אתה בטוח שברצונך לסיים את המשחק המתנהל?"
+msgstr "לסיים את המשחק הנוכחי?"
 
 #: mainwindow.cpp:134
 #, kde-format
 msgctxt "@action;button"
 msgid "Quit Game"
-msgstr ""
+msgstr "יציאה מהמשחק"
 
 #: mainwindow.cpp:148 mainwindow.cpp:251
-#, fuzzy, kde-format
+#, kde-format
 msgid "Game over. Click to start a game"
-msgstr "הקש %1 כדי להתחיל משחק!"
+msgstr "המשחק נגמר. לחיצה תתחיל משחק חדש"
 
 #: mainwindow.cpp:183
 #, kde-format
 msgid "Theme"
-msgstr ""
+msgstr "ערכת עיצוב"
 
 #: mainwindow.cpp:184
-#, fuzzy, kde-format
+#, kde-format
 msgid "Background"
-msgstr "&הצג רקעים"
+msgstr "רקע"
