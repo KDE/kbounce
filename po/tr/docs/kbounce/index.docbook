@@ -177,7 +177,7 @@
 > ile çarpışırsa can kaybedilmez. </para>
 
 <para
->Her bir düzeyin hedefi, alanın en az yüzde 75'ini duvarlarla kaplamaktır. </para>
+>Her bir düzeyin hedefi, alanın en az yüzde 75’ini duvarlarla kaplamaktır. </para>
 
 <para
 >Tüm canların kaybı ve izin verilen sürenin aşılması oyunun sona ermesine neden olur. </para>
@@ -508,9 +508,9 @@
 </variablelist>
 
 <para
->Ek olarak, &kbounce;'da ortak &kde; <guimenu
+>Ek olarak, &kbounce;’da ortak &kde; <guimenu
 >Ayarlar</guimenu
-> menü ögeleri vardır; daha fazla bilgi için &kde; Temelleri'nde <ulink url="help:/fundamentals/menus.html#menus-settings"
+> menü ögeleri vardır; daha fazla bilgi için &kde; Temelleri’nde <ulink url="help:/fundamentals/menus.html#menus-settings"
 >Ayarlar Menüsü</ulink
 > ve <ulink url="help:/fundamentals/menus.html#menus-help"
 >Yardım Menüsü</ulink
@@ -636,7 +636,7 @@
 <para
 >Tomasz Boczkowski <email
 >tboczkowski@onet.pl</email
-> - KDE4'e ve KGameCavas'a bağlama</para>
+> - KDE4’e ve KGameCavas’a bağlama</para>
 </listitem>
 </itemizedlist>
 
@@ -648,7 +648,7 @@
 ></para>
 
 <para
->Bu el kitabı Dennis E. Powell'a adanmıştır.</para>
+>Bu el kitabı Dennis E. Powell’a adanmıştır.</para>
 
 <para
 >Çeviri: Emir SARI <email
