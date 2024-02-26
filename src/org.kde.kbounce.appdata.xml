@@ -28,6 +28,7 @@
   <name xml:lang="it">KBounce</name>
   <name xml:lang="ka">KBounce</name>
   <name xml:lang="ko">KBounce</name>
+  <name xml:lang="lv">KBounce</name>
   <name xml:lang="nl">KBounce</name>
   <name xml:lang="nn">KBounce</name>
   <name xml:lang="pl">KOdbij</name>
@@ -64,6 +65,7 @@
   <summary xml:lang="it">KBounce è un gioco per un solo giocatore di tipo arcade ma con aspetti rompicapo</summary>
   <summary xml:lang="ka">KBounce ერთმოთამაშიანი არკადული თამაშია პაზლის ელემენტებით</summary>
   <summary xml:lang="ko">KBounce는 퍼즐 요소가 혼합된 단일 플레이어 아케이드 게임입니다</summary>
+  <summary xml:lang="lv">„KBounce“ ir spēle vienam spēlētājam ar mīklas elementiem.</summary>
   <summary xml:lang="nl">KBounce is een arcade spel voor één speler met de elementen van een puzzel.</summary>
   <summary xml:lang="nn">KBounce er eit arkadespel med enkelte strategielement.</summary>
   <summary xml:lang="pl">KOdbij jest grą zręcznościową dla jednego gracza z elementami puzzli</summary>
@@ -103,6 +105,7 @@
     <p xml:lang="it">KBounce è un gioco per un solo giocatore di tipo arcade ma con aspetti rompicapo. Viene giocato in un campo circondato da mura, con due o più palle che si muovono nel campo rimbalzando contro i muri. Il giocatore può erigere nuovi muri per ridurre il campo di gioco. Lo scopo del gioco è di rendere inattivo almeno il 75% del campo di gioco per passare al livello successivo.</p>
     <p xml:lang="ka">KBounce ერთმოთამაშიანი არკადული თამაშია პაზლის ელემენტებით. თამაში მიმდინარეობს ველზე, რომელიც კედლითაა შემოსაზღვრული, ერთი ან მეტი ბურთით, რომლებიც ველზე დახტიან, ენარცხებიან კედლებს და ირეკლებიან მისგან. მოთამაშეს შეუძლია ააშენოს ახალი კედლები, რითიც ველის ზომას ამცირებს. თამაშის აზრია შეავსოთ მისი 75%-ზე მეტი და შემდეგ დონეზე გადახვიდეთ.</p>
     <p xml:lang="ko">KBounce는 퍼즐 요소가 혼합된 단일 플레이어 아케이드 게임입니다. 벽으로 둘러싸인 필드에서 진행되며, 벽에 맞으면 튕겨 나가는 두 개 이상의 공이 필드에 돌아 다닙니다. 플레이어는 새 벽을 세워서 필드 크기를 줄일 수 있습니다. 게임의 목표는 필드의 최소 75%를 채워서 다음 단계로 진행하는 것입니다.</p>
+    <p xml:lang="lv">„KBounce“ ir spēle vienam spēlētājam ar mīklas elementiem. Tās laukumu, pa kuru pārvietojas divas vai vairākas bumbiņas, ierobežo sienas, pret kurām bumbiņas atsitas. Spēlētājam ir jābūvē jaunas sienas, samazinot spēles laukumu. Spēles mērķis ir aizpildīt vismaz 75% no spēles laukuma un sasniegt nākamo līmeni.</p>
     <p xml:lang="nl">KBounce is een arcade spel voor een enkele speler met de elementen van een puzzel. Het wordt gespeeld op een veld, omringt door een muur, met twee of meer ballen die in het veld bewegen en botsen vanaf de muren. De speler kan nieuwe muren bouwen, waarmee de grootte van het actieve veld wordt verkleind. Het doel van het spel is om minstens 75% van het veld te vullen en door te gaan naar het volgende niveau.</p>
     <p xml:lang="nn">KBounce er eit arkadespel med enkelte strategielement. På det innmura spelebrettet sprett det rundt to eller fleire ballar, og du må byggja nye murer for å redusera plassen dei har til å spretta. Målet er å fylla opp minst 75 % av spelebrettet, slik at du kjem vidare til neste brett.</p>
     <p xml:lang="pl">KOdbij jest grą zręcznościową dla jednego gracza z elementami puzzli. Gra się nią na polu otoczonym ścianami z dwiema lub więcej piłkami, które poruszają się po polu odbijając się od ścian. Gracz może zbudować nowe ściany, ograniczając przy tym rozmiar pola. Celem gry jest wypełnienie co najmniej 75% pola, tak aby przejść do następnego poziomu.</p>
@@ -146,6 +149,7 @@
       <caption xml:lang="it">Giocare a KBounce</caption>
       <caption xml:lang="ka">Playing KBounce-ის თამაში</caption>
       <caption xml:lang="ko">KBounce 플레이</caption>
+      <caption xml:lang="lv">„KBounce“ spēlēšana</caption>
       <caption xml:lang="nl">KBounce spelen</caption>
       <caption xml:lang="nn">Spelar KBounce</caption>
       <caption xml:lang="pl">Granie w KOdbij</caption>
