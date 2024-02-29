@@ -32,6 +32,7 @@
   <name xml:lang="pl">KOdbij</name>
   <name xml:lang="pt">KBounce</name>
   <name xml:lang="pt-BR">KBounce</name>
+  <name xml:lang="ro">Bilă săritoare</name>
   <name xml:lang="ru">KBounce</name>
   <name xml:lang="sk">KBounce</name>
   <name xml:lang="sl">KBounce</name>
@@ -67,6 +68,7 @@
   <summary xml:lang="pl">KOdbij jest grą zręcznościową dla jednego gracza z elementami puzzli</summary>
   <summary xml:lang="pt">O KBounce é um jogo de arcada para um único jogador, com os elementos de um 'puzzle'</summary>
   <summary xml:lang="pt-BR">O KBounce é um jogo arcade de um jogador com elementos de quebra-cabeça</summary>
+  <summary xml:lang="ro">Bila săritoare e un joc de arcadă cu un singur jucător, cu elemente de puzzle</summary>
   <summary xml:lang="ru">KBounce — аркада с элементами головоломки для одного игрока</summary>
   <summary xml:lang="sk">KBounce je arkádová hra pre jedného hráča s prvkami puzzle</summary>
   <summary xml:lang="sl">KBounce je arkadna igra za enega igralca z elementi sestavljanke</summary>
@@ -147,6 +149,7 @@
       <caption xml:lang="pl">Granie w KOdbij</caption>
       <caption xml:lang="pt">Jogar ao KBounce</caption>
       <caption xml:lang="pt-BR">Jogando KBounce</caption>
+      <caption xml:lang="ro">Jucând Bila săritoare</caption>
       <caption xml:lang="ru">Игра в KBounce</caption>
       <caption xml:lang="sk">Hranie KBounce</caption>
       <caption xml:lang="sl">Igra KBounce</caption>
