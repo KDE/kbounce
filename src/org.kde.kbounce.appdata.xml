@@ -34,6 +34,7 @@
   <name xml:lang="pl">KOdbij</name>
   <name xml:lang="pt">KBounce</name>
   <name xml:lang="pt-BR">KBounce</name>
+  <name xml:lang="ro">Bilă săritoare</name>
   <name xml:lang="ru">KBounce</name>
   <name xml:lang="sk">KBounce</name>
   <name xml:lang="sl">KBounce</name>
@@ -71,6 +72,7 @@
   <summary xml:lang="pl">KOdbij jest grą zręcznościową dla jednego gracza z elementami puzzli</summary>
   <summary xml:lang="pt">O KBounce é um jogo de arcada para um único jogador, com os elementos de um 'puzzle'</summary>
   <summary xml:lang="pt-BR">O KBounce é um jogo arcade de um jogador com elementos de quebra-cabeça</summary>
+  <summary xml:lang="ro">Bila săritoare e un joc de arcadă cu un singur jucător, cu elemente de puzzle</summary>
   <summary xml:lang="ru">KBounce — аркада с элементами головоломки для одного игрока</summary>
   <summary xml:lang="sk">KBounce je arkádová hra pre jedného hráča s prvkami puzzle</summary>
   <summary xml:lang="sl">KBounce je arkadna igra za enega igralca z elementi sestavljanke</summary>
@@ -111,6 +113,7 @@
     <p xml:lang="pl">KOdbij jest grą zręcznościową dla jednego gracza z elementami puzzli. Gra się nią na polu otoczonym ścianami z dwiema lub więcej piłkami, które poruszają się po polu odbijając się od ścian. Gracz może zbudować nowe ściany, ograniczając przy tym rozmiar pola. Celem gry jest wypełnienie co najmniej 75% pola, tak aby przejść do następnego poziomu.</p>
     <p xml:lang="pt">O KBounce é um jogo de arcada para um único jogador, com os elementos de um 'puzzle'. É jogado num campo rodeado por uma parede, com duas ou mais bolas que se deslocam no campo através de ricochetes nas paredes. O jogador poderá criar novas paredes, reduzindo o tamanho do campo activo. O objectivo do jogo é preencher pelo menos 75% do campo e passar para o nível seguinte.</p>
     <p xml:lang="pt-BR">O KBounce é um jogo arcade de um jogador com elementos de quebra-cabeça. É jogado em um campo, cercado por parede, com duas ou mais bolas que se movem sobre no campo batendo nas paredes. O jogador pode construir novas paredes diminuindo o tamanho do campo ativo. O objetivo do jogo é preencher pelo menos 75% do campo e avançar para o próximo nível.</p>
+    <p xml:lang="ro">Bila săritoare e un joc de arcadă cu un singur jucător, cu elemente de puzzle. Acesta e jucat pe un câmp înconjurat de perete, cu două sau mai multe mingi ce se deplasează prin câmp lovindu-se de pereți. Jucătorul poate construi pereți noi, micșorând dimensiunea câmpului activ. Scopul jocului e să umpleți cel puțin 75% din câmp și să avansați spre nivelul următor.</p>
     <p xml:lang="ru">KBounce — аркада с элементами головоломки для одного игрока. Игра ведётся на окружённом стеной поле, по которому перемещаются два или более мячей (они отскакивают от стен). Игрок может строить новые стены, уменьшая размер активного поля. Цель игры заключается в том, чтобы заполнить как минимум 75% поля и перейти на следующий уровень.</p>
     <p xml:lang="sk">KBounce je arkádová hra pre jedného hráča s prvkami puzzle. Hrá sa na poli, obklopenom stenou, s dvoma alebo viacerými loptičkami, ktoré sa pohybujú v poli, odrážajúcimi sa od stien. Hráč môže vytvárať nové steny, čím zmenšuje veľkosť aktívneho poľa. Cieľom hry je vyplniť najmenej 75% poľa a postúpiť na ďalšiu úroveň.</p>
     <p xml:lang="sl">KBounce je arkadna igra za enega igralca z elementi sestavljanke. Igra se na polju, obdanem s steno, z dvema ali več kroglicami, ki se gibljejo po polju, ki se odbijajo od sten. Igralec lahko zgradi nove zidove in tako zmanjša velikost aktivnega polja. Cilj igre je zapolniti vsaj 75% polja in napredovati na naslednjo stopnjo.</p>
@@ -155,6 +158,7 @@
       <caption xml:lang="pl">Granie w KOdbij</caption>
       <caption xml:lang="pt">Jogar ao KBounce</caption>
       <caption xml:lang="pt-BR">Jogando KBounce</caption>
+      <caption xml:lang="ro">Jucând Bila săritoare</caption>
       <caption xml:lang="ru">Игра в KBounce</caption>
       <caption xml:lang="sk">Hranie KBounce</caption>
       <caption xml:lang="sl">Igra KBounce</caption>
