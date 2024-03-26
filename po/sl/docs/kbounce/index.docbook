@@ -1,0 +1,670 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY % Slovenian "INCLUDE"
+> 
+  <!ENTITY % addindex "IGNORE">
+]>
+
+<book id="kbounce" lang="&language;">
+<bookinfo>
+<title
+>&kbounce; Priročnik</title>
+
+<authorgroup>
+<author
+><firstname
+>Tomasz</firstname
+><surname
+>Boczkowski</surname
+> <affiliation
+><address
+><email
+>tboczkowski@onet.pl</email
+></address
+></affiliation>
+</author>
+<othercredit role="reviewer"
+><firstname
+>Eugene</firstname
+><surname
+>Trounev</surname
+> <contrib
+>Recenzent</contrib>
+<affiliation
+><address
+>eugene.trounev@gmail.com</address
+></affiliation>
+</othercredit>
+<othercredit role="translator"
+><firstname
+>Matjaž</firstname
+><surname
+>Jeran</surname
+><affiliation
+><address
+><email
+>matjaz.jeran@amis.net</email
+></address
+></affiliation
+><contrib
+>Prevod</contrib
+></othercredit
+> 
+</authorgroup>
+
+<copyright>
+<year
+>2002</year>
+<holder
+>&Aaron.J.Seigo;</holder>
+</copyright>
+
+<copyright>
+<year
+>2007</year>
+<holder
+>Tomasz Boczkowski</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+
+<date
+>25.06.2021</date>
+<releaseinfo
+>KDE Gear 21.04</releaseinfo>
+
+<abstract>
+	<para
+>Ta dokumentacija opisuje igro &kbounce; različica 21.04</para>
+</abstract>
+
+
+<keywordset>
+	<keyword
+>KDE</keyword
+> <!-- do not change this! -->
+	<keyword
+>kdegames</keyword
+> <!-- do not change this! -->
+	<keyword
+>igra</keyword
+> <!-- do not change this! -->
+<!-- Game genre. Use as many as necessary. Available game types are: Arcade, Board, Card, Dice, Toys, Logic, Strategy.-->
+	<keyword
+>arkadna</keyword>
+	<keyword
+>uganka</keyword>
+	<keyword
+>žoge</keyword>
+	<keyword
+>JezzBall</keyword>
+	<keyword
+>KBounce</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Uvod</title>
+<note
+><title
+>Vrsta igre:</title
+><para
+>Uganka, Arkadna</para
+></note
+><!-- Game genre. Use as many as necessary. Available game types are: Arcade, Board, Card, Dice, Toys, Logic, Strategy.-->
+	<note
+><title
+>Število možnih igralcev:</title
+><para
+>Eden</para
+></note
+><!--Number of possible players. It can be: One, Two,..., Multiplayer-->
+<para
+>&kbounce; je arkadna igra za enega igralca z elementi uganke. </para>
+
+<para
+>Igra se na igrišču, obdanem z zidovi, pri čemer se dve ali več žog, ki se premikajo po igrišču, odbijajo od zidov. Igralec lahko zgradi nove zidove in tako zmanjša velikost aktivnega polja. </para>
+
+<para
+>Cilj igre je zapolniti vsaj 75% polja in napredovati na naslednjo stopnjo. </para>
+</chapter>
+
+<chapter id="how-to-play">
+<title
+>Kako igrati</title>
+
+<para
+>Igralcu je predstavljeno pravokotno polje s ploščicami, obdano z zidovi. Dve ali več žog se premikajo po polju in se odbijajo od sten. Cilj igre je omejiti velikost prostora za žogice. </para>
+
+<para
+>Velikost aktivne površine igrišča se zmanjša z izdelavo novih sten, ki zapirajo območja brez žog. Za dokončanje ravni mora igralec zmanjšati velikost aktivnega polja za najmanj 75 %. v dovoljenem času. </para>
+
+<para
+>Nove stene se zgradijo s klikom &LMB; na aktivnem območju polja, na kateri točki bo ena stena začela rasti v nasprotnih smereh od polja, v katerega ste kliknili z miško. Na zaslonu lahko v danem trenutku raste samo ena stena v vsaki smeri. </para>
+
+<para
+>Ko je miška na polju, je kazalec prikazan kot par puščic, ki kažeta v nasprotni smeri, vodoravno ali navpično. Puščice kažejo v smeri rasti zidov, ko je &LMB; kliknjen. To smer lahko spremenite s klikom &RMB;. </para>
+
+<para
+>Nova stena ima <quote
+>glavo</quote
+>, ki se premakne stran od točke, kjer ste kliknili z miško. Zid ni trajen, dokler ta <quote
+>glava</quote
+> ne naleti na drug zid. Če žogica trči v kateri koli del stene, razen v glavo, preden se glava zaleti v drugo steno, bo nova stena popolnoma izginila in eno življenje bo izgubljeno. Če žogica trči z glavo v smeri rasti stene, bo stena tam prenehala rasti in postala trajna, brez izgube življenj. Če žoga trči v glavo s katere koli druge strani, se žoga odbije in stena bo normalno rasla naprej. </para>
+</chapter>
+
+<chapter id="rules_and_tips"
+><title
+>Pravila igre, strategije in nasveti</title
+> <!-- do not change this! -->
+<sect1 id="rules">
+<title
+>Pravila igre</title>
+
+<para
+>Igra se začne s 1. stopnjo, v kateri se dve žogi premikata po polju. Igralec ima dve življenji in 90 sekund, da uspešno zaključi stopnjo. </para>
+
+<para
+>V n-ti stopnji je n + 1 žogica. Igralec ima n + 1 življenje. Za dokončanje imajo na voljo 30 * ( n + 2 ) sekund. </para>
+
+<para
+>Ko žogica trči v naraščajočo steno, igralec izgubi eno življenje. Izjema je trčenje z <quote
+>glavo</quote
+> stene, ko ni izgubljeno nobeno življenje. </para>
+
+<para
+>Cilj vsake stopnje je pokriti vsaj 75% polja z zidom. </para>
+
+<para
+>Izguba vseh življenj in prekoračitev dovoljenega časa povzročita konec igre. </para>
+
+<para
+>Če igralec dokonča raven, prejme 15 točk za vsako preostalo življenje in bonus, ki je odvisen od števila žog in števila ploščic, napolnjenih nad 75%. Prav tako napredujejo na naslednjo stopnjo. </para>
+ 
+</sect1>
+
+<sect1 id="strategy">
+<title
+>Strategije in nasveti</title>
+<itemizedlist>
+
+<listitem>
+<para
+>Številni igralci ugotovijo, da igra postane precej težka šele na tretji ali četrti ravni, glede na število žogic na igrišču hkrati. </para>
+</listitem>
+
+<listitem>
+<para
+>Trik uspešnega igranja &kbounce; je zgraditi <quote
+>hodnike</quote
+>. Če želite zgraditi hodnik, začnite zraščati par sten blizu druge stene in nastavite čas tako, da bo eno od sten zadela žoga, eno od sten pa ne, in tako postane trajno. </para>
+
+<screenshot>
+<screeninfo
+>Gradnja hodnika</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="kbounce_corridor1.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Gradnja hodnika</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Tako bo na igrišču ostal ozek hodnik le nekaj polj visoko, s treh strani obdan z zidovi. Počakajte, da se žogice odbijejo v odprt konec hodnika, in zaprite hodnik za žogo z novo steno. Čeprav boste najverjetneje izgubili življenje za vsak ustvarjen hodnik, lahko v enem hodniku ujamete več žog. </para>
+
+<screenshot>
+<screeninfo
+>Zajemanje žog na hodniku</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="kbounce_corridor2.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Zajemanje žog na hodniku</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+</listitem>
+
+<listitem>
+<para
+>Še zadnji nasvet &mdash; vzemite si čas! Časa je dovolj, kot je prikazano na zaslonu <guilabel
+>Čas</guilabel
+> na dnu zaslona. Hitenje vas bo samo spravilo v težave! </para>
+</listitem>
+</itemizedlist>
+</sect1>
+</chapter>
+
+<chapter id="interface-overview">
+<title
+>Pregled vmesnika</title>
+
+<sect1 id="the-tool-bar">
+<title
+>Orodna vrstica</title>
+
+<para
+>V orodni vrstici so gumbi za pogosto uporabljene funkcije. </para>
+
+<table>
+<title
+>Gumbi orodne vrstice</title>
+<tgroup cols="4">
+
+<thead>
+<row>
+<entry
+>Gumb</entry>
+<entry
+>Ime</entry>
+<entry
+>Enakovreden meni</entry>
+<entry
+>Akcija</entry>
+</row>
+</thead>
+
+<tbody>
+<row>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata format="PNG" fileref="document-new.png"/>
+</imageobject>
+<textobject
+><phrase
+>Gumb za novo igro</phrase
+></textobject>
+</inlinemediaobject>
+</entry>
+
+<entry>
+<guiicon
+>Nova</guiicon>
+</entry>
+
+<entry>
+<link linkend="game-new">
+<menuchoice
+><guimenu
+>Igra</guimenu
+> <guimenuitem
+>Nova</guimenuitem
+> </menuchoice>
+</link>
+</entry>
+
+<entry
+>Začne novo igro. Če se igra trenutno igra, počisti polje in nastavi raven na 1. </entry>
+</row>
+
+<row>
+<entry>
+<inlinemediaobject>
+<imageobject>
+<imagedata format="PNG" fileref="media-playback-pause.png"/>
+</imageobject>
+<textobject>
+<phrase
+>Gumb za premor</phrase
+></textobject>
+</inlinemediaobject>
+</entry>
+
+<entry>
+<guiicon
+>Premor</guiicon>
+</entry>
+
+<entry>
+<link linkend="game-pause">
+<menuchoice
+><guimenu
+>Igra</guimenu
+> <guimenuitem
+>Premor</guimenuitem
+></menuchoice>
+</link>
+</entry>
+
+<entry
+>Začasno ustavi ali nadaljuje trenutno igro. </entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+</sect1>
+
+<sect1 id="the-menu-items">
+<title
+>Elementi menija</title>
+
+<sect2>
+<title
+>Meni igre</title>
+
+<variablelist>
+<varlistentry id="game-new">
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Igra</guimenu
+> <guimenuitem
+>Nova</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+><action
+>Začne novo igro.</action
+></para>
+</listitem>
+</varlistentry>
+
+<varlistentry id="game-end">
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;&End;</keycombo
+> </shortcut
+> <guimenu
+>Igra</guimenu
+> <guimenuitem
+>Končaj igro</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+><action
+>Konča trenutno igro.</action
+></para>
+</listitem>
+</varlistentry>
+
+<varlistentry id="game-pause">
+<term
+><menuchoice
+><shortcut
+> <keycap
+>P</keycap
+> </shortcut
+> <guimenu
+>Igra</guimenu
+> <guimenuitem
+>Premor</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+><action
+>Začasno ustavi ali nadaljuje igro.</action
+></para>
+</listitem>
+</varlistentry>
+
+<varlistentry id="game-highscores">
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>H</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Igra</guimenu
+> <guimenuitem
+>Pokaži najboljše rezultate</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+>Odpre pogovorno okno, ki prikazuje različne tabele z najboljšimi rezultati. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry id="game-quit">
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Igra</guimenu
+> <guimenuitem
+>Zapri</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+><action
+>Zapri</action
+> in zaprite &kbounce;. Če se igra trenutno igra, je njen status izgubljen.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+</sect2>
+
+<sect2 id="settings-menu">
+<title
+>Meni z nastavitvami</title>
+
+<variablelist>
+
+<varlistentry id="settings-sounds">
+<term
+><menuchoice
+><guimenu
+>Nastavitve</guimenu
+> <guimenuitem
+>Predvajaj zvoke</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+><action
+>Če je označeno, &kbounce; predvajajo se zvoki igre.</action
+></para>
+</listitem>
+</varlistentry>
+
+<varlistentry id="settings-difficulty">
+<term
+><menuchoice
+><guimenu
+>Nastavitve</guimenu
+> <guisubmenu
+>Težavnost</guisubmenu
+> </menuchoice
+></term>
+<listitem>
+<para
+><action
+>Izberite težavnost igre. Na višjih težavnostnih stopnjah se stene gradijo počasneje, medtem ko se žoge premikajo hitreje. Zaradi tega je težje ograditi območje v plošči.</action
+></para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+<para
+>Poleg tega &kbounce; ima skupno &kde; Elementi menija <guimenu
+>Nastavitve</guimenu
+> in <guimenu
+>Pomoč</guimenu
+>, za več informacij preberite razdelke o <ulink url="help:/fundamentals/menus.html#menus-settings"
+>meniju z nastavitvami</ulink
+> in <ulink url="help:/fundamentals/menus.html#menus-help"
+>meni Pomoč</ulink
+> v &kde; Osnove. </para>
+
+</sect2>
+
+</sect1>
+</chapter>
+
+<chapter id="faq"
+><title
+>Pogosto zastavljena vprašanja</title
+> <!-- do not change this! -->
+<!--This chapter is for frequently asked questions. Please use <qandaset
+> <qandaentry
+> only!-->
+<qandaset>
+<!--Following is a standard list of FAQ questions.-->
+<qandaentry>
+ <question
+><para
+>Želim spremeniti videz te igre. Ali lahko? </para
+></question>
+ <answer
+><para
+>Da. Če želite spremeniti vizualno temo &kbounce; lahko uporabite možnost <menuchoice
+><guimenu
+>Nastavitve</guimenu
+><guimenuitem
+>Konfiguriraj &kbounce;...</guimenuitem
+></menuchoice
+> v menijski vrstici.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>Naredil sem napako. Ali jo lahko razveljavim? </para
+></question>
+ <answer
+><para
+>&kbounce; nima funkcije <quote
+>Razveljavi</quote
+>.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>Ali lahko uporabljam tipkovnico za igranje te igre?</para
+></question>
+ <answer
+><para
+>Št. &kbounce; ni mogoče predvajati s tipkovnico.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>Zdaj moram zapustiti igro, vendar še nisem končal. Ali lahko shranim svoj napredek?</para
+></question>
+  <answer
+><para
+>&kbounce; trenutno nima funkcije <quote
+>Shrani</quote
+>.</para
+></answer>
+</qandaentry>
+</qandaset>
+</chapter>
+
+<chapter id="configuration"
+><title
+>Konfiguracija igre</title
+> <!-- do not change this! -->
+<para
+>&kbounce; konfiguracijsko pogovorno okno vam omogoča izbiro vizualnih tem za &kbounce;.</para>
+<para
+>Če želite izbrati novo temo, preprosto izberite temo na izbirnem seznamu. Vsak element na seznamu prikazuje majhen predogled levo od imena teme. Izbor se uporabi takoj. </para>
+<para
+>Izberete lahko naključne slike ozadja iz uporabniško določene mape s slikami. </para>
+<para
+>Ko ste zadovoljni z izbrano temo, lahko kliknete gumb <guibutton
+>V redu</guibutton
+>, ki se nahaja na dnu tega pogovornega okna. </para>
+</chapter>
+
+<chapter id="credits-and-license">
+<title
+>Zasluge in licenca</title>
+
+
+<para
+>&kbounce;</para>
+
+<itemizedlist>
+<listitem>
+<para
+>Stefan Schimanski <email
+>schimmi@kde.org</email
+> - izvirni avtor</para>
+</listitem>
+<listitem>
+<para
+>Sandro Sigala <email
+>ssigala@globalnet.it</email
+> – najboljši rezultat</para>
+</listitem>
+<listitem>
+<para
+>Benjamin Meyer <email
+>ben+kbounce@meyerhome.net</email
+> - Prispevki</para>
+</listitem>
+<listitem>
+<para
+>Dmitry Suzdalev <email
+>dimsuz@gmail.com</email
+></para>
+</listitem>
+<listitem>
+<para
+>Tomasz Boczkowski <email
+>tboczkowski@onet.pl</email
+> - Prenos na KDE4 in KGameCavas</para>
+</listitem>
+</itemizedlist>
+
+<para
+>Avtorske pravice za dokumentacijo 2002, &Aaron.J.Seigo; &Aaron.J.Seigo.mail;</para>
+<para
+>Avtorske pravice za dokumentacijo 2007, Tomasz Boczkowski <email
+>tboczkowski@onet.pl</email
+></para>
+
+<para
+>Ta priročnik je posvečen Dennisu E. Powellu.</para>
+
+<para
+>Prevod: Matjaž Jeran<email
+>matjaz.jeran@amis.net</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index; 
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes: nil
+sgml-general-insert-case: lower
+End:
+-->
+
