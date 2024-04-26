@@ -34,7 +34,8 @@ ki18n_wrap_ui(kbounce  backgroundselector.ui )
 ecm_qt_declare_logging_category(kbounce
     HEADER debug.h
     IDENTIFIER KBOUNCE_LOG
-    CATEGORY_NAME log_kbounce
+    CATEGORY_NAME kbounce
+    OLD_CATEGORY_NAMES log_kbounce
     DESCRIPTION "KBounce game"
     EXPORT KBOUNCE
 )
