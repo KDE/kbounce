@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kbounce (KDE 3.5)\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-17 00:36+0000\n"
+"POT-Creation-Date: 2024-05-03 00:36+0000\n"
 "PO-Revision-Date: 2006-04-04 12:45+0600\n"
 "Last-Translator: Progga <progga@BengaLinux.Org>\n"
 "Language-Team: Bangla <kde-translation@BengaLinux.Org>\n"
@@ -196,62 +196,66 @@ msgstr ""
 msgid "Image Background and Fixes"
 msgstr "পটভূমি-চিত্রের ফোল্ডার বেছে নিন"
 
-#: mainwindow.cpp:32 mainwindow.cpp:209
+#: mainwindow.cpp:32 mainwindow.cpp:210
 #, fuzzy, kde-format
 msgid "Level: %1"
 msgstr "স্তর:"
 
-#: mainwindow.cpp:33 mainwindow.cpp:214
+#: mainwindow.cpp:33 mainwindow.cpp:215
 #, fuzzy, kde-format
 msgid "Score: %1"
 msgstr "স্কোর:"
 
-#: mainwindow.cpp:34 mainwindow.cpp:219
+#: mainwindow.cpp:34 mainwindow.cpp:220
 #, fuzzy, kde-format
 msgid "Filled: %1%"
 msgstr "ভর্তি হয়েছে:"
 
-#: mainwindow.cpp:35 mainwindow.cpp:224
+#: mainwindow.cpp:35 mainwindow.cpp:225
 #, fuzzy, kde-format
 msgid "Lives: %1"
 msgstr "জীবন:"
 
-#: mainwindow.cpp:36 mainwindow.cpp:229
+#: mainwindow.cpp:36 mainwindow.cpp:230
 #, fuzzy, kde-format
 msgid "Time: %1"
 msgstr "সময়:"
 
-#: mainwindow.cpp:92
-#, kde-format
-msgid "&Play Sounds"
+#: mainwindow.cpp:93
+#, fuzzy, kde-format
+#| msgid "&Play Sounds"
+msgctxt "@option:check"
+msgid "Play Sounds"
 msgstr "আওয়া&জ চালাও"
 
-#: mainwindow.cpp:132
+#: mainwindow.cpp:133
 #, fuzzy, kde-format
 #| msgid "Do you really want to close the running game?"
 msgid "Are you sure you want to quit the current game?"
 msgstr "আপনি কি সত্যিই চলন্ত দানটি বন্ধ করতে চান?"
 
-#: mainwindow.cpp:134
+#: mainwindow.cpp:135
 #, kde-format
 msgctxt "@action;button"
 msgid "Quit Game"
 msgstr ""
 
-#: mainwindow.cpp:148 mainwindow.cpp:251
+#: mainwindow.cpp:149 mainwindow.cpp:252
 #, fuzzy, kde-format
 #| msgid "Press %1 to start a game!"
 msgid "Game over. Click to start a game"
 msgstr "দান শুরু করতে %1 চাপুন!"
 
-#: mainwindow.cpp:183
+#: mainwindow.cpp:184
 #, kde-format
+msgctxt "@title:tab"
 msgid "Theme"
 msgstr ""
 
-#: mainwindow.cpp:184
+#: mainwindow.cpp:185
 #, fuzzy, kde-format
 #| msgid "Show &Backgrounds"
+msgctxt "@title:tab"
 msgid "Background"
 msgstr "&পটভূমি দেখাও"
 
