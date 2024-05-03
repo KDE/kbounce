@@ -89,7 +89,7 @@ void KBounceMainWindow::initXMLUI()
 
     // Settings
     KStandardAction::preferences( this, &KBounceMainWindow::configureSettings, actionCollection() );
-    m_soundAction = new KToggleAction( i18n("&Play Sounds"), this );
+    m_soundAction = new KToggleAction( i18nc("@option:check", "Play Sounds"), this );
     actionCollection()->addAction( QStringLiteral(  "toggle_sound" ), m_soundAction );
     connect( m_soundAction, &QAction::triggered, this, &KBounceMainWindow::setSounds );
 }
@@ -180,8 +180,8 @@ void KBounceMainWindow::configureSettings()
     if ( KConfigDialog::showDialog( QStringLiteral("settings") ) ) return;
 
     KConfigDialog* dialog = new KConfigDialog( this, QStringLiteral("settings"), KBounceSettings::self());
-    dialog->addPage( new KGameThemeSelector(m_gameWidget->renderer()->themeProvider(), KGameThemeSelector::DefaultBehavior, dialog), i18n( "Theme" ), QStringLiteral("games-config-theme") );
-    dialog->addPage( new BackgroundSelector(dialog,KBounceSettings::self() ),i18n("Background"),QStringLiteral("games-config-background"));
+    dialog->addPage( new KGameThemeSelector(m_gameWidget->renderer()->themeProvider(), KGameThemeSelector::DefaultBehavior, dialog), i18nc("@title:tab", "Theme"), QStringLiteral("games-config-theme") );
+    dialog->addPage( new BackgroundSelector(dialog,KBounceSettings::self() ),i18nc("@title:tab", "Background"),QStringLiteral("games-config-background"));
     dialog->show();
     connect( dialog, &KConfigDialog::settingsChanged, this, &KBounceMainWindow::settingsChanged );
 }
