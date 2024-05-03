@@ -89,7 +89,8 @@ void KBounceMainWindow::initXMLUI()
 
     // Settings
     KStandardAction::preferences( this, &KBounceMainWindow::configureSettings, actionCollection() );
-    m_soundAction = new KToggleAction( i18nc("@option:check", "Play Sounds"), this );
+    m_soundAction = new KToggleAction( QIcon::fromTheme(QStringLiteral("speaker")),
+                                       i18nc("@option:check", "Play Sounds"), this );
     actionCollection()->addAction( QStringLiteral(  "toggle_sound" ), m_soundAction );
     connect( m_soundAction, &QAction::triggered, this, &KBounceMainWindow::setSounds );
 }
