@@ -408,7 +408,7 @@ of the &kde; Fundamentals.
 <!--Following is a standard list of FAQ questions.-->
 <qandaentry>
  <question><para>I want to change the way this game looks. Can I? </para></question>
- <answer><para>Yes. To change &kbounce; visual theme you can use <menuchoice><guimenu>Settings</guimenu><guimenuitem>Configure &kbounce;...</guimenuitem></menuchoice> option on the menubar.</para></answer>
+ <answer><para>Yes. To change &kbounce; visual theme you can use <menuchoice><guimenu>Settings</guimenu><guimenuitem>Configure &kbounce;…</guimenuitem></menuchoice> option on the menubar.</para></answer>
 </qandaentry>
 <qandaentry>
  <question><para>I have made a mistake. Can I undo? </para></question>
