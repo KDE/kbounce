@@ -9,7 +9,7 @@
 #ifndef WALL_H
 #define WALL_H
 
-#include <KGameRenderedItem>
+#include <QGraphicsPixmapItem>
 
 #include <QObject>
 #include <KGameSound>
@@ -19,12 +19,12 @@ class KBounceRenderer;
 class KBounceBoard;
 
 /**
- * KGameRenderedItem representing a wall "under-construction"
+ * QGraphicsPixmapItem representing a wall "under-construction"
  *
  * There are four walls in a board, each of which extends in
  * other direction: up, right, down or left
  */ 
-class KBounceWall : public QObject, public KGameRenderedItem
+class KBounceWall : public QObject, public QGraphicsPixmapItem
 {
     Q_OBJECT
 

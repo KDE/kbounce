@@ -22,7 +22,7 @@ KBounceWall::Sprites * KBounceWall::s_sprites = nullptr;
 
 
 KBounceWall::KBounceWall( Direction dir, KBounceRenderer* renderer, KBounceBoard* board )
-    : KGameRenderedItem( renderer,QLatin1String(""),board )
+    : QGraphicsPixmapItem(board)
     , m_board( board )
       , m_dir( dir )
       , m_soundWallstart( QStandardPaths::locate( QStandardPaths::AppDataLocation, QStringLiteral("sounds/wallstart.wav") ) )
