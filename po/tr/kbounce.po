@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: kdegames-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-03 00:36+0000\n"
-"PO-Revision-Date: 2024-02-09 17:45+0300\n"
+"PO-Revision-Date: 2024-05-04 00:57+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.01.95\n"
+"X-Generator: Lokalize 24.07.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -143,7 +143,7 @@ msgid ""
 "(c) 2000-2005, Stefan Schimanski\n"
 "(c) 2007, Tomasz Boczkowski"
 msgstr ""
-"(c) 2000-2005, Stefan Schimanski\n"
+"(c) 2000–2005, Stefan Schimanski\n"
 "(c) 2007, Tomasz Boczkowski"
 
 #: main.cpp:34
@@ -224,7 +224,7 @@ msgstr "Dolu bölge: %​%1"
 #: mainwindow.cpp:35 mainwindow.cpp:225
 #, kde-format
 msgid "Lives: %1"
-msgstr "Yaşam: %1"
+msgstr "Can: %1"
 
 #: mainwindow.cpp:36 mainwindow.cpp:230
 #, kde-format
@@ -232,11 +232,10 @@ msgid "Time: %1"
 msgstr "Zaman: %1"
 
 #: mainwindow.cpp:93
-#, fuzzy, kde-format
-#| msgid "&Play Sounds"
+#, kde-format
 msgctxt "@option:check"
 msgid "Play Sounds"
-msgstr "&Sesleri Çal"
+msgstr "Sesleri çal"
 
 #: mainwindow.cpp:133
 #, kde-format
@@ -255,15 +254,13 @@ msgid "Game over. Click to start a game"
 msgstr "Oyun bitti. Bir oyun başlatmak için tıklayın"
 
 #: mainwindow.cpp:184
-#, fuzzy, kde-format
-#| msgid "Theme"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Theme"
 msgstr "Tema"
 
 #: mainwindow.cpp:185
-#, fuzzy, kde-format
-#| msgid "Background"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Background"
 msgstr "Arka Plan"

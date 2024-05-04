@@ -9,27 +9,27 @@
 # Rinse de Vries <rinse@kde.nl>, 2003, 2004.
 # Bram Schoenmakers <bramschoenmakers@kde.nl>, 2004.
 # Rinse de Vries <rinsedevries@kde.nl>, 2004, 2005, 2007, 2010.
-# Freek de Kruijf <f.de.kruijf@hetnet.nl>, 2009.
+# SPDX-FileCopyrightText: 2009, 2024 Freek de Kruijf <f.de.kruijf@hetnet.nl>
 # Freek de Kruijf <freekdekruijf@kde.nl>, 2010, 2013, 2015, 2021, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: kbounce\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-03 00:36+0000\n"
-"PO-Revision-Date: 2022-07-09 00:10+0200\n"
+"PO-Revision-Date: 2024-05-03 11:08+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 22.04.2\n"
+"X-Generator: Lokalize 24.02.2\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Rinse de Vries,Chris Hooijer,Freek de Kruijf - 2022"
+msgstr "Rinse de Vries,Chris Hooijer,Freek de Kruijf - 2022-2024"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
@@ -234,11 +234,10 @@ msgid "Time: %1"
 msgstr "Tijd: %1"
 
 #: mainwindow.cpp:93
-#, fuzzy, kde-format
-#| msgid "&Play Sounds"
+#, kde-format
 msgctxt "@option:check"
 msgid "Play Sounds"
-msgstr "Geluiden afs&pelen"
+msgstr "Geluiden afspelen"
 
 #: mainwindow.cpp:133
 #, kde-format
@@ -257,15 +256,13 @@ msgid "Game over. Click to start a game"
 msgstr "Einde spel. Klik om een spel te starten"
 
 #: mainwindow.cpp:184
-#, fuzzy, kde-format
-#| msgid "Theme"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Theme"
 msgstr "Thema"
 
 #: mainwindow.cpp:185
-#, fuzzy, kde-format
-#| msgid "Background"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Background"
 msgstr "Achtergrond"
