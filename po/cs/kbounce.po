@@ -227,11 +227,10 @@ msgid "Time: %1"
 msgstr "Čas: %1"
 
 #: mainwindow.cpp:93
-#, fuzzy, kde-format
-#| msgid "&Play Sounds"
+#, kde-format
 msgctxt "@option:check"
 msgid "Play Sounds"
-msgstr "&Přehrávat zvuky"
+msgstr ""
 
 #: mainwindow.cpp:133
 #, kde-format
@@ -250,15 +249,13 @@ msgid "Game over. Click to start a game"
 msgstr "Konec hry. Kliknutím zahájíte hru"
 
 #: mainwindow.cpp:184
-#, fuzzy, kde-format
-#| msgid "Theme"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Theme"
-msgstr "Motiv"
+msgstr ""
 
 #: mainwindow.cpp:185
-#, fuzzy, kde-format
-#| msgid "Background"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Background"
-msgstr "Pozadí"
+msgstr ""
