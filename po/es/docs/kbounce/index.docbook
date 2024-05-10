@@ -105,6 +105,20 @@
 > <contrib
 >Traductora</contrib
 > </othercredit
+> <othercredit role="translator"
+><firstname
+>Eloy</firstname
+> <surname
+>Cuadra</surname
+> <affiliation
+><address
+><email
+>ecuadra@eloihr.net</email
+></address
+></affiliation
+> <contrib
+>Corrección de la traducción</contrib
+></othercredit
 > 
 </authorgroup>
 
@@ -149,7 +163,7 @@
 > <!-- do not change this! -->
 <!-- Game genre. Use as many as necessary. Available game types are: Arcade, Board, Card, Dice, Toys, Logic, Strategy.-->
 	<keyword
->arcade</keyword>
+>recreativo</keyword>
 	<keyword
 >rompecabezas</keyword>
 	<keyword
@@ -169,12 +183,12 @@
 ><title
 >Tipo de juego:</title
 ><para
->Rompecabezas, Arcade</para
+>Rompecabezas, Recreativo</para
 ></note
 ><!-- Game genre. Use as many as necessary. Available game types are: Arcade, Board, Card, Dice, Toys, Logic, Strategy.-->
 	<note
 ><title
->Número de posibles jugadores:</title
+>Número de jugadores posibles:</title
 ><para
 >Uno</para
 ></note
@@ -183,10 +197,10 @@
 >&kbounce; es un juego recreativo para un solo jugador con los elementos de un rompecabezas. </para>
 
 <para
->Se juega en un campo, rodeado de paredes, con dos o más bolas que se mueven en el campo rebotando en las paredes. El jugador puede construir paredes nuevas, reduciendo el tamaño del campo activo. </para>
+>Se juega en un campo, rodeado de paredes, con dos o más bolas que se mueven en el campo rebotando en las paredes. El jugador puede construir paredes nuevas para reducir el tamaño del campo activo. </para>
 
 <para
->Para ganar el juego debe rellenar al menos el 75&percnt; del campo y avanzar al siguiente nivel. </para>
+>El objetivo del juego es rellenar al menos el 75 &percnt; del campo y avanzar al siguiente nivel. </para>
 </chapter>
 
 <chapter id="how-to-play">
@@ -194,19 +208,19 @@
 >Cómo jugar</title>
 
 <para
->Al jugador se le presenta un campo embaldosado rectangular rodeado de paredes. Dos o más bolas que se mueven en el campo rebotando en las paredes. El objeto del juego es limitar el tamaño de la habitación para las bolas. </para>
+>Al jugador se le muestra un campo con una cuadrícula rectangular rodeado de paredes. Dos o más bolas se mueven por el campo y rebotan en las paredes. El objeto del juego es limitar el tamaño de espacio disponible para las bolas. </para>
 
 <para
->El tamaño del área del campo se disminuye haciendo nuevas paredes que encierran áreas sin bolas en ellas. Para completar un nivel, el jugador debe disminuir el tamaño del campo activo al menos un 75&percnt; en el tiempo permitido. </para>
+>El tamaño del área activa del campo disminuye al crear nuevas paredes que encierran áreas sin bolas en ellas. Para completar un nivel, el jugador debe disminuir el tamaño del campo activo al menos un 75 &percnt; en el tiempo disponible. </para>
 
 <para
->Se pueden construir nuevas paredes pulsando con el &LMB; del ratón en una zona activa del campo, punto en el que comenzará a crecer una pared en dirección opuesta y partiendo del cuadrado pulsando con el ratón. Únicamente pueden crecer dos paredes simultáneamente en la pantalla en un momento dado. </para>
+>Se pueden construir nuevas paredes pulsando con el &LMB; del ratón en una zona activa del campo, donde comenzará a crecer una pared en direcciones opuestas desde el cuadrado en el que se pulsó con el ratón. Solo puede crecer una pared en cada dirección en la pantalla en un momento dado. </para>
 
 <para
->Cuando el ratón está en el campo, el cursor se muestra como un par de flechas apuntando en direcciones opuestas, ya sea en dirección vertical u horizontal. Las flechas apuntan en la dirección en la que crecerán las paredes cuando se pulse el &LMB; del ratón. La dirección se puede cambiar pulsando el &RMB;. </para>
+>Cuando el ratón está en el campo, el cursor se muestra como un par de flechas que apuntan en direcciones opuestas, horizontal o verticalmente. Las flechas apuntan en la dirección en la que crecerán las paredes cuando se pulse el &LMB; del ratón. La dirección se puede cambiar pulsando el &RMB;. </para>
 
 <para
->Una pared nueva tiene una «cabeza», que se aleja del punto en el que se ha pulsado el ratón. Una pared no será permanente hasta que su «cabeza» tome contacto con otra pared. Si una bola colisiona con cualquier parte de la pared, excepto la cabeza, antes de que esta se junte con otra pared, la pared nueva desaparecerá completamente y se perderá una vida. Si la bola colisiona con la cabeza en la dirección de crecimiento de la pared, la pared detendrá su crecimiento y se quedará allí permanentemente, sin que se pierda ninguna vida. Si una bola colisiona con la cabeza desde cualquier otro lado, la bola rebotará y la pared seguirá creciendo normalmente. </para>
+>Una pared nueva tiene una «cabeza», que se aleja del punto en el que se ha pulsado el ratón. Una pared no será permanente hasta que su «cabeza» haga contacto con otra pared. Si una bola colisiona con cualquier parte de la pared, excepto la cabeza, antes de que esta se junte con otra pared, la nueva pared desaparecerá completamente y se perderá una vida. Si la bola colisiona con la cabeza en la dirección de crecimiento de la pared, la pared dejará de crecer y se quedará allí permanentemente, sin que se pierda ninguna vida. Si una bola colisiona con la cabeza desde cualquier otro lado, la bola rebotará y la pared seguirá creciendo normalmente. </para>
 </chapter>
 
 <chapter id="rules_and_tips"
@@ -221,19 +235,19 @@
 >El juego se inicia en el nivel 1 en el que dos bolas se mueven por el campo. El jugador tiene dos vidas y 90 segundos para completar correctamente el nivel. </para>
 
 <para
->En el nivel n-ésimo hay n + 1 bolas. El jugador tendrá n + 1 vidas. Tendrá 30 * ( n + 2) segundos para completarlo. </para>
+>En el nivel n hay n + 1 bolas. El jugador tendrá n + 1 vidas. Tendrá 30 * ( n + 2) segundos para completarlo. </para>
 
 <para
->Cuando una bola colisione con una pared que esté creciendo el jugador perderá una vida. La excepción es si la colisión se produce en la «cabeza» donde no se pierde ninguna vida. </para>
+>Cuando una bola colisione con una pared que esté creciendo, el jugador perderá una vida. Como excepción, si la colisión se produce en la «cabeza», no perderá ninguna vida. </para>
 
 <para
->El objetivo de cada nivel es cubrir al menos el 75&percnt; del campo con una pared. </para>
+>El objetivo de cada nivel es cubrir al menos el 75 &percnt; del campo con una pared. </para>
 
 <para
 >La pérdida de todas las vidas y excederse de tiempo da como resultado el final de la partida. </para>
 
 <para
->Si un jugador completa un nivel recibe 15 puntos por cada vida que tenga, y un bono dependiendo del número de bolas y del número de baldosas rellenadas por encima del 75&percnt;. También avanza al siguiente nivel. </para>
+>Si un jugador completa un nivel recibe 15 puntos por cada vida que tenga, y un bono dependiendo del número de bolas y del número de baldosas rellenadas por encima del 75 &percnt;. También avanza al siguiente nivel. </para>
  
 </sect1>
 
@@ -249,7 +263,7 @@
 
 <listitem>
 <para
->El truco para jugar a &kbounce; con éxito es construir «pasillos». Para construir un pasillo, inicie un par de paredes que crezcan cerca de otra pared, y lo más probable es que una de esas paredes será tocada por una bola, mientras que el otro no, sino que se hará permanente. </para>
+>El truco para jugar a &kbounce; con éxito es construir «pasillos». Para construir un pasillo, empieza con un par de paredes que crezcan cerca de otra pared. Lo más probable es que una de las paredes sea alcanzada por una bola, mientras que la otra no, con lo que se hará permanente. </para>
 
 <screenshot>
 <screeninfo
@@ -266,11 +280,11 @@
 </screenshot>
 
 <para
->Esto dejará un estrecho pasillo de solo unos pocos cuadros de alto en el campo, rodeado de paredes por tres lados. Espere a que las bolas reboten en el extremo abierto del pasillo, y cierre el pasillo por detrás de las bolas con un pared nueva. Aunque lo más probable es que pierda una vida por cada pasillo creado, puede atrapar a varias bolas en un único pasillo. </para>
+>Esto dejará un estrecho pasillo de solo unos pocos cuadros de alto en el campo, rodeado de paredes por tres lados. Espera a que las bolas reboten en el extremo abierto del pasillo y cierra el pasillo por detrás de las bolas con un pared nueva. Aunque lo más probable es que pierdas una vida por cada pasillo creado, puedes atrapar varias bolas en un único pasillo. </para>
 
 <screenshot>
 <screeninfo
->Bolas capturadas en un pasillo</screeninfo>
+>Capturar bolas en un pasillo</screeninfo>
 <mediaobject>
 <imageobject>
 <imagedata fileref="kbounce_corridor2.png" format="PNG"/>
@@ -285,9 +299,9 @@
 
 <listitem>
 <para
->Un último consejo: ¡tenga paciencia!. Hay mucho tiempo, como se muestra en el indicador de <guilabel
+>Un último consejo: ¡ten paciencia! Hay mucho tiempo, como se muestra en el indicador de <guilabel
 >Tiempo</guilabel
-> que se encuentra a la derecha de la pantalla. ¡Las prisas solo le causarán problemas! </para>
+> que se encuentra a la derecha de la pantalla. ¡Las prisas solo te traerán problemas! </para>
 </listitem>
 </itemizedlist>
 </sect1>
@@ -302,7 +316,7 @@
 >La barra de herramientas</title>
 
 <para
->La barra de herramientas proporciona botones para las funciones utilizadas habitualmente. </para>
+>La barra de herramientas proporciona botones para las funciones más usadas. </para>
 
 <table>
 <title
@@ -331,14 +345,14 @@
 </imageobject>
 <textobject
 ><phrase
->Botón partida nueva</phrase
+>Botón de partida nueva</phrase
 ></textobject>
 </inlinemediaobject>
 </entry>
 
 <entry>
 <guiicon
->Nuevo</guiicon>
+>Nueva</guiicon>
 </entry>
 
 <entry>
@@ -353,7 +367,7 @@
 </entry>
 
 <entry
->Inicia una partida nueva. Si se está jugando una partida se limpia el campo y se establece el nivel a 1. </entry>
+>Inicia una partida nueva. Si se está jugando una partida, se limpia el campo y se define el nivel a 1. </entry>
 </row>
 
 <row>
@@ -364,14 +378,14 @@
 </imageobject>
 <textobject>
 <phrase
->Botón detener</phrase
+>Botón de pausa</phrase
 ></textobject>
 </inlinemediaobject>
 </entry>
 
 <entry>
 <guiicon
->Detener</guiicon>
+>Pausar</guiicon>
 </entry>
 
 <entry>
@@ -380,13 +394,13 @@
 ><guimenu
 >Juego</guimenu
 > <guimenuitem
->Detener</guimenuitem
+>Pausa</guimenuitem
 ></menuchoice>
 </link>
 </entry>
 
 <entry
->Detiene o continúa el juego. </entry>
+>Pone en pausa o continúa el juego actual. </entry>
 </row>
 </tbody>
 </tgroup>
@@ -395,7 +409,7 @@
 
 <sect1 id="the-menu-items">
 <title
->Los elementos del Menú</title>
+>Elementos del menú</title>
 
 <sect2>
 <title
@@ -462,7 +476,7 @@
 <listitem>
 <para
 ><action
->Detiene o continúa la partida.</action
+>Pone en pausa o continúa la partida.</action
 ></para>
 </listitem>
 </varlistentry>
@@ -484,7 +498,7 @@
 ></term>
 <listitem>
 <para
->Abre un diálogo que muestra tablas diferentes de mejores puntuaciones. </para>
+>Abre un diálogo que muestra diferentes tablas de mejores puntuaciones. </para>
 </listitem>
 </varlistentry>
 
@@ -507,7 +521,7 @@
 <para
 ><action
 >Sale</action
-> y cierra &kbounce;. Si se está jugando una partida, se pierde su estado</para>
+> y cierra &kbounce;. Si se estás jugando una partida, se pierde su estado</para>
 </listitem>
 </varlistentry>
 </variablelist>
@@ -560,9 +574,9 @@
 >Preferencias</guimenu
 > y <guimenu
 >Ayuda</guimenu
-> comunes de &kde;. Para obtener más información, consulte las secciones sobre el <ulink url="help:/fundamentals/menus.html#menus-settings"
+> comunes de &kde;. Para obtener más información, consulta las secciones sobre el <ulink url="help:/fundamentals/menus.html#menus-settings"
 >Menú «Preferencias»</ulink
-> y <ulink url="help:/fundamentals/menus.html#menus-help"
+> y el <ulink url="help:/fundamentals/menus.html#menus-help"
 >Menú «Ayuda» </ulink
 > de «Aspectos básicos de &kde;». </para>
 
@@ -587,7 +601,7 @@
 ></question>
  <answer
 ><para
->Sí. Para cambiar el tema visual de &kbounce; puede utilizar la opción <menuchoice
+>Sí. Para cambiar el tema visual de &kbounce; puedes usar la opción <menuchoice
 ><guimenu
 >Preferencias</guimenu
 ><guimenuitem
@@ -599,7 +613,7 @@
 <qandaentry>
  <question
 ><para
->He cometido un error ¿puedo deshacerlo? </para
+>He cometido un error. ¿Puedo deshacerlo? </para
 ></question>
  <answer
 ><para
@@ -609,11 +623,11 @@
 <qandaentry>
  <question
 ><para
->¿Puedo utilizar el teclado para jugar a este juego?</para
+>¿Puedo usar el teclado para jugar a este juego?</para
 ></question>
  <answer
 ><para
->No. No se puede utilizar el teclado para jugar a &kbounce;.</para
+>No. No se puede usar el teclado para jugar a &kbounce;.</para
 ></answer>
 </qandaentry>
 <qandaentry>
@@ -634,13 +648,13 @@
 >Configuración del juego</title
 > <!-- do not change this! -->
 <para
->El diálogo de configuración de &kbounce; le permite seleccionar los temas visuales para &kbounce;.</para>
+>El diálogo de configuración de &kbounce; permite seleccionar temas visuales para &kbounce;.</para>
 <para
 >Para seleccionar un nuevo tema, basta con elegirlo en la lista de selección. Cada uno de los elementos de la lista tiene una pequeña vista previa a la izquierda del nombre del tema. El tema seleccionado se aplica inmediatamente. </para>
 <para
->Puede seleccionar imágenes de fondo aleatorias de una carpeta definida por el usuario que contenga imágenes. </para>
+>Puedes seleccionar imágenes de fondo aleatorias de una carpeta definida por el usuario que contenga imágenes. </para>
 <para
->Cuando esté satisfecho con el tema que ha seleccionado, pulse el botón <guibutton
+>Cuando estés conforme con el tema que has seleccionado, pulsa el botón <guibutton
 >Aceptar</guibutton
 > situado en la parte inferior del cuadro de diálogo. </para>
 </chapter>
@@ -687,9 +701,9 @@
 </itemizedlist>
 
 <para
->Derechos de autor de la documentación. 2002. &Aaron.J.Seigo; &Aaron.J.Seigo.mail;.</para>
+>Copyright de la documentación. 2002. &Aaron.J.Seigo; &Aaron.J.Seigo.mail;.</para>
 <para
->Derechos de autor de la documentación 2007, Tomasz Boczkowski <email
+>Copyright de la documentación 2007, Tomasz Boczkowski <email
 >tboczkowski@onet.pl</email
 >.</para>
 
@@ -697,7 +711,7 @@
 >Este manual está dedicado a Dennis E. Powell.</para>
 
 <para
->Traducido por Rocío Gallego <email
+>Documentación traducida por Rocío Gallego <email
 >traducciones@rociogallego.com</email
 >, Rafael Osuna <email
 >rosuna@wol.es</email
@@ -705,6 +719,10 @@
 >pvicentea@wanadoo.es</email
 > y Kira J. Fernández <email
 >kirajfdez@gmail.com</email
+>.</para
+><para
+>Corregida por Eloy Cuadra <email
+>ecuadra@eloihr.net</email
 >.</para
 > &underFDL; &underGPL; </chapter>
 
