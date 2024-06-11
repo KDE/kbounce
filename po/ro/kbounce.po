@@ -1,22 +1,22 @@
 # translation of kbounce.po to Romanian
 # Copyright (C) 2004 Free Software Foundation, Inc.
-# Sergiu Bivol <sergiu@cip.md>, 2008, 2009, 2022.
+# Sergiu Bivol <sergiu@cip.md>, 2008, 2009, 2022, 2024.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kbounce\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-03 00:36+0000\n"
-"PO-Revision-Date: 2022-02-05 19:28+0000\n"
+"PO-Revision-Date: 2024-06-09 11:30+0100\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
-"Language-Team: Romanian\n"
+"Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
-"X-Generator: Lokalize 21.12.2\n"
+"X-Generator: Lokalize 21.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -226,23 +226,21 @@ msgid "Time: %1"
 msgstr "Timp: %1"
 
 #: mainwindow.cpp:93
-#, fuzzy, kde-format
-#| msgid "&Play Sounds"
+#, kde-format
 msgctxt "@option:check"
 msgid "Play Sounds"
-msgstr "&Redă sunete"
+msgstr "Redă sunete"
 
 #: mainwindow.cpp:133
-#, fuzzy, kde-format
-#| msgid "Do you really want to close the running game?"
+#, kde-format
 msgid "Are you sure you want to quit the current game?"
-msgstr "Sigur doriți închideți jocul curent?"
+msgstr "Sigur doriți să părăsiți jocul actual?"
 
 #: mainwindow.cpp:135
 #, kde-format
 msgctxt "@action;button"
 msgid "Quit Game"
-msgstr ""
+msgstr "Termină jocul"
 
 #: mainwindow.cpp:149 mainwindow.cpp:252
 #, kde-format
@@ -250,15 +248,13 @@ msgid "Game over. Click to start a game"
 msgstr "Joc încheiat. Apăsați pentru a începe un joc"
 
 #: mainwindow.cpp:184
-#, fuzzy, kde-format
-#| msgid "Theme"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Theme"
 msgstr "Tematică"
 
 #: mainwindow.cpp:185
-#, fuzzy, kde-format
-#| msgid "Background"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Background"
 msgstr "Fundal"
