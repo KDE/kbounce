@@ -232,7 +232,6 @@ msgstr "Tid: %1"
 
 #: mainwindow.cpp:93
 #, fuzzy, kde-format
-#| msgid "&Play Sounds"
 msgctxt "@option:check"
 msgid "Play Sounds"
 msgstr "&Spill lyder"
@@ -255,14 +254,12 @@ msgstr "Spillet er slutt. Klikk for å starte et spill"
 
 #: mainwindow.cpp:184
 #, fuzzy, kde-format
-#| msgid "Theme"
 msgctxt "@title:tab"
 msgid "Theme"
 msgstr "Tema"
 
 #: mainwindow.cpp:185
 #, fuzzy, kde-format
-#| msgid "Background"
 msgctxt "@title:tab"
 msgid "Background"
 msgstr "Bakgrunn"
