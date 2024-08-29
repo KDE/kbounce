@@ -10,14 +10,14 @@ msgstr ""
 "Project-Id-Version: kbounce\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-03 00:36+0000\n"
-"PO-Revision-Date: 2024-02-23 19:16+0200\n"
+"PO-Revision-Date: 2024-08-27 16:38+0300\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
 "Language: lv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 24.08.0\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
 
@@ -229,11 +229,10 @@ msgid "Time: %1"
 msgstr "Laiks: %1"
 
 #: mainwindow.cpp:93
-#, fuzzy, kde-format
-#| msgid "&Play Sounds"
+#, kde-format
 msgctxt "@option:check"
 msgid "Play Sounds"
-msgstr "&Atskaņot skaņas"
+msgstr "Atskaņot skaņas"
 
 #: mainwindow.cpp:133
 #, kde-format
@@ -252,15 +251,13 @@ msgid "Game over. Click to start a game"
 msgstr "Spēles beigas. Klikšķiniet, lai sāktu spēli"
 
 #: mainwindow.cpp:184
-#, fuzzy, kde-format
-#| msgid "Theme"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Theme"
 msgstr "Motīvs"
 
 #: mainwindow.cpp:185
-#, fuzzy, kde-format
-#| msgid "Background"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Background"
 msgstr "Fons"
