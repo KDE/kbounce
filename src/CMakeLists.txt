@@ -50,6 +50,7 @@ target_link_libraries(kbounce
     KF6::KIOWidgets
     KF6::DBusAddons
     KF6::Crash
+    KF6::IconThemes
     Qt6::Svg
 )
 

@@ -17,6 +17,7 @@ Dependencies:
     'frameworks/kxmlgui': '@latest-kf6'
     'frameworks/kio': '@latest-kf6'
     'frameworks/kdoctools': '@latest-kf6'
+    'frameworks/kiconthemes': '@latest-kf6'
     'games/libkdegames': '@same'
 
 Options:
