@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kbounce VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-03 00:36+0000\n"
+"POT-Creation-Date: 2024-11-22 00:38+0000\n"
 "PO-Revision-Date: 2002-11-07 11:32+0200\n"
 "Last-Translator: WEB-Translator <http://kde.af.org.za>\n"
 "Language-Team: AFRIKAANS <AF@lia.org.za>\n"
@@ -114,80 +114,80 @@ msgstr ""
 msgid "Main Toolbar"
 msgstr ""
 
-#: main.cpp:26
+#: main.cpp:44
 #, kde-format
 msgid "KBounce"
 msgstr "K-hop"
 
-#: main.cpp:28
+#: main.cpp:46
 #, fuzzy, kde-format
 #| msgid "KDE Bounce Ball Game"
 msgid "Bounce Ball Game"
 msgstr "Kde Hop Bal Speletjie"
 
-#: main.cpp:30
+#: main.cpp:48
 #, kde-format
 msgid ""
 "(c) 2000-2005, Stefan Schimanski\n"
 "(c) 2007, Tomasz Boczkowski"
 msgstr ""
 
-#: main.cpp:34
+#: main.cpp:52
 #, kde-format
 msgid "Stefan Schimanski"
 msgstr ""
 
-#: main.cpp:35
+#: main.cpp:53
 #, kde-format
 msgid "Original author"
 msgstr "Oorspronklike outeur"
 
-#: main.cpp:38
+#: main.cpp:56
 #, kde-format
 msgid "Sandro Sigala"
 msgstr ""
 
-#: main.cpp:39
+#: main.cpp:57
 #, kde-format
 msgid "Highscore"
 msgstr ""
 
-#: main.cpp:42
+#: main.cpp:60
 #, kde-format
 msgid "Benjamin Meyer"
 msgstr ""
 
-#: main.cpp:43
+#: main.cpp:61
 #, kde-format
 msgid "Contributions"
 msgstr "Bydraes"
 
-#: main.cpp:46
+#: main.cpp:64
 #, kde-format
 msgid "Tomasz Boczkowski"
 msgstr ""
 
-#: main.cpp:47
+#: main.cpp:65
 #, kde-format
 msgid "Port to KDE4. Current maintainer"
 msgstr ""
 
-#: main.cpp:50
+#: main.cpp:68
 #, kde-format
 msgid "Dmitry Suzdalev"
 msgstr ""
 
-#: main.cpp:51
+#: main.cpp:69
 #, kde-format
 msgid "Port to QGraphicsView framework"
 msgstr ""
 
-#: main.cpp:54
+#: main.cpp:72
 #, kde-format
 msgid "Andreas Scherf"
 msgstr ""
 
-#: main.cpp:55
+#: main.cpp:73
 #, fuzzy, kde-format
 msgid "Image Background and Fixes"
 msgstr "Kies Agtergrond Beeld Gids"
