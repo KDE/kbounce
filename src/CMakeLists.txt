@@ -43,6 +43,18 @@ ecm_qt_declare_logging_category(kbounce
 file(GLOB ICONS_SRCS "${CMAKE_SOURCE_DIR}/pics/*-apps-kbounce.png")
 ecm_add_app_icon(kbounce ICONS ${ICONS_SRCS})
 
+if(APPLE)
+    set_target_properties(kbounce PROPERTIES
+        MACOSX_BUNDLE_DISPLAY_NAME "KBounce"
+        MACOSX_BUNDLE_BUNDLE_NAME "KBounce"
+        MACOSX_BUNDLE_LONG_VERSION_STRING "KBounce ${RELEASE_SERVICE_VERSION}"
+        MACOSX_BUNDLE_SHORT_VERSION_STRING "${RELEASE_SERVICE_VERSION_MAJOR}.${RELEASE_SERVICE_VERSION_MINOR}"
+        MACOSX_BUNDLE_BUNDLE_VERSION "${RELEASE_SERVICE_VERSION}"
+        MACOSX_BUNDLE_GUI_IDENTIFIER "org.kde.kbounce"
+        MACOSX_BUNDLE_COPYRIGHT "2024 The KBounce Developers")
+endif()
+
+
 target_link_libraries(kbounce 
     KDEGames6
     KF6::XmlGui
