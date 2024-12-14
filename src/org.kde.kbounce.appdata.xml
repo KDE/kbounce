@@ -39,6 +39,7 @@
   <name xml:lang="pt-BR">KBounce</name>
   <name xml:lang="ro">Bilă săritoare</name>
   <name xml:lang="ru">KBounce</name>
+  <name xml:lang="sa">KBounce</name>
   <name xml:lang="sk">KBounce</name>
   <name xml:lang="sl">KBounce</name>
   <name xml:lang="sv">Kstuds</name>
@@ -77,6 +78,7 @@
   <summary xml:lang="pt-BR">O KBounce é um jogo arcade de um jogador com elementos de quebra-cabeça</summary>
   <summary xml:lang="ro">Bila săritoare e un joc de arcadă cu un singur jucător, cu elemente de puzzle</summary>
   <summary xml:lang="ru">KBounce — аркада с элементами головоломки для одного игрока</summary>
+  <summary xml:lang="sa">KBounce इति एकः खिलाडी आर्केड् क्रीडा पहेली इत्यस्य तत्त्वैः सह अस्ति</summary>
   <summary xml:lang="sk">KBounce je arkádová hra pre jedného hráča s prvkami puzzle</summary>
   <summary xml:lang="sl">KBounce je arkadna igra za enega igralca z elementi sestavljanke</summary>
   <summary xml:lang="sv">Kstuds är ett arkadspel för en ensam spelare med inslag av problemlösning</summary>
@@ -118,6 +120,7 @@
     <p xml:lang="pt-BR">O KBounce é um jogo arcade de um jogador com elementos de quebra-cabeça. É jogado em um campo, cercado por parede, com duas ou mais bolas que se movem sobre no campo batendo nas paredes. O jogador pode construir novas paredes diminuindo o tamanho do campo ativo. O objetivo do jogo é preencher pelo menos 75% do campo e avançar para o próximo nível.</p>
     <p xml:lang="ro">Bila săritoare e un joc de arcadă cu un singur jucător, cu elemente de puzzle. Acesta e jucat pe un câmp înconjurat de perete, cu două sau mai multe mingi ce se deplasează prin câmp lovindu-se de pereți. Jucătorul poate construi pereți noi, micșorând dimensiunea câmpului activ. Scopul jocului e să umpleți cel puțin 75% din câmp și să avansați spre nivelul următor.</p>
     <p xml:lang="ru">KBounce — аркада с элементами головоломки для одного игрока. Игра ведётся на окружённом стеной поле, по которому перемещаются два или более мячей (они отскакивают от стен). Игрок может строить новые стены, уменьшая размер активного поля. Цель игры заключается в том, чтобы заполнить как минимум 75% поля и перейти на следующий уровень.</p>
+    <p xml:lang="sa">KBounce इति एकः खिलाडी आर्केड् क्रीडा पहेली इत्यस्य तत्त्वैः सह अस्ति । भित्तिभिः परितः क्षेत्रे द्वौ वा अधिकौ कन्दुकौ भित्तिभ्यः उच्छिष्टौ क्षेत्रे भ्रमन्तौ क्रीड्यते । क्रीडकः सक्रियक्षेत्रस्य आकारं न्यूनीकृत्य नूतनानि भित्तिं निर्मातुम् अर्हति । न्यूनातिन्यूनं ७५% क्षेत्रं पूरयित्वा अग्रिमस्तरं प्रति गन्तुं क्रीडायाः लक्ष्यं भवति ।</p>
     <p xml:lang="sk">KBounce je arkádová hra pre jedného hráča s prvkami puzzle. Hrá sa na poli, obklopenom stenou, s dvoma alebo viacerými loptičkami, ktoré sa pohybujú v poli, odrážajúcimi sa od stien. Hráč môže vytvárať nové steny, čím zmenšuje veľkosť aktívneho poľa. Cieľom hry je vyplniť najmenej 75% poľa a postúpiť na ďalšiu úroveň.</p>
     <p xml:lang="sl">KBounce je arkadna igra za enega igralca z elementi sestavljanke. Igra se na polju, obdanem s steno, z dvema ali več kroglicami, ki se gibljejo po polju, ki se odbijajo od sten. Igralec lahko zgradi nove zidove in tako zmanjša velikost aktivnega polja. Cilj igre je zapolniti vsaj 75% polja in napredovati na naslednjo stopnjo.</p>
     <p xml:lang="sv">Kstuds är ett arkadspel för en ensam spelare med inslag av problemlösning. Det spelas på ett fält, som omges av väggar, med två eller flera bollar som rör sig över fältet och studsar mot väggarna. Spelaren kan bygga nya väggar, vilket minskar det aktiva fältets storlek. Spelets mål är att fylla minst 75 % av fältet och gå vidare till nästa nivå.</p>
@@ -163,6 +166,7 @@
       <caption xml:lang="pt-BR">Jogando KBounce</caption>
       <caption xml:lang="ro">Jucând Bila săritoare</caption>
       <caption xml:lang="ru">Игра в KBounce</caption>
+      <caption xml:lang="sa">KBounce क्रीडन्</caption>
       <caption xml:lang="sk">Hranie KBounce</caption>
       <caption xml:lang="sl">Igra KBounce</caption>
       <caption xml:lang="sv">Spela Kstuds</caption>
