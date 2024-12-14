@@ -1,0 +1,258 @@
+# Sanskrit translations for kbounce package.
+# Copyright (C) 2024 This file is copyright:
+# This file is distributed under the same license as the kbounce package.
+# Kali <EMAIL@ADDRESS>, 2024.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kbounce\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2024-11-22 00:38+0000\n"
+"PO-Revision-Date: 2024-12-13 19:09+0530\n"
+"Last-Translator: Kali <EMAIL@ADDRESS>\n"
+"Language-Team: Sanskrit\n"
+"Language: sa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr ""
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr ""
+
+#: backgroundselector.cpp:98
+#, kde-format
+msgid "No background pictures found."
+msgstr "पृष्ठभूमिचित्रं न प्राप्तम्।"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, KBounceBackgroundSelector)
+#: backgroundselector.ui:14
+#, kde-format
+msgid "kbouncebackgroundselector"
+msgstr "kbounceपृष्ठभूमिचयनकर्ता"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_UseRandomBackgroundPictures)
+#: backgroundselector.ui:24
+#, kde-format
+msgid "Enable random pictures as background"
+msgstr "पृष्ठभूमिरूपेण यादृच्छिकचित्रं सक्षमं कुर्वन्तु"
+
+#. i18n: ectx: property (text), widget (QLabel, backgoundPicturePathLabel)
+#: backgroundselector.ui:54
+#, kde-format
+msgid "Choose picture path:"
+msgstr "चित्रमार्गं चिनुत : १."
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: backgroundselector.ui:78
+#, kde-format
+msgid "Preview"
+msgstr "पूर्वावलोकनम्"
+
+#: gamewidget.cpp:396
+#, kde-format
+msgid ""
+"Welcome to KBounce.\n"
+" Click to start a game"
+msgstr ""
+"KBounce इत्यत्र स्वागतम्।\n"
+" क्रीडां आरभ्यतुं क्लिक् कुर्वन्तु"
+
+#: gamewidget.cpp:399
+#, kde-format
+msgid ""
+"Paused\n"
+" Click to resume"
+msgstr ""
+"विरामः कृतः\n"
+" पुनः आरभ्यतुं क्लिक् कुर्वन्तु"
+
+#: gamewidget.cpp:402
+#, kde-format
+msgid "You have successfully cleared more than %1% of the board\n"
+msgstr "भवता फलकस्य %1% अधिकं सफलतया स्वच्छं कृतम्\n"
+
+#: gamewidget.cpp:403
+#, kde-format
+msgid "%1 points: %2 points per remaining life\n"
+msgstr "%1 अंकाः: प्रतिशेषजीवनं %2 अंकाः\n"
+
+#: gamewidget.cpp:404
+#, kde-format
+msgid "%1 points: Bonus\n"
+msgstr "%1 अंकाः: बोनसः\n"
+
+#: gamewidget.cpp:405
+#, kde-format
+msgid "%1 points: Total score for this level\n"
+msgstr "%1 अंकाः: अस्य स्तरस्य कृते कुलस्कोरः\n"
+
+#: gamewidget.cpp:406
+#, kde-format
+msgid "On to level %1. Remember you get %2 lives this time!"
+msgstr "%1 स्तरं प्रति । स्मर्यतां यत् अस्मिन् समये भवन्तः %2 जीवनं प्राप्नुवन्ति!"
+
+#: gamewidget.cpp:409
+#, kde-format
+msgid ""
+"Game over.\n"
+" Click to start a game"
+msgstr ""
+"गेम ओवर।\n"
+" क्रीडां आरभ्यतुं क्लिक् कुर्वन्तु"
+
+#. i18n: ectx: label, entry (PlaySounds), group (Sound)
+#: kbounce.kcfg:16
+#, kde-format
+msgid "Whether game sounds are played."
+msgstr "क्रीडाध्वनयः क्रीड्यन्ते वा।"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kbounceui.rc:17
+#, kde-format
+msgid "Main Toolbar"
+msgstr "मुख्य साधनपट्टी"
+
+#: main.cpp:44
+#, kde-format
+msgid "KBounce"
+msgstr "KBounce"
+
+#: main.cpp:46
+#, kde-format
+msgid "Bounce Ball Game"
+msgstr "उछाल गेंद खेल"
+
+#: main.cpp:48
+#, kde-format
+msgid ""
+"(c) 2000-2005, Stefan Schimanski\n"
+"(c) 2007, Tomasz Boczkowski"
+msgstr ""
+"(ग) 2000-2005, स्टीफन शिमान्स्की\n"
+"(ग) 2007, Tomasz Boczkowski"
+
+#: main.cpp:52
+#, kde-format
+msgid "Stefan Schimanski"
+msgstr "स्टीफन शिमान्स्की"
+
+#: main.cpp:53
+#, kde-format
+msgid "Original author"
+msgstr "मूल लेखक"
+
+#: main.cpp:56
+#, kde-format
+msgid "Sandro Sigala"
+msgstr "सान्द्रो सिगला"
+
+#: main.cpp:57
+#, kde-format
+msgid "Highscore"
+msgstr "उच्चाङ्कः"
+
+#: main.cpp:60
+#, kde-format
+msgid "Benjamin Meyer"
+msgstr "बेन्जामिन मेयर"
+
+#: main.cpp:61
+#, kde-format
+msgid "Contributions"
+msgstr "योगदानम्"
+
+#: main.cpp:64
+#, kde-format
+msgid "Tomasz Boczkowski"
+msgstr "तोमास्ज बोचकोव्स्की"
+
+#: main.cpp:65
+#, kde-format
+msgid "Port to KDE4. Current maintainer"
+msgstr "KDE4 - मध्ये पोर्ट् कुर्वन्तु । वर्तमान परिपालकः"
+
+#: main.cpp:68
+#, kde-format
+msgid "Dmitry Suzdalev"
+msgstr "दिमित्री सुजदालेव"
+
+#: main.cpp:69
+#, kde-format
+msgid "Port to QGraphicsView framework"
+msgstr "QGraphicsView ढांचा प्रति पोर्ट्"
+
+#: main.cpp:72
+#, kde-format
+msgid "Andreas Scherf"
+msgstr "आन्द्रियास शेर्फ"
+
+#: main.cpp:73
+#, kde-format
+msgid "Image Background and Fixes"
+msgstr "चित्रपृष्ठभूमिः निराकरणं च"
+
+#: mainwindow.cpp:32 mainwindow.cpp:210
+#, kde-format
+msgid "Level: %1"
+msgstr "स्तरः %1"
+
+#: mainwindow.cpp:33 mainwindow.cpp:215
+#, kde-format
+msgid "Score: %1"
+msgstr "स्कोरः %1"
+
+#: mainwindow.cpp:34 mainwindow.cpp:220
+#, kde-format
+msgid "Filled: %1%"
+msgstr "पूरितः : %1% ."
+
+#: mainwindow.cpp:35 mainwindow.cpp:225
+#, kde-format
+msgid "Lives: %1"
+msgstr "जीवति: %1"
+
+#: mainwindow.cpp:36 mainwindow.cpp:230
+#, kde-format
+msgid "Time: %1"
+msgstr "समयः %1"
+
+#: mainwindow.cpp:93
+#, kde-format
+msgctxt "@option:check"
+msgid "Play Sounds"
+msgstr ""
+
+#: mainwindow.cpp:133
+#, kde-format
+msgid "Are you sure you want to quit the current game?"
+msgstr "किं भवन्तः वर्तमानक्रीडां त्यक्तुम् इच्छन्ति इति निश्चितम्?"
+
+#: mainwindow.cpp:135
+#, kde-format
+msgctxt "@action;button"
+msgid "Quit Game"
+msgstr ""
+
+#: mainwindow.cpp:149 mainwindow.cpp:252
+#, kde-format
+msgid "Game over. Click to start a game"
+msgstr "गेम ओवर। क्रीडां आरभ्यतुं क्लिक् कुर्वन्तु"
+
+#: mainwindow.cpp:184
+#, kde-format
+msgctxt "@title:tab"
+msgid "Theme"
+msgstr ""
+
+#: mainwindow.cpp:185
+#, kde-format
+msgctxt "@title:tab"
+msgid "Background"
+msgstr ""
