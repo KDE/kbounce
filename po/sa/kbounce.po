@@ -19,12 +19,12 @@ msgstr ""
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "भवतः नामानि"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "भवतः ईमेलपत्राणि"
 
 #: backgroundselector.cpp:98
 #, kde-format
@@ -227,7 +227,7 @@ msgstr "समयः %1"
 #, kde-format
 msgctxt "@option:check"
 msgid "Play Sounds"
-msgstr ""
+msgstr "ध्वनयः वादयन्तु"
 
 #: mainwindow.cpp:133
 #, kde-format
@@ -238,7 +238,7 @@ msgstr "किं भवन्तः वर्तमानक्रीडां 
 #, kde-format
 msgctxt "@action;button"
 msgid "Quit Game"
-msgstr ""
+msgstr "क्रीडां त्यजतु"
 
 #: mainwindow.cpp:149 mainwindow.cpp:252
 #, kde-format
@@ -249,10 +249,10 @@ msgstr "गेम ओवर। क्रीडां आरभ्यतुं �
 #, kde-format
 msgctxt "@title:tab"
 msgid "Theme"
-msgstr ""
+msgstr "विषयवस्तु"
 
 #: mainwindow.cpp:185
 #, kde-format
 msgctxt "@title:tab"
 msgid "Background"
-msgstr ""
+msgstr "पृष्ठभूमि"
