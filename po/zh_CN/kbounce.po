@@ -228,7 +228,7 @@ msgstr "时间：%1"
 #, kde-format
 msgctxt "@option:check"
 msgid "Play Sounds"
-msgstr ""
+msgstr "播放声音"
 
 #: mainwindow.cpp:133
 #, kde-format
