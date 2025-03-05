@@ -22,12 +22,12 @@ msgstr ""
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Carsten Niehaus"
+msgstr "Deutsches KDE-Übersetzungsteam"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "CNiehaus@gmx.de"
+msgstr "kde-i18n-de@kde.org"
 
 #: backgroundselector.cpp:98
 #, kde-format
