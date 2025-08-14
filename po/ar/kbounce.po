@@ -180,7 +180,7 @@ msgstr "Tomasz Boczkowski"
 #: main.cpp:65
 #, kde-format
 msgid "Port to KDE4. Current maintainer"
-msgstr "النقل إلى كِيدِي4 ، و المشرف الحالي"
+msgstr "النقل إلى كِيدِي4، و المشرف الحالي"
 
 #: main.cpp:68
 #, kde-format
