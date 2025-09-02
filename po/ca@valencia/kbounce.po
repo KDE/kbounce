@@ -55,7 +55,7 @@ msgstr "Habilita imatges aleatòries com a fons"
 #: backgroundselector.ui:54
 #, kde-format
 msgid "Choose picture path:"
-msgstr "Selecciona el camí de les imatges:"
+msgstr "Tria el camí de les imatges:"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: backgroundselector.ui:78
