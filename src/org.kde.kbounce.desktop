@@ -72,7 +72,6 @@ Name[uk]=KBounce
 Name[vi]=KBounce
 Name[wa]=KBounce
 Name[xh]=KBounce
-Name[x-test]=xxKBouncexx
 Name[zh_CN]=KBounce
 Name[zh_TW]=KBounce 彈力球
 
@@ -135,7 +134,6 @@ GenericName[sv]=Bollstudsspel
 GenericName[tr]=Top Zıplatma Oyunu
 GenericName[ug]=توپنى سەكرىتىش ئويۇنى
 GenericName[uk]=Гра з відбиття м’ячика
-GenericName[x-test]=xxBall Bouncing Gamexx
 GenericName[zh_CN]=弹球游戏
 GenericName[zh_TW]=彈力球遊戲
 
@@ -181,7 +179,6 @@ Comment[sr@latin]=Igra odbijajućih lopti
 Comment[sv]=Bollstudsspel
 Comment[tr]=Top Zıplatma Oyunu
 Comment[uk]=Гра з відбиття м’ячика
-Comment[x-test]=xxBall Bouncing Gamexx
 Comment[zh_CN]=弹球游戏
 Comment[zh_TW]=彈力球遊戲
 
