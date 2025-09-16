@@ -225,7 +225,7 @@ msgstr "Puntuación: %1"
 #: mainwindow.cpp:34 mainwindow.cpp:220
 #, kde-format
 msgid "Filled: %1%"
-msgstr "Rellenado: %1%"
+msgstr "Rellenado: %1 %"
 
 #: mainwindow.cpp:35 mainwindow.cpp:225
 #, kde-format
