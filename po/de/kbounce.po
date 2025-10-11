@@ -1,9 +1,9 @@
 # SPDX-FileCopyrightText: 2009, 2010, 2024 Johannes Obermayr <johannesobermayr@gmx.de>
-# Stefan Winter <swinter@kde.org>, 2003, 2004, 2005, 2007.
-# Thomas Reitelbach <tr@erdfunkstelle.de>, 2005, 2006, 2007, 2008.
+# SPDX-FileCopyrightText: 2003, 2004, 2005, 2007 Stefan Winter <swinter@kde.org>
+# SPDX-FileCopyrightText: 2005, 2006, 2007, 2008 Thomas Reitelbach <tr@erdfunkstelle.de>
 # Stefan Winter <Stefan Winter <swinter@kde.org>>, 2007.
-# Burkhard Lück <lueck@hube-lueck.de>, 2008, 2010, 2013, 2021.
-# Frederik Schwarzer <schwarzer@kde.org>, 2010, 2022.
+# SPDX-FileCopyrightText: 2008, 2010, 2013, 2021 Burkhard Lück <lueck@hube-lueck.de>
+# SPDX-FileCopyrightText: 2010, 2022 Frederik Schwarzer <schwarzer@kde.org>
 msgid ""
 msgstr ""
 "Project-Id-Version: kbounce\n"
