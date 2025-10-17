@@ -1,13 +1,13 @@
 # Translation of kbounce.po to Catalan
 # Copyright (C) 2002-2024 This_file_is_part_of_KDE
 #
-# Àlex Corretgé i Bergua <alex@domini.net>, 2002.
-# Albert Astals Cid <aacid@kde.org>, 2003, 2004, 2005, 2007, 2008.
-# Josep M. Ferrer <txemaq@gmail.com>, 2004, 2008, 2010, 2013, 2019, 2020, 2022, 2023, 2024.
-# Aleix Pol <aleixpol@gmail.com>, 2007.
-# Manuel Tortosa Moreno <manutortosa@gmail.com>, 2009, 2010.
-# Manuel Tortosa <manutortosa@chakra-project.org>, 2010.
-# Antoni Bella Pérez <antonibella5@yahoo.com>, 2020, 2021.
+# SPDX-FileCopyrightText: 2002 Àlex Corretgé i Bergua <alex@domini.net>
+# SPDX-FileCopyrightText: 2003, 2004, 2005, 2007, 2008 Albert Astals Cid <aacid@kde.org>
+# SPDX-FileCopyrightText: 2004, 2008, 2010, 2013, 2019, 2020, 2022, 2023, 2024 Josep M. Ferrer <txemaq@gmail.com>
+# SPDX-FileCopyrightText: 2007 Aleix Pol <aleixpol@gmail.com>
+# SPDX-FileCopyrightText: 2009, 2010 Manuel Tortosa Moreno <manutortosa@gmail.com>
+# SPDX-FileCopyrightText: 2010 Manuel Tortosa <manutortosa@chakra-project.org>
+# SPDX-FileCopyrightText: 2020, 2021 Antoni Bella Pérez <antonibella5@yahoo.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kbounce\n"
