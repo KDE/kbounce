@@ -140,7 +140,7 @@
 >tête</quote
 > qui s'éloigne du point où vous avez cliqué. Un mur n'est pas permanent tant que sa <quote
 >tête</quote
-> n'a pas atteint le mur opposé. Si une balle entre en collision avec une partie du mur différente de sa tête, le mur en cours de construction disparaîtra complètement et une vie sera perdue. Si une balle entre en collision avec la tête dans la direction de la construction du mur, le mur s'arrêtera là et deviendra permanent, sans perte de vie. Si une balle entre en collision avec la tête du mur d'un autre côté, la balle rebondira et le mur continuera à avancer normalement. </para>
+> n'a pas atteint le mur opposé. Si une balle entre en collision avec une partie du mur différente de sa tête, le mur en cours de construction disparaitra complètement et une vie sera perdue. Si une balle entre en collision avec la tête dans la direction de la construction du mur, le mur s'arrêtera là et deviendra permanent, sans perte de vie. Si une balle entre en collision avec la tête du mur d'un autre côté, la balle rebondira et le mur continuera à avancer normalement. </para>
 </chapter>
 
 <chapter id="rules_and_tips"
@@ -422,7 +422,7 @@
 ></term>
 <listitem>
 <para
->Ouvre une boîte de dialogue qui affiche les différents tableaux des meilleurs scores. </para>
+>Ouvre une boite de dialogue qui affiche les différents tableaux des meilleurs scores. </para>
 </listitem>
 </varlistentry>
 
@@ -576,7 +576,7 @@
 >Configuration du jeu</title
 > <!-- do not change this! -->
 <para
->La boîte de dialogue de configuration de &kbounce; vous permet de sélectionner les thèmes visuels pour &kbounce;.</para>
+>La boite de dialogue de configuration de &kbounce; vous permet de sélectionner les thèmes visuels pour &kbounce;.</para>
 <para
 >Pour sélectionner un nouveau thème, veuillez simplement le choisir dans la liste de sélection. Chaque élément de la liste affiche un aperçu réduit à gauche du nom de thème. La sélection est prise en compte immédiatement. </para>
 <para
@@ -584,7 +584,7 @@
 <para
 >Une fois que vous êtes satisfait avec le thème sélectionné, vous pouvez cliquer sur le bouton <guibutton
 >Ok</guibutton
-> situé en bas de la boîte de dialogue. </para>
+> situé en bas de la boite de dialogue. </para>
 </chapter>
 
 <chapter id="credits-and-license">
