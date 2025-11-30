@@ -71,13 +71,13 @@
 
 
 <date
->09/05/2016</date>
+>25/06/2021</date>
 <releaseinfo
->0.11 (Applications 16.04)</releaseinfo>
+>KDE Gear 21.04</releaseinfo>
 
 <abstract>
 	<para
->Esta documentação descreve o jogo &kbounce; versão 0.11</para>
+>Esta documentação descreve o jogo &kbounce; versão 21.04</para>
 </abstract>
 
 
@@ -99,7 +99,7 @@
 	<keyword
 >bolas</keyword>
 	<keyword
->jezzball</keyword>
+>JezzBall</keyword>
 	<keyword
 >KBounce</keyword>
 </keywordset>
@@ -144,7 +144,7 @@
 >O tamanho da área ativa do campo é reduzido ao serem criadas novas paredes, que fecham totalmente as áreas que não possuem bolas. Para completar um nível, o jogador deve reduzir o tamanho do campo ativo em pelo menos 75&percnt;, dentro do tempo permitido. </para>
 
 <para
->Novas paredes são criadas ao clicar com o &LMB; em uma área ativa do campo, iniciando o crescimento de duas paredes em direções opostas, a partir do local em que você clicou. Somente uma parede em cada direção pode crescer ao mesmo tempo. </para>
+>Novas paredes são criadas ao clicar com o &LMB; em uma área ativa do campo, iniciando o crescimento de uma parede em direções opostas, a partir do local em que você clicou. Somente uma parede em cada direção pode crescer ao mesmo tempo. </para>
 
 <para
 >Quando o mouse estiver sobre o campo, o cursor é mostrado como um par de setas apontando em direções opostas, seja na horizontal ou na vertical. As setas apontam para a direção em que as paredes irão crescer ao clicar com o &LMB;. Essa direção pode ser alterada se clicar com o &RMB;. </para>
@@ -389,7 +389,7 @@
 > <guimenu
 >Jogo</guimenu
 > <guimenuitem
->Encerrar o jogo</guimenuitem
+>Encerrar jogo</guimenuitem
 > </menuchoice
 ></term>
 <listitem>
@@ -545,7 +545,7 @@
 ><guimenu
 >Configurações</guimenu
 ><guimenuitem
->Configurar o &kbounce;...</guimenuitem
+>Configurar o &kbounce;…</guimenuitem
 ></menuchoice
 ></para
 ></answer>
@@ -640,7 +640,7 @@
 <para
 >Tomasz Boczkowski <email
 >tboczkowski@onet.pl</email
-> - Versão para o KDE4 e KGameCavas</para>
+> - Migração para o KDE4 e KGameCavas</para>
 </listitem>
 </itemizedlist>
 
