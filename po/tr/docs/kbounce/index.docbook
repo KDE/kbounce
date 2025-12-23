@@ -71,7 +71,7 @@
 
 
 <date
->2021-06-25</date>
+>2021‒06‒25</date>
 <releaseinfo
 >KDE Gear 21.04</releaseinfo>
 
@@ -147,7 +147,7 @@
 >Yeni duvarlar, alanın etkin bir bölgesinde &LMB; tıklanarak yapılır. Bu yapıldığında bir duvar, farenin tıklandığı karenin tersi yönlerde büyümeye başlayacaktır. Herhangi bir zamanda yalnızca bir duvar her bir yönde büyüyebilir. </para>
 
 <para
->Fare alana geldiğinde, imleç, karşıt yönde yatay veya dikey olarak işaret eden bir çift ok olarak gösterilir. Oklar, &LMB; tıklandığı zaman duvarların büyüyeceği yönü gösterir. Bu yön, &RMB;'ni tıklayarak değiştirilebilir. </para>
+>Fare alana geldiğinde, imleç, karşıt yönde yatay veya dikey olarak işaret eden bir çift ok olarak gösterilir. Oklar, &LMB; tıklandığı zaman duvarların büyüyeceği yönü gösterir. Bu yön, &RMB;’ni tıklayarak değiştirilebilir. </para>
 
 <para
 >Yeni bir duvar, farenin tıklandığı noktadan uzaklaşan bir <quote
@@ -199,7 +199,7 @@
 
 <listitem>
 <para
->&kbounce;'yı başarılı olarak oynamanın püf noktası; <quote
+>&kbounce;’yı başarılı olarak oynamanın püf noktası; <quote
 >koridorlar</quote
 > yapmaktır. Bir koridor yapmak için başka bir duvara yakın büyüyen bir çift duvar başlatın ve öyle bir zamanlayın ki duvarların birine top çarpsın; ancak diğerine çarpmasın; böylelikle kalıcı olsun. </para>
 
@@ -459,7 +459,7 @@
 <para
 ><action
 >Çık</action
-> ve &kbounce;'yı kapat. Şu anda bir oyun oynanıyorsa durumu kaybolur.</para>
+> ve &kbounce;’yı kapat. Şu anda bir oyun oynanıyorsa durumu kaybolur.</para>
 </listitem>
 </varlistentry>
 </variablelist>
@@ -541,7 +541,7 @@
 ><guimenu
 >Ayarlar</guimenu
 ><guimenuitem
-> &kbounce; Uygulamasını Yapılandır...</guimenuitem
+> &kbounce; Uygulamasını Yapılandır…</guimenuitem
 ></menuchoice
 > seçeneğini kullanabilirsiniz.</para
 ></answer>
@@ -612,23 +612,23 @@
 <para
 >Stefan Schimanski <email
 >schimmi@kde.org</email
-> - Özgün Yazar</para>
+> — Özgün Yazar</para>
 </listitem>
 <listitem>
 <para
 >Sandro Sigala <email
 >ssigala@globalnet.it</email
-> - Rekor</para>
+> — Rekor</para>
 </listitem>
 <listitem>
 <para
 >Benjamin Meyer <email
 >ben+kbounce@meyerhome.net</email
-> - Katkılar</para>
+> — Katkılar</para>
 </listitem>
 <listitem>
 <para
->Dmitry Suzdalev <email
+>Dmitriy Suzdalev <email
 >dimsuz@gmail.com</email
 ></para>
 </listitem>
@@ -636,7 +636,7 @@
 <para
 >Tomasz Boczkowski <email
 >tboczkowski@onet.pl</email
-> - KDE4’e ve KGameCavas’a bağlama</para>
+> — KDE4’e ve KGameCavas’a geçiş</para>
 </listitem>
 </itemizedlist>
 
