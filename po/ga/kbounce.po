@@ -125,10 +125,9 @@ msgid "KBounce"
 msgstr "KBounce"
 
 #: main.cpp:46
-#, fuzzy, kde-format
-#| msgid "KDE Bounce Ball Game"
+#, kde-format
 msgid "Bounce Ball Game"
-msgstr "Cluiche Liathróid Preabtha KDE"
+msgstr ""
 
 #: main.cpp:48
 #, kde-format
@@ -225,17 +224,15 @@ msgid "Time: %1"
 msgstr "Am: %1"
 
 #: mainwindow.cpp:93
-#, fuzzy, kde-format
-#| msgid "&Play Sounds"
+#, kde-format
 msgctxt "@option:check"
 msgid "Play Sounds"
-msgstr "Seinn &Fuaimeanna"
+msgstr ""
 
 #: mainwindow.cpp:133
-#, fuzzy, kde-format
-#| msgid "Do you really want to close the running game?"
+#, kde-format
 msgid "Are you sure you want to quit the current game?"
-msgstr "An bhfuil tú cinnte gur mian leat an cluiche reatha a dhúnadh?"
+msgstr ""
 
 #: mainwindow.cpp:135
 #, kde-format
@@ -249,60 +246,13 @@ msgid "Game over. Click to start a game"
 msgstr "Cluiche thart. Cliceáil chun cluiche a thosú"
 
 #: mainwindow.cpp:184
-#, fuzzy, kde-format
-#| msgid "Theme"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Theme"
-msgstr "Téama"
+msgstr ""
 
 #: mainwindow.cpp:185
-#, fuzzy, kde-format
-#| msgid "Background"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Background"
-msgstr "Cúlra"
-
-#~ msgid "Paused"
-#~ msgstr "Moillithe"
-
-#~ msgid "The graphical theme to be used."
-#~ msgstr "An téama grafach le húsáid."
-
-#~ msgid "Difficulty level"
-#~ msgstr "Leibhéal deacrachta"
-
-#~ msgid "Game over. Press <Space> for a new game"
-#~ msgstr "Cluiche thart. Brúigh an spásbharra chun cluiche nua a thosú"
-
-#~ msgid "Game over."
-#~ msgstr "Cluiche thart."
-
-#~ msgid "Level: XX"
-#~ msgstr "Leibhéal: XX"
-
-#~ msgid "Score: XXXXXX"
-#~ msgstr "Scór: XXXXXX"
-
-#~ msgid "Filled: XX"
-#~ msgstr "Líonta: XX"
-
-#~ msgid "Lives: XX"
-#~ msgstr "Anamacha: XX"
-
-#~ msgid "Time: XXX"
-#~ msgstr "Am: XXX"
-
-#~ msgid "Level"
-#~ msgstr "Leibhéal"
-
-#~ msgid "Press %1 to start a game!"
-#~ msgstr "Brúigh %1 chun an cluiche a thosú!"
-
-#~ msgid "&Select Background Folder..."
-#~ msgstr "&Roghnaigh Fillteán Cúlra..."
-
-#~ msgid "Game Over! Score: %1"
-#~ msgstr "Cluiche Thart! Scór: %1"
-
-#~ msgid "Game suspended"
-#~ msgstr "Cluiche curtha ar fionraí"
+msgstr ""
