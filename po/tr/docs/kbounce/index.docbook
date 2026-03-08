@@ -152,7 +152,7 @@
 <para
 >Yeni bir duvar, farenin tıklandığı noktadan uzaklaşan bir <quote
 >kafa</quote
->içerir. Bu <quote
+> içerir. Bu <quote
 >kafa</quote
 > başka bir duvara girene kadar bir duvar kalıcı değildir. Kafa bir başka duvarda girmeden önce bir top başın dışındaki herhangi bir bölüme çarparsa yeni duvar tamamen kaybolur ve bir can kaybedilir. Bir top duvarın büyümesi yönünde kafayla çarpışırsa duvar büyümeyi durduracak ve can kaybı olmaksızın kalıcı hale gelecektir. Bir top diğer taraftan kafa ile çarpışırsa top sıçramalı ve duvar normal olarak büyümeyi sürdürecektir. </para>
 </chapter>
@@ -238,7 +238,7 @@
 <listitem>
 <para
 >Son bir ipucu &mdash; acele etmeyin! Ekranın altındaki <guilabel
->Time</guilabel
+>Zaman</guilabel
 > görüntüsünde gösterildiği üzere bolca zaman var. Acele, yalnızca başını belaya sokar! </para>
 </listitem>
 </itemizedlist>
@@ -594,9 +594,9 @@
 <para
 >Görsellerle birlikte kullanıcı tarafından tanımlanan bir klasörden rastgele arka plan resimleri seçebilirsiniz. </para>
 <para
->Seçtiğiniz temadan memnun olduğunuzda, bu diyalogun alt kısmında yer alan <guibutton
+>Seçtiğiniz temadan memnun olduğunuzda, bu iletişim kutusunun alt kısmında yer alan <guibutton
 >Tamam</guibutton
-> düğmesini tıklayabilirsiniz. </para>
+> düğmesine tıklayabilirsiniz. </para>
 </chapter>
 
 <chapter id="credits-and-license">
@@ -641,9 +641,9 @@
 </itemizedlist>
 
 <para
->Belgelendirme telif hakkı 2002, &Aaron.J.Seigo; &Aaron.J.Seigo.mail;</para>
+>Belgelendirme telif hakkı © 2002, &Aaron.J.Seigo; &Aaron.J.Seigo.mail;</para>
 <para
->Belgelendirme telif hakkı 2007, Tomasz Boczkowski <email
+>Belgelendirme telif hakkı © 2007, Tomasz Boczkowski <email
 >tboczkowski@onet.pl</email
 ></para>
 
