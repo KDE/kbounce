@@ -65,7 +65,7 @@ msgid ""
 "Welcome to KBounce.\n"
 " Click to start a game"
 msgstr ""
-"مرحبا بك في لعبة الارتداد ك.\n"
+"مرحبًا بك في لعبة الارتداد ك.\n"
 " اkrv لتبدأ لعب"
 
 #: gamewidget.cpp:399
