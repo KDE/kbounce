@@ -18,8 +18,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 20.12.1\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Lokalize 20.12.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -229,15 +229,13 @@ msgid "Time: %1"
 msgstr "Čas: %1"
 
 #: mainwindow.cpp:93
-#, fuzzy, kde-format
-#| msgid "&Play Sounds"
+#, kde-format
 msgctxt "@option:check"
 msgid "Play Sounds"
 msgstr "&Zahrať zvuky"
 
 #: mainwindow.cpp:133
-#, fuzzy, kde-format
-#| msgid "Do you really want to close the running game?"
+#, kde-format
 msgid "Are you sure you want to quit the current game?"
 msgstr "Naozaj chcete zavrieť bežiacu hru?"
 
@@ -245,7 +243,7 @@ msgstr "Naozaj chcete zavrieť bežiacu hru?"
 #, kde-format
 msgctxt "@action;button"
 msgid "Quit Game"
-msgstr ""
+msgstr "Ukončiť hru"
 
 #: mainwindow.cpp:149 mainwindow.cpp:252
 #, kde-format
@@ -253,15 +251,13 @@ msgid "Game over. Click to start a game"
 msgstr "Koniec hry. Kliknite na spustenie hry"
 
 #: mainwindow.cpp:184
-#, fuzzy, kde-format
-#| msgid "Theme"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Theme"
 msgstr "Téma"
 
 #: mainwindow.cpp:185
-#, fuzzy, kde-format
-#| msgid "Background"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Background"
 msgstr "Pozadie"
