@@ -52,6 +52,7 @@
   <summary xml:lang="bg">KBounce е аркадна игра за един играч с елементи на пъзел.</summary>
   <summary xml:lang="ca">El KBounce és un joc d'arcade de jugador únic amb elements de trencaclosques</summary>
   <summary xml:lang="ca-valencia">KBounce és un joc d'arcade de jugador únic amb elements de trencaclosques</summary>
+  <summary xml:lang="cs">KBounce je arkádová hra pro jednoho hráče s prvky logické hry</summary>
   <summary xml:lang="da">KBounce er et arkadespil til en enkelt spiller med logikelementer</summary>
   <summary xml:lang="de">KBounce ist ein Arcade- und Rätselspiel für einen Spieler</summary>
   <summary xml:lang="el">Το KBounce είναι ένα παιχνίδι arcade για έναν παίκτη με τα στοιχεία ενός παζλ</summary>
@@ -93,6 +94,7 @@
     <p xml:lang="bg">KBounce е аркадна игра за един играч с елементи на пъзел. Тя е на поле, заобиколено от стена, с две или повече топки, които се движат в полето и се отскачат от стените. Играчът може да изгражда нови стени, и да намалява размера на активното поле. Целта на играта е да се запълни поне 75% от полето и да преминете към следващото ниво.</p>
     <p xml:lang="ca">El KBounce és un joc d'arcade de jugador únic amb elements de puzle. Es juga en un camp rodejat per murs, amb dues o més boles que es mouen pel camp rebotant en els murs. El jugador pot construir murs nous, reduint la mida del camp actiu. L'objectiu del joc és omplir com a mínim el 75% del camp i així avançar cap al nivell següent.</p>
     <p xml:lang="ca-valencia">KBounce és un joc d'arcade de jugador únic amb elements de puzle. Es juga en un camp rodejat per murs, amb dues o més boles que es mouen pel camp rebotant en els murs. El jugador pot construir murs nous, reduint la mida del camp actiu. L'objectiu del joc és omplir com a mínim el 75% del camp i així avançar cap al nivell següent.</p>
+    <p xml:lang="cs">KBounce je arkádová hra pro jednoho hráče s prvky logické hry. Hraje se na hrací ploše ohraničené stěnami, kde se pohybují dva nebo více míčků, které se odrážejí od stěn. Hráč může stavět nové stěny a tím zmenšovat velikost hrací plochy. Cílem hry je zaplnit alespoň 75 % hrací plochy a postoupit do další úrovně.</p>
     <p xml:lang="da">KBounce er et arkadespil til en enkelt spiller med logikelementer. Det spilles på et felt omkranset af en mur, med to eller flere bolde som bevæger sig rundt på feltet og hopper imod murene. Spillerne kan bygge nye mure, og derved formindske størrelsen på det aktive felt. Målet med spillet er at udfylde  mindst 75% af feltet og gå videre til næste niveau.</p>
     <p xml:lang="de">KBounce ist ein Arcade- und Rätselspiel für einen Spieler. Es wird auf einem von Wänden umgebenen Feld gespielt. Sie spielen mit zwei oder mehr Bällen, die an den Wänden abprallen. Sie können neue Wände bauen und damit die Größe des aktiven Spielfeldes einschränken. Ziel des Spiels ist es, mindestens 75 % des Spielfeldes auszufüllen und damit zur nächsten Ebene zu kommen.</p>
     <p xml:lang="el">Το KBounce είναι ένα παιχνίδι για έναν παίκτη με τα στοιχεία ενός παζλ. Παίζεται σε ένα γήπεδο, περικλειόμενο από τοίχους, με δύο ή περισσότερες μπάλες που κινούνται στο γήπεδο και αναπηδούν στους τοίχους. Ο παίκτης μπορεί να ανυψώσει νέους τοίχους, μειώνοντας το μέγεθος του γηπέδου. Ο στόχος του παιχνιδιού είναι να γεμίσεις τουλάχιστον το 75% του γηπέδου και να περάσεις στο επόμενο επίπεδο.</p>
@@ -138,6 +140,7 @@
       <caption xml:lang="bg">Игра на KBounce</caption>
       <caption xml:lang="ca">Jugant al KBounce</caption>
       <caption xml:lang="ca-valencia">Jugant a KBounce</caption>
+      <caption xml:lang="cs">Hraní KBounce</caption>
       <caption xml:lang="da">At spille KBounce</caption>
       <caption xml:lang="de">KBounce spielen</caption>
       <caption xml:lang="el">Παίζω KBounce</caption>
