@@ -8,24 +8,25 @@ msgstr ""
 "Project-Id-Version: kbounce\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:49+0000\n"
-"PO-Revision-Date: 2013-09-08 07:05+0900\n"
-"Last-Translator: Gheyret Kenji <gheyret@gmail.com>\n"
+"PO-Revision-Date: 2026-05-30 17:05-0400\n"
+"Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
 "Language: ug\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.9\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "ئابدۇقادىر ئابلىز, غەيرەت كەنجى"
+msgstr "ئابدۇقادىر ئابلىز، غەيرەت كەنجى"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "sahran.ug@gmail.com,  gheyret@gmail.com"
+msgstr "sahranbay@gmail.com, gheyret@gmail.com"
 
 #: backgroundselector.cpp:98
 #, kde-format
@@ -139,7 +140,7 @@ msgstr "Stefan Schimanski"
 #: main.cpp:53
 #, kde-format
 msgid "Original author"
-msgstr "ئەسلى ئاپتور"
+msgstr "ئەسلى يازغۇچى"
 
 #: main.cpp:56
 #, kde-format
@@ -149,12 +150,12 @@ msgstr ""
 #: main.cpp:57
 #, kde-format
 msgid "Highscore"
-msgstr ""
+msgstr "دەرىجە تاختىسى"
 
 #: main.cpp:60
 #, kde-format
 msgid "Benjamin Meyer"
-msgstr "Benjamin Meyer"
+msgstr ""
 
 #: main.cpp:61
 #, kde-format
@@ -174,7 +175,7 @@ msgstr ""
 #: main.cpp:68
 #, kde-format
 msgid "Dmitry Suzdalev"
-msgstr "Dmitry Suzdalev"
+msgstr ""
 
 #: main.cpp:69
 #, kde-format
@@ -217,17 +218,15 @@ msgid "Time: %1"
 msgstr "ۋاقىت: %1"
 
 #: mainwindow.cpp:93
-#, fuzzy, kde-format
-#| msgid "&Play Sounds"
+#, kde-format
 msgctxt "@option:check"
 msgid "Play Sounds"
-msgstr "ئاۋاز قوي(&P)"
+msgstr ""
 
 #: mainwindow.cpp:133
-#, fuzzy, kde-format
-#| msgid "Do you really want to close the running game?"
+#, kde-format
 msgid "Are you sure you want to quit the current game?"
-msgstr "ئىجرا بولۇۋاتقان ئويۇننى ياپامسىز؟"
+msgstr "نۆۋەتتىكى ئويۇننى راستتىنلا ئاخىرلاشتۇرامسىز؟"
 
 #: mainwindow.cpp:135
 #, kde-format
@@ -241,15 +240,13 @@ msgid "Game over. Click to start a game"
 msgstr ""
 
 #: mainwindow.cpp:184
-#, fuzzy, kde-format
-#| msgid "Theme"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Theme"
 msgstr "ئۆرنەك"
 
 #: mainwindow.cpp:185
-#, fuzzy, kde-format
-#| msgid "Background"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Background"
 msgstr "تەگلىك"
