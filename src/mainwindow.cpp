@@ -93,6 +93,10 @@ void KBounceMainWindow::initXMLUI()
                                        i18nc("@option:check", "Play Sounds"), this );
     actionCollection()->addAction( QStringLiteral(  "toggle_sound" ), m_soundAction );
     connect( m_soundAction, &QAction::triggered, this, &KBounceMainWindow::setSounds );
+    m_separateOrientationAction = new KToggleAction(
+                                       i18nc("@option:check", "Right/Left Click walls"), this );
+    actionCollection()->addAction( QStringLiteral(  "toggle_separate_orientation" ), m_separateOrientationAction );
+    connect( m_separateOrientationAction, &QAction::triggered, this, &KBounceMainWindow::setSeparateOrientation );
 }
 
 
@@ -190,6 +194,7 @@ void KBounceMainWindow::configureSettings()
 void KBounceMainWindow::readSettings()
 {
     m_soundAction->setChecked( KBounceSettings::playSounds() );
+    m_separateOrientationAction->setChecked( KBounceSettings::separateClickOrientation() );
     m_gameWidget->settingsChanged();
 }
 
@@ -202,6 +207,12 @@ void KBounceMainWindow::settingsChanged()
 void KBounceMainWindow::setSounds( bool val )
 {
     KBounceSettings::setPlaySounds( val );
+    settingsChanged();
+}
+
+void KBounceMainWindow::setSeparateOrientation( bool val )
+{
+    KBounceSettings::setSeparateClickOrientation( val );
     settingsChanged();
 }
 

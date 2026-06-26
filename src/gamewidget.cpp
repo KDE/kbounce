@@ -157,6 +157,8 @@ void KBounceGameWidget::settingsChanged()
     {
         m_renderer.setCustomBackgroundPath(QString());
     }
+
+    updateCursor();
     redraw();
 }
 
@@ -262,29 +264,63 @@ void KBounceGameWidget::resizeEvent( QResizeEvent* ev )
 
 void KBounceGameWidget::mouseReleaseEvent( QMouseEvent* event )
 {
-    if ( event->button() & Qt::RightButton )
+    if ( KBounceSettings::separateClickOrientation() )
     {
-        m_vertical = !m_vertical;
-        updateCursor();
+        // New mode: left click = horizontal, right click = vertical
+        if ( event->button() & Qt::LeftButton )
+        {
+            if ( m_state == Running )
+            {
+                m_board->buildWall( mapToScene( event->pos() ), false );
+            }
+            else if ( m_state == Paused )
+            {
+                setPaused( false );
+            }
+            else if ( m_state == BetweenLevels )
+            {
+                newLevel();
+            }
+            else if ( m_state == BeforeFirstGame || m_state == GameOver )
+            {
+                newGame();
+            }
+        }
+        else if ( event->button() & Qt::RightButton )
+        {
+            if ( m_state == Running )
+            {
+                m_board->buildWall( mapToScene( event->pos() ), true );
+            }
+        }
     }
-
-    if ( event->button() & Qt::LeftButton )
+    else
     {
-        if ( m_state == Running )
+        // Original mode: left click builds, right click toggles orientation
+        if ( event->button() & Qt::RightButton )
         {
-            m_board->buildWall( mapToScene( event->pos() ), m_vertical );
+            m_vertical = !m_vertical;
+            updateCursor();
         }
-        else if ( m_state == Paused )
+
+        if ( event->button() & Qt::LeftButton )
         {
-            setPaused( false );
-        }
-        else if ( m_state == BetweenLevels )
-        {
-            newLevel();
-        }
-        else if ( m_state == BeforeFirstGame || m_state == GameOver )
-        {
-            newGame();
+            if ( m_state == Running )
+            {
+                m_board->buildWall( mapToScene( event->pos() ), m_vertical );
+            }
+            else if ( m_state == Paused )
+            {
+                setPaused( false );
+            }
+            else if ( m_state == BetweenLevels )
+            {
+                newLevel();
+            }
+            else if ( m_state == BeforeFirstGame || m_state == GameOver )
+            {
+                newGame();
+            }
         }
     }
 }
@@ -447,7 +483,12 @@ void KBounceGameWidget::focusOutEvent(QFocusEvent *event)
 void KBounceGameWidget::updateCursor()
 {
     if ( m_state == Running )
-        setCursor( m_vertical ? Qt::SizeVerCursor : Qt::SizeHorCursor );
+    {
+        if ( KBounceSettings::separateClickOrientation() )
+            setCursor( Qt::CrossCursor );
+        else
+            setCursor( m_vertical ? Qt::SizeVerCursor : Qt::SizeHorCursor );
+    }
     else
         unsetCursor();
 }

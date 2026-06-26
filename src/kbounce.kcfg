@@ -10,6 +10,10 @@
         </entry>
         <entry name="BackgroundPicturePath" type="String" key="BackgroundPicturePath">
         </entry>
+        <entry name="SeparateClickOrientation" type="Bool" key="SeparateClickOrientation">
+     <label>When enabled, left click places a horizontal wall and right click places a vertical wall.</label>
+     <default>false</default>
+        </entry>
     </group>
     <group name="Sound">
     	<entry name="PlaySounds" type="Bool" key="PlaySounds">

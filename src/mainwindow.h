@@ -35,6 +35,7 @@ class KBounceMainWindow : public KXmlGuiWindow
         void readSettings();
         void settingsChanged();
         void setSounds( bool val );
+        void setSeparateOrientation( bool val );
         void showHighscore();
         void displayLevel( int level );
         void displayScore( int score );
@@ -53,7 +54,7 @@ class KBounceMainWindow : public KXmlGuiWindow
 
         QStatusBar* m_statusBar;
 
-        KToggleAction *m_pauseAction, *m_backgroundShowAction, *m_soundAction;
+        KToggleAction *m_pauseAction, *m_backgroundShowAction, *m_soundAction, *m_separateOrientationAction;
         QAction *m_newAction;
 
         QPointer<QLabel> levelLabel = new QLabel;

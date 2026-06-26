@@ -11,6 +11,7 @@
         <Action name="background_select"/>
         <Action name="background_show"/>
         <Action name="toggle_sound" append="save_merge"/>
+        <Action name="toggle_separate_orientation"/>
     </Menu>
 </MenuBar>
 
