@@ -70,6 +70,7 @@ install(TARGETS kbounce  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
 install(PROGRAMS org.kde.kbounce.desktop  DESTINATION  ${KDE_INSTALL_APPDIR})
 install(FILES org.kde.kbounce.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
+install(FILES kbounce.kcfg DESTINATION ${KDE_INSTALL_KCFGDIR})
 
 ecm_qt_install_logging_categories(
     EXPORT KBOUNCE
