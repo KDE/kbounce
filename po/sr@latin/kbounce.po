@@ -4,13 +4,14 @@
 # Bojan Bozovic <bole89@infosky.net>, 2003.
 # Slobodan Simic <slsimic@gmail.com>, 2005, 2009, 2010.
 # Dalibor Djuric <dalibor.djuric@mozilla-srbija.org>, 2010.
+# Nemanja Hiršl <nemhirsl@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: kbounce\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:49+0000\n"
-"PO-Revision-Date: 2016-02-27 21:47+0100\n"
-"Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
+"PO-Revision-Date: 2026-10-05 01:57+0200\n"
+"Last-Translator: Nemanja Hiršl <nemhirsl@gmail.com>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
 "Language: sr@latin\n"
 "MIME-Version: 1.0\n"
@@ -26,12 +27,12 @@ msgstr ""
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Časlav Ilić,Slobodan Simić"
+msgstr "Časlav Ilić,Slobodan Simić,Nemanja Hiršl"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "caslav.ilic@gmx.net,slsimic@gmail.com"
+msgstr "caslav.ilic@gmx.net,slsimic@gmail.com,nemhirsl@gmail.com"
 
 #: backgroundselector.cpp:98
 #, kde-format
@@ -136,10 +137,9 @@ msgid "KBounce"
 msgstr "K‑odboj"
 
 #: main.cpp:46
-#, fuzzy, kde-format
-#| msgid "KDE Bounce Ball Game"
+#, kde-format
 msgid "Bounce Ball Game"
-msgstr "Igra odbijanja lopte za KDE"
+msgstr "Igra odbijanja lopte"
 
 #: main.cpp:48
 #, kde-format
@@ -242,15 +242,13 @@ msgstr "vreme: %1"
 
 # >> @option:check
 #: mainwindow.cpp:93
-#, fuzzy, kde-format
-#| msgid "&Play Sounds"
+#, kde-format
 msgctxt "@option:check"
 msgid "Play Sounds"
-msgstr "&Puštaj zvukove"
+msgstr "Puštaj zvukove"
 
 #: mainwindow.cpp:133
-#, fuzzy, kde-format
-#| msgid "Do you really want to close the running game?"
+#, kde-format
 msgid "Are you sure you want to quit the current game?"
 msgstr "Želite li zaista da napustite tekuću partiju?"
 
@@ -258,7 +256,7 @@ msgstr "Želite li zaista da napustite tekuću partiju?"
 #, kde-format
 msgctxt "@action;button"
 msgid "Quit Game"
-msgstr ""
+msgstr "Napusti partiju"
 
 #: mainwindow.cpp:149 mainwindow.cpp:252
 #, kde-format
@@ -266,15 +264,13 @@ msgid "Game over. Click to start a game"
 msgstr "Kraj igre. Kliknite da započnete novu."
 
 #: mainwindow.cpp:184
-#, fuzzy, kde-format
-#| msgid "Theme"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Theme"
 msgstr "Tema"
 
 #: mainwindow.cpp:185
-#, fuzzy, kde-format
-#| msgid "Background"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Background"
 msgstr "Pozadina"
