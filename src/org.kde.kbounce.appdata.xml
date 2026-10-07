@@ -43,6 +43,10 @@
   <name xml:lang="sa">KBounce</name>
   <name xml:lang="sk">KBounce</name>
   <name xml:lang="sl">KBounce</name>
+  <name xml:lang="sr">К‑одбој</name>
+  <name xml:lang="sr-Latn">K‑odboj</name>
+  <name xml:lang="sr-ijekavian">К‑одбој</name>
+  <name xml:lang="sr-ijekavianlatin">K‑odboj</name>
   <name xml:lang="sv">Kstuds</name>
   <name xml:lang="tr">K Zıpla</name>
   <name xml:lang="ug">KBounce</name>
@@ -84,6 +88,10 @@
   <summary xml:lang="sa">KBounce इति एकः खिलाडी आर्केड् क्रीडा पहेली इत्यस्य तत्त्वैः सह अस्ति</summary>
   <summary xml:lang="sk">KBounce je arkádová hra pre jedného hráča s prvkami puzzle</summary>
   <summary xml:lang="sl">KBounce je arkadna igra za enega igralca z elementi sestavljanke</summary>
+  <summary xml:lang="sr">К‑одбој је аркадна игра за једног играча са елементима слагалице</summary>
+  <summary xml:lang="sr-Latn">K‑odboj je arkadna igra za jednog igrača sa elementima slagalice</summary>
+  <summary xml:lang="sr-ijekavian">К‑одбој је аркадна игра за једног играча са елементима слагалице</summary>
+  <summary xml:lang="sr-ijekavianlatin">K‑odboj je arkadna igra za jednog igrača sa elementima slagalice</summary>
   <summary xml:lang="sv">Kstuds är ett arkadspel för en ensam spelare med inslag av problemlösning</summary>
   <summary xml:lang="tr">K Zıpla, yapboz ögelerine sahip tek kişilik bir eğlence salonu oyunudur</summary>
   <summary xml:lang="ug">KBounce تېپىشماق ئېلېمېنتى بار يالغۇز كىشىلىك كوچا ئويۇنى</summary>
@@ -128,6 +136,10 @@
     <p xml:lang="sa">KBounce इति एकः खिलाडी आर्केड् क्रीडा पहेली इत्यस्य तत्त्वैः सह अस्ति । भित्तिभिः परितः क्षेत्रे द्वौ वा अधिकौ कन्दुकौ भित्तिभ्यः उच्छिष्टौ क्षेत्रे भ्रमन्तौ क्रीड्यते । क्रीडकः सक्रियक्षेत्रस्य आकारं न्यूनीकृत्य नूतनानि भित्तिं निर्मातुम् अर्हति । न्यूनातिन्यूनं ७५% क्षेत्रं पूरयित्वा अग्रिमस्तरं प्रति गन्तुं क्रीडायाः लक्ष्यं भवति ।</p>
     <p xml:lang="sk">KBounce je arkádová hra pre jedného hráča s prvkami puzzle. Hrá sa na poli, obklopenom stenou, s dvoma alebo viacerými loptičkami, ktoré sa pohybujú v poli, odrážajúcimi sa od stien. Hráč môže vytvárať nové steny, čím zmenšuje veľkosť aktívneho poľa. Cieľom hry je vyplniť najmenej 75% poľa a postúpiť na ďalšiu úroveň.</p>
     <p xml:lang="sl">KBounce je arkadna igra za enega igralca z elementi sestavljanke. Igra se na polju, obdanem s steno, z dvema ali več kroglicami, ki se gibljejo po polju, ki se odbijajo od sten. Igralec lahko zgradi nove zidove in tako zmanjša velikost aktivnega polja. Cilj igre je zapolniti vsaj 75% polja in napredovati na naslednjo stopnjo.</p>
+    <p xml:lang="sr">К‑одбој је аркадна игра за једног играча са елементима слагалице. Игра се на пољу ограђеном зидом, са две или више лопти које се крећу по пољу и одбијају од зидова. Играч може да гради нове зидове и тако смањује активно поље. Циљ игре је да се попуни бар 75% поља и пређе на следећи ниво.</p>
+    <p xml:lang="sr-Latn">K‑odboj je arkadna igra za jednog igrača sa elementima slagalice. Igra se na polju ograđenom zidom, sa dve ili više lopti koje se kreću po polju i odbijaju od zidova. Igrač može da gradi nove zidove i tako smanjuje aktivno polje. Cilj igre je da se popuni bar 75% polja i pređe na sledeći nivo.</p>
+    <p xml:lang="sr-ijekavian">К‑одбој је аркадна игра за једног играча са елементима слагалице. Игра се на пољу ограђеном зидом, са двије или више лопти које се крећу по пољу и одбијају од зидова. Играч може да гради нове зидове и тако смањује активно поље. Циљ игре је да се попуни бар 75% поља и пријеђе на сљедећи ниво.</p>
+    <p xml:lang="sr-ijekavianlatin">K‑odboj je arkadna igra za jednog igrača sa elementima slagalice. Igra se na polju ograđenom zidom, sa dvije ili više lopti koje se kreću po polju i odbijaju od zidova. Igrač može da gradi nove zidove i tako smanjuje aktivno polje. Cilj igre je da se popuni bar 75% polja i prijeđe na sljedeći nivo.</p>
     <p xml:lang="sv">Kstuds är ett arkadspel för en ensam spelare med inslag av problemlösning. Det spelas på ett fält, som omges av väggar, med två eller flera bollar som rör sig över fältet och studsar mot väggarna. Spelaren kan bygga nya väggar, vilket minskar det aktiva fältets storlek. Spelets mål är att fylla minst 75 % av fältet och gå vidare till nästa nivå.</p>
     <p xml:lang="tr">K Zıpla, yapboz ögelerine sahip tek kişilik bir eğlence salonu oyunudur. Duvarla çevrili bir alanda, iki veya daha çok topun alan duvarlarına çarptığı bir alanda oynanır. Oyuncu, yeni duvarlar yapabilir ve etkin alanın boyutunu azaltabilir. Oyunun amacı, alanın en az yüzde 75’ini doldurmak ve bir sonraki düzeye geçmektir.</p>
     <p xml:lang="uk">KBounce — аркадна гра із елементами головоломки для одного гравця. Гра відбувається на полі, яке обмежено стінками. Полем рухаються і відбиваються від стін дві або декілька кульок. Гравець може будувати нові стіни, зменшуючи розмір доступного для кульок простору. Метою гри є перекрити принаймні 75% площі ігрового поля для переходу на наступний рівень.</p>
@@ -175,6 +187,10 @@
       <caption xml:lang="sa">KBounce क्रीडन्</caption>
       <caption xml:lang="sk">Hranie KBounce</caption>
       <caption xml:lang="sl">Igra KBounce</caption>
+      <caption xml:lang="sr">Играње К‑одбоја</caption>
+      <caption xml:lang="sr-Latn">Igranje K‑odboja</caption>
+      <caption xml:lang="sr-ijekavian">Играње К‑одбоја</caption>
+      <caption xml:lang="sr-ijekavianlatin">Igranje K‑odboja</caption>
       <caption xml:lang="sv">Spela Kstuds</caption>
       <caption xml:lang="tr">K Zıpla Oynarken</caption>
       <caption xml:lang="uk">Гра у KBounce</caption>
