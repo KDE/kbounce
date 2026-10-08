@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kbounce\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:49+0000\n"
-"PO-Revision-Date: 2026-10-05 01:57+0200\n"
+"PO-Revision-Date: 2026-10-07 11:45+0200\n"
 "Last-Translator: Nemanja Hiršl <nemhirsl@gmail.com>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
 "Language: sr@ijekavianlatin\n"
@@ -108,7 +108,9 @@ msgstr "%1 poena: ukupan rezultat za ovaj nivo\n"
 #: gamewidget.cpp:406
 #, kde-format
 msgid "On to level %1. Remember you get %2 lives this time!"
-msgstr "Slijedi nivo %1. Zapamtite da ovog puta dobijate %2 života!"
+msgstr ""
+"Slijedi nivo %1. Zapamtite da ovog puta dobijate %2 života!|/|Slijedi nivo "
+"%1. Zapamtite da ovog puta dobijate %2 $[množ ^2 život života života]!"
 
 #: gamewidget.cpp:409
 #, kde-format
