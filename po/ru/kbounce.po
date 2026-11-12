@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: kbounce\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:49+0000\n"
-"PO-Revision-Date: 2026-09-26 08:50+0200\n"
+"PO-Revision-Date: 2026-11-11 22:57+0200\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Basealt Translation Team\n"
 "Language: ru\n"
@@ -90,7 +90,7 @@ msgstr ""
 #: gamewidget.cpp:402
 #, kde-format
 msgid "You have successfully cleared more than %1% of the board\n"
-msgstr "Вам удалось очистить более %1% доски.\n"
+msgstr "Вам удалось очистить более %1 % доски.\n"
 
 #: gamewidget.cpp:403
 #, kde-format
@@ -225,7 +225,7 @@ msgstr "Очки: %1"
 #: mainwindow.cpp:34 mainwindow.cpp:220
 #, kde-format
 msgid "Filled: %1%"
-msgstr "Заполнено: %1%"
+msgstr "Заполнено: %1 %"
 
 #: mainwindow.cpp:35 mainwindow.cpp:225
 #, kde-format
